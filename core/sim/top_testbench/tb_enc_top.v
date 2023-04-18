@@ -869,6 +869,7 @@ module `TB_NAME ;
 
     // 初始化 YUV 缓冲矩阵
     for ( frame_num = 0 ; frame_num < `FRAME_TOTAL; frame_num = frame_num + 1 ) begin 
+      // 解析帧数据并存储至寄存器阵列
       `ifdef FORMAT_NV12
         // NV12 格式：Y、U、V 分开存储
         // initial ori_y
@@ -945,11 +946,18 @@ module `TB_NAME ;
         end // for pxl_cnt
       `endif 
 
+      // 编码类型控制
       if ( frame_num%`GOP_LENGTH == 0 )
+        // GOP 结束，下一拍帧内预测编码 I 帧
         sys_type = `INTRA;
       else 
+        // GOP 未结束，下一拍帧间预测编码 P 帧
         sys_type = `INTER ;
 
+      // 执行编码过程
+      // sys_start 为 1 时启动编码
+      // sys_type 控制编码类型（帧内/帧间）
+      // sys_done 上升沿代表编码完成
       if ( ( sys_type==`INTRA && `TEST_I == 1 )
         || ( sys_type==`INTER && `TEST_P == 1 ) 
 
@@ -984,31 +992,12 @@ module `TB_NAME ;
       end 
       rc_cfg = $fscanf( fp_frame_qp ,"%d" ,sys_init_qp );
 
-    `ifdef AUTO_CHECK
-    /*
-      `ifdef CHECK_REC
-        $display("******* START CHECK REC YUV ! ********* ");
-        for ( pxl_cnt = 0 ; pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT*3/2 ; pxl_cnt = pxl_cnt + 1 ) begin 
-          if ( ext_rec_yuv[pxl_cnt] != f265_rec_yuv[pxl_cnt] ) begin 
-            $display("ERROR at REC y = %d, x = %d, f265 is %2h, however h265 is %2h ", 
-                      pxl_cnt/`FRAME_WIDTH, pxl_cnt%`FRAME_WIDTH, f265_rec_yuv[pxl_cnt], ext_rec_yuv[pxl_cnt]);
-          end // if
-        end // for pxl_cnt
-      `endif 
-    */
-    `endif // auto check
-
-      // copy current frame rec for the next frame ref
-      // for ( pxl_cnt = 0 ; pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT*3/2 ; pxl_cnt = pxl_cnt + 1 ) begin 
-      //   ext_ref_yuv[pxl_cnt] = ext_rec_yuv[pxl_cnt] ;
-      // end // for pxl_cnt
-
-    end // for frame_num
-
     $finish ;
 
   end 
 
+  // 字节流检查
+  // bs_val_o 置位时数据有效
   `ifdef CHECK_BS 
     always @ (posedge clk ) begin
           if (bs_val_o == 1) begin 
@@ -1022,32 +1011,4 @@ module `TB_NAME ;
     end 
   `endif // check bs
 
-
-//---- DUMP FSDB ---------------------------------------------------------------------
-
-  `ifdef DUMP_FSDB
-
-    initial begin
-      #`DUMP_TIME ;
-      $fsdbDumpfile( `DUMP_FILE );
-      $fsdbDumpvars( `TB_NAME );
-      #100 ;
-      $display( "\t\t dump (fsdb) to this test is on !\n" );
-    end
-
-  `endif
-
-  `ifdef DUMP_SHM
-
-    initial begin
-      #`DUMP_SHM_TIME ;
-      $shm_open( `DUMP_SHM_FILE );
-      $shm_probe( tb_top ,`DUMP_SHM_LEVEL );
-      #100 ;
-      $display( "\t\t dump (shm) to this test is on !\n" );
-    end
-
-  `endif
-
-
-endmodule 
+endmodule
