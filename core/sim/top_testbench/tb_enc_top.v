@@ -264,10 +264,10 @@ module `TB_NAME ;
         .bs_dat_o            ( bs_dat_o             )
         );
 
-        // fake ext memory : para, memory & h_w_A
+        // 外部存储数据访问操作
         parameter   LOAD_CUR_SUB      = 01 ,
                     LOAD_REF_SUB      = 02 ,
-                    LOAD_CUR_LUMA     = 03 ,
+                    LOAD_CUR_LUMA     = 03 ,    // 加载当前 LCU 的亮度块
                     LOAD_REF_LUMA     = 04 ,
                     LOAD_CUR_CHROMA   = 05 ,
                     LOAD_REF_CHROMA   = 06 ,
@@ -277,19 +277,11 @@ module `TB_NAME ;
                     STORE_DB_CHROMA   = 10 ;
 
         /* 原始/重建/参考像素阵列 */
-            // YUV420 格式，UV 尺寸为图片尺寸的 1/2
-            // 大小为 FRAME_WIDTH * FRAME_HEIGHT * 1.5
+        /* YUV420 格式，UV 尺寸为图片尺寸的 1/2，故缓冲区大小为 FRAME_WIDTH * FRAME_HEIGHT * 1.5 */
+            // 原始图像阵列
             reg [`PIXEL_WIDTH-1 :0]     ext_ori_yuv [`FRAME_WIDTH*`FRAME_HEIGHT*3/2-1:0] ;
-            // rec array
             // 重建图像阵列
             reg [`PIXEL_WIDTH-1 :0]     ext_rec_yuv [`FRAME_WIDTH*`FRAME_HEIGHT*3/2-1:0] ;
-            // rec array from f265
-            // HEVC 码流重建图像
-            reg [`PIXEL_WIDTH-1 :0]     f265_rec_yuv [`FRAME_WIDTH*`FRAME_HEIGHT*3/2-1:0] ;
-            // ref array
-            reg [`PIXEL_WIDTH-1 :0]     ext_ref_yuv [`FRAME_WIDTH*`FRAME_HEIGHT*3/2-1:0] ;
-            // for check
-            reg [16*`PIXEL_WIDTH-1 : 0]   f265_data             ;
 
         /* for debug */
             reg [`PIXEL_WIDTH-1:0] ext_debug_yuv_00 ,ext_debug_yuv_01 ,ext_debug_yuv_02 ,ext_debug_yuv_03 ;
@@ -297,16 +289,16 @@ module `TB_NAME ;
             reg [`PIXEL_WIDTH-1:0] ext_debug_yuv_08 ,ext_debug_yuv_09 ,ext_debug_yuv_10 ,ext_debug_yuv_11 ;
             reg [`PIXEL_WIDTH-1:0] ext_debug_yuv_12 ,ext_debug_yuv_13 ,ext_debug_yuv_14 ,ext_debug_yuv_15 ;
 
+        // 外部缓存模拟
         initial begin
             extif_done_i = 0 ;
             extif_wren_i = 0 ;
             extif_data_i = 0 ;
         
-            // 外部缓存模拟
             forever begin
                 @(negedge extif_start_o);
                 case(extif_mode_o)
-                    // 获取当前待编码 LCU 的亮度块
+                    // 获取当前 LCU 的亮度块
                     LOAD_CUR_LUMA: 
                         begin            
                             @(negedge clk );
@@ -336,91 +328,40 @@ module `TB_NAME ;
                                 end
                             end
                             extif_wren_i = 0 ;
-                            #100 ;
+                            #100;
+                            // 发送数据加载完成信号
                             @(negedge clk)
                             extif_done_i = 1 ;
                             @(negedge clk)
                             extif_done_i = 0 ;
                         end
-                    // load luma component of reference LCU: line in
-                    LOAD_REF_LUMA: 
-                        begin             
-                            @(negedge clk );
-                            for( ext_height=0 ;ext_height<extif_height_o ;ext_height=ext_height+1 ) begin
-                            for( ext_width=0 ;ext_width<extif_width_o ;ext_width=ext_width+16 ) begin
-                                extif_wren_i = 1 ;
-                                ext_addr = (extif_y_o+ext_height)*`FRAME_WIDTH+extif_x_o+ext_width;
-                                extif_data_i = { ext_ref_yuv[ext_addr+00] ,ext_ref_yuv[ext_addr+01] ,ext_ref_yuv[ext_addr+02] ,ext_ref_yuv[ext_addr+03]
-                                                ,ext_ref_yuv[ext_addr+04] ,ext_ref_yuv[ext_addr+05] ,ext_ref_yuv[ext_addr+06] ,ext_ref_yuv[ext_addr+07]
-                                                ,ext_ref_yuv[ext_addr+08] ,ext_ref_yuv[ext_addr+09] ,ext_ref_yuv[ext_addr+10] ,ext_ref_yuv[ext_addr+11]
-                                                ,ext_ref_yuv[ext_addr+12] ,ext_ref_yuv[ext_addr+13] ,ext_ref_yuv[ext_addr+14] ,ext_ref_yuv[ext_addr+15]
-                                            };
-                                { ext_debug_yuv_00 ,ext_debug_yuv_01 ,ext_debug_yuv_02 ,ext_debug_yuv_03
-                                ,ext_debug_yuv_04 ,ext_debug_yuv_05 ,ext_debug_yuv_06 ,ext_debug_yuv_07
-                                ,ext_debug_yuv_08 ,ext_debug_yuv_09 ,ext_debug_yuv_10 ,ext_debug_yuv_11
-                                ,ext_debug_yuv_12 ,ext_debug_yuv_13 ,ext_debug_yuv_14 ,ext_debug_yuv_15
-                                } = extif_data_i ;
-                                @(negedge clk );
-                            end
-                            end
-                            extif_wren_i = 0 ;
-                            #100 ;
-                            @(negedge clk)
-                            extif_done_i = 1 ;
-                            @(negedge clk)
-                            extif_done_i = 0 ;
-                        end
-                    // load chroma component of current LCU: line in, all u then all v
+                    // 加载当前 LCU 的色度块
                     LOAD_CUR_CHROMA: 
                         begin             
-                            @(negedge clk );
-                            for( ext_height=0 ;ext_height<extif_height_o/2 ;ext_height=ext_height+1 ) begin
-                            for( ext_width=0 ;ext_width<extif_width_o ;ext_width=ext_width+16 ) begin
-                                extif_wren_i = 1 ;
-                                ext_addr = `FRAME_WIDTH*`FRAME_HEIGHT+(extif_y_o/2+ext_height)*`FRAME_WIDTH+extif_x_o+ext_width;
-                                extif_data_i = { ext_ori_yuv[ext_addr+00] ,ext_ori_yuv[ext_addr+01] ,ext_ori_yuv[ext_addr+02] ,ext_ori_yuv[ext_addr+03]
-                                                ,ext_ori_yuv[ext_addr+04] ,ext_ori_yuv[ext_addr+05] ,ext_ori_yuv[ext_addr+06] ,ext_ori_yuv[ext_addr+07]
-                                                ,ext_ori_yuv[ext_addr+08] ,ext_ori_yuv[ext_addr+09] ,ext_ori_yuv[ext_addr+10] ,ext_ori_yuv[ext_addr+11]
-                                                ,ext_ori_yuv[ext_addr+12] ,ext_ori_yuv[ext_addr+13] ,ext_ori_yuv[ext_addr+14] ,ext_ori_yuv[ext_addr+15]
-                                            };
-                                { ext_debug_yuv_00 ,ext_debug_yuv_01 ,ext_debug_yuv_02 ,ext_debug_yuv_03
-                                ,ext_debug_yuv_04 ,ext_debug_yuv_05 ,ext_debug_yuv_06 ,ext_debug_yuv_07
-                                ,ext_debug_yuv_08 ,ext_debug_yuv_09 ,ext_debug_yuv_10 ,ext_debug_yuv_11
-                                ,ext_debug_yuv_12 ,ext_debug_yuv_13 ,ext_debug_yuv_14 ,ext_debug_yuv_15
-                                } = extif_data_i ;
-                                @(negedge clk );
-                            end
-                            end
-                            extif_wren_i = 0 ;
-                            #100 ;
-                            @(negedge clk)
-                            extif_done_i = 1 ;
-                            @(negedge clk)
-                            extif_done_i = 0 ;
-                        end
-                    // load chroma component of reference LCU: line in, all u then all v
-                    LOAD_REF_CHROMA: 
-                        begin             
-                            @(negedge clk );
-                            for( ext_height=0 ;ext_height<extif_height_o/2 ;ext_height=ext_height+1 ) begin
-                            for( ext_width=0 ;ext_width<extif_width_o ;ext_width=ext_width+16 ) begin
-                                extif_wren_i = 1 ;
-                                ext_addr  = `FRAME_WIDTH*`FRAME_HEIGHT+(extif_y_o/2+ext_height)*`FRAME_WIDTH+extif_x_o+ext_width ;
-                                extif_data_i = { ext_ref_yuv[ext_addr+00] ,ext_ref_yuv[ext_addr+01] ,ext_ref_yuv[ext_addr+02] ,ext_ref_yuv[ext_addr+03]
-                                                ,ext_ref_yuv[ext_addr+04] ,ext_ref_yuv[ext_addr+05] ,ext_ref_yuv[ext_addr+06] ,ext_ref_yuv[ext_addr+07]
-                                                ,ext_ref_yuv[ext_addr+08] ,ext_ref_yuv[ext_addr+09] ,ext_ref_yuv[ext_addr+10] ,ext_ref_yuv[ext_addr+11]
-                                                ,ext_ref_yuv[ext_addr+12] ,ext_ref_yuv[ext_addr+13] ,ext_ref_yuv[ext_addr+14] ,ext_ref_yuv[ext_addr+15]
-                                            };
-                                { ext_debug_yuv_00 ,ext_debug_yuv_01 ,ext_debug_yuv_02 ,ext_debug_yuv_03
-                                ,ext_debug_yuv_04 ,ext_debug_yuv_05 ,ext_debug_yuv_06 ,ext_debug_yuv_07
-                                ,ext_debug_yuv_08 ,ext_debug_yuv_09 ,ext_debug_yuv_10 ,ext_debug_yuv_11
-                                ,ext_debug_yuv_12 ,ext_debug_yuv_13 ,ext_debug_yuv_14 ,ext_debug_yuv_15
-                                } = extif_data_i ;
-                                @(negedge clk );
-                            end
+                            @(negedge clk);
+                            for(ext_height = 0; ext_height < extif_height_o / 2; ext_height = ext_height + 1) begin
+                                for(ext_width = 0; ext_width < extif_width_o; ext_width = ext_width + 16) begin
+                                    extif_wren_i = 1 ;
+                                    ext_addr = `FRAME_WIDTH * `FRAME_HEIGHT + (extif_y_o / 2 + ext_height) * `FRAME_WIDTH + extif_x_o + ext_width;
+                                    extif_data_i = 
+                                    { 
+                                        ext_ori_yuv[ext_addr+00], ext_ori_yuv[ext_addr+01], ext_ori_yuv[ext_addr+02], ext_ori_yuv[ext_addr+03],
+                                        ext_ori_yuv[ext_addr+04] ,ext_ori_yuv[ext_addr+05] ,ext_ori_yuv[ext_addr+06] ,ext_ori_yuv[ext_addr+07],
+                                        ext_ori_yuv[ext_addr+08] ,ext_ori_yuv[ext_addr+09] ,ext_ori_yuv[ext_addr+10] ,ext_ori_yuv[ext_addr+11],
+                                        ext_ori_yuv[ext_addr+12] ,ext_ori_yuv[ext_addr+13] ,ext_ori_yuv[ext_addr+14] ,ext_ori_yuv[ext_addr+15]
+                                    };
+                                    { 
+                                        ext_debug_yuv_00 ,ext_debug_yuv_01 ,ext_debug_yuv_02 ,ext_debug_yuv_03,
+                                        ext_debug_yuv_04 ,ext_debug_yuv_05 ,ext_debug_yuv_06 ,ext_debug_yuv_07,
+                                        ext_debug_yuv_08 ,ext_debug_yuv_09 ,ext_debug_yuv_10 ,ext_debug_yuv_11,
+                                        ext_debug_yuv_12 ,ext_debug_yuv_13 ,ext_debug_yuv_14 ,ext_debug_yuv_15,
+                                    } = extif_data_i ;
+                                    @(negedge clk);
+                                end
                             end
                             extif_wren_i = 0 ;
-                            #100 ;
+                            #100;
+                            // 发送数据加载完成信号
                             @(negedge clk)
                             extif_done_i = 1 ;
                             @(negedge clk)
@@ -855,31 +796,33 @@ module `TB_NAME ;
             $monitor( "\tat %08d, Frame Number = %02d, mb_x_first = %02d, mb_y_first = %02d",
                 $time, frame_num, u_enc_top.u_enc_ctrl.pre_l_x_o, u_enc_top.u_enc_ctrl.pre_l_y_o );
 
-            // 初始化 YUV 缓冲矩阵
+            // 初始化 YUV 缓存阵列
             for ( frame_num = 0 ; frame_num < `FRAME_TOTAL; frame_num = frame_num + 1 ) begin 
-                // 解析帧数据并存储至寄存器阵列
                 `ifdef FORMAT_NV12
-                    // NV12 格式：Y、U、V 分开存储
-                    // initial ori_y
-                    for ( pxl_cnt = 0 ; pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT*3/2 ; pxl_cnt = pxl_cnt + 1 ) begin 
-                    fp_init = $fread( ext_tmp_yuv, fp_ori ) ;
-                    ext_ori_yuv[pxl_cnt] = ext_tmp_yuv ;
-                    end // for pxl_cnt
+                    // 将帧数据缓存至 ext_ori_yuv 阵列
+                    // 采用 NV12 格式，Y 单独存储，U、V 交替存储
+                    // 采样格式 4：2：0，因此 Y、U、V 总像素点数为帧尺寸的 1.5 倍
+                    for (pxl_cnt = 0 ; pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT * 3 / 2; pxl_cnt = pxl_cnt + 1) begin 
+                        fp_init = $fread(ext_tmp_yuv, fp_ori) ;
+                        ext_ori_yuv[pxl_cnt] = ext_tmp_yuv ;
+                    end
             
+                    // 若该帧不是 GOP 的第一帧
                     if ( frame_num % `GOP_LENGTH != 0 ) begin 
-                        // 若该帧不是 GOP 的第一帧
-                        // initial f265 ref for check
-                        for ( pxl_cnt = 0 ; pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT*3/2 ; pxl_cnt = pxl_cnt + 1 ) begin 
-                        fp_init = $fread( ext_tmp_yuv, fp_ref ) ;
-                        ext_ref_yuv[pxl_cnt] = ext_tmp_yuv ;
-                        end // for pxl_cnt
+                        // 初始化 YUV 参考阵列
+                        // 该阵列用于后期码流比对校验
+                        for (pxl_cnt = 0; pxl_cnt < `FRAME_WIDTH * `FRAME_HEIGHT * 3 / 2; pxl_cnt = pxl_cnt + 1) begin 
+                            fp_init = $fread(ext_tmp_yuv, fp_ref) ;
+                            ext_ref_yuv[pxl_cnt] = ext_tmp_yuv ;
+                        end
                     end 
 
-                    // initial f265 rec for check
-                    for ( pxl_cnt = 0 ; pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT*3/2 ; pxl_cnt = pxl_cnt + 1 ) begin 
-                    fp_init = $fread( ext_tmp_yuv, fp_rec ) ;
-                    f265_rec_yuv[pxl_cnt] = ext_tmp_yuv ;
-                    end // for pxl_cnt
+                    // 初始化 YUV 重建阵列
+                    // 该阵列用于后期码流校验
+                    for (pxl_cnt = 0 ; pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT * 3 / 2; pxl_cnt = pxl_cnt + 1) begin 
+                        fp_init = $fread(ext_tmp_yuv, fp_rec) ;
+                        f265_rec_yuv[pxl_cnt] = ext_tmp_yuv ;
+                    end
                 `endif
 
                 // 编码类型控制
@@ -894,39 +837,21 @@ module `TB_NAME ;
                 // sys_start 为 1 时启动编码
                 // sys_type 控制编码类型（帧内/帧间）
                 // sys_done 上升沿代表编码完成
-                if ( ( sys_type==`INTRA && `TEST_I == 1 )
-                    || ( sys_type==`INTER && `TEST_P == 1 ) 
-
-                    `ifdef CHECK_ONE_FRAME
-                    && (frame_num == `CHECK_FRAME_NUM)
-                    `endif
-
-                    ) begin 
-                    @(negedge clk );
+                begin
+                    @(negedge clk);
                     sys_start = 1 ;
-                    @(negedge clk );
-                    sys_start = 0 ;
-                    if ( sys_type==`INTRA)
-                        $display("\t at %08d, starting INTRA ENCODING frame(%02d) ...", $time, frame_num);
-                    else 
-                        $display("\t at %08d, starting INTER ENCODING frame(%02d) ...", $time, frame_num);
-                    @(posedge sys_done );
-                        $display(" done ");
-                    #100 ;
-                end 
-                else begin 
-                    if ( sys_type==`INTRA)
-                        $display("\t at %08d, skipping INTRA ENCODING frame(%02d) ...", $time, frame_num);
-                    else 
-                        $display("\t at %08d, skipping INTER ENCODING frame(%02d) ...", $time, frame_num);
-                end 
+                    @(negedge clk);
+                    sys_start = 0;
+                    @(posedge sys_done);
+                    #100;
+                end
 
-                // rc cfg 
-                if ( frame_num > 0 ) begin 
-                    rc_cfg = $fscanf( fp_reg_k ,"%d" ,sys_rc_k ); 
-                    sys_rc_lcu_en        = 1'b0 ;
+                // 重建配置
+                if (frame_num > 0) begin 
+                    rc_cfg = $fscanf(fp_reg_k , "%d", sys_rc_k); 
+                    sys_rc_lcu_en = 1'b0 ;
                 end 
-                rc_cfg = $fscanf( fp_frame_qp ,"%d" ,sys_init_qp );
+                rc_cfg = $fscanf(fp_frame_qp, "%d", sys_init_qp);
             end
 
             $finish ;
