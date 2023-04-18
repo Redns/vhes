@@ -1,0 +1,32 @@
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# do {rgb2yuv_tb_simulate.do}
+# vsim -do "do {rgb2yuv_tb_simulate.do}" -l simulate.log 
+# Start time: 20:26:41 on Apr 13,2023
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# Loading work.rgb2yuv_tb(fast)
+# Loading work.rgb2yuv(fast)
+# Loading work.glbl(fast)
+# 1
+# 1
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ../../../../hevc_encoder_system.srcs/sim_1/new/rgb2yuv_tb.v(72)
+#    Time: 70 ns  Iteration: 0  Instance: /rgb2yuv_tb
+# Break in Module rgb2yuv_tb at ../../../../hevc_encoder_system.srcs/sim_1/new/rgb2yuv_tb.v line 72
+# End time: 20:27:39 on Apr 13,2023, Elapsed time: 0:00:58
+# Errors: 0, Warnings: 0

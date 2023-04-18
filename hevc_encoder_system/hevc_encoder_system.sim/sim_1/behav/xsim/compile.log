@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.srcs/sources_1/rgb2yuv/rgb2yuv.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rgb2yuv
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.srcs/sim_1/new/rgb2yuv_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rgb2yuv_tb

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+         <top_modules>
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0"></ZoomStartTime>
+      <ZoomEndTime time="426,001"></ZoomEndTime>
+      <Cursor1Time time="131,072"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="141"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="2" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject fp_name="adv_scl_OBUF" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">adv_scl_OBUF</obj_property>
+      <obj_property name="ObjectShortName">adv_scl_OBUF</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="rst_n_i_IBUF" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">rst_n_i_IBUF</obj_property>
+      <obj_property name="ObjectShortName">rst_n_i_IBUF</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+</wave_config>
