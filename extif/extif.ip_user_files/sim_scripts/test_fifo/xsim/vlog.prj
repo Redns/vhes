@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"../../../../extif.gen/sources_1/ip/test_fifo/sim/test_fifo.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

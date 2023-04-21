@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/test_fifo/sim/test_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/pixel_fifo/test_fifo_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_fifo_tb

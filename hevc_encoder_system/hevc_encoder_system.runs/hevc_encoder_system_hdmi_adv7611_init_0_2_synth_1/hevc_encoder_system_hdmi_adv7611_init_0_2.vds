@@ -1,0 +1,305 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Wed Apr 19 22:54:55 2023
+# Process ID: 15496
+# Current directory: E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.runs/hevc_encoder_system_hdmi_adv7611_init_0_2_synth_1
+# Command line: vivado.exe -log hevc_encoder_system_hdmi_adv7611_init_0_2.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source hevc_encoder_system_hdmi_adv7611_init_0_2.tcl
+# Log file: E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.runs/hevc_encoder_system_hdmi_adv7611_init_0_2_synth_1/hevc_encoder_system_hdmi_adv7611_init_0_2.vds
+# Journal file: E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.runs/hevc_encoder_system_hdmi_adv7611_init_0_2_synth_1\vivado.jou
+# Running On: JingDevice, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 4, Host memory: 17005 MB
+#-----------------------------------------------------------
+source hevc_encoder_system_hdmi_adv7611_init_0_2.tcl -notrace
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 1618.465 ; gain = 0.000
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/Project/ZynqLearning/code/IP/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2022.1/data/ip'.
+Command: synth_design -top hevc_encoder_system_hdmi_adv7611_init_0_2 -part xc7z035ffg676-2 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z035'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z035'
+INFO: [Common 17-86] Your Synthesis license expires in 6 day(s)
+INFO: [Device 21-403] Loading part xc7z035ffg676-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 18348
+WARNING: [Synth 8-9501] generate block is allowed only inside loop and conditional generate in SystemVerilog mode [D:/Xilinx/Vivado/2022.1/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:4023]
+WARNING: [Synth 8-9971] redeclaration of ansi port 'iic_busy' is not allowed [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:70]
+WARNING: [Synth 8-9971] redeclaration of ansi port 'iic_scl' is not allowed [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:71]
+WARNING: [Synth 8-9971] redeclaration of ansi port 'rd_data' is not allowed [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:80]
+WARNING: [Synth 8-9971] redeclaration of ansi port 'sda_dg' is not allowed [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:136]
+WARNING: [Synth 8-9887] parameter declaration becomes local in 'uii2c' with formal parameter declaration list [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:45]
+WARNING: [Synth 8-9887] parameter declaration becomes local in 'uii2c' with formal parameter declaration list [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:46]
+WARNING: [Synth 8-9887] parameter declaration becomes local in 'uii2c' with formal parameter declaration list [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:47]
+WARNING: [Synth 8-9887] parameter declaration becomes local in 'uii2c' with formal parameter declaration list [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:48]
+WARNING: [Synth 8-9887] parameter declaration becomes local in 'uii2c' with formal parameter declaration list [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:49]
+WARNING: [Synth 8-9887] parameter declaration becomes local in 'uii2c' with formal parameter declaration list [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:50]
+WARNING: [Synth 8-9887] parameter declaration becomes local in 'uii2c' with formal parameter declaration list [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:51]
+WARNING: [Synth 8-9887] parameter declaration becomes local in 'uii2c' with formal parameter declaration list [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:52]
+WARNING: [Synth 8-9887] parameter declaration becomes local in 'uii2c' with formal parameter declaration list [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:67]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 1631.203 ; gain = 12.738
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'hevc_encoder_system_hdmi_adv7611_init_0_2' [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ip/hevc_encoder_system_hdmi_adv7611_init_0_2/synth/hevc_encoder_system_hdmi_adv7611_init_0_2.v:53]
+INFO: [Synth 8-6157] synthesizing module 'hdmi2rgb' [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/hdmi2rgb.v:23]
+INFO: [Synth 8-6157] synthesizing module 'uicfg7611' [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uicfg7611.v:23]
+INFO: [Synth 8-6157] synthesizing module 'uii2c' [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:25]
+INFO: [Synth 8-6157] synthesizing module 'IOBUF' [D:/Xilinx/Vivado/2022.1/scripts/rt/data/unisim_comp.v:59734]
+INFO: [Synth 8-6155] done synthesizing module 'IOBUF' (0#1) [D:/Xilinx/Vivado/2022.1/scripts/rt/data/unisim_comp.v:59734]
+INFO: [Synth 8-6157] synthesizing module 'PULLUP' [D:/Xilinx/Vivado/2022.1/scripts/rt/data/unisim_comp.v:97772]
+INFO: [Synth 8-6155] done synthesizing module 'PULLUP' (0#1) [D:/Xilinx/Vivado/2022.1/scripts/rt/data/unisim_comp.v:97772]
+INFO: [Synth 8-226] default block is never used [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:142]
+INFO: [Synth 8-6155] done synthesizing module 'uii2c' (0#1) [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uii2c.v:25]
+WARNING: [Synth 8-7071] port 'sda_dg' of module 'uii2c' is unconnected for instance 'uii2c_inst' [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uicfg7611.v:94]
+WARNING: [Synth 8-7023] instance 'uii2c_inst' of module 'uii2c' has 11 connections declared, but only 10 given [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uicfg7611.v:94]
+INFO: [Synth 8-6157] synthesizing module 'ui7611reg' [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/ui7611reg.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ui7611reg' (0#1) [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/ui7611reg.v:23]
+WARNING: [Synth 8-689] width (24) of port connection 'REG_DATA' does not match port width (32) of module 'ui7611reg' [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uicfg7611.v:108]
+INFO: [Synth 8-6155] done synthesizing module 'uicfg7611' (0#1) [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/uicfg7611.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'hdmi2rgb' (0#1) [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ipshared/352e/hdmi2rgb.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'hevc_encoder_system_hdmi_adv7611_init_0_2' (0#1) [e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ip/hevc_encoder_system_hdmi_adv7611_init_0_2/synth/hevc_encoder_system_hdmi_adv7611_init_0_2.v:53]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:21 ; elapsed = 00:00:28 . Memory (MB): peak = 1722.270 ; gain = 103.805
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:28 . Memory (MB): peak = 1722.270 ; gain = 103.805
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:28 . Memory (MB): peak = 1722.270 ; gain = 103.805
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 1722.270 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1797.809 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 1797.809 ; gain = 0.000
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:40 ; elapsed = 00:00:56 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z035ffg676-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:40 ; elapsed = 00:00:56 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:56 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'TS_S_reg' in module 'uicfg7611'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                               00 |                               00
+                 iSTATE0 |                               01 |                               01
+                 iSTATE1 |                               10 |                               10
+                 iSTATE2 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'TS_S_reg' using encoding 'sequential' in module 'uicfg7611'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:40 ; elapsed = 00:00:57 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 3     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                9 Bit    Registers := 3     
+	                8 Bit    Registers := 6     
+	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	   2 Input   24 Bit        Muxes := 2     
+	   4 Input   24 Bit        Muxes := 1     
+	   8 Input    8 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 5     
+	   8 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 3     
+	   4 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 8     
+	   7 Input    1 Bit        Muxes := 2     
+	   8 Input    1 Bit        Muxes := 5     
+	   3 Input    1 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 900 (col length:140)
+BRAMs: 1000 (col length: RAMB18 140 RAMB36 70)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+INFO: [Synth 8-3917] design hevc_encoder_system_hdmi_adv7611_init_0_2 has port adv_rst_o driven by constant 1
+INFO: [Synth 8-3917] design hevc_encoder_system_hdmi_adv7611_init_0_2 has port adv_pen_o driven by constant 1
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:01:04 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------------------------------------+----------------------------------+---------------+----------------+
+|Module Name                               | RTL Object                       | Depth x Width | Implemented As | 
++------------------------------------------+----------------------------------+---------------+----------------+
+|ui7611reg                                 | REG_DATA                         | 256x22        | LUT            | 
+|hevc_encoder_system_hdmi_adv7611_init_0_2 | inst/uicfg7611/REG_INDEX_reg_rep | 256x22        | Block RAM      | 
++------------------------------------------+----------------------------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:57 ; elapsed = 00:01:20 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:01:20 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance inst/uicfg7611/REG_INDEX_reg_rep (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/uicfg7611/REG_INDEX_reg_rep (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:58 ; elapsed = 00:01:21 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:09 ; elapsed = 00:01:35 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:09 ; elapsed = 00:01:35 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:09 ; elapsed = 00:01:35 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:09 ; elapsed = 00:01:35 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:09 ; elapsed = 00:01:35 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:09 ; elapsed = 00:01:35 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |LUT1     |     4|
+|2     |LUT2     |    30|
+|3     |LUT3     |    17|
+|4     |LUT4     |    24|
+|5     |LUT5     |    26|
+|6     |LUT6     |    34|
+|7     |PULLUP   |     1|
+|8     |RAMB18E1 |     1|
+|9     |FDRE     |    86|
+|10    |FDSE     |     1|
+|11    |IOBUF    |     1|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:09 ; elapsed = 00:01:35 . Memory (MB): peak = 1797.809 ; gain = 179.344
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:41 ; elapsed = 00:01:25 . Memory (MB): peak = 1797.809 ; gain = 103.805
+Synthesis Optimization Complete : Time (s): cpu = 00:01:10 ; elapsed = 00:01:36 . Memory (MB): peak = 1797.809 ; gain = 179.344
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1797.809 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1797.809 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
+
+Synth Design complete, checksum: cd262700
+INFO: [Common 17-83] Releasing license: Synthesis
+42 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:26 ; elapsed = 00:02:02 . Memory (MB): peak = 1797.809 ; gain = 179.344
+INFO: [Common 17-1381] The checkpoint 'E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.runs/hevc_encoder_system_hdmi_adv7611_init_0_2_synth_1/hevc_encoder_system_hdmi_adv7611_init_0_2.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP hevc_encoder_system_hdmi_adv7611_init_0_2, cache-ID = 9bd50ce5a304ace0
+INFO: [Coretcl 2-1174] Renamed 3 cell refs.
+INFO: [Common 17-1381] The checkpoint 'E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.runs/hevc_encoder_system_hdmi_adv7611_init_0_2_synth_1/hevc_encoder_system_hdmi_adv7611_init_0_2.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file hevc_encoder_system_hdmi_adv7611_init_0_2_utilization_synth.rpt -pb hevc_encoder_system_hdmi_adv7611_init_0_2_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 19 22:57:26 2023...

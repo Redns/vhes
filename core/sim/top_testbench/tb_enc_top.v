@@ -283,12 +283,6 @@ module `TB_NAME ;
             // 重建图像阵列
             reg [`PIXEL_WIDTH-1 :0]     ext_rec_yuv [`FRAME_WIDTH*`FRAME_HEIGHT*3/2-1:0] ;
 
-        /* for debug */
-            reg [`PIXEL_WIDTH-1:0] ext_debug_yuv_00 ,ext_debug_yuv_01 ,ext_debug_yuv_02 ,ext_debug_yuv_03 ;
-            reg [`PIXEL_WIDTH-1:0] ext_debug_yuv_04 ,ext_debug_yuv_05 ,ext_debug_yuv_06 ,ext_debug_yuv_07 ;
-            reg [`PIXEL_WIDTH-1:0] ext_debug_yuv_08 ,ext_debug_yuv_09 ,ext_debug_yuv_10 ,ext_debug_yuv_11 ;
-            reg [`PIXEL_WIDTH-1:0] ext_debug_yuv_12 ,ext_debug_yuv_13 ,ext_debug_yuv_14 ,ext_debug_yuv_15 ;
-
         // 外部缓存模拟
         initial begin
             extif_done_i = 0 ;
@@ -296,6 +290,7 @@ module `TB_NAME ;
             extif_data_i = 0 ;
         
             forever begin
+                // 等待 HEVC Core 发送数据处理命令
                 @(negedge extif_start_o);
                 case(extif_mode_o)
                     // 获取当前 LCU 的亮度块
@@ -318,12 +313,6 @@ module `TB_NAME ;
                                         ext_ori_yuv[ext_addr + 08], ext_ori_yuv[ext_addr + 09],ext_ori_yuv[ext_addr+10] ,ext_ori_yuv[ext_addr+11],
                                         ext_ori_yuv[ext_addr + 12], ext_ori_yuv[ext_addr + 13],ext_ori_yuv[ext_addr+14] ,ext_ori_yuv[ext_addr+15]
                                     };
-                                    { 
-                                        ext_debug_yuv_00 ,ext_debug_yuv_01 ,ext_debug_yuv_02 ,ext_debug_yuv_03,
-                                        ext_debug_yuv_04 ,ext_debug_yuv_05 ,ext_debug_yuv_06 ,ext_debug_yuv_07,
-                                        ext_debug_yuv_08 ,ext_debug_yuv_09 ,ext_debug_yuv_10 ,ext_debug_yuv_11,
-                                        ext_debug_yuv_12 ,ext_debug_yuv_13 ,ext_debug_yuv_14 ,ext_debug_yuv_15
-                                    } = extif_data_i ;
                                     @(negedge clk );
                                 end
                             end
@@ -350,12 +339,6 @@ module `TB_NAME ;
                                         ext_ori_yuv[ext_addr+08] ,ext_ori_yuv[ext_addr+09] ,ext_ori_yuv[ext_addr+10] ,ext_ori_yuv[ext_addr+11],
                                         ext_ori_yuv[ext_addr+12] ,ext_ori_yuv[ext_addr+13] ,ext_ori_yuv[ext_addr+14] ,ext_ori_yuv[ext_addr+15]
                                     };
-                                    { 
-                                        ext_debug_yuv_00 ,ext_debug_yuv_01 ,ext_debug_yuv_02 ,ext_debug_yuv_03,
-                                        ext_debug_yuv_04 ,ext_debug_yuv_05 ,ext_debug_yuv_06 ,ext_debug_yuv_07,
-                                        ext_debug_yuv_08 ,ext_debug_yuv_09 ,ext_debug_yuv_10 ,ext_debug_yuv_11,
-                                        ext_debug_yuv_12 ,ext_debug_yuv_13 ,ext_debug_yuv_14 ,ext_debug_yuv_15,
-                                    } = extif_data_i ;
                                     @(negedge clk);
                                 end
                             end
@@ -367,146 +350,105 @@ module `TB_NAME ;
                             @(negedge clk)
                             extif_done_i = 0 ;
                         end
-                    // load deblocked results: line in
+                    // 加载重建后的亮度块
                     LOAD_DB_LUMA: 
                         begin             
-                            @(negedge clk );
-                            for( ext_height=0 ;ext_height<extif_height_o ;ext_height=ext_height+1 ) begin
-                            for( ext_width=0 ;ext_width<extif_width_o ;ext_width=ext_width+16 ) begin
-                                extif_wren_i = 1 ;
-                                ext_addr = (extif_y_o+ext_height)*`FRAME_WIDTH+extif_x_o+ext_width ;
-                                extif_data_i = { ext_rec_yuv[ext_addr+00] ,ext_rec_yuv[ext_addr+01] ,ext_rec_yuv[ext_addr+02] ,ext_rec_yuv[ext_addr+03]
-                                                ,ext_rec_yuv[ext_addr+04] ,ext_rec_yuv[ext_addr+05] ,ext_rec_yuv[ext_addr+06] ,ext_rec_yuv[ext_addr+07]
-                                                ,ext_rec_yuv[ext_addr+08] ,ext_rec_yuv[ext_addr+09] ,ext_rec_yuv[ext_addr+10] ,ext_rec_yuv[ext_addr+11]
-                                                ,ext_rec_yuv[ext_addr+12] ,ext_rec_yuv[ext_addr+13] ,ext_rec_yuv[ext_addr+14] ,ext_rec_yuv[ext_addr+15]
-                                            };
-                                { ext_debug_yuv_00 ,ext_debug_yuv_01 ,ext_debug_yuv_02 ,ext_debug_yuv_03
-                                ,ext_debug_yuv_04 ,ext_debug_yuv_05 ,ext_debug_yuv_06 ,ext_debug_yuv_07
-                                ,ext_debug_yuv_08 ,ext_debug_yuv_09 ,ext_debug_yuv_10 ,ext_debug_yuv_11
-                                ,ext_debug_yuv_12 ,ext_debug_yuv_13 ,ext_debug_yuv_14 ,ext_debug_yuv_15
-                                } = extif_data_i ;
-                                @(negedge clk );
+                            @(negedge clk);
+                            for(ext_height = 0; ext_height < extif_height_o; ext_height = ext_height + 1) begin
+                                for(ext_width = 0; ext_width < extif_width_o; ext_width = ext_width + 16) begin
+                                    extif_wren_i = 1 ;
+                                    ext_addr = (extif_y_o + ext_height) * `FRAME_WIDTH + extif_x_o + ext_width;
+                                    extif_data_i = 
+                                    { 
+                                        ext_rec_yuv[ext_addr+00] ,ext_rec_yuv[ext_addr+01] ,ext_rec_yuv[ext_addr+02] ,ext_rec_yuv[ext_addr+03],
+                                        ext_rec_yuv[ext_addr+04] ,ext_rec_yuv[ext_addr+05] ,ext_rec_yuv[ext_addr+06] ,ext_rec_yuv[ext_addr+07],
+                                        ext_rec_yuv[ext_addr+08] ,ext_rec_yuv[ext_addr+09] ,ext_rec_yuv[ext_addr+10] ,ext_rec_yuv[ext_addr+11],
+                                        ext_rec_yuv[ext_addr+12] ,ext_rec_yuv[ext_addr+13] ,ext_rec_yuv[ext_addr+14] ,ext_rec_yuv[ext_addr+15]
+                                    };
+                                    @(negedge clk);
+                                end
                             end
-                            end
-                            extif_wren_i = 0 ;
+                            extif_wren_i = 0;
                             #100 ;
                             @(negedge clk)
-                            extif_done_i = 1 ;
+                            extif_done_i = 1;
                             @(negedge clk)
-                            extif_done_i = 0 ;
+                            extif_done_i = 0;
                         end
-                    // load deblocked results: line in
-                    LOAD_DB_CHR OMA:  
+                    // 加载重建后的色度块
+                    LOAD_DB_CHROMA:  
                         begin             
-                            @(negedge clk );
-                            for( ext_height=0 ;ext_height<extif_height_o/2 ;ext_height=ext_height+1 ) begin
-                            for( ext_width=0 ;ext_width<extif_width_o ;ext_width=ext_width+16 ) begin
-                                extif_wren_i = 1 ;
-                                ext_addr  = `FRAME_WIDTH*`FRAME_HEIGHT+(extif_y_o/2+ext_height)*`FRAME_WIDTH+extif_x_o+ext_width ;
-                                extif_data_i = { ext_rec_yuv[ext_addr+00] ,ext_rec_yuv[ext_addr+01] ,ext_rec_yuv[ext_addr+02] ,ext_rec_yuv[ext_addr+03]
-                                                ,ext_rec_yuv[ext_addr+04] ,ext_rec_yuv[ext_addr+05] ,ext_rec_yuv[ext_addr+06] ,ext_rec_yuv[ext_addr+07]
-                                                ,ext_rec_yuv[ext_addr+08] ,ext_rec_yuv[ext_addr+09] ,ext_rec_yuv[ext_addr+10] ,ext_rec_yuv[ext_addr+11]
-                                                ,ext_rec_yuv[ext_addr+12] ,ext_rec_yuv[ext_addr+13] ,ext_rec_yuv[ext_addr+14] ,ext_rec_yuv[ext_addr+15]
-                                            };
-                                { ext_debug_yuv_00 ,ext_debug_yuv_01 ,ext_debug_yuv_02 ,ext_debug_yuv_03
-                                ,ext_debug_yuv_04 ,ext_debug_yuv_05 ,ext_debug_yuv_06 ,ext_debug_yuv_07
-                                ,ext_debug_yuv_08 ,ext_debug_yuv_09 ,ext_debug_yuv_10 ,ext_debug_yuv_11
-                                ,ext_debug_yuv_12 ,ext_debug_yuv_13 ,ext_debug_yuv_14 ,ext_debug_yuv_15
-                                } = extif_data_i ;
-                                @(negedge clk );
+                            @(negedge clk);
+                            for(ext_height = 0; ext_height < extif_height_o / 2; ext_height = ext_height + 1) begin
+                                for(ext_width = 0; ext_width < extif_width_o; ext_width = ext_width + 16) begin
+                                    extif_wren_i = 1 ;
+                                    ext_addr  = `FRAME_WIDTH * `FRAME_HEIGHT + (extif_y_o / 2 + ext_height) * `FRAME_WIDTH + extif_x_o + ext_width;
+                                    extif_data_i = 
+                                    { 
+                                        ext_rec_yuv[ext_addr+00] ,ext_rec_yuv[ext_addr+01] ,ext_rec_yuv[ext_addr+02] ,ext_rec_yuv[ext_addr+03],
+                                        ext_rec_yuv[ext_addr+04] ,ext_rec_yuv[ext_addr+05] ,ext_rec_yuv[ext_addr+06] ,ext_rec_yuv[ext_addr+07],
+                                        ext_rec_yuv[ext_addr+08] ,ext_rec_yuv[ext_addr+09] ,ext_rec_yuv[ext_addr+10] ,ext_rec_yuv[ext_addr+11],
+                                        ext_rec_yuv[ext_addr+12] ,ext_rec_yuv[ext_addr+13] ,ext_rec_yuv[ext_addr+14] ,ext_rec_yuv[ext_addr+15]
+                                    };
+                                    @(negedge clk);
+                                end
                             end
-                            end
-                            extif_wren_i = 0 ;
+                            extif_wren_i = 0;
                             #100 ;
                             @(negedge clk)
-                            extif_done_i = 1 ;
+                            extif_done_i = 1;
                             @(negedge clk)
-                            extif_done_i = 0 ;
+                            extif_done_i = 0;
                         end
-                    // dump deblocked results: line in
+                    // 存储重建后的亮度块
                     STORE_DB_LUMA: 
                         begin             
-                            @(negedge clk );
-                            for( ext_height=0 ;ext_height<extif_height_o ;ext_height=ext_height+1 ) begin
-                            for( ext_width=0 ;ext_width<extif_width_o ;ext_width=ext_width+16 ) begin
-                                extif_rden_i = 1 ;
-                                ext_addr = (extif_y_o+ext_height)*`FRAME_WIDTH+extif_x_o+ext_width ;
-                                { ext_rec_yuv[ext_addr+00] ,ext_rec_yuv[ext_addr+01] ,ext_rec_yuv[ext_addr+02] ,ext_rec_yuv[ext_addr+03]
-                                ,ext_rec_yuv[ext_addr+04] ,ext_rec_yuv[ext_addr+05] ,ext_rec_yuv[ext_addr+06] ,ext_rec_yuv[ext_addr+07]
-                                ,ext_rec_yuv[ext_addr+08] ,ext_rec_yuv[ext_addr+09] ,ext_rec_yuv[ext_addr+10] ,ext_rec_yuv[ext_addr+11]
-                                ,ext_rec_yuv[ext_addr+12] ,ext_rec_yuv[ext_addr+13] ,ext_rec_yuv[ext_addr+14] ,ext_rec_yuv[ext_addr+15]
-                                } = extif_data_o ;
-                                { ext_debug_yuv_00 ,ext_debug_yuv_01 ,ext_debug_yuv_02 ,ext_debug_yuv_03
-                                ,ext_debug_yuv_04 ,ext_debug_yuv_05 ,ext_debug_yuv_06 ,ext_debug_yuv_07
-                                ,ext_debug_yuv_08 ,ext_debug_yuv_09 ,ext_debug_yuv_10 ,ext_debug_yuv_11
-                                ,ext_debug_yuv_12 ,ext_debug_yuv_13 ,ext_debug_yuv_14 ,ext_debug_yuv_15
-                                } = extif_data_o ;
-                                f265_data = { f265_rec_yuv[ext_addr+00] ,f265_rec_yuv[ext_addr+01] ,f265_rec_yuv[ext_addr+02] ,f265_rec_yuv[ext_addr+03]
-                                            ,f265_rec_yuv[ext_addr+04] ,f265_rec_yuv[ext_addr+05] ,f265_rec_yuv[ext_addr+06] ,f265_rec_yuv[ext_addr+07]
-                                            ,f265_rec_yuv[ext_addr+08] ,f265_rec_yuv[ext_addr+09] ,f265_rec_yuv[ext_addr+10] ,f265_rec_yuv[ext_addr+11]
-                                            ,f265_rec_yuv[ext_addr+12] ,f265_rec_yuv[ext_addr+13] ,f265_rec_yuv[ext_addr+14] ,f265_rec_yuv[ext_addr+15]
-                                            };
-                                `ifdef CHECK_REC
-                                if ( extif_data_o != f265_data && (extif_x_o+ext_width+15<`FRAME_WIDTH) && (extif_y_o+ext_height<`FRAME_HEIGHT)) begin 
-                                $display("ERROR at REC LUMA, y = %d, x = %d, f265 is %2h, however h265 is %2h ", 
-                                            (extif_y_o+ext_height), (extif_x_o+ext_width), f265_data, extif_data_o );
-                                $finish; 
-                                end // if
-                                `endif
-                                @(negedge clk );
+                            @(negedge clk);
+                            for(ext_height = 0; ext_height < extif_height_o; ext_height = ext_height + 1) begin
+                                for(ext_width = 0; ext_width < extif_width_o; ext_width = ext_width + 16) begin
+                                    extif_rden_i = 1 ;
+                                    ext_addr = (extif_y_o + ext_height) * `FRAME_WIDTH + extif_x_o + ext_width;
+                                    { 
+                                        ext_rec_yuv[ext_addr+00] ,ext_rec_yuv[ext_addr+01] ,ext_rec_yuv[ext_addr+02] ,ext_rec_yuv[ext_addr+03],
+                                        ext_rec_yuv[ext_addr+04] ,ext_rec_yuv[ext_addr+05] ,ext_rec_yuv[ext_addr+06] ,ext_rec_yuv[ext_addr+07],
+                                        ext_rec_yuv[ext_addr+08] ,ext_rec_yuv[ext_addr+09] ,ext_rec_yuv[ext_addr+10] ,ext_rec_yuv[ext_addr+11],
+                                        ext_rec_yuv[ext_addr+12] ,ext_rec_yuv[ext_addr+13] ,ext_rec_yuv[ext_addr+14] ,ext_rec_yuv[ext_addr+15]
+                                    } = extif_data_o;
+                                    end
+                                    @(negedge clk);
+                                end
                             end
-                            end
-                            extif_rden_i = 0 ;
+                            extif_rden_i = 0;
                             #100 ;
                             @(negedge clk)
-                            extif_done_i = 1 ;
+                            extif_done_i = 1;
                             @(negedge clk)
-                            extif_done_i = 0 ;
-                        end
-                    // dump deblocked results: line in
+                            extif_done_i = 0;
+                    // 存储重建后的色度块
                     STORE_DB_CHROMA: 
                         begin             
-                            @(negedge clk );
-                            for( ext_height=0 ;ext_height<extif_height_o/2 ;ext_height=ext_height+1 ) begin
-                            for( ext_width=0 ;ext_width<extif_width_o ;ext_width=ext_width+16 ) begin
-                                extif_rden_i = 1 ;
-                                ext_addr =  `FRAME_WIDTH*`FRAME_HEIGHT+  (extif_y_o/2+ext_height)*`FRAME_WIDTH+extif_x_o+ext_width ;
-                                { ext_rec_yuv[ext_addr+00] ,ext_rec_yuv[ext_addr+01] ,ext_rec_yuv[ext_addr+02] ,ext_rec_yuv[ext_addr+03]
-                                ,ext_rec_yuv[ext_addr+04] ,ext_rec_yuv[ext_addr+05] ,ext_rec_yuv[ext_addr+06] ,ext_rec_yuv[ext_addr+07]
-                                ,ext_rec_yuv[ext_addr+08] ,ext_rec_yuv[ext_addr+09] ,ext_rec_yuv[ext_addr+10] ,ext_rec_yuv[ext_addr+11]
-                                ,ext_rec_yuv[ext_addr+12] ,ext_rec_yuv[ext_addr+13] ,ext_rec_yuv[ext_addr+14] ,ext_rec_yuv[ext_addr+15]
-                                } = extif_data_o ;
-                                { ext_debug_yuv_00 ,ext_debug_yuv_01 ,ext_debug_yuv_02 ,ext_debug_yuv_03
-                                ,ext_debug_yuv_04 ,ext_debug_yuv_05 ,ext_debug_yuv_06 ,ext_debug_yuv_07
-                                ,ext_debug_yuv_08 ,ext_debug_yuv_09 ,ext_debug_yuv_10 ,ext_debug_yuv_11
-                                ,ext_debug_yuv_12 ,ext_debug_yuv_13 ,ext_debug_yuv_14 ,ext_debug_yuv_15
-                                } = extif_data_o ;
-
-                                f265_data = { f265_rec_yuv[ext_addr+00] ,f265_rec_yuv[ext_addr+01] ,f265_rec_yuv[ext_addr+02] ,f265_rec_yuv[ext_addr+03]
-                                            ,f265_rec_yuv[ext_addr+04] ,f265_rec_yuv[ext_addr+05] ,f265_rec_yuv[ext_addr+06] ,f265_rec_yuv[ext_addr+07]
-                                            ,f265_rec_yuv[ext_addr+08] ,f265_rec_yuv[ext_addr+09] ,f265_rec_yuv[ext_addr+10] ,f265_rec_yuv[ext_addr+11]
-                                            ,f265_rec_yuv[ext_addr+12] ,f265_rec_yuv[ext_addr+13] ,f265_rec_yuv[ext_addr+14] ,f265_rec_yuv[ext_addr+15]
-                                            };
-                                `ifdef CHECK_REC
-                                if ( extif_data_o != f265_data && (extif_x_o+ext_width+15<`FRAME_WIDTH) && (extif_y_o+ext_height<`FRAME_HEIGHT)) begin 
-                                $display("ERROR at REC CHROMA, y = %d, x = %d, f265 is %2h, however h265 is %2h ", 
-                                            (extif_y_o+ext_height), (extif_x_o+ext_width), f265_data, extif_data_o );
-                                $finish; 
-                                end // if
-                                `endif
-                                @(negedge clk );
+                            @(negedge clk);
+                            for(ext_height = 0; ext_height < extif_height_o / 2; ext_height = ext_height + 1) begin
+                                for(ext_width = 0; ext_width < extif_width_o; ext_width = ext_width + 16) begin
+                                    extif_rden_i = 1 ;
+                                    ext_addr =  `FRAME_WIDTH * `FRAME_HEIGHT + (extif_y_o / 2 + ext_height) * `FRAME_WIDTH+extif_x_o + ext_width;
+                                    { 
+                                        ext_rec_yuv[ext_addr+00] ,ext_rec_yuv[ext_addr+01] ,ext_rec_yuv[ext_addr+02] ,ext_rec_yuv[ext_addr+03],
+                                        ext_rec_yuv[ext_addr+04] ,ext_rec_yuv[ext_addr+05] ,ext_rec_yuv[ext_addr+06] ,ext_rec_yuv[ext_addr+07],
+                                        ext_rec_yuv[ext_addr+08] ,ext_rec_yuv[ext_addr+09] ,ext_rec_yuv[ext_addr+10] ,ext_rec_yuv[ext_addr+11],
+                                        ext_rec_yuv[ext_addr+12] ,ext_rec_yuv[ext_addr+13] ,ext_rec_yuv[ext_addr+14] ,ext_rec_yuv[ext_addr+15]
+                                    } = extif_data_o;
+                                    @(negedge clk );
+                                end
                             end
-                            end
-                            extif_rden_i = 0 ;
+                            extif_rden_i = 0;
                             #100 ;
                             @(negedge clk) ;
-                            extif_done_i = 1 ;
-                            //$display("\t\t at %08d, Frame(%02d), LCU(%02d, %02d) done", 
-                            //                $time, frame_num, u_enc_top.ec_y, u_enc_top.ec_x);
+                            extif_done_i = 1;
                             @(negedge clk)
-                            extif_done_i = 0 ;
+                            extif_done_i = 0;
                         end
-                    // default response
+                    // 默认响应
                     default: 
                         begin             
                             #100 ;
@@ -806,23 +748,6 @@ module `TB_NAME ;
                         fp_init = $fread(ext_tmp_yuv, fp_ori) ;
                         ext_ori_yuv[pxl_cnt] = ext_tmp_yuv ;
                     end
-            
-                    // 若该帧不是 GOP 的第一帧
-                    if ( frame_num % `GOP_LENGTH != 0 ) begin 
-                        // 初始化 YUV 参考阵列
-                        // 该阵列用于后期码流比对校验
-                        for (pxl_cnt = 0; pxl_cnt < `FRAME_WIDTH * `FRAME_HEIGHT * 3 / 2; pxl_cnt = pxl_cnt + 1) begin 
-                            fp_init = $fread(ext_tmp_yuv, fp_ref) ;
-                            ext_ref_yuv[pxl_cnt] = ext_tmp_yuv ;
-                        end
-                    end 
-
-                    // 初始化 YUV 重建阵列
-                    // 该阵列用于后期码流校验
-                    for (pxl_cnt = 0 ; pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT * 3 / 2; pxl_cnt = pxl_cnt + 1) begin 
-                        fp_init = $fread(ext_tmp_yuv, fp_rec) ;
-                        f265_rec_yuv[pxl_cnt] = ext_tmp_yuv ;
-                    end
                 `endif
 
                 // 编码类型控制
@@ -834,7 +759,7 @@ module `TB_NAME ;
                     sys_type = `INTER ;
 
                 // 执行编码过程
-                // sys_start 为 1 时启动编码
+                // sys_start 上升沿启动编码
                 // sys_type 控制编码类型（帧内/帧间）
                 // sys_done 上升沿代表编码完成
                 begin
@@ -860,12 +785,12 @@ module `TB_NAME ;
         // HEVC 字节流检查
         // bs_val_o 置位时数据有效
         `ifdef CHECK_BS 
-            always @ (posedge clk ) begin
+            always@(posedge clk) begin
                 if (bs_val_o == 1) begin 
                     fp_init = $fscanf(fp_check_bs, "%h", check_bs);
-                    if ( check_bs != bs_dat_o ) begin
-                    $display("ERROR at BS at bs_byte_cnt = %5d, f265 is %h, h265 is %h", bs_byte_cnt, check_bs, bs_dat_o);
-                $finish ;
+                    if (check_bs != bs_dat_o) begin
+                        $display("ERROR at BS at bs_byte_cnt = %5d, f265 is %h, h265 is %h", bs_byte_cnt, check_bs, bs_dat_o);
+                        $finish;
                     end
                     bs_byte_cnt=bs_byte_cnt+1;
                 end 

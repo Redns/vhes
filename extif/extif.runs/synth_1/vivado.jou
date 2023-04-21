@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Fri Apr 21 12:24:18 2023
+# Process ID: 61600
+# Current directory: E:/Project/xk265/extif/extif.runs/synth_1
+# Command line: vivado.exe -log video_buffer_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source video_buffer_top.tcl
+# Log file: E:/Project/xk265/extif/extif.runs/synth_1/video_buffer_top.vds
+# Journal file: E:/Project/xk265/extif/extif.runs/synth_1\vivado.jou
+# Running On: JingDevice, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 4, Host memory: 17005 MB
+#-----------------------------------------------------------
+source video_buffer_top.tcl -notrace
