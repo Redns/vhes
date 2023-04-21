@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
--- Date        : Fri Apr 21 10:20:22 2023
+-- Date        : Fri Apr 21 18:16:24 2023
 -- Host        : JingDevice running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_stub.vhdl

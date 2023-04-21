@@ -1,0 +1,12 @@
+
+{ 
+    crc :  14895202907603442592  , 
+    ccp_crc :  0  , 
+    cmdline : " --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl" , 
+    buildDate : "Apr 18 2022" , 
+    buildTime : "16:05:34" , 
+    linkCmd : "D:\\Xilinx\\Vivado\\2022.1\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/video_buffer_top_tb_behav/xsimk.exe\"   \"xsim.dir/video_buffer_top_tb_behav/obj/xsim_0.win64.obj\" \"xsim.dir/video_buffer_top_tb_behav/obj/xsim_1.win64.obj\" -L\"D:\\Xilinx\\Vivado\\2022.1\\lib\\win64.o\" -lrdi_simulator_kernel   -lrdi_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

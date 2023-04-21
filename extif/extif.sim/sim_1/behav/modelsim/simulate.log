@@ -1,0 +1,58 @@
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# do {data_merge_tb_simulate.do}
+# vsim -do "do {data_merge_tb_simulate.do}" -l simulate.log 
+# Start time: 22:46:35 on Apr 21,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# Loading work.data_merge_tb(fast)
+# Loading work.data_merge(fast)
+# Loading work.data_merge(fast__1)
+# Loading work.glbl(fast)
+# 1
+# 1
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ../../../../extif.srcs/sim_1/new/data_merge_tb.v(62)
+#    Time: 84 ps  Iteration: 0  Instance: /data_merge_tb
+# Break in Module data_merge_tb at ../../../../extif.srcs/sim_1/new/data_merge_tb.v line 62
+# Unrecognized paper size (Letter), using Custom
+# Saving layout as "Simulate"
+# Causality operation skipped due to absence of debug database file
+restart
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# 
+# Loading work.data_merge_tb(fast)
+# Loading work.data_merge(fast)
+# Loading work.data_merge(fast__1)
+# Loading work.glbl(fast)
+run
+# ** Note: $stop    : ../../../../extif.srcs/sim_1/new/data_merge_tb.v(62)
+#    Time: 84 ps  Iteration: 0  Instance: /data_merge_tb
+# Break in Module data_merge_tb at ../../../../extif.srcs/sim_1/new/data_merge_tb.v line 62
+run -all
+restart
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# 
+# Loading work.data_merge_tb(fast)
+# Loading work.data_merge(fast)
+# Loading work.data_merge(fast__1)
+# Loading work.glbl(fast)
+run -continue
+# ** Note: $stop    : ../../../../extif.srcs/sim_1/new/data_merge_tb.v(62)
+#    Time: 84 ps  Iteration: 0  Instance: /data_merge_tb
+# Break in Module data_merge_tb at ../../../../extif.srcs/sim_1/new/data_merge_tb.v line 62
+run

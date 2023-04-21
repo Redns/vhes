@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../extif.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
+"../../../../extif.gen/sources_1/ip/pixel_uv_fifo_1/sim/pixel_uv_fifo.v" \
+"../../../../extif.gen/sources_1/ip/pixel_y_fifo_1/sim/pixel_y_fifo.v" \
+"../../../../extif.srcs/sources_1/new/data_merge.v" \
+"../../../../extif.srcs/sources_1/new/video_buffer_top.v" \
+"../../../../extif.srcs/sim_1/new/video_buffer_top_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

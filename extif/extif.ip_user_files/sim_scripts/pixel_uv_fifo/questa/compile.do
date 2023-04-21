@@ -26,7 +26,7 @@ vlog -work fifo_generator_v13_2_7  -incr -mfcu \
 "../../../ipstatic/hdl/fifo_generator_v13_2_rfs.v" \
 
 vlog -work xil_defaultlib  -incr -mfcu \
-"../../../../extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" \
+"../../../../extif.gen/sources_1/ip/pixel_uv_fifo_1/sim/pixel_uv_fifo.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

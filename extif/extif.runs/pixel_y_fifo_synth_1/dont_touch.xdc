@@ -4,29 +4,29 @@
 # IP: e:/Project/xk265/extif/extif.srcs/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xci
 # IP: The module: 'pixel_y_fifo' is the root of the design. Do not add the DONT_TOUCH constraint.
 
-# XDC: e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xdc
+# XDC: e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo.xdc
 # XDC: The top module name and the constraint reference have the same name: 'pixel_y_fifo'. Do not add the DONT_TOUCH constraint.
 set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet
 
-# XDC: e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_clocks.xdc
+# XDC: e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_clocks.xdc
 # XDC: The top module name and the constraint reference have the same name: 'pixel_y_fifo'. Do not add the DONT_TOUCH constraint.
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet
 
-# XDC: e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_ooc.xdc
+# XDC: e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_ooc.xdc
 # XDC: The top module name and the constraint reference have the same name: 'pixel_y_fifo'. Do not add the DONT_TOUCH constraint.
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet
 
 # IP: e:/Project/xk265/extif/extif.srcs/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xci
 # IP: The module: 'pixel_y_fifo' is the root of the design. Do not add the DONT_TOUCH constraint.
 
-# XDC: e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xdc
+# XDC: e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo.xdc
 # XDC: The top module name and the constraint reference have the same name: 'pixel_y_fifo'. Do not add the DONT_TOUCH constraint.
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet
 
-# XDC: e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_clocks.xdc
+# XDC: e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_clocks.xdc
 # XDC: The top module name and the constraint reference have the same name: 'pixel_y_fifo'. Do not add the DONT_TOUCH constraint.
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet
 
-# XDC: e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_ooc.xdc
+# XDC: e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_ooc.xdc
 # XDC: The top module name and the constraint reference have the same name: 'pixel_y_fifo'. Do not add the DONT_TOUCH constraint.
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet

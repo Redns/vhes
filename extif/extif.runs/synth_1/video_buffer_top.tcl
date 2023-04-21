@@ -70,7 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_msg_config -id {HDL-1065} -limit 10000
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 set_msg_config  -id {[BD 41-1271]}  -suppress 
 set_msg_config  -id {[BD 41-1306]}  -suppress 
@@ -92,10 +92,8 @@ create_project -in_memory -part xc7z035ffg676-2
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir E:/Project/xk265/extif/extif.cache/wt [current_project]
 set_property parent.project_path E:/Project/xk265/extif/extif.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_repo_paths e:/Project/xk265/extif/extif.ip_user_files/uisrc [current_project]
@@ -104,21 +102,7 @@ set_property ip_output_repo e:/Project/xk265/extif/extif.cache/ip [current_proje
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib {
-  E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v
-  E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v
-  E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v
-}
-read_ip -quiet e:/Project/xk265/extif/extif.srcs/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xci
-set_property used_in_implementation false [get_files -all e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xdc]
-set_property used_in_implementation false [get_files -all e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_clocks.xdc]
-set_property used_in_implementation false [get_files -all e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_ooc.xdc]
-
-read_ip -quiet e:/Project/xk265/extif/extif.srcs/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.xci
-set_property used_in_implementation false [get_files -all e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.xdc]
-set_property used_in_implementation false [get_files -all e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo_clocks.xdc]
-set_property used_in_implementation false [get_files -all e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo_ooc.xdc]
-
+read_verilog -library xil_defaultlib E:/Project/xk265/extif/extif.srcs/sources_1/new/video_buffer_top.v
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

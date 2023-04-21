@@ -3639,3 +3639,2429 @@ RTL Elaboration Complete:  : Time (s): cpu = 00:00:15 ; elapsed = 00:00:12 . Mem
 synth_design completed successfully
 synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:27 . Memory (MB): peak = 4911.492 ; gain = 0.000
 close_design
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'test_fifo_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_fifo_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_fifo_tb_vlog.prj"
+"xvhdl --incr --relax -prj test_fifo_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_fifo_tb_behav xil_defaultlib.test_fifo_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_fifo_tb_behav xil_defaultlib.test_fifo_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_fifo_tb_behav -key {Behavioral:sim_1:Functional:test_fifo_tb} -tclbatch {test_fifo_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source test_fifo_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_fifo_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:14 . Memory (MB): peak = 4933.066 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'test_fifo_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_fifo_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_fifo_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/test_fifo/sim/test_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/pixel_fifo/test_fifo_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_fifo_tb
+"xvhdl --incr --relax -prj test_fifo_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_fifo_tb_behav xil_defaultlib.test_fifo_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_fifo_tb_behav xil_defaultlib.test_fifo_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.test_fifo
+Compiling module xil_defaultlib.test_fifo_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_fifo_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_fifo_tb_behav -key {Behavioral:sim_1:Functional:test_fifo_tb} -tclbatch {test_fifo_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source test_fifo_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_fifo_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:14 . Memory (MB): peak = 4933.066 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'test_fifo_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_fifo_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_fifo_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/test_fifo/sim/test_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/pixel_fifo/test_fifo_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_fifo_tb
+"xvhdl --incr --relax -prj test_fifo_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_fifo_tb_behav xil_defaultlib.test_fifo_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_fifo_tb_behav xil_defaultlib.test_fifo_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.test_fifo
+Compiling module xil_defaultlib.test_fifo_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_fifo_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_fifo_tb_behav -key {Behavioral:sim_1:Functional:test_fifo_tb} -tclbatch {test_fifo_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source test_fifo_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_fifo_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:13 . Memory (MB): peak = 4933.066 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'test_fifo_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_fifo_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_fifo_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/test_fifo/sim/test_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/pixel_fifo/test_fifo_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_fifo_tb
+"xvhdl --incr --relax -prj test_fifo_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_fifo_tb_behav xil_defaultlib.test_fifo_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_fifo_tb_behav xil_defaultlib.test_fifo_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.test_fifo
+Compiling module xil_defaultlib.test_fifo_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_fifo_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_fifo_tb_behav -key {Behavioral:sim_1:Functional:test_fifo_tb} -tclbatch {test_fifo_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source test_fifo_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_fifo_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:13 . Memory (MB): peak = 4933.066 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property -dict [list CONFIG.Performance_Options {First_Word_Fall_Through} CONFIG.Empty_Threshold_Assert_Value {4} CONFIG.Empty_Threshold_Negate_Value {5}] [get_ips test_fifo]
+generate_target all [get_files  e:/Project/xk265/extif/extif.srcs/sources_1/ip/test_fifo/test_fifo.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'test_fifo'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'test_fifo'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'test_fifo'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'test_fifo'...
+catch { config_ip_cache -export [get_ips -all test_fifo] }
+export_ip_user_files -of_objects [get_files e:/Project/xk265/extif/extif.srcs/sources_1/ip/test_fifo/test_fifo.xci] -no_script -sync -force -quiet
+reset_run test_fifo_synth_1
+launch_runs test_fifo_synth_1 -jobs 4
+[Fri Apr 21 16:06:31 2023] Launched test_fifo_synth_1...
+Run output will be captured here: E:/Project/xk265/extif/extif.runs/test_fifo_synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:14 . Memory (MB): peak = 4933.066 ; gain = 0.000
+export_simulation -of_objects [get_files e:/Project/xk265/extif/extif.srcs/sources_1/ip/test_fifo/test_fifo.xci] -directory E:/Project/xk265/extif/extif.ip_user_files/sim_scripts -ip_user_files_dir E:/Project/xk265/extif/extif.ip_user_files -ipstatic_source_dir E:/Project/xk265/extif/extif.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/Project/xk265/extif/extif.cache/compile_simlib/modelsim} {questa=E:/Project/xk265/extif/extif.cache/compile_simlib/questa} {riviera=E:/Project/xk265/extif/extif.cache/compile_simlib/riviera} {activehdl=E:/Project/xk265/extif/extif.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'test_fifo_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_fifo_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_fifo_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/test_fifo/sim/test_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/pixel_fifo/test_fifo_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_fifo_tb
+"xvhdl --incr --relax -prj test_fifo_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_fifo_tb_behav xil_defaultlib.test_fifo_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_fifo_tb_behav xil_defaultlib.test_fifo_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_p...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.test_fifo
+Compiling module xil_defaultlib.test_fifo_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_fifo_tb_behav
+run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 4933.066 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_fifo_tb_behav -key {Behavioral:sim_1:Functional:test_fifo_tb} -tclbatch {test_fifo_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source test_fifo_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_fifo_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:14 ; elapsed = 00:00:31 . Memory (MB): peak = 4933.066 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse -scan_for_includes E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v
+update_compile_order -fileset sim_1
+set_property top video_buffer_top_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+ERROR: [VRFC 10-2989] 'pixel_heigth' is not declared [E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v:68]
+ERROR: [VRFC 10-8530] module 'video_buffer_top_tb' is ignored due to previous errors [E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v:1]
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 4933.066 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '6' seconds
+INFO: [USF-XSim-99] Step results log file:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 4933.066 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 4933.066 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '9' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 128 for port 'pixel_o' [E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v:53]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 4933.066 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:26 . Memory (MB): peak = 4933.066 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 128 for port 'pixel_o' [E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v:53]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 4933.066 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:09 ; elapsed = 00:00:19 . Memory (MB): peak = 4933.066 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 4933.066 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 128 for port 'pixel_o' [E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v:60]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 4933.066 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:18 . Memory (MB): peak = 4933.066 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 4933.066 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:17 . Memory (MB): peak = 4933.066 ; gain = 0.000
+step
+Stopped at time : 1001 ns : File "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" Line 37
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 4933.066 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 4933.066 ; gain = 0.000
+run 10 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 4933.066 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 4933.066 ; gain = 0.000
+run 10 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 4933.066 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 4933.066 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7z035ffg676-2
+Top: video_buffer_top
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 4933.066 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'video_buffer_top' [E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'data_merge_8_to_128' [E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'data_merge_8_to_128' (0#1) [E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v:1]
+INFO: [Synth 8-6157] synthesizing module 'data_merge_16_to_128' [E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'data_merge_16_to_128' (0#1) [E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v:1]
+INFO: [Synth 8-6157] synthesizing module 'pixel_y_fifo' [E:/Project/xk265/hevc_enc_core/.Xil/Vivado-32312-JingDevice/realtime/pixel_y_fifo_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'pixel_y_fifo' (0#1) [E:/Project/xk265/hevc_enc_core/.Xil/Vivado-32312-JingDevice/realtime/pixel_y_fifo_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'pixel_uv_fifo' [E:/Project/xk265/hevc_enc_core/.Xil/Vivado-32312-JingDevice/realtime/pixel_uv_fifo_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'pixel_uv_fifo' (0#1) [E:/Project/xk265/hevc_enc_core/.Xil/Vivado-32312-JingDevice/realtime/pixel_uv_fifo_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'video_buffer_top' (0#1) [E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 4933.066 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 4933.066 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 4933.066 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.dcp' for cell 'pixel_y_fifo'
+INFO: [Project 1-454] Reading design checkpoint 'e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.dcp' for cell 'pixel_uv_fifo'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.142 . Memory (MB): peak = 4933.066 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 126 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xdc] for cell 'pixel_y_fifo/U0'
+Finished Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xdc] for cell 'pixel_y_fifo/U0'
+Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.xdc] for cell 'pixel_uv_fifo/U0'
+Finished Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.xdc] for cell 'pixel_uv_fifo/U0'
+Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_clocks.xdc] for cell 'pixel_y_fifo/U0'
+Finished Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_clocks.xdc] for cell 'pixel_y_fifo/U0'
+Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo_clocks.xdc] for cell 'pixel_uv_fifo/U0'
+Finished Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo_clocks.xdc] for cell 'pixel_uv_fifo/U0'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Xilinx/Vivado/2022.1/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/video_buffer_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/video_buffer_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Xilinx/Vivado/2022.1/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/video_buffer_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/video_buffer_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-1714] 12 XPM XDC files have been applied to the design.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 4982.688 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 4997.293 ; gain = 64.227
+20 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 4997.293 ; gain = 64.227
+close_design
+set_property -dict [list CONFIG.Performance_Options {First_Word_Fall_Through} CONFIG.Empty_Threshold_Assert_Value {4} CONFIG.Empty_Threshold_Negate_Value {5}] [get_ips pixel_uv_fifo]
+generate_target all [get_files  e:/Project/xk265/extif/extif.srcs/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'pixel_uv_fifo'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pixel_uv_fifo'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'pixel_uv_fifo'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'pixel_uv_fifo'...
+catch { config_ip_cache -export [get_ips -all pixel_uv_fifo] }
+export_ip_user_files -of_objects [get_files e:/Project/xk265/extif/extif.srcs/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.xci] -no_script -sync -force -quiet
+reset_run pixel_uv_fifo_synth_1
+launch_runs pixel_uv_fifo_synth_1 -jobs 4
+[Fri Apr 21 18:12:40 2023] Launched pixel_uv_fifo_synth_1...
+Run output will be captured here: E:/Project/xk265/extif/extif.runs/pixel_uv_fifo_synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:00:12 . Memory (MB): peak = 5029.938 ; gain = 0.000
+export_simulation -of_objects [get_files e:/Project/xk265/extif/extif.srcs/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.xci] -directory E:/Project/xk265/extif/extif.ip_user_files/sim_scripts -ip_user_files_dir E:/Project/xk265/extif/extif.ip_user_files -ipstatic_source_dir E:/Project/xk265/extif/extif.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/Project/xk265/extif/extif.cache/compile_simlib/modelsim} {questa=E:/Project/xk265/extif/extif.cache/compile_simlib/questa} {riviera=E:/Project/xk265/extif/extif.cache/compile_simlib/riviera} {activehdl=E:/Project/xk265/extif/extif.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+set_property -dict [list CONFIG.Performance_Options {First_Word_Fall_Through} CONFIG.Empty_Threshold_Assert_Value {4} CONFIG.Empty_Threshold_Negate_Value {5}] [get_ips pixel_y_fifo]
+generate_target all [get_files  e:/Project/xk265/extif/extif.srcs/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'pixel_y_fifo'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pixel_y_fifo'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'pixel_y_fifo'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'pixel_y_fifo'...
+catch { config_ip_cache -export [get_ips -all pixel_y_fifo] }
+export_ip_user_files -of_objects [get_files e:/Project/xk265/extif/extif.srcs/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xci] -no_script -sync -force -quiet
+reset_run pixel_y_fifo_synth_1
+launch_runs pixel_y_fifo_synth_1 -jobs 4
+[Fri Apr 21 18:14:33 2023] Launched pixel_y_fifo_synth_1...
+Run output will be captured here: E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/runme.log
+export_simulation -of_objects [get_files e:/Project/xk265/extif/extif.srcs/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xci] -directory E:/Project/xk265/extif/extif.ip_user_files/sim_scripts -ip_user_files_dir E:/Project/xk265/extif/extif.ip_user_files -ipstatic_source_dir E:/Project/xk265/extif/extif.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/Project/xk265/extif/extif.cache/compile_simlib/modelsim} {questa=E:/Project/xk265/extif/extif.cache/compile_simlib/questa} {riviera=E:/Project/xk265/extif/extif.cache/compile_simlib/riviera} {activehdl=E:/Project/xk265/extif/extif.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 5029.938 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_p...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 5029.938 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:20 . Memory (MB): peak = 5029.938 ; gain = 0.000
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_8_to_128/data_o}} 
+run all
+run: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 5029.938 ; gain = 0.000
+run 10 us
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_8_to_128/rst_n_i}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+run 10 us
+run all
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_8_to_128/de_i}} 
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_8_to_128/de_o}} 
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_8_to_128/cnt}} 
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_8_to_128/data_i}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+current_wave_config {Untitled 44}
+Untitled 44
+log_wave {/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_i} 
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_i}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/rst_n_i}} 
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_i}} 
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_i}} 
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_o}} 
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_o}} 
+current_wave_config {Untitled 44}
+Untitled 44
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/cnt}} 
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_p...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 5029.938 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:15 . Memory (MB): peak = 5029.938 ; gain = 0.000
+current_wave_config {Untitled 45}
+Untitled 45
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/rst_n_i}} 
+current_wave_config {Untitled 45}
+Untitled 45
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_i}} 
+current_wave_config {Untitled 45}
+Untitled 45
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_i}} 
+current_wave_config {Untitled 45}
+Untitled 45
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_o}} 
+current_wave_config {Untitled 45}
+Untitled 45
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_o}} 
+current_wave_config {Untitled 45}
+Untitled 45
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/cnt}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_p...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 5029.938 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 5029.938 ; gain = 0.000
+current_wave_config {Untitled 46}
+Untitled 46
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/rst_n_i}} 
+current_wave_config {Untitled 46}
+Untitled 46
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_i}} 
+current_wave_config {Untitled 46}
+Untitled 46
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_i}} 
+current_wave_config {Untitled 46}
+Untitled 46
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_o}} 
+current_wave_config {Untitled 46}
+Untitled 46
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_o}} 
+current_wave_config {Untitled 46}
+Untitled 46
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/cnt}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+run 10 us
+current_wave_config {Untitled 46}
+Untitled 46
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_uv_fifo/wr_clk}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+run 10 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_p...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 5029.938 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 5029.938 ; gain = 0.000
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_p...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 5029.938 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:15 . Memory (MB): peak = 5029.938 ; gain = 0.000
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+run 10 us
+current_wave_config {Untitled 48}
+Untitled 48
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_i}} 
+current_wave_config {Untitled 48}
+Untitled 48
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/rst_n_i}} 
+current_wave_config {Untitled 48}
+Untitled 48
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_i}} 
+current_wave_config {Untitled 48}
+Untitled 48
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_o}} 
+current_wave_config {Untitled 48}
+Untitled 48
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_o}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+run 10 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7z035ffg676-2
+Top: video_buffer_top
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 5029.938 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'video_buffer_top' [E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'data_merge_8_to_128' [E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'data_merge_8_to_128' (0#1) [E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v:1]
+INFO: [Synth 8-6157] synthesizing module 'data_merge_16_to_128' [E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'data_merge_16_to_128' (0#1) [E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v:1]
+INFO: [Synth 8-6157] synthesizing module 'pixel_y_fifo' [E:/Project/xk265/hevc_enc_core/.Xil/Vivado-32312-JingDevice/realtime/pixel_y_fifo_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'pixel_y_fifo' (0#1) [E:/Project/xk265/hevc_enc_core/.Xil/Vivado-32312-JingDevice/realtime/pixel_y_fifo_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'pixel_uv_fifo' [E:/Project/xk265/hevc_enc_core/.Xil/Vivado-32312-JingDevice/realtime/pixel_uv_fifo_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'pixel_uv_fifo' (0#1) [E:/Project/xk265/hevc_enc_core/.Xil/Vivado-32312-JingDevice/realtime/pixel_uv_fifo_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'video_buffer_top' (0#1) [E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v:1]
+WARNING: [Synth 8-3848] Net pixel_clk_i in module/entity video_buffer_top does not have driver. [E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v:116]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 5029.938 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 5029.938 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 5029.938 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.dcp' for cell 'pixel_y_fifo'
+INFO: [Project 1-454] Reading design checkpoint 'e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.dcp' for cell 'pixel_uv_fifo'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.145 . Memory (MB): peak = 5029.938 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 126 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xdc] for cell 'pixel_y_fifo/U0'
+Finished Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xdc] for cell 'pixel_y_fifo/U0'
+Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.xdc] for cell 'pixel_uv_fifo/U0'
+Finished Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.xdc] for cell 'pixel_uv_fifo/U0'
+Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_clocks.xdc] for cell 'pixel_y_fifo/U0'
+Finished Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_clocks.xdc] for cell 'pixel_y_fifo/U0'
+Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo_clocks.xdc] for cell 'pixel_uv_fifo/U0'
+Finished Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo_clocks.xdc] for cell 'pixel_uv_fifo/U0'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Xilinx/Vivado/2022.1/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/video_buffer_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/video_buffer_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Xilinx/Vivado/2022.1/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/video_buffer_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/video_buffer_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-1714] 12 XPM XDC files have been applied to the design.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 5039.652 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:15 ; elapsed = 00:00:13 . Memory (MB): peak = 5046.059 ; gain = 16.121
+20 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:29 . Memory (MB): peak = 5046.059 ; gain = 16.121
+close_design
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7z035ffg676-2
+Top: video_buffer_top
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 5094.500 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'video_buffer_top' [E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'data_merge_8_to_128' [E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'data_merge_8_to_128' (0#1) [E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v:1]
+INFO: [Synth 8-6157] synthesizing module 'data_merge_16_to_128' [E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'data_merge_16_to_128' (0#1) [E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v:1]
+INFO: [Synth 8-6157] synthesizing module 'pixel_y_fifo' [E:/Project/xk265/hevc_enc_core/.Xil/Vivado-32312-JingDevice/realtime/pixel_y_fifo_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'pixel_y_fifo' (0#1) [E:/Project/xk265/hevc_enc_core/.Xil/Vivado-32312-JingDevice/realtime/pixel_y_fifo_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'pixel_uv_fifo' [E:/Project/xk265/hevc_enc_core/.Xil/Vivado-32312-JingDevice/realtime/pixel_uv_fifo_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'pixel_uv_fifo' (0#1) [E:/Project/xk265/hevc_enc_core/.Xil/Vivado-32312-JingDevice/realtime/pixel_uv_fifo_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'video_buffer_top' (0#1) [E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 5094.500 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 5094.500 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 5094.500 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.dcp' for cell 'pixel_y_fifo'
+INFO: [Project 1-454] Reading design checkpoint 'e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.dcp' for cell 'pixel_uv_fifo'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.130 . Memory (MB): peak = 5094.500 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 126 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xdc] for cell 'pixel_y_fifo/U0'
+Finished Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xdc] for cell 'pixel_y_fifo/U0'
+Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.xdc] for cell 'pixel_uv_fifo/U0'
+Finished Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo.xdc] for cell 'pixel_uv_fifo/U0'
+Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_clocks.xdc] for cell 'pixel_y_fifo/U0'
+Finished Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_clocks.xdc] for cell 'pixel_y_fifo/U0'
+Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo_clocks.xdc] for cell 'pixel_uv_fifo/U0'
+Finished Parsing XDC File [e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/pixel_uv_fifo_clocks.xdc] for cell 'pixel_uv_fifo/U0'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Xilinx/Vivado/2022.1/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/video_buffer_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/video_buffer_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Xilinx/Vivado/2022.1/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/video_buffer_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/video_buffer_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-1714] 12 XPM XDC files have been applied to the design.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 5094.500 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:13 . Memory (MB): peak = 5094.500 ; gain = 0.000
+20 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 5094.500 ; gain = 0.000
+close_design
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3180] cannot find port 'pixel_rd_en_in' on this module [E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v:55]
+ERROR: [VRFC 10-3180] cannot find port 'piexl_clk_i' on this module [E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v:48]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-99] Step results log file:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:12 . Memory (MB): peak = 5113.668 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3180] cannot find port 'piexl_clk_i' on this module [E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v:48]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-99] Step results log file:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 5113.668 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_p...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 5113.668 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 5113.668 ; gain = 0.000
+run 10 us
+current_wave_config {Untitled 49}
+Untitled 49
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_y_fifo/rst}} 
+current_wave_config {Untitled 49}
+Untitled 49
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_8_to_128/rst_n_i}} 
+current_wave_config {Untitled 49}
+Untitled 49
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_8_to_128/de_i}} 
+current_wave_config {Untitled 49}
+Untitled 49
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_8_to_128/data_i}} 
+current_wave_config {Untitled 49}
+Untitled 49
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_8_to_128/de_o}} 
+current_wave_config {Untitled 49}
+Untitled 49
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_8_to_128/data_o}} 
+current_wave_config {Untitled 49}
+Untitled 49
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/rst_n_i}} 
+current_wave_config {Untitled 49}
+Untitled 49
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_i}} 
+current_wave_config {Untitled 49}
+Untitled 49
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_i}} 
+current_wave_config {Untitled 49}
+Untitled 49
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_o}} 
+current_wave_config {Untitled 49}
+Untitled 49
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_o}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_p...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 5113.668 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:41 . Memory (MB): peak = 5113.668 ; gain = 0.000
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/rst_n_i}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_i}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_i}} {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_o}} {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_o}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_uv_fifo/wr_clk}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_uv_fifo/rd_clk}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_uv_fifo/din}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_uv_fifo/wr_en}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_uv_fifo/rd_en}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_uv_fifo/dout}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_uv_fifo/full}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_uv_fifo/empty}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_uv_fifo/prog_full}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_uv_fifo/wr_rst_busy}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/pixel_uv_fifo/rd_rst_busy}} 
+run 10 us
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/pixel}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_i}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_i}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/de_o}} 
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/video_buffer_top/data_merge_16_to_128/data_o}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/pixel_clk}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+current_wave_config {Untitled 50}
+Untitled 50
+add_wave {{/video_buffer_top_tb/hsync}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'video_buffer_top_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'video_buffer_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj video_buffer_top_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_uv_fifo/sim/pixel_uv_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_uv_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/sim/pixel_y_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pixel_y_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_16_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_16_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/data_merge/data_merge_8_to_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_merge_8_to_128
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sources_1/new/top/video_buffer_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Project/xk265/extif/extif.srcs/sim_1/new/top/video_buffer_top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module video_buffer_top_tb
+"xvhdl --incr --relax -prj video_buffer_top_tb_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot video_buffer_top_tb_behav xil_defaultlib.video_buffer_top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.data_merge_8_to_128
+Compiling module xil_defaultlib.data_merge_16_to_128
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_p...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_y_fifo
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_sync_stag...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_bhv_ver_a...
+Compiling module fifo_generator_v13_2_7.fifo_generator_v13_2_7_CONV_VER(...
+Compiling module fifo_generator_v13_2_7.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.pixel_uv_fifo
+Compiling module xil_defaultlib.video_buffer_top
+Compiling module xil_defaultlib.video_buffer_top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot video_buffer_top_tb_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 5113.668 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Project/xk265/extif/extif.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "video_buffer_top_tb_behav -key {Behavioral:sim_1:Functional:video_buffer_top_tb} -tclbatch {video_buffer_top_tb.tcl} -protoinst "protoinst_files/fdma_mig_ddr.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/fdma_mig_ddr.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/fdma_mig_ddr.protoinst for the following reason(s):
+There are no instances of module "fdma_mig_ddr" in the design.
+
+Time resolution is 1 ps
+source video_buffer_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'video_buffer_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:24 . Memory (MB): peak = 5113.668 ; gain = 0.000
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Apr 21 19:35:22 2023...

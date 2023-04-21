@@ -70,7 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "pixel_y_fifo_synth_1" START { ROLLUP_AUTO }
-set_msg_config -id {HDL-1065} -limit 10000
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 set_msg_config  -id {[BD 41-1271]}  -suppress 
 set_msg_config  -id {[BD 41-1306]}  -suppress 
@@ -107,9 +107,9 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_ip -quiet e:/Project/xk265/extif/extif.srcs/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xci
-set_property used_in_implementation false [get_files -all e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.xdc]
-set_property used_in_implementation false [get_files -all e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_clocks.xdc]
-set_property used_in_implementation false [get_files -all e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo.xdc]
+set_property used_in_implementation false [get_files -all e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_clocks.xdc]
+set_property used_in_implementation false [get_files -all e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -180,32 +180,32 @@ create_report "pixel_y_fifo_synth_1_synth_report_utilization_0" "report_utilizat
 OPTRACE "synth reports" END { }
 
 if { [catch {
-  file copy -force E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/pixel_y_fifo.dcp e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.dcp
+  file copy -force E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/pixel_y_fifo.dcp e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 status "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_stub.v
+  write_verilog -force -mode synth_stub e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_stub.vhdl
+  write_vhdl -force -mode synth_stub e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_sim_netlist.v
+  write_verilog -force -mode funcsim e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -215,32 +215,32 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/pixel_y_fifo.dcp e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo.dcp
+  file copy -force E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/pixel_y_fifo.dcp e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 status "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/pixel_y_fifo_stub.v e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_stub.v
+  file rename -force E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/pixel_y_fifo_stub.v e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/pixel_y_fifo_stub.vhdl e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_stub.vhdl
+  file rename -force E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/pixel_y_fifo_stub.vhdl e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/pixel_y_fifo_sim_netlist.v e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_sim_netlist.v
+  file rename -force E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/pixel_y_fifo_sim_netlist.v e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/pixel_y_fifo_sim_netlist.vhdl e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_sim_netlist.vhdl
+  file rename -force E:/Project/xk265/extif/extif.runs/pixel_y_fifo_synth_1/pixel_y_fifo_sim_netlist.vhdl e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -249,13 +249,13 @@ if { [catch {
 
 if {[file isdir E:/Project/xk265/extif/extif.ip_user_files/ip/pixel_y_fifo]} {
   catch { 
-    file copy -force e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_stub.v E:/Project/xk265/extif/extif.ip_user_files/ip/pixel_y_fifo
+    file copy -force e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_stub.v E:/Project/xk265/extif/extif.ip_user_files/ip/pixel_y_fifo
   }
 }
 
 if {[file isdir E:/Project/xk265/extif/extif.ip_user_files/ip/pixel_y_fifo]} {
   catch { 
-    file copy -force e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo/pixel_y_fifo_stub.vhdl E:/Project/xk265/extif/extif.ip_user_files/ip/pixel_y_fifo
+    file copy -force e:/Project/xk265/extif/extif.gen/sources_1/ip/pixel_y_fifo_1/pixel_y_fifo_stub.vhdl E:/Project/xk265/extif/extif.ip_user_files/ip/pixel_y_fifo
   }
 }
 file delete __synthesis_is_running__
