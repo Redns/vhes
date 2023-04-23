@@ -21,12 +21,12 @@
 
     // 测试时修改此处的帧大小
     // TODO 当 FRAME_W 和 FRAME_H 整除 LCU_SIZE 时会造成内存浪费
-    `define FRAME_WIDTH     416 // (`FRAME_W/`LCU_SIZE + 1)*`LCU_SIZE  // full LCU
-    `define FRAME_HEIGHT    240 // (`FRAME_H/`LCU_SIZE + 1)*`LCU_SIZE  // full LCU
+    `define FRAME_WIDTH     1920 // (`FRAME_W/`LCU_SIZE + 1)*`LCU_SIZE  // full LCU
+    `define FRAME_HEIGHT    1080 // (`FRAME_H/`LCU_SIZE + 1)*`LCU_SIZE  // full LCU
 
     `define INITIAL_QP      20
     `define GOP_LENGTH      50
-    `define FRAME_TOTAL     2
+    `define FRAME_TOTAL     130
     `define ENABLE_IinP     0
     `define ENABLE_DBSAO    0
     `define POSI4x4BIT      4 
@@ -37,29 +37,29 @@
     `define SKIP_COST_THRESH_64 (`SKIP_COST_THRESH_32 * 7) / 2
 
     // TODO 此处需要与 YUV 视频源帧数对应
-    `define CHECK_FRAME_NUM 2 
+    `define CHECK_FRAME_NUM 130
 
 /* test vectors */
     `ifdef FORMAT_YUV
-        `define FILE_CUR_YUV        "./tv/BlowingBubbles.yuv"
-        `define FILE_REC_YUV        "./tv/rec.yuv"
+        `define FILE_CUR_YUV        "E:/Project/xk265/core/sim/top_testbench/tv/blue_sky.yuv"
+        `define FILE_REC_YUV        "E:/Project/xk265/core/sim/top_testbench/tv/rec.yuv"
     `else 
-        `define FILE_CUR_YUV        "./tv/BlowingBubbles_nv12.yuv"
-        `define FILE_REC_YUV        "./tv/rec_nv12.yuv"
+        `define FILE_CUR_YUV        "E:/Project/xk265/core/sim/top_testbench/tv/blue_sky.yuv"
+        `define FILE_REC_YUV        "E:/Project/xk265/core/sim/top_testbench/tv/rec.yuv"
     `endif 
 
     `define FILE_REG_K          "./tv/rc_coefficient.txt"
     `define FILE_FRAME_QP       "./tv/rc_frameqp.txt"
 
-    `define FILE_CHECK_BS       "./tv/s_bit_stream.dat"
+    `define FILE_CHECK_BS       "E:/Project/xk265/core/sim/top_testbench/tv/s_bit_stream.dat"
 
     // ime 
-    `define FILE_IME_CFG        "./tv/ime_cfg.dat"
+    `define FILE_IME_CFG        "E:/Project/xk265/core/sim/top_testbench/tv/ime_cfg.dat"
 
 /* check list */
-`define AUTO_CHECK
-    `define CHECK_BS 
-    `define CHECK_REC 
+// `define AUTO_CHECK
+//     `define CHECK_BS 
+//     `define CHECK_REC 
 
 /* clk */ 
     `define HALF_CLK           5
@@ -268,13 +268,13 @@ module `TB_NAME ;
         parameter   LOAD_CUR_SUB      = 01 ,
                     LOAD_REF_SUB      = 02 ,
                     LOAD_CUR_LUMA     = 03 ,    // 加载当前 LCU 的亮度块
-                    LOAD_REF_LUMA     = 04 ,
-                    LOAD_CUR_CHROMA   = 05 ,
+                    LOAD_REF_LUMA     = 04 ,    // 
+                    LOAD_CUR_CHROMA   = 05 ,    // 加载当前色度块
                     LOAD_REF_CHROMA   = 06 ,
                     LOAD_DB_LUMA      = 07 ,
                     LOAD_DB_CHROMA    = 08 ,
-                    STORE_DB_LUMA     = 09 ,
-                    STORE_DB_CHROMA   = 10 ;
+                    STORE_DB_LUMA     = 09 ,    // 保存重建后的亮度块
+                    STORE_DB_CHROMA   = 10 ;    // 保存重建后的色度块
 
         /* 原始/重建/参考像素阵列 */
         /* YUV420 格式，UV 尺寸为图片尺寸的 1/2，故缓冲区大小为 FRAME_WIDTH * FRAME_HEIGHT * 1.5 */
@@ -414,9 +414,8 @@ module `TB_NAME ;
                                         ext_rec_yuv[ext_addr+08] ,ext_rec_yuv[ext_addr+09] ,ext_rec_yuv[ext_addr+10] ,ext_rec_yuv[ext_addr+11],
                                         ext_rec_yuv[ext_addr+12] ,ext_rec_yuv[ext_addr+13] ,ext_rec_yuv[ext_addr+14] ,ext_rec_yuv[ext_addr+15]
                                     } = extif_data_o;
-                                    end
-                                    @(negedge clk);
                                 end
+                                @(negedge clk);
                             end
                             extif_rden_i = 0;
                             #100 ;
@@ -424,6 +423,7 @@ module `TB_NAME ;
                             extif_done_i = 1;
                             @(negedge clk)
                             extif_done_i = 0;
+                        end
                     // 存储重建后的色度块
                     STORE_DB_CHROMA: 
                         begin             
@@ -438,14 +438,14 @@ module `TB_NAME ;
                                         ext_rec_yuv[ext_addr+08] ,ext_rec_yuv[ext_addr+09] ,ext_rec_yuv[ext_addr+10] ,ext_rec_yuv[ext_addr+11],
                                         ext_rec_yuv[ext_addr+12] ,ext_rec_yuv[ext_addr+13] ,ext_rec_yuv[ext_addr+14] ,ext_rec_yuv[ext_addr+15]
                                     } = extif_data_o;
-                                    @(negedge clk );
+                                    @(negedge clk);
                                 end
                             end
                             extif_rden_i = 0;
-                            #100 ;
-                            @(negedge clk) ;
+                            #100;
+                            @(negedge clk);
                             extif_done_i = 1;
-                            @(negedge clk)
+                            @(negedge clk);
                             extif_done_i = 0;
                         end
                     // 默认响应
@@ -740,6 +740,21 @@ module `TB_NAME ;
 
             // 初始化 YUV 缓存阵列
             for ( frame_num = 0 ; frame_num < `FRAME_TOTAL; frame_num = frame_num + 1 ) begin 
+                `ifdef FORMAT_YUV 
+                    for ( pxl_cnt = 0 ; pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT*3/2 ; pxl_cnt = pxl_cnt + 1 ) begin 
+                    fp_init = $fread( ext_tmp_yuv, fp_ori ) ;
+                    if ( pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT )
+                        ext_ori_yuv[pxl_cnt] = ext_tmp_yuv ;
+                    else if ( pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT*5/4 ) begin  // u
+                        pxl_adr = `FRAME_WIDTH*`FRAME_HEIGHT + ((pxl_cnt - `FRAME_WIDTH*`FRAME_HEIGHT)/(`FRAME_WIDTH/2))*`FRAME_WIDTH + 2*(pxl_cnt%(`FRAME_WIDTH/2));
+                        ext_ori_yuv[pxl_adr] = ext_tmp_yuv ;
+                    end else begin // v
+                        pxl_adr = `FRAME_WIDTH*`FRAME_HEIGHT + ((pxl_cnt - `FRAME_WIDTH*`FRAME_HEIGHT*5/4)/(`FRAME_WIDTH/2))*`FRAME_WIDTH + 2*(pxl_cnt%(`FRAME_WIDTH/2))+1;
+                        ext_ori_yuv[pxl_adr] = ext_tmp_yuv ;
+                    end 
+                    end
+                `endif
+
                 `ifdef FORMAT_NV12
                     // 将帧数据缓存至 ext_ori_yuv 阵列
                     // 采用 NV12 格式，Y 单独存储，U、V 交替存储
@@ -770,13 +785,6 @@ module `TB_NAME ;
                     @(posedge sys_done);
                     #100;
                 end
-
-                // 重建配置
-                if (frame_num > 0) begin 
-                    rc_cfg = $fscanf(fp_reg_k , "%d", sys_rc_k); 
-                    sys_rc_lcu_en = 1'b0 ;
-                end 
-                rc_cfg = $fscanf(fp_frame_qp, "%d", sys_init_qp);
             end
 
             $finish ;

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Apr 20 21:30:20 2023" VIVADOVERSION="2022.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Apr 23 02:06:29 2023" VIVADOVERSION="2022.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z035" NAME="fdma_mig_ddr" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -9,7 +9,7 @@
         <CONNECTION INSTANCE="mig_7series_0" PORT="sys_rst"/>
       </CONNECTIONS>
     </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_200M_in" SIGIS="clk" SIGNAME="External_Ports_clk_200M_in">
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_100M_in" SIGIS="clk" SIGNAME="External_Ports_clk_100M_in">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mig_7series_0" PORT="sys_clk_i"/>
       </CONNECTIONS>
@@ -2177,7 +2177,7 @@
         <PARAMETER NAME="C7_RLDIII_ADDR_WIDTH" VALUE="29"/>
         <PARAMETER NAME="C7_RLDIII_nCK_PER_CLK" VALUE="1"/>
         <PARAMETER NAME="C7_POLARITY" VALUE="ACTIVE_LOW"/>
-        <PARAMETER NAME="XML_INPUT_FILE" VALUE="mig_a.prj"/>
+        <PARAMETER NAME="XML_INPUT_FILE" VALUE="mig_b.prj"/>
         <PARAMETER NAME="RESET_BOARD_INTERFACE" VALUE="Custom"/>
         <PARAMETER NAME="MIG_DONT_TOUCH_PARAM" VALUE="Custom"/>
         <PARAMETER NAME="BOARD_MIG_PARAM" VALUE="Custom"/>
@@ -2453,9 +2453,9 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="mmcm_locked" SIGIS="undef"/>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sys_clk_i" SIGIS="clk" SIGNAME="External_Ports_clk_200M_in">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sys_clk_i" SIGIS="clk" SIGNAME="External_Ports_clk_100M_in">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="clk_200M_in"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_100M_in"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="init_calib_complete" SIGIS="undef" SIGNAME="mig_7series_0_init_calib_complete">

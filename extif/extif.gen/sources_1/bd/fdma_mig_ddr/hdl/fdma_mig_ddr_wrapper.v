@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-//Date        : Thu Apr 20 21:30:07 2023
+//Date        : Sun Apr 23 02:05:31 2023
 //Host        : JingDevice running 64-bit major release  (build 9200)
 //Command     : generate_target fdma_mig_ddr_wrapper.bd
 //Design      : fdma_mig_ddr_wrapper
@@ -39,7 +39,7 @@ module fdma_mig_ddr_wrapper
     FDMA_S_in_fdma_wready,
     FDMA_S_in_fdma_wsize,
     FDMA_S_in_fdma_wvalid,
-    clk_200M_in,
+    clk_100M_in,
     fdma_rstn_o,
     init_calib_complete_o,
     rst_n_in,
@@ -73,7 +73,7 @@ module fdma_mig_ddr_wrapper
   input FDMA_S_in_fdma_wready;
   input [15:0]FDMA_S_in_fdma_wsize;
   output FDMA_S_in_fdma_wvalid;
-  input clk_200M_in;
+  input clk_100M_in;
   output [0:0]fdma_rstn_o;
   output init_calib_complete_o;
   input rst_n_in;
@@ -108,7 +108,7 @@ module fdma_mig_ddr_wrapper
   wire FDMA_S_in_fdma_wready;
   wire [15:0]FDMA_S_in_fdma_wsize;
   wire FDMA_S_in_fdma_wvalid;
-  wire clk_200M_in;
+  wire clk_100M_in;
   wire [0:0]fdma_rstn_o;
   wire init_calib_complete_o;
   wire rst_n_in;
@@ -144,7 +144,7 @@ module fdma_mig_ddr_wrapper
         .FDMA_S_in_fdma_wready(FDMA_S_in_fdma_wready),
         .FDMA_S_in_fdma_wsize(FDMA_S_in_fdma_wsize),
         .FDMA_S_in_fdma_wvalid(FDMA_S_in_fdma_wvalid),
-        .clk_200M_in(clk_200M_in),
+        .clk_100M_in(clk_100M_in),
         .fdma_rstn_o(fdma_rstn_o),
         .init_calib_complete_o(init_calib_complete_o),
         .rst_n_in(rst_n_in),

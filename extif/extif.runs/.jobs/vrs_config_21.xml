@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="fdma_mig_ddr_mig_7series_0_0_synth_1" LaunchDir="E:/Project/xk265/extif/extif.runs/fdma_mig_ddr_mig_7series_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="fdma_mig_ddr_uiFDMA_0_0_synth_1" LaunchDir="E:/Project/xk265/extif/extif.runs/fdma_mig_ddr_uiFDMA_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="fdma_mig_ddr_s00_regslice_0_synth_1" LaunchDir="E:/Project/xk265/extif/extif.runs/fdma_mig_ddr_s00_regslice_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="fdma_mig_ddr_auto_us_df_0_synth_1" LaunchDir="E:/Project/xk265/extif/extif.runs/fdma_mig_ddr_auto_us_df_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="fdma_mig_ddr_proc_sys_reset_0_0_synth_1" LaunchDir="E:/Project/xk265/extif/extif.runs/fdma_mig_ddr_proc_sys_reset_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="E:/Project/xk265/extif/extif.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="fdma_mig_ddr_mig_7series_0_0_synth_1"/>
+		<Parent Id="fdma_mig_ddr_uiFDMA_0_0_synth_1"/>
+		<Parent Id="fdma_mig_ddr_s00_regslice_0_synth_1"/>
+		<Parent Id="fdma_mig_ddr_auto_us_df_0_synth_1"/>
+		<Parent Id="fdma_mig_ddr_proc_sys_reset_0_0_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

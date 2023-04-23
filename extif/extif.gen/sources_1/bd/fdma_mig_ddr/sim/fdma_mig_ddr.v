@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-//Date        : Thu Apr 20 21:30:07 2023
+//Date        : Sun Apr 23 02:05:31 2023
 //Host        : JingDevice running 64-bit major release  (build 9200)
 //Command     : generate_target fdma_mig_ddr.bd
 //Design      : fdma_mig_ddr
@@ -40,7 +40,7 @@ module fdma_mig_ddr
     FDMA_S_in_fdma_wready,
     FDMA_S_in_fdma_wsize,
     FDMA_S_in_fdma_wvalid,
-    clk_200M_in,
+    clk_100M_in,
     fdma_rstn_o,
     init_calib_complete_o,
     rst_n_in,
@@ -74,7 +74,7 @@ module fdma_mig_ddr
   (* X_INTERFACE_INFO = "xilinx.com:user:FDMA:1.0 FDMA_S_in fdma_wready" *) input FDMA_S_in_fdma_wready;
   (* X_INTERFACE_INFO = "xilinx.com:user:FDMA:1.0 FDMA_S_in fdma_wsize" *) input [15:0]FDMA_S_in_fdma_wsize;
   (* X_INTERFACE_INFO = "xilinx.com:user:FDMA:1.0 FDMA_S_in fdma_wvalid" *) output FDMA_S_in_fdma_wvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_200M_IN CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_200M_IN, CLK_DOMAIN fdma_mig_ddr_sys_clk_i_0, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_200M_in;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_100M_IN CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_100M_IN, CLK_DOMAIN fdma_mig_ddr_clk_100M_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_100M_in;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.FDMA_RSTN_O RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.FDMA_RSTN_O, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) output [0:0]fdma_rstn_o;
   output init_calib_complete_o;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST_N_IN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST_N_IN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input rst_n_in;
@@ -214,7 +214,7 @@ module fdma_mig_ddr
   assign FDMA_S_in_fdma_wvalid = FDMA_S_0_1_fdma_wvalid;
   assign fdma_rstn_o[0] = proc_sys_reset_0_peripheral_aresetn;
   assign init_calib_complete_o = mig_7series_0_init_calib_complete;
-  assign sys_clk_i_0_1 = clk_200M_in;
+  assign sys_clk_i_0_1 = clk_100M_in;
   assign sys_rst_0_1 = rst_n_in;
   assign ui_clk_200M_o = mig_7series_0_ui_clk;
   fdma_mig_ddr_axi_interconnect_0_0 axi_interconnect_0
