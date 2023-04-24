@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log h265enc_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source h265enc_top.tcl
+EAStep vivado -log hevc_encoder_system_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source hevc_encoder_system_top.tcl

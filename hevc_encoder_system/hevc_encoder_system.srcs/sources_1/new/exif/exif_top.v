@@ -15,6 +15,7 @@ module exif_top(
     input pixel_rd_en_i,                        // 缓冲区像素读取标志输入（高电平有效）
     output pixel_buffer_full_o,                 // 像素缓冲区满标志位（高电平有效）
     output pixel_buffer_empty_o,                // 像素缓冲区空标志位（高电平有效）
+    output [13:0] pixel_fifo_rd_cnt_o,
     output frame_last_block_come_o,             // 帧尾到达标志输出（高电平有效）
     output reg [13:0] frame_last_block_cnt_o,   // 帧尾待读像素块数目
     /* EXIF 相关信号 */
@@ -25,12 +26,9 @@ module exif_top(
     output hevc_rd_en_o,
     output hevc_wr_en_o,
     /* FDMA 相关信号 */ 
-    input [31:0] FDMA_S_i_fdma_raddr,
-    output FDMA_S_i_fdma_rbusy,
-    input [15:0] FDMA_S_i_fdma_rsize,
-    input [31:0] FDMA_S_i_fdma_waddr,
-    output FDMA_S_i_fdma_wbusy,
-    input [15:0] FDMA_S_i_fdma_wsize,
+    input [31:0] FDMA_S_i_fdma_addr,
+    input [15:0] FDMA_S_i_fdma_size,
+    output FDMA_S_i_fdma_busy,
     /* DDR 相关信号 */ 
     output [14:0]DDR3_o_addr,
     output [2:0]DDR3_o_ba,
@@ -56,9 +54,9 @@ module exif_top(
     wire video_buffer_pixel_valid_out;
     wire [127:0] video_buffer_pixel_out;
 
-    wire [13:0] pixel_fifo_rd_cnt;
-
     wire FDMA_S_i_fdma_wvalid, FDMA_S_i_fdma_rvalid;
+
+    wire FDMA_S_i_fdma_wbusy, FDMA_S_i_fdma_rbusy;
     
     // 系统上电为非复位状态时，复位顺序应遵照数据流向
     // 因此该模块复位顺序为：Video Buffer --> FDMA MIG DDR
@@ -79,6 +77,8 @@ module exif_top(
     assign fdma_mig_ddr_wdata = pixel_rd_en_i ? video_buffer_pixel_out : exif_data_i;
     assign fdma_mig_ddr_wareq = pixel_rd_en_i || exif_wr_en_i;
 
+    assign FDMA_S_i_fdma_busy = FDMA_S_i_fdma_wbusy || FDMA_S_i_fdma_rbusy;
+
     // 在 vsync 下降沿时读取 FIFO 中帧尾数据个数
     // vsync 取反后同一时刻帧尾来临信号发出
     assign frame_last_block_come_o = ~vsync_i;
@@ -97,7 +97,7 @@ module exif_top(
         .pixel_rd_en_i(video_buffer_rd_en),
         .pixel_buffer_full_o(pixel_buffer_full_o),
         .pixel_buffer_empty_o(pixel_buffer_empty_o),
-        .pixel_buffer_rd_cnt_o(pixel_fifo_rd_cnt),
+        .pixel_buffer_rd_cnt_o(pixel_fifo_rd_cnt_o),
         .pixel_valid_o(video_buffer_pixel_valid_out),
         .pixel_o(video_buffer_pixel_out)
     );
@@ -119,19 +119,19 @@ module exif_top(
         .DDR3_o_ras_n(DDR3_o_ras_n),
         .DDR3_o_reset_n(DDR3_o_reset_n),
         .DDR3_o_we_n(DDR3_o_we_n),
-        .FDMA_S_i_fdma_raddr(FDMA_S_i_fdma_raddr),
+        .FDMA_S_i_fdma_raddr(FDMA_S_i_fdma_addr),
         .FDMA_S_i_fdma_rareq(exif_rd_en_i),
         .FDMA_S_i_fdma_rbusy(FDMA_S_i_fdma_rbusy),
         .FDMA_S_i_fdma_rdata(exif_data_o),
         .FDMA_S_i_fdma_rready(1'b1),
-        .FDMA_S_i_fdma_rsize(FDMA_S_i_fdma_rsize),
+        .FDMA_S_i_fdma_rsize(FDMA_S_i_fdma_size),
         .FDMA_S_i_fdma_rvalid(FDMA_S_i_fdma_rvalid),
-        .FDMA_S_i_fdma_waddr(FDMA_S_i_fdma_waddr),
+        .FDMA_S_i_fdma_waddr(FDMA_S_i_fdma_addr),
         .FDMA_S_i_fdma_wareq(fdma_mig_ddr_wareq),
         .FDMA_S_i_fdma_wbusy(FDMA_S_i_fdma_wbusy),
         .FDMA_S_i_fdma_wdata(fdma_mig_ddr_wdata),
         .FDMA_S_i_fdma_wready(1'b1),
-        .FDMA_S_i_fdma_wsize(FDMA_S_i_fdma_wsize),
+        .FDMA_S_i_fdma_wsize(FDMA_S_i_fdma_size),
         .FDMA_S_i_fdma_wvalid(FDMA_S_i_fdma_wvalid),
         .clk_100M_i(clk_100M_i),
         .init_calib_complete_o(rst_done_o),
@@ -144,13 +144,7 @@ module exif_top(
         if(!rst_n_i) 
             frame_last_block_cnt_o <= 14'b0;
         else
-            frame_last_block_cnt_o <= pixel_fifo_rd_cnt;  
+            frame_last_block_cnt_o <= pixel_fifo_rd_cnt_o;  
     end
 
-/************************** EXIF 模式控制 **************************/
-    always@(posedge clk_ui_200M_o or negedge rst_n_i) begin
-        if(!fdma_mig_ddr_rst_n) begin
-            
-        end
-    end
 endmodule

@@ -78,6 +78,7 @@ module `TB_NAME ;
         parameter     SLOPE_INF              = 3                  ;
 
         // derived
+        // 29
         localparam    CMD_DAT_WIDTH_ONE      =(`IME_MV_WIDTH_X  )      // center_x_o
                                             +(`IME_MV_WIDTH_Y  )      // center_y_o
                                             +(`IME_MV_WIDTH_X-1)      // length_x_o
@@ -86,6 +87,7 @@ module `TB_NAME ;
                                             +(1                )      // downsample_o
                                             +(1                )      // partition_r
                                             +(1                ) ;    // use_feedback_o
+        // 29 * 2 * 3
         localparam    CMD_DAT_WIDTH          = CMD_DAT_WIDTH_ONE
                                             *(1<<CMD_NUM_WIDTH ) ;
 
@@ -545,6 +547,7 @@ module `TB_NAME ;
                     use_feedback_r = 0        ;
                     end
                     // 拼接帧间预测命令
+                    // { 0, 0, 40, 20, 0, 1, 0, 0 }
                     cmd_dat_i      = { center_x_r
                                     ,center_y_r
                                     ,length_x_r

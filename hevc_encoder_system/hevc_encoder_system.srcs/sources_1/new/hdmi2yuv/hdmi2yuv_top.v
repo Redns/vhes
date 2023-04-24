@@ -15,6 +15,7 @@ module hdmi2yuv_top(
     input [23:0] rgb_i,                             // RGB888 信号输入
     input de_i,                                     // 像素有效标志输入
     /* YUV 信号输出 */ 
+    output vsync_o,
     output y_de_o,                                  // Y 分量有效标志输出
     output uv_de_o,                                 // UV 分量有效标志输出
     output [127:0] y_o,                             // Y 分量像素输出
@@ -43,6 +44,8 @@ module hdmi2yuv_top(
     // YUV420 格式下 UV 像素隔行隔列采样
     assign y_recorded  = frame_start_flag && yuv_de;
     assign uv_recorded = frame_start_flag && yuv_de && uv_row_recorded && uv_col_recorded;
+
+    assign vsync_o = yuv_vsync;
 
 /************************ ADV7611 配置模块 *************************/
     hdmi2rgb hdmi2rgb(
