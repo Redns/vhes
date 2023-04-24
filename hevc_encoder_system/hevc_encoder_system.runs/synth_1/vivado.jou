@@ -2,12 +2,12 @@
 # Vivado v2022.1 (64-bit)
 # SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
 # IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
-# Start of session at: Wed Apr 19 18:37:23 2023
-# Process ID: 14792
+# Start of session at: Mon Apr 24 00:26:45 2023
+# Process ID: 26580
 # Current directory: E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.runs/synth_1
-# Command line: vivado.exe -log rgb2yuv.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source rgb2yuv.tcl
-# Log file: E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.runs/synth_1/rgb2yuv.vds
+# Command line: vivado.exe -log h265enc_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source h265enc_top.tcl
+# Log file: E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.runs/synth_1/h265enc_top.vds
 # Journal file: E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.runs/synth_1\vivado.jou
 # Running On: JingDevice, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 4, Host memory: 17005 MB
 #-----------------------------------------------------------
-source rgb2yuv.tcl -notrace
+source h265enc_top.tcl -notrace

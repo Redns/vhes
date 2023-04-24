@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log rgb2yuv.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rgb2yuv.tcl" );
+         "-log h265enc_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source h265enc_top.tcl" );
 
 
 

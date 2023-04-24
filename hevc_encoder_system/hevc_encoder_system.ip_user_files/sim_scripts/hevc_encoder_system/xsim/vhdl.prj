@@ -1,5 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../../hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ip/hevc_encoder_system_axi_vdma_0_1/sim/hevc_encoder_system_axi_vdma_0_1.vhd" \
-"../../../../hevc_encoder_system.gen/sources_1/bd/hevc_encoder_system/ip/hevc_encoder_system_proc_sys_reset_0_1/sim/hevc_encoder_system_proc_sys_reset_0_1.vhd" \
-
-nosort
