@@ -221,6 +221,7 @@ read_verilog -library xil_defaultlib {
   E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/prei/gxgy.v
   E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.srcs/sources_1/new/hdmi2yuv/hdmi2rgb.v
   E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.srcs/sources_1/new/hdmi2yuv/hdmi2yuv_top.v
+  E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.srcs/sources_1/new/hevc_encoder_system_ctrl.v
   E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/prei/hevc_md_top.v
   E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/ime/ime_addressing.v
   E:/Project/xk265/hevc_encoder_system/hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/ime/ime_cost_store.v

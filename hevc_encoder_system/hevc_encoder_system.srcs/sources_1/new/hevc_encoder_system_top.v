@@ -1,3 +1,5 @@
+`include "enc_defines.v"
+
 module hevc_encoder_system_top(
     /* 系统信号 */
     input rst_n_i,                                  // 复位信号输入（低电平有效）
@@ -33,25 +35,6 @@ module hevc_encoder_system_top(
     output DDR3_o_reset_n,
     output DDR3_o_we_n
 );
-
-/*************************** 宏定义 ****************************/
-    // 帧尺寸设置
-    `define FRAME_WIDTH     1920
-    `define FRAME_HEIGHT    1080
-
-    // 其他设置
-    `define INITIAL_QP      20
-    `define GOP_LENGTH      50
-    `define FRAME_TOTAL     130
-    `define ENABLE_IinP     0
-    `define ENABLE_DBSAO    0
-    `define POSI4x4BIT      4 
-
-    // 阈值跳过
-    `define SKIP_COST_THRESH_8  0
-    `define SKIP_COST_THRESH_16 (`SKIP_COST_THRESH_8 * 7) / 2
-    `define SKIP_COST_THRESH_32 (`SKIP_COST_THRESH_16 * 7) / 2
-    `define SKIP_COST_THRESH_64 (`SKIP_COST_THRESH_32 * 7) / 2
 
 /*************************** 信号线定义 ****************************/
     // 复位信号
@@ -239,7 +222,7 @@ module hevc_encoder_system_top(
         .fdma_busy_i(fdma_busy),
         .hevc_sys_start_o(hevc_sys_start),
         .hevc_sys_type_o(hevc_sys_type),
-        .hevc_sys_done_o(hevc_sys_done),
+        .hevc_sys_done_i(hevc_sys_done),
         .hevc_exif_start_i(hevc_exif_start),
         .hevc_exif_done_o(hevc_exif_done),
         .hevc_exif_mode_i(hevc_exif_mode),

@@ -25,6 +25,24 @@
 `define INTRA              1'd0
 `define INTER              1'd1
 
+// 帧尺寸设置
+`define FRAME_WIDTH     1920
+`define FRAME_HEIGHT    1080
+
+// 其他设置
+`define INITIAL_QP      20
+`define GOP_LENGTH      50
+`define FRAME_TOTAL     130
+`define ENABLE_IinP     0
+`define ENABLE_DBSAO    0
+`define POSI4x4BIT      4 
+
+// 阈值跳过
+`define SKIP_COST_THRESH_8  0
+`define SKIP_COST_THRESH_16 (`SKIP_COST_THRESH_8 * 7) / 2
+`define SKIP_COST_THRESH_32 (`SKIP_COST_THRESH_16 * 7) / 2
+`define SKIP_COST_THRESH_64 (`SKIP_COST_THRESH_32 * 7) / 2
+
 `define SIZE_04            2'd0
 `define SIZE_08            2'd1
 `define SIZE_16            2'd2

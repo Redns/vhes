@@ -1,0 +1,8 @@
+xilinx rtfpga
+rt::do_reinfer_area_combined 1
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM ref_luma_ime00/wrap/mem_array_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM ref_luma_ime01/wrap/mem_array_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM ref_luma_ime02/wrap/mem_array_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM ref_luma_ime03/wrap/mem_array_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM ref_luma_fme01/wrap/mem_array_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM ref_luma_fme04/wrap/mem_array_reg to conserve power
