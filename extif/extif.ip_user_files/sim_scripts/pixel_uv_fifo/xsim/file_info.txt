@@ -1,2 +1,0 @@
-pixel_uv_fifo.v,verilog,xil_defaultlib,../../../../extif.gen/sources_1/ip/pixel_uv_fifo_1/sim/pixel_uv_fifo.v,
-glbl.v,Verilog,xil_defaultlib,glbl.v
