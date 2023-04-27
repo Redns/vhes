@@ -1,0 +1,61 @@
+Time resolution is 1 fs
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+Block Memory Generator module hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.axi_interconnect_0.s00_couplers.auto_us_df.inst.\gen_upsizer.gen_full_upsizer.axi_upsizer_inst .\USE_WRITE.gen_pktfifo_w_upsizer.pktfifo_write_data_inst .w_buffer.\native_mem_module.blk_mem_gen_v8_4_5_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+WARNING: file design.txt could not be opened
+ *** Warning: The analog data file design.txt for XADC instance hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.\temp_mon_enabled.u_tempmon .\xadc_supplied_temperature.XADC_inst  was not found. Use the SIM_MONITOR_FILE parameter to specify the analog data file name or use the default name: design.txt.
+
+############# Write Clocks PLLE2_ADV Parameters #############
+
+nCK_PER_CLK      =       4
+CLK_PERIOD       =    5000
+CLKIN1_PERIOD    =   5.000
+DIVCLK_DIVIDE    =       1
+CLKFBOUT_MULT    =       8
+VCO_PERIOD       =   625.0
+CLKOUT0_DIVIDE_F =       2
+CLKOUT1_DIVIDE   =       2
+CLKOUT2_DIVIDE   =      32
+CLKOUT3_DIVIDE   =       8
+CLKOUT0_PERIOD   =    1250
+CLKOUT1_PERIOD   =    1250
+CLKOUT2_PERIOD   =   20000
+CLKOUT3_PERIOD   =    5000
+CLKOUT4_PERIOD   =    2500
+############################################################
+
+############# MMCME2_ADV Parameters #############
+
+MMCM_MULT_F           =           4
+MMCM_VCO_FREQ (MHz)   = 800.000
+MMCM_VCO_PERIOD       = 1250.000
+#################################################
+
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : BYTE_LANES_B0 = 7 BYTE_LANES_B1 = f DATA_CTL_B0 = 0 DATA_CTL_B1 = f
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : HIGHEST_LANE =           8 HIGHEST_LANE_B0 =           4 HIGHEST_LANE_B1 =           4
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : HIGHEST_BANK =           2
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : FREQ_REF_PERIOD         = 1250.00 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : DDR_TCK                 = 1250 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_S2_TAPS_SIZE         = 9.77 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_CIRC_BUF_EARLY       = 0 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_CIRC_BUF_OFFSET      = 30.25 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_CIRC_BUF_META_ZONE   = 200.00 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_STG2_FINE_INTR_DLY   = 769.25 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_STG2_COARSE_INTR_DLY = 511.00 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_STG2_INTRINSIC_DELAY = 1280.25 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_CIRC_BUF_DELAY       = 60 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_INTRINSIC_DELAY      = 1280.25 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_DELAY                = 1866.19 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_OCLK_DELAY           = 15 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : L_PHY_0_PO_FINE_DELAY   = 60 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_STG1_INTRINSIC_DELAY = 0.00 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_STG2_INTRINSIC_DELAY = 744.00 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_INTRINSIC_DELAY      = 744.00 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_MAX_STG2_DELAY       = 615.23 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_OFFSET               = -78.00 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : a negative PI_OFFSET means that rclk path is longer than oclk path so rclk will be delayed to next oclk edge and the negedge of rclk may be used.
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_STG2_DELAY           = 547.00 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy :PI_STG2_DELAY_CAND       = 547.00 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : DEFAULT_RCLK_DELAY      = 56 
+hevc_encoder_system_top_tb.hevc_encoder_system_top.exif_top.fdma_mig_ddr_wrapper.fdma_mig_ddr_i.mig_7series_0.u_fdma_mig_ddr_mig_7series_0_1_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : RCLK_SELECT_EDGE        = 0 
+INFO: xsimkernel Simulation Memory Usage: 1987412 KB (Peak: 1987412 KB), Simulation CPU Usage: 40515 ms

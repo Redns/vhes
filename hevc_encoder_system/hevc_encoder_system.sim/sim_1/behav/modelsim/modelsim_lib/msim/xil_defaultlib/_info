@@ -27,6 +27,7 @@ R1
 o-quiet -auto_acc_if_foreign -work xil_defaultlib -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm +acc
 n@_opt1
 R2
+R0
 vaddr_ctl
 Z3 !s110 1682338125
 !i10b 1
@@ -1691,6 +1692,29 @@ R10
 !i113 0
 R11
 R12
+vfdma_mig_ddr_uiFDMA_0_0
+Z32 !s10a 1682328883
+Z33 !s110 1682587559
+!i10b 1
+!s100 WYMTbTzc?CmVIAof4ebbN3
+IN@He:Pb;hm;OT??Am2hPZ1
+R4
+R0
+Z34 w1682328883
+8../../../../hevc_encoder_system.ip_user_files/bd/fdma_mig_ddr/ip/fdma_mig_ddr_uiFDMA_0_0/sim/fdma_mig_ddr_uiFDMA_0_0.v
+F../../../../hevc_encoder_system.ip_user_files/bd/fdma_mig_ddr/ip/fdma_mig_ddr_uiFDMA_0_0/sim/fdma_mig_ddr_uiFDMA_0_0.v
+L0 57
+R7
+r1
+!s85 0
+31
+Z35 !s108 1682587559.505000
+Z36 !s107 ../../../../hevc_encoder_system.ip_user_files/bd/fdma_mig_ddr/ip/fdma_mig_ddr_uiFDMA_0_0/sim/fdma_mig_ddr_uiFDMA_0_0.v|../../../../hevc_encoder_system.ip_user_files/bd/fdma_mig_ddr/ipshared/4624/uiFDMA.v|
+Z37 !s90 -incr|-mfcu|-work|xil_defaultlib|+incdir+../../../../hevc_encoder_system.gen/sources_1/bd/fdma_mig_ddr/ipshared/4e49|+incdir+../../../../hevc_encoder_system.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl|+incdir+../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl|../../../../hevc_encoder_system.ip_user_files/bd/fdma_mig_ddr/ipshared/4624/uiFDMA.v|../../../../hevc_encoder_system.ip_user_files/bd/fdma_mig_ddr/ip/fdma_mig_ddr_uiFDMA_0_0/sim/fdma_mig_ddr_uiFDMA_0_0.v|
+!i113 0
+R11
+R12
+nfdma_mig_ddr_ui@f@d@m@a_0_0
 vfetch8x8
 R3
 !i10b 1
@@ -1722,7 +1746,7 @@ R0
 R5
 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fetch/fetch_cur_chroma.v
 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fetch/fetch_cur_chroma.v
-Z32 L0 27
+Z38 L0 27
 R7
 r1
 !s85 0
@@ -1743,7 +1767,7 @@ R0
 R5
 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fetch/fetch_cur_luma.v
 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fetch/fetch_cur_luma.v
-Z33 L0 31
+Z39 L0 31
 R7
 r1
 !s85 0
@@ -1806,7 +1830,7 @@ R0
 R5
 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/mem/fetch_ram_2p_64x208.v
 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/mem/fetch_ram_2p_64x208.v
-R32
+R38
 R7
 r1
 !s85 0
@@ -1827,7 +1851,7 @@ R0
 R5
 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fetch/fetch_ref_chroma.v
 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fetch/fetch_ref_chroma.v
-Z34 L0 29
+Z40 L0 29
 R7
 r1
 !s85 0
@@ -1848,7 +1872,7 @@ R0
 R5
 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fetch/fetch_ref_luma.v
 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fetch/fetch_ref_luma.v
-R33
+R39
 R7
 r1
 !s85 0
@@ -1951,9 +1975,9 @@ IM]m^47?M>>7OVHb[1?d1c3
 R4
 R0
 R5
-Z35 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fme/fme_satd_8x8.v
-Z36 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fme/fme_satd_8x8.v
-Z37 L0 25
+Z41 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fme/fme_satd_8x8.v
+Z42 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fme/fme_satd_8x8.v
+Z43 L0 25
 R7
 r1
 !s85 0
@@ -2016,7 +2040,7 @@ R0
 R5
 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fme/fme_ctrl.v
 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fme/fme_ctrl.v
-R32
+R38
 R7
 r1
 !s85 0
@@ -2205,7 +2229,7 @@ R0
 R5
 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fme/fme_pred.v
 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fme/fme_pred.v
-R37
+R43
 R7
 r1
 !s85 0
@@ -2224,8 +2248,8 @@ IbH1;n0ZJ5AAYI]EX1OclE3
 R4
 R0
 R5
-R35
-R36
+R41
+R42
 L0 335
 R7
 r1
@@ -2289,7 +2313,7 @@ R0
 R5
 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fme/fme_top.v
 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/fme/fme_top.v
-R32
+R38
 R7
 r1
 !s85 0
@@ -2391,8 +2415,8 @@ I1n?[EB3CDF3:V0Q>0_cFj3
 R4
 R0
 R5
-R35
-R36
+R41
+R42
 L0 44
 R7
 r1
@@ -2412,8 +2436,8 @@ ICQ4_ndbBaSHVk09RCNMd62
 R4
 R0
 R5
-R35
-R36
+R41
+R42
 L0 139
 R7
 r1
@@ -2478,7 +2502,7 @@ R0
 R5
 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/ime/ime_addressing.v
 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/ime/ime_addressing.v
-R32
+R38
 R7
 r1
 !s85 0
@@ -2560,8 +2584,8 @@ I0C`5ie6hZ8=2d3iR^A2D[2
 R4
 R0
 R5
-Z38 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/ime/ime_top.v
-Z39 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/ime/ime_top.v
+Z44 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/ime/ime_top.v
+Z45 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/ime/ime_top.v
 L0 691
 R7
 r1
@@ -2686,8 +2710,8 @@ ISN^anTIC[RHCUb7>_eLA33
 R4
 R0
 R5
-R38
-R39
+R44
+R45
 R31
 R7
 r1
@@ -2875,8 +2899,8 @@ IIQ=8^FNkBh@i<Rn2ZSWML3
 R4
 R0
 R5
-Z40 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/rec/rec_mc/mc_chroma_filter.v
-Z41 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/rec/rec_mc/mc_chroma_filter.v
+Z46 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/rec/rec_mc/mc_chroma_filter.v
+Z47 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/rec/rec_mc/mc_chroma_filter.v
 R28
 R7
 r1
@@ -2896,8 +2920,8 @@ IJRFiI[R7>9:g]Lo6JgIH>0
 R4
 R0
 R5
-R40
-R41
+R46
+R47
 L0 101
 R7
 r1
@@ -2919,7 +2943,7 @@ R0
 R5
 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/rec/rec_mc/mc_chroma_ip4x4.v
 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/rec/rec_mc/mc_chroma_ip4x4.v
-R37
+R43
 R7
 r1
 !s85 0
@@ -2961,7 +2985,7 @@ R0
 R5
 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/rec/rec_mc/mc_chroma_top.v
 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/rec/rec_mc/mc_chroma_top.v
-R37
+R43
 R7
 r1
 !s85 0
@@ -2982,7 +3006,7 @@ R0
 R5
 8../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/rec/rec_mc/mc_ctrl.v
 F../../../../hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/rec/rec_mc/mc_ctrl.v
-R34
+R40
 R7
 r1
 !s85 0
@@ -4564,8 +4588,8 @@ r1
 !s85 0
 31
 !s108 1681388758.930000
-Z42 !s107 ../../../../hevc_encoder_system.srcs/sim_1/new/rgb2yuv_tb.v|../../../../hevc_encoder_system.srcs/sources_1/rgb2yuv/rgb2yuv.v|
-Z43 !s90 -incr|-mfcu|-work|xil_defaultlib|../../../../hevc_encoder_system.srcs/sources_1/rgb2yuv/rgb2yuv.v|../../../../hevc_encoder_system.srcs/sim_1/new/rgb2yuv_tb.v|
+Z48 !s107 ../../../../hevc_encoder_system.srcs/sim_1/new/rgb2yuv_tb.v|../../../../hevc_encoder_system.srcs/sources_1/rgb2yuv/rgb2yuv.v|
+Z49 !s90 -incr|-mfcu|-work|xil_defaultlib|../../../../hevc_encoder_system.srcs/sources_1/rgb2yuv/rgb2yuv.v|../../../../hevc_encoder_system.srcs/sim_1/new/rgb2yuv_tb.v|
 !i113 0
 R11
 vrgb2yuv_tb
@@ -4585,8 +4609,8 @@ r1
 !s85 0
 31
 !s108 1681383961.132000
-R42
-R43
+R48
+R49
 !i113 0
 R11
 vrow_ctl
@@ -4904,3 +4928,26 @@ R10
 !i113 0
 R11
 R12
+vuiFDMA
+R32
+R33
+!i10b 1
+!s100 EKj16JCfhX0:dnfVR33_J0
+I96VB?DfzPEmPf3z;D3omd1
+R4
+R0
+R34
+8../../../../hevc_encoder_system.ip_user_files/bd/fdma_mig_ddr/ipshared/4624/uiFDMA.v
+F../../../../hevc_encoder_system.ip_user_files/bd/fdma_mig_ddr/ipshared/4624/uiFDMA.v
+R28
+R7
+r1
+!s85 0
+31
+R35
+R36
+R37
+!i113 0
+R11
+R12
+nui@f@d@m@a

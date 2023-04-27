@@ -1,4 +1,4 @@
-`include "./hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/enc_defines.v"
+`include "enc_defines.v"
 
 module hevc_encoder_system_top(
     /* 系统信号 */
@@ -49,7 +49,7 @@ module hevc_encoder_system_top(
 
     // HDMI2RGB & EXIF
     wire vsync;
-    wire pixel_y, pixel_uv;
+    wire [127:0] pixel_y, pixel_uv;
     wire pixel_y_de, pixel_uv_de;
 
     // CTRL & EXIF

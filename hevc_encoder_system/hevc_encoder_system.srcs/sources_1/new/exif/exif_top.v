@@ -70,6 +70,7 @@ module exif_top(
 
     // FDMA 写入数据
     // 该接口可能由 YUV FIFO 或 HEVC 写入，因此需要通过 FIFO 读使能判断具体哪一个写数据
+    wire [127:0] fdma_mig_ddr_wdata;
     assign fdma_mig_ddr_wdata = is_fifo_write ? video_buffer_pixel_out : exif_data_i;
     assign fdma_mig_ddr_wareq = pixel_rd_en_i || exif_wr_en_i;
 

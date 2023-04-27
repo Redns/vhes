@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Thu Apr 27 20:07:14 2023
+# Process ID: 193116
+# Current directory: e:/Project/xk265/mig_7series_0_ex
+# Command line: vivado.exe -notrace -source e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/ip/mig_7series_0/mig_7series_0_ex.tcl
+# Log file: e:/Project/xk265/mig_7series_0_ex/vivado.log
+# Journal file: e:/Project/xk265/mig_7series_0_ex\vivado.jou
+# Running On: JingDevice, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 4, Host memory: 17005 MB
+#-----------------------------------------------------------
+start_gui
+source e:/Project/xk265/hevc_encoder_system/hevc_encoder_system.gen/sources_1/ip/mig_7series_0/mig_7series_0_ex.tcl -notrace
