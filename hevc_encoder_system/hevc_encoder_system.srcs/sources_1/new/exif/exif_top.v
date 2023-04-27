@@ -48,7 +48,8 @@ module exif_top(
 );
 
 /*************************** 信号线定义 ****************************/
-    
+    reg is_fifo_write;
+
     wire video_buffer_rst_done;
 
     wire video_buffer_pixel_valid_out;
@@ -65,11 +66,11 @@ module exif_top(
     // Video Buffer 读使能
     // pixel_rd_en_i 代表系统要求读取 FIFO 数据至 DDR 中
     // FDMA_S_i_fdma_wvalid 代表 FDMA 要求发送待写入 DDR 的数据至总线上 
-    assign video_buffer_rd_en = pixel_rd_en_i && FDMA_S_i_fdma_wvalid;
+    assign video_buffer_rd_en = is_fifo_write && FDMA_S_i_fdma_wvalid;
 
     // FDMA 写入数据
     // 该接口可能由 YUV FIFO 或 HEVC 写入，因此需要通过 FIFO 读使能判断具体哪一个写数据
-    assign fdma_mig_ddr_wdata = pixel_rd_en_i ? video_buffer_pixel_out : exif_data_i;
+    assign fdma_mig_ddr_wdata = is_fifo_write ? video_buffer_pixel_out : exif_data_i;
     assign fdma_mig_ddr_wareq = pixel_rd_en_i || exif_wr_en_i;
 
     assign FDMA_S_i_fdma_busy = FDMA_S_i_fdma_wbusy || FDMA_S_i_fdma_rbusy;
@@ -77,6 +78,18 @@ module exif_top(
     // 在 vsync 下降沿时读取 FIFO 中帧尾数据个数
     // vsync 取反后同一时刻帧尾来临信号发出
     assign frame_last_block_come_o = ~vsync_i;
+
+    always@(posedge pixel_rd_en_i or posedge exif_wr_en_i or negedge rst_n_i) begin
+        if(!rst_n_i) 
+            is_fifo_write <= 1'b1;
+        else if(pixel_rd_en_i)
+            is_fifo_write <= 1'b1;
+        else if(exif_wr_en_i)
+            is_fifo_write <= 1'b0;
+        else 
+            is_fifo_write <= is_fifo_write;
+        
+    end
 
 /*********************** YUV FIFO 视频缓冲区 ************************/
     video_in_buffer video_in_buffer(

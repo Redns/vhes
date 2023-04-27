@@ -1,4 +1,4 @@
-`include "enc_defines.v"
+`include "./hevc_encoder_system.srcs/sources_1/new/enc_core/rtl/enc_defines.v"
 
 module hevc_encoder_system_top(
     /* 系统信号 */
@@ -213,8 +213,6 @@ module hevc_encoder_system_top(
         .pixel_buffer_full_i(pixel_buffer_full),
         .pixel_buffer_empty_i(pixel_buffer_empty),
         .pixel_buffer_rd_cnt_i(pixel_buffer_rd_cnt),
-        .frame_last_block_come_i(frame_last_block_come),
-        .frame_last_block_cnt_i(frame_last_block_cnt),
         .exif_wr_en_o(exif_wr_en),
         .exif_rd_en_o(exif_rd_en),
         .fdma_addr_o(fdma_addr),

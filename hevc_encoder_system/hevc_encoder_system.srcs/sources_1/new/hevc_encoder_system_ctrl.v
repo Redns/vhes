@@ -9,8 +9,6 @@ module hevc_encoder_system_ctrl(
     input pixel_buffer_full_i,
     input pixel_buffer_empty_i,
     input [13:0] pixel_buffer_rd_cnt_i,
-    input frame_last_block_come_i,
-    input [13:0] frame_last_block_cnt_i,
     /* EXIF 相关信号 */
     output reg exif_wr_en_o,
     output reg exif_rd_en_o,
@@ -54,10 +52,9 @@ module hevc_encoder_system_ctrl(
     reg [1:0] state;
 
     // 相关标志位
-    reg frdw_busy;
     reg exif_busy;
+    reg frdw_busy;
     reg hevc_enc_busy;
-    reg frame_last_block_come;
 
     // 帧缓存序号
     reg [15:0] hevc_enc_frame_nums;
@@ -72,6 +69,9 @@ module hevc_encoder_system_ctrl(
     // 输入视频流缓存地址
     // 为解决画面撕裂和速率不同步问题，将开辟 3 帧缓存区（首位不用）
     reg [31:0] video_frame_baseaddr[1:0];
+
+    reg [31:0] video_buffer_y_write_in_cnt;
+    reg [31:0] video_buffer_uv_write_in_cnt;
 
 /**************************** 标志位 *****************************/    
     // EXIF 数据交互开始标志
@@ -111,38 +111,34 @@ module hevc_encoder_system_ctrl(
             hevc_enc_busy <= hevc_enc_busy;
     end
 
-    // 帧尾块到达标志
-    // frame_last_block_come_i 置位表明该帧的最后块到达
-    // frdw_busy 清零表明该帧最后的 Y 和 UV 块均已被写入 DDR 
-    always@(posedge frame_last_block_come_i or negedge frdw_busy or negedge rst_n_i) begin
-        if(!rst_n_i)
-            frame_last_block_come <= 1'b0;
-        else if(frame_last_block_come_i)
-            frame_last_block_come <= 1'b1;
-        else if(!frdw_busy)
-            frame_last_block_come <= 1'b0;
-        else
-            frame_last_block_come <= frame_last_block_come;
-    end
-
-    // 帧写入序号切换
-    // frame_last_block_come 清零表明该帧最后像素块已经写入 DDR，可以开始写入新的帧缓冲区
-    always@(negedge frame_last_block_come or negedge rst_n_i) begin
+    // FIFO 读取 DDR 写入繁忙标志
+    // pixel_buffer_full_i 上升沿代表 FIFO 已满需要读取
+    // pixel_type_o 下降沿代表 uv 分量已读取完成
+    always@(posedge pixel_buffer_full_i or negedge pixel_type_o or negedge rst_n_i) begin
         if(!rst_n_i) begin
-            current_write_frame_serial_number <= 1'b1;
-            previous_write_frame_serial_number <= 1'b0;
+            frdw_busy <= 1'b0;
+            current_write_frame_serial_number <= 2'b1;
+            previous_write_frame_serial_number <= 2'b0;
         end
-        else if(!frame_last_block_come) begin
-            if((current_write_frame_serial_number % 3 + 2'b1) == current_read_frame_serial_number) 
-                current_write_frame_serial_number <= (current_write_frame_serial_number % 3 + 2'd2);
-            else
-                current_write_frame_serial_number <= (current_write_frame_serial_number % 3 + 2'd1);
-            previous_write_frame_serial_number <= current_write_frame_serial_number; 
+        else if(pixel_buffer_full_i) begin
+            frdw_busy <= 1'b1;
         end
-        else begin
-            current_write_frame_serial_number <= current_write_frame_serial_number;
-            previous_write_frame_serial_number <= previous_write_frame_serial_number;
+        else if(!pixel_type_o) begin 
+            frdw_busy <= 1'b0;
+            if(video_buffer_y_write_in_cnt >= `FRAME_WIDTH * `FRAME_HEIGHT) begin
+                if((current_write_frame_serial_number % 3 + 2'b1) == current_read_frame_serial_number)
+                    current_write_frame_serial_number <= (current_write_frame_serial_number % 3 + 2'd2);
+                else 
+                    current_write_frame_serial_number <= (current_write_frame_serial_number % 3 + 2'd1);
+                previous_write_frame_serial_number <= current_write_frame_serial_number;
+            end
+            else begin
+                current_write_frame_serial_number <= current_write_frame_serial_number;
+                previous_write_frame_serial_number <= previous_write_frame_serial_number;
+            end
         end
+        else
+            frdw_busy <= frdw_busy;
     end
     
     // HEVC 编码模式设置（帧内/帧间）
@@ -163,8 +159,6 @@ module hevc_encoder_system_ctrl(
         if(!rst_n_i) begin
             // 初始化状态
             state <= S0_INIT;
-            // 初始化标志位
-            frdw_busy <= 1'b0;
             // 初始化帧操作序号
             current_read_frame_serial_number <= 2'b0;
             // 初始化帧缓冲区地址
@@ -172,6 +166,9 @@ module hevc_encoder_system_ctrl(
             video_frame_baseaddr[1] <= 32'h100_0000;
             video_frame_baseaddr[2] <= 32'h200_0000;
             video_frame_baseaddr[3] <= 32'h300_0000;
+            // 初始化 video_buffer 读取计数器
+            video_buffer_y_write_in_cnt <= 32'h0;
+            video_buffer_uv_write_in_cnt <= 32'h0;
             // 初始化读写使能信号
             pixel_type_o <= 1'b0;
             pixel_buffer_rd_en_o <= 1'b0;
@@ -190,15 +187,44 @@ module hevc_encoder_system_ctrl(
             // 由于标志位置位与 case 块并行执行，相关运算会延后一个时钟
             case(state)
                 S0_INIT: begin
-                    if(frame_last_block_come || pixel_buffer_full_i)
+                    if(frdw_busy)
                         state <= S1_FIFO_READ;
                     else
                         state <= S0_INIT;
                 end
                 S1_FIFO_READ: begin
                     // 将 YUV 缓冲区 FIFO 数据写入 DDR
-                    if(frame_last_block_come || pixel_buffer_full_i || frdw_busy) begin
-                        
+                    if(frdw_busy) begin
+                        if(!fdma_busy_i) begin
+                            if(video_buffer_y_write_in_cnt == (video_buffer_uv_write_in_cnt << 1)) begin
+                                pixel_type_o <= 1'b0;
+                                pixel_buffer_rd_en_o <= 1'b1;
+                                fdma_addr_o <= video_frame_baseaddr[current_write_frame_serial_number] + video_buffer_y_write_in_cnt;
+                                if(pixel_buffer_rd_cnt_i >= ((`FRAME_WIDTH * `FRAME_HEIGHT - video_buffer_y_write_in_cnt) >> 4)) begin 
+                                    video_buffer_y_write_in_cnt <= `FRAME_WIDTH * `FRAME_HEIGHT;
+                                    fdma_size_o <= (`FRAME_WIDTH * `FRAME_HEIGHT - video_buffer_y_write_in_cnt) >> 4;
+                                end
+                                else begin
+                                    video_buffer_y_write_in_cnt <= video_buffer_y_write_in_cnt + pixel_buffer_rd_cnt_i << 4;
+                                    fdma_size_o <= pixel_buffer_rd_cnt_i;
+                                end
+                            end
+                            else begin
+                                if(!pixel_type_o) begin
+                                    pixel_type_o <= 1'b1;
+                                    pixel_buffer_rd_en_o <= 1'b1;
+                                    video_buffer_uv_write_in_cnt <= video_buffer_uv_write_in_cnt + (video_buffer_y_write_in_cnt - video_buffer_uv_write_in_cnt) >> 1;
+                                    fdma_size_o <= (video_buffer_y_write_in_cnt - video_buffer_uv_write_in_cnt) >> (1 + 4);
+                                    fdma_addr_o <= video_frame_baseaddr[current_write_frame_serial_number] + `FRAME_WIDTH * `FRAME_HEIGHT + video_buffer_uv_write_in_cnt;
+                                end
+                                else
+                                    pixel_type_o <= 1'b0;
+                            end
+                        end
+                        else begin
+                            if(pixel_buffer_rd_en_o)
+                                pixel_buffer_rd_en_o <= 1'b0;
+                        end
                     end
                     else if(exif_busy)
                         state <= S2_EXIF;
@@ -327,14 +353,14 @@ module hevc_encoder_system_ctrl(
                             // 由于 exif_busy 信号绑定 hevc_exif_done_o 上升沿，则 hevc_exif_done_o 置位后
                             // 不会再进入上述语句，故 hevc_exif_done_o 需要放在此处清除
                             hevc_exif_done_o <= 1'b0;
-                        if(frame_last_block_come || pixel_buffer_full_i)
+                        if(frdw_busy)
                             state <= S1_FIFO_READ;
                         else
                             state <= S3_HEVC_ENC;
                     end
                 end
                 S3_HEVC_ENC: begin
-                    if(frame_last_block_come || pixel_buffer_full_i)
+                    if(frdw_busy)
                         state <= S1_FIFO_READ;
                     else if(exif_busy) 
                         state <= S2_EXIF;
