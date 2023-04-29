@@ -1,6 +1,0 @@
-verilog xil_defaultlib  \
-"../../../../hevc_encoder_system.gen/sources_1/ip/pixel_fifo/sim/pixel_fifo.v" \
-
-verilog xil_defaultlib "glbl.v"
-
-nosort

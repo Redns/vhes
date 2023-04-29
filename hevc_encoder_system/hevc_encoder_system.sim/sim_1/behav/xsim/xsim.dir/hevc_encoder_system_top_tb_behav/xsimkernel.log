@@ -1,7 +1,0 @@
-Running: xsim.dir/hevc_encoder_system_top_tb_behav/xsimk.exe -simmode gui -wdb hevc_encoder_system_top_tb_behav.wdb -simrunnum 0 -socket 11058
-Design successfully loaded
-Design Loading Memory Usage: 127696 KB (Peak: 127696 KB)
-Design Loading CPU Usage: 249 ms
-Simulation completed
-Simulation Memory Usage: 1987412 KB (Peak: 1987412 KB)
-Simulation CPU Usage: 40515 ms

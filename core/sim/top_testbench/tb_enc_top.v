@@ -20,7 +20,6 @@
     `define FORMAT_YUV
 
     // 测试时修改此处的帧大小
-    // TODO 当 FRAME_W 和 FRAME_H 整除 LCU_SIZE 时会造成内存浪费
     `define FRAME_WIDTH     1920 // (`FRAME_W/`LCU_SIZE + 1)*`LCU_SIZE  // full LCU
     `define FRAME_HEIGHT    1080 // (`FRAME_H/`LCU_SIZE + 1)*`LCU_SIZE  // full LCU
 
@@ -36,7 +35,7 @@
     `define SKIP_COST_THRESH_32 (`SKIP_COST_THRESH_16 * 7) / 2
     `define SKIP_COST_THRESH_64 (`SKIP_COST_THRESH_32 * 7) / 2
 
-    // TODO 此处需要与 YUV 视频源帧数对应
+    // 此处需要与 YUV 视频源帧数对应
     `define CHECK_FRAME_NUM 130
 
 /* test vectors */

@@ -1,5 +1,0 @@
-fifo_generator_vlog_beh.v,verilog,fifo_generator_v13_2_7,../../../ipstatic/simulation/fifo_generator_vlog_beh.v,
-fifo_generator_v13_2_rfs.vhd,vhdl,fifo_generator_v13_2_7,../../../ipstatic/hdl/fifo_generator_v13_2_rfs.vhd,
-fifo_generator_v13_2_rfs.v,verilog,fifo_generator_v13_2_7,../../../ipstatic/hdl/fifo_generator_v13_2_rfs.v,
-pixel_fifo.v,verilog,xil_defaultlib,../../../../hevc_encoder_system.gen/sources_1/ip/pixel_fifo/sim/pixel_fifo.v,
-glbl.v,Verilog,xil_defaultlib,glbl.v
