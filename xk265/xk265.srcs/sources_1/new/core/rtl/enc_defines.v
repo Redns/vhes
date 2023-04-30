@@ -22,12 +22,16 @@
 
 `define RC_OPEN 
 
-`define INTRA              1'd0
-`define INTER              1'd1
+`define INTRA               1'd0
+`define INTER               1'd1
 
 // 帧尺寸设置
-`define FRAME_WIDTH     1920
-`define FRAME_HEIGHT    1080
+// TODO 修改此处配置 1920*1080*130
+`define FRAME_WIDTH         192
+`define FRAME_HEIGHT        10
+`define FRAME_SIZE          `FRAME_WIDTH * `FRAME_HEIGHT
+`define FRAME_NUMS          1300
+`define FILE_VIDEO_ORIGIN   "E:/Project/xk265/core/sim/top_testbench/tv/blue_sky.yuv"   
 
 // 其他设置
 `define INITIAL_QP      20

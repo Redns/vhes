@@ -60,7 +60,6 @@ module xk265_top(
     wire pixel_buffer_empty;
     wire [13:0] pixel_buffer_rd_cnt;
     wire frame_last_block_come;
-    wire [13:0] frame_last_block_cnt;
 
     // CTRL & extif
     wire extif_wr_en, extif_rd_en;
@@ -109,7 +108,6 @@ module xk265_top(
         .clk_100M_i(clk_100M_i),
         .clk_ui_200M_o(clk_ui_200M),
         .pclk_i(pclk_i),
-        .vsync_i(vsync),
         .y_de_i(pixel_y_de),
         .uv_de_i(pixel_uv_de),
         .y_i(pixel_y),
@@ -117,10 +115,7 @@ module xk265_top(
         .pixel_type_i(pixel_type),
         .pixel_rd_en_i(pixel_buffer_rd_en),
         .pixel_buffer_full_o(pixel_buffer_full),
-        .pixel_buffer_empty_o(pixel_buffer_empty),
         .pixel_fifo_rd_cnt_o(pixel_buffer_rd_cnt),
-        .frame_last_block_come_o(frame_last_block_come),
-        .frame_last_block_cnt_o(frame_last_block_cnt),
         .extif_wr_en_i(extif_wr_en),
         .extif_rd_en_i(extif_rd_en),
         .extif_data_i(extif_data_in_hevc_data_out),
@@ -212,7 +207,6 @@ module xk265_top(
         .pixel_type_o(pixel_type),
         .pixel_buffer_rd_en_o(pixel_buffer_rd_en),
         .pixel_buffer_full_i(pixel_buffer_full),
-        .pixel_buffer_empty_i(pixel_buffer_empty),
         .pixel_buffer_rd_cnt_i(pixel_buffer_rd_cnt),
         .extif_wr_en_o(extif_wr_en),
         .extif_rd_en_o(extif_rd_en),

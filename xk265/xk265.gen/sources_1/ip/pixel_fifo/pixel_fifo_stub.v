@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Sat Apr 29 16:31:43 2023
+// Date        : Sun Apr 30 17:04:30 2023
 // Host        : JingDevice running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               e:/Project/xk265/xk265/xk265.gen/sources_1/ip/pixel_fifo/pixel_fifo_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top pixel_fifo -prefix
+//               pixel_fifo_ pixel_fifo_stub.v
 // Design      : pixel_fifo
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z035ffg676-2

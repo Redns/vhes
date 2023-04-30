@@ -7,7 +7,6 @@ module xk265_ctrl(
     output reg pixel_type_o,
     output reg pixel_buffer_rd_en_o,
     input pixel_buffer_full_i,
-    input pixel_buffer_empty_i,
     input [13:0] pixel_buffer_rd_cnt_i,
     /* extif 相关信号 */
     output reg extif_wr_en_o,
@@ -67,8 +66,8 @@ module xk265_ctrl(
 
     // DDR 内存地址分配
     // 输入视频流缓存地址
-    // 为解决画面撕裂和速率不同步问题，将开辟 3 帧缓存区（首位不用）
-    reg [31:0] video_frame_baseaddr[1:0];
+    // 为解决画面撕裂和速率不同步问题，将开辟 3 帧缓存区（首位为重建图像缓冲区）
+    reg [31:0] video_frame_baseaddr[3:0];
 
     reg [31:0] video_buffer_y_write_in_cnt;
     reg [31:0] video_buffer_uv_write_in_cnt;
@@ -111,32 +110,15 @@ module xk265_ctrl(
             hevc_enc_busy <= hevc_enc_busy;
     end
 
-    // FIFO 读取 DDR 写入繁忙标志
-    // pixel_buffer_full_i 上升沿代表 FIFO 已满需要读取
-    // pixel_type_o 下降沿代表 uv 分量已读取完成
-    always@(posedge pixel_buffer_full_i or negedge pixel_type_o or negedge rst_n_i) begin
-        if(!rst_n_i) begin
+    // STATE2_FRDW 相关逻辑
+    // frdw_busy 表示该状态正忙，不允许切换至其他状态，其他状态空闲时应立即切换至该状态
+    always@(posedge pixel_buffer_full_i or negedge fdma_busy_i or negedge rst_n_i) begin
+        if(!rst_n_i) 
             frdw_busy <= 1'b0;
-            current_write_frame_serial_number <= 2'b1;
-            previous_write_frame_serial_number <= 2'b0;
-        end
-        else if(pixel_buffer_full_i) begin
+        else if(pixel_buffer_full_i) 
             frdw_busy <= 1'b1;
-        end
-        else if(!pixel_type_o) begin 
-            frdw_busy <= 1'b0;
-            if(video_buffer_y_write_in_cnt >= `FRAME_WIDTH * `FRAME_HEIGHT) begin
-                if((current_write_frame_serial_number % 3 + 2'b1) == current_read_frame_serial_number)
-                    current_write_frame_serial_number <= (current_write_frame_serial_number % 3 + 2'd2);
-                else 
-                    current_write_frame_serial_number <= (current_write_frame_serial_number % 3 + 2'd1);
-                previous_write_frame_serial_number <= current_write_frame_serial_number;
-            end
-            else begin
-                current_write_frame_serial_number <= current_write_frame_serial_number;
-                previous_write_frame_serial_number <= previous_write_frame_serial_number;
-            end
-        end
+        else if(!fdma_busy_i)  
+            frdw_busy <= pixel_type_o ? 1'b0 : 1'b1;
         else
             frdw_busy <= frdw_busy;
     end
@@ -169,6 +151,9 @@ module xk265_ctrl(
             // 初始化 video_buffer 读取计数器
             video_buffer_y_write_in_cnt <= 32'h0;
             video_buffer_uv_write_in_cnt <= 32'h0;
+            // 初始化视频输入流缓存指针
+            current_write_frame_serial_number <= 2'b1;
+            previous_write_frame_serial_number <= 2'b0;
             // 初始化读写使能信号
             pixel_type_o <= 1'b0;
             pixel_buffer_rd_en_o <= 1'b0;
@@ -187,51 +172,65 @@ module xk265_ctrl(
             // 由于标志位置位与 case 块并行执行，相关运算会延后一个时钟
             case(state)
                 S0_INIT: begin
-                    if(frdw_busy)
-                        state <= S1_FIFO_READ;
-                    else
-                        state <= S0_INIT;
+                    state <= frdw_busy ? S1_FIFO_READ : S0_INIT;
                 end
                 S1_FIFO_READ: begin
-                    // 将 YUV 缓冲区 FIFO 数据写入 DDR
                     if(frdw_busy) begin
+                        // 将 YUV 缓冲区 FIFO 数据写入 DDR
                         if(!fdma_busy_i && !pixel_buffer_rd_en_o) begin
+                            // FDMA 处于空闲状态且未启动一次新的缓存
                             if(video_buffer_y_write_in_cnt == (video_buffer_uv_write_in_cnt << 1)) begin
+                                // 启动一次新的 Y 分量缓存
                                 pixel_type_o <= 1'b0;
                                 pixel_buffer_rd_en_o <= 1'b1;
                                 fdma_addr_o <= video_frame_baseaddr[current_write_frame_serial_number] + video_buffer_y_write_in_cnt;
-                                if(pixel_buffer_rd_cnt_i >= ((`FRAME_WIDTH * `FRAME_HEIGHT - video_buffer_y_write_in_cnt) >> 4)) begin 
-                                    video_buffer_y_write_in_cnt <= `FRAME_WIDTH * `FRAME_HEIGHT;
-                                    fdma_size_o <= (`FRAME_WIDTH * `FRAME_HEIGHT - video_buffer_y_write_in_cnt) >> 4;
+                                if(pixel_buffer_rd_cnt_i >= ((`FRAME_SIZE - video_buffer_y_write_in_cnt) >> 4)) begin 
+                                    // 缓冲区可读取数量大于该帧尾部大小
+                                    video_buffer_y_write_in_cnt <= `FRAME_SIZE;
+                                    fdma_size_o <= (`FRAME_SIZE - video_buffer_y_write_in_cnt) >> 4;
                                 end
                                 else begin
-                                    // 注意此处读取的 128bit 块数量必须为 16 的整数倍
-                                    // 否则最后一次读取计算所需的块数量时（>> 4）可能丢失某些块（如最后应该需要 100 块，但实际上取了 96 块）
-                                    video_buffer_y_write_in_cnt <= video_buffer_y_write_in_cnt + ((pixel_buffer_rd_cnt_i >> 4) << 4);
-                                    fdma_size_o <= ((pixel_buffer_rd_cnt_i >> 4) << 4);
+                                    // 此处读取的 Y 块数目必须为 2 的倍数
+                                    // 否则 UV 块读取的数目无法匹配 Y 块读取的数目
+                                    video_buffer_y_write_in_cnt <= video_buffer_y_write_in_cnt + (pixel_buffer_rd_cnt_i >> 1) << 5;
+                                    fdma_size_o <= ((pixel_buffer_rd_cnt_i >> 1) << 1);
                                 end
                             end
                             else begin
-                                if(!pixel_type_o) begin
-                                    pixel_type_o <= 1'b1;
-                                    pixel_buffer_rd_en_o <= 1'b1;
-                                    video_buffer_uv_write_in_cnt <= video_buffer_uv_write_in_cnt + (video_buffer_y_write_in_cnt - video_buffer_uv_write_in_cnt) >> 1;
-                                    fdma_size_o <= (video_buffer_y_write_in_cnt - video_buffer_uv_write_in_cnt) >> (1 + 4);
-                                    fdma_addr_o <= video_frame_baseaddr[current_write_frame_serial_number] + `FRAME_WIDTH * `FRAME_HEIGHT + video_buffer_uv_write_in_cnt;
-                                end
-                                else
-                                    pixel_type_o <= 1'b0;
+                                // 启动一次新的 UV 分量缓存
+                                // UV 缓存首地址为帧缓存首地址 + FRAME_SIZE
+                                pixel_type_o <= 1'b1;
+                                pixel_buffer_rd_en_o <= 1'b1;
+                                video_buffer_uv_write_in_cnt <= (video_buffer_y_write_in_cnt >> 1);
+                                fdma_size_o <= (fdma_size_o >> 1);
+                                fdma_addr_o <= video_frame_baseaddr[current_write_frame_serial_number] + `FRAME_SIZE + video_buffer_uv_write_in_cnt;
                             end
                         end
-                        else begin
-                            if(pixel_buffer_rd_en_o)
-                                pixel_buffer_rd_en_o <= 1'b0;
-                        end
+                        else if(pixel_buffer_rd_en_o)
+                            pixel_buffer_rd_en_o <= 1'b0;
                     end
-                    else if(extif_busy)
-                        state <= S2_extif;
-                    else
-                        state <= S3_HEVC_ENC;
+                    else begin
+                        // FRDW 状态结束，代表一次输入视频流缓存完成
+                        // 根据 YUV 像素计数器判断是否需要更改写指针（current & previous）
+                        if(video_buffer_y_write_in_cnt == `FRAME_SIZE) begin
+                            // 清空 YUV 计数器
+                            video_buffer_y_write_in_cnt <= 32'b0;
+                            video_buffer_uv_write_in_cnt <= 32'b0;
+                            // 切换写指针
+                            case({ current_write_frame_serial_number, current_read_frame_serial_number})
+                                { 2'd1, 2'd0 }: current_write_frame_serial_number <= 2'd2;
+                                { 2'd1, 2'd2 }: current_write_frame_serial_number <= 2'd3;
+                                { 2'd1, 2'd3 }: current_write_frame_serial_number <= 2'd2;
+                                { 2'd2, 2'd1 }: current_write_frame_serial_number <= 2'd3;
+                                { 2'd2, 2'd3 }: current_write_frame_serial_number <= 2'd1;
+                                { 2'd3, 2'd1 }: current_write_frame_serial_number <= 2'd2;
+                                { 2'd3, 2'd2 }: current_write_frame_serial_number <= 2'd1;
+                                default: current_write_frame_serial_number <= current_write_frame_serial_number;
+                            endcase 
+                            previous_write_frame_serial_number <= current_write_frame_serial_number;
+                        end
+                        state <= extif_busy ? S2_extif : S3_HEVC_ENC;
+                    end 
                 end
                 S2_extif: begin
                     if(extif_busy) begin
@@ -355,10 +354,7 @@ module xk265_ctrl(
                             // 由于 extif_busy 信号绑定 hevc_extif_done_o 上升沿，则 hevc_extif_done_o 置位后
                             // 不会再进入上述语句，故 hevc_extif_done_o 需要放在此处清除
                             hevc_extif_done_o <= 1'b0;
-                        if(frdw_busy)
-                            state <= S1_FIFO_READ;
-                        else
-                            state <= S3_HEVC_ENC;
+                        state <= frdw_busy ? S1_FIFO_READ : S3_HEVC_ENC;
                     end
                 end
                 S3_HEVC_ENC: begin

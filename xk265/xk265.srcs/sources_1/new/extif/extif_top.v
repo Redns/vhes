@@ -6,7 +6,6 @@ module extif_top(
     output clk_ui_200M_o,                       // 200MHz 用户操作时钟输出（与 DDR 交互必须使用此时钟）
     /* YUV FIFO 相关信号 */ 
     input pclk_i,                               // 像素时钟输入（1080P@60fps：148.5MHz）
-    input vsync_i,                              // 场同步信号输入
     input y_de_i,                               // Y 分量像素有效标志输入（高电平有效）
     input uv_de_i,                              // UV 分量像素有效标志输入（高电平有效）
     input [127:0] y_i,                          // Y 分量输入
@@ -14,10 +13,7 @@ module extif_top(
     input pixel_type_i,                         // 读取像素类型输入（0：Y；1：UV）
     input pixel_rd_en_i,                        // 缓冲区像素读取标志输入（高电平有效）
     output pixel_buffer_full_o,                 // 像素缓冲区满标志位（高电平有效）
-    output pixel_buffer_empty_o,                // 像素缓冲区空标志位（高电平有效）
     output [13:0] pixel_fifo_rd_cnt_o,
-    output frame_last_block_come_o,             // 帧尾到达标志输出（高电平有效）
-    output reg [13:0] frame_last_block_cnt_o,   // 帧尾待读像素块数目
     /* extif 相关信号 */
     input extif_wr_en_i,
     input extif_rd_en_i,
@@ -52,7 +48,6 @@ module extif_top(
 
     wire fdma_mig_ddr_rst_done;
 
-    wire video_buffer_pixel_valid_out;
     wire [127:0] video_buffer_pixel_out;
 
     wire FDMA_S_i_fdma_wvalid, FDMA_S_i_fdma_rvalid;
@@ -74,15 +69,11 @@ module extif_top(
 
     // FDMA 写入数据
     // 该接口可能由 YUV FIFO 或 HEVC 写入，因此需要通过 FIFO 读使能判断具体哪一个写数据
-    wire [127:0] fdma_mig_ddr_wdata;
-    assign fdma_mig_ddr_wdata = is_fifo_write ? video_buffer_pixel_out : extif_data_i;
+    wire [127:0] fdma_mig_ddr_wdata = is_fifo_write ? video_buffer_pixel_out : extif_data_i;
     assign fdma_mig_ddr_wareq = pixel_rd_en_i || extif_wr_en_i;
 
+    // FDMA 读写繁忙标志
     assign FDMA_S_i_fdma_busy = FDMA_S_i_fdma_wbusy || FDMA_S_i_fdma_rbusy;
-
-    // 在 vsync 下降沿时读取 FIFO 中帧尾数据个数
-    // vsync 取反后同一时刻帧尾来临信号发出
-    assign frame_last_block_come_o = ~vsync_i;
 
     always@(posedge pixel_rd_en_i or posedge extif_wr_en_i or negedge rst_n_i) begin
         if(!rst_n_i) 
@@ -109,9 +100,7 @@ module extif_top(
         .pixel_type_i(pixel_type_i),
         .pixel_rd_en_i(video_buffer_rd_en),
         .pixel_buffer_full_o(pixel_buffer_full_o),
-        .pixel_buffer_empty_o(pixel_buffer_empty_o),
         .pixel_buffer_rd_cnt_o(pixel_fifo_rd_cnt_o),
-        .pixel_valid_o(video_buffer_pixel_valid_out),
         .pixel_o(video_buffer_pixel_out)
     );
 
@@ -150,13 +139,5 @@ module extif_top(
         .init_calib_complete_o(fdma_mig_ddr_rst_done),
         .ui_clk_200M_o(clk_ui_200M_o)
     );
-
-/************************ YUV FIFO 帧尾数据 ************************/
-    always@(negedge vsync_i or negedge rst_n_i) begin
-        if(!rst_n_i) 
-            frame_last_block_cnt_o <= 14'b0;
-        else
-            frame_last_block_cnt_o <= pixel_fifo_rd_cnt_o;  
-    end
 
 endmodule

@@ -4,13 +4,6 @@
 
 module xk265_top_tb;
 /****************************** 宏定义 ***************************/
-    // 视频源信息
-    // TODO 修改此处信息 1920*1080*130
-    `define FRAME_WIDTH         192
-    `define FRAME_HEIGHT        10
-    `define FRAME_NUMS          130
-    `define FILE_VIDEO_ORIGIN   "E:/Project/xk265/core/sim/top_testbench/tv/blue_sky.yuv"   
-
     // 时钟周期
     `define HALF_PCLK           3
     `define FULL_PCLK           (`HALF_PCLK * 2)
