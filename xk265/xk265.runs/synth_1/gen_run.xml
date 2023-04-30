@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z035ffg676-2" LaunchTime="1682760102">
+<GenRun Id="synth_1" LaunchPart="xc7z035ffg676-2" LaunchTime="1682795511" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/xk265_top.dcp">
   <File Type="PA-TCL" Name="xk265_top.tcl"/>
   <File Type="REPORTS-TCL" Name="xk265_top_reports.tcl"/>
   <File Type="RDS-RDS" Name="xk265_top.vds"/>
@@ -1473,13 +1473,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/hdmi2yuv/rgb2yuv.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/core/rtl/rec/rec_tq/row_ctl.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -1620,6 +1613,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/hdmi2yuv/rgb2yuv.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/core/rtl/fme/getbits.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -1724,20 +1725,10 @@
         <Attr Name="ScopedToCell" Val="fdma_mig_ddr_mig_7series_0_0"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sim_1/imports/imports/ddr3_model.sv">
+    <File Path="$PSRCDIR/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/mig_b.prj">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sim_1/imports/imports/ddr3_model_parameters.vh">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-        <Attr Name="IsVisible" Val="1"/>
+        <Attr Name="ScopedToCell" Val="fdma_mig_ddr_mig_7series_0_0"/>
       </FileInfo>
     </File>
     <Config>
@@ -1754,6 +1745,14 @@
   </FileSet>
   <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
     <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/xk265_top.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
@@ -1763,8 +1762,5 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="pixel_fifo"/>
-  <BlockFileSet Type="BlockSrcs" Name="fdma_mig_ddr_proc_sys_reset_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="fdma_mig_ddr_mig_7series_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="fdma_mig_ddr_uiFDMA_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="fdma_mig_ddr_clk_wiz_0_0"/>
 </GenRun>

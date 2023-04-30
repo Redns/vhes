@@ -2,8 +2,8 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Sat Apr 29 17:22:44 2023
-# Process ID: 24456
+# Start of session at: Sun Apr 30 03:11:57 2023
+# Process ID: 17492
 # Current directory: E:/Project/xk265/xk265/xk265.runs/synth_1
 # Command line: vivado.exe -log xk265_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source xk265_top.tcl
 # Log file: E:/Project/xk265/xk265/xk265.runs/synth_1/xk265_top.vds

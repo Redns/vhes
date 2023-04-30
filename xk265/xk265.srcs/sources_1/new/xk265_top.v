@@ -83,6 +83,7 @@ module xk265_top(
 /************************ HDMI 转 RGB 模块 *************************/
     hdmi2yuv_top hdmi2yuv_top(
         .rst_n_i(rst_n_i),
+        .video_buffer_init_done_i(extif_top_rst_done),
         .clk_100M_i(clk_100M_i),
         .rst_done_o(hdmi2rgb_rst_done),
         .adv_sda(adv_sda),

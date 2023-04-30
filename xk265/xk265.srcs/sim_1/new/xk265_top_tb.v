@@ -1,13 +1,14 @@
-`timescale 1ps/100fs
+`timescale 1ns/1ps
 
 `include "enc_defines.v"
 
 module xk265_top_tb;
 /****************************** 宏定义 ***************************/
     // 视频源信息
-    `define FRAME_WIDTH         1920
-    `define FRAME_HEIGHT        1080
-    `define FRAME_NUMS          3
+    // TODO 修改此处信息 1920*1080*130
+    `define FRAME_WIDTH         192
+    `define FRAME_HEIGHT        10
+    `define FRAME_NUMS          130
     `define FILE_VIDEO_ORIGIN   "E:/Project/xk265/core/sim/top_testbench/tv/blue_sky.yuv"   
 
     // 时钟周期
@@ -82,7 +83,7 @@ module xk265_top_tb;
         .DDR3_o_we_n(DDR3_o_we_n)
     );
 
-    ddr3_model u_comp_ddr3(
+    ddr3_model u_comp_ddr3_p1(
         .rst_n(DDR3_o_reset_n),
         .ck(DDR3_o_ck_p),
         .ck_n(DDR3_o_ck_n),
@@ -91,12 +92,31 @@ module xk265_top_tb;
         .ras_n(DDR3_o_ras_n),
         .cas_n(DDR3_o_cas_n),
         .we_n(DDR3_o_we_n),
-        .dm_tdqs(DDR3_o_dm),
+        .dm_tdqs(DDR3_o_dm[1:0]),
         .ba(DDR3_o_ba),
         .addr(DDR3_o_addr),
-        .dq(DDR3_o_dq),
-        .dqs(DDR3_o_dqs_p),
-        .dqs_n(DDR3_o_dqs_n),
+        .dq(DDR3_o_dq[15:0]),
+        .dqs(DDR3_o_dqs_p[1:0]),
+        .dqs_n(DDR3_o_dqs_n[1:0]),
+        .tdqs_n(),
+        .odt(DDR3_o_odt)
+    );
+
+    ddr3_model u_comp_ddr3_p2(
+        .rst_n(DDR3_o_reset_n),
+        .ck(DDR3_o_ck_p),
+        .ck_n(DDR3_o_ck_n),
+        .cke(DDR3_o_cke),
+        .cs_n(DDR3_o_cs_n),
+        .ras_n(DDR3_o_ras_n),
+        .cas_n(DDR3_o_cas_n),
+        .we_n(DDR3_o_we_n),
+        .dm_tdqs(DDR3_o_dm[3:2]),
+        .ba(DDR3_o_ba),
+        .addr(DDR3_o_addr),
+        .dq(DDR3_o_dq[31:16]),
+        .dqs(DDR3_o_dqs_p[3:2]),
+        .dqs_n(DDR3_o_dqs_n[3:2]),
         .tdqs_n(),
         .odt(DDR3_o_odt)
     );

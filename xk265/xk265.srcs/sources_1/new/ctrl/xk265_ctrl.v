@@ -195,7 +195,7 @@ module xk265_ctrl(
                 S1_FIFO_READ: begin
                     // 将 YUV 缓冲区 FIFO 数据写入 DDR
                     if(frdw_busy) begin
-                        if(!fdma_busy_i) begin
+                        if(!fdma_busy_i && !pixel_buffer_rd_en_o) begin
                             if(video_buffer_y_write_in_cnt == (video_buffer_uv_write_in_cnt << 1)) begin
                                 pixel_type_o <= 1'b0;
                                 pixel_buffer_rd_en_o <= 1'b1;
@@ -205,8 +205,10 @@ module xk265_ctrl(
                                     fdma_size_o <= (`FRAME_WIDTH * `FRAME_HEIGHT - video_buffer_y_write_in_cnt) >> 4;
                                 end
                                 else begin
-                                    video_buffer_y_write_in_cnt <= video_buffer_y_write_in_cnt + pixel_buffer_rd_cnt_i << 4;
-                                    fdma_size_o <= pixel_buffer_rd_cnt_i;
+                                    // 注意此处读取的 128bit 块数量必须为 16 的整数倍
+                                    // 否则最后一次读取计算所需的块数量时（>> 4）可能丢失某些块（如最后应该需要 100 块，但实际上取了 96 块）
+                                    video_buffer_y_write_in_cnt <= video_buffer_y_write_in_cnt + ((pixel_buffer_rd_cnt_i >> 4) << 4);
+                                    fdma_size_o <= ((pixel_buffer_rd_cnt_i >> 4) << 4);
                                 end
                             end
                             else begin

@@ -67,6 +67,10 @@ module extif_top(
     // pixel_rd_en_i 代表系统要求读取 FIFO 数据至 DDR 中
     // FDMA_S_i_fdma_wvalid 代表 FDMA 要求发送待写入 DDR 的数据至总线上 
     assign video_buffer_rd_en = is_fifo_write && FDMA_S_i_fdma_wvalid;
+    // hevc ---> ddr
+    assign hevc_rd_en_o = !is_fifo_write && FDMA_S_i_fdma_wvalid;
+    // ddr ---> hevc
+    assign hevc_wr_en_o = FDMA_S_i_fdma_rvalid;
 
     // FDMA 写入数据
     // 该接口可能由 YUV FIFO 或 HEVC 写入，因此需要通过 FIFO 读使能判断具体哪一个写数据
@@ -134,17 +138,16 @@ module extif_top(
         .FDMA_S_i_fdma_rdata(extif_data_o),
         .FDMA_S_i_fdma_rready(1'b1),
         .FDMA_S_i_fdma_rsize(FDMA_S_i_fdma_size),
-        .FDMA_S_i_fdma_rvalid(hevc_wr_en_o),
+        .FDMA_S_i_fdma_rvalid(FDMA_S_i_fdma_rvalid),
         .FDMA_S_i_fdma_waddr(FDMA_S_i_fdma_addr),
         .FDMA_S_i_fdma_wareq(fdma_mig_ddr_wareq),
         .FDMA_S_i_fdma_wbusy(FDMA_S_i_fdma_wbusy),
         .FDMA_S_i_fdma_wdata(fdma_mig_ddr_wdata),
         .FDMA_S_i_fdma_wready(1'b1),
         .FDMA_S_i_fdma_wsize(FDMA_S_i_fdma_size),
-        .FDMA_S_i_fdma_wvalid(hevc_rd_en_o),
+        .FDMA_S_i_fdma_wvalid(FDMA_S_i_fdma_wvalid),
         .clk_100M_i(clk_100M_i),
         .init_calib_complete_o(fdma_mig_ddr_rst_done),
-        .rst_n_i(rst_n_i),
         .ui_clk_200M_o(clk_ui_200M_o)
     );
 

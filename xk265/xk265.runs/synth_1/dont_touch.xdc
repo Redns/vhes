@@ -25,4 +25,4 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fdma_mig_dd
 # IP: bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fdma_mig_ddr_auto_us_df_0 || ORIG_REF_NAME==fdma_mig_ddr_auto_us_df_0} -quiet] -quiet
 
-# XDC: E:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr_ooc.xdc
+# XDC: e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr_ooc.xdc

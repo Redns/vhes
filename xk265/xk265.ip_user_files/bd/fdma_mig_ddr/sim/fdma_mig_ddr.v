@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Sat Apr 29 17:04:44 2023
+//Date        : Sun Apr 30 02:48:09 2023
 //Host        : JingDevice running 64-bit major release  (build 9200)
 //Command     : generate_target fdma_mig_ddr.bd
 //Design      : fdma_mig_ddr
@@ -42,7 +42,6 @@ module fdma_mig_ddr
     FDMA_S_i_fdma_wvalid,
     clk_100M_i,
     init_calib_complete_o,
-    rst_n_i,
     ui_clk_200M_o);
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR3_o ADDR" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DDR3_o, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) output [14:0]DDR3_o_addr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR3_o BA" *) output [2:0]DDR3_o_ba;
@@ -75,7 +74,6 @@ module fdma_mig_ddr
   (* X_INTERFACE_INFO = "xilinx.com:user:FDMA:1.0 FDMA_S_i fdma_wvalid" *) output FDMA_S_i_fdma_wvalid;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_100M_I CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_100M_I, CLK_DOMAIN fdma_mig_ddr_clk_100M_i, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_100M_i;
   output init_calib_complete_o;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST_N_I RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST_N_I, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input rst_n_i;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.UI_CLK_200M_O CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.UI_CLK_200M_O, CLK_DOMAIN fdma_mig_ddr_mig_7series_0_0_ui_clk, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0" *) output ui_clk_200M_o;
 
   wire [31:0]FDMA_S_0_1_fdma_raddr;
@@ -148,7 +146,6 @@ module fdma_mig_ddr
   wire mig_7series_0_ui_clk;
   wire mig_7series_0_ui_clk_sync_rst;
   wire [0:0]proc_sys_reset_0_peripheral_aresetn;
-  wire resetn_0_1;
   wire [31:0]uiFDMA_0_M_AXI_ARADDR;
   wire [1:0]uiFDMA_0_M_AXI_ARBURST;
   wire [3:0]uiFDMA_0_M_AXI_ARCACHE;
@@ -215,7 +212,6 @@ module fdma_mig_ddr
   assign FDMA_S_i_fdma_wvalid = FDMA_S_0_1_fdma_wvalid;
   assign clk_in1_0_1 = clk_100M_i;
   assign init_calib_complete_o = mig_7series_0_init_calib_complete;
-  assign resetn_0_1 = rst_n_i;
   assign ui_clk_200M_o = mig_7series_0_ui_clk;
   fdma_mig_ddr_axi_interconnect_0_0 axi_interconnect_0
        (.ACLK(mig_7series_0_ui_clk),
@@ -297,8 +293,7 @@ module fdma_mig_ddr
   fdma_mig_ddr_clk_wiz_0_0 clk_wiz_0
        (.clk_200M_o(clk_wiz_0_clk_200M_o),
         .clk_in1(clk_in1_0_1),
-        .locked(clk_wiz_0_locked),
-        .resetn(resetn_0_1));
+        .locked(clk_wiz_0_locked));
   fdma_mig_ddr_mig_7series_0_0 mig_7series_0
        (.aresetn(proc_sys_reset_0_peripheral_aresetn),
         .ddr3_addr(mig_7series_0_DDR3_ADDR),

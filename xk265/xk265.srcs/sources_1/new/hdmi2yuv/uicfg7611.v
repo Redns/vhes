@@ -23,7 +23,7 @@ module uicfg7611#(
     reg  [31:0] wr_data;
     reg  [1 :0] TS_S = 2'd0;
     reg  [8 :0] byte_cnt = 9'd0;
-    wire [23:0] REG_DATA;
+    wire [31:0] REG_DATA;
     wire [8 :0] REG_SIZE;
     reg  [8 :0] REG_INDEX; 
 

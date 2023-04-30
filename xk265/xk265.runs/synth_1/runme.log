@@ -13,18 +13,19 @@ source xk265_top.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/Project/xk265/xk265/xk265.ip_user_files/uisrc'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2021.2/data/ip'.
+Command: read_checkpoint -auto_incremental -incremental E:/Project/xk265/xk265/xk265.srcs/utils_1/imports/synth_1/xk265_top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from E:/Project/xk265/xk265/xk265.srcs/utils_1/imports/synth_1/xk265_top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+read_checkpoint: Time (s): cpu = 00:00:03 ; elapsed = 00:00:18 . Memory (MB): peak = 1559.871 ; gain = 0.000
 Command: synth_design -top xk265_top -part xc7z035ffg676-2
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z035'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z035'
 INFO: [Device 21-403] Loading part xc7z035ffg676-2
+WARNING: [Designutils 20-5348] Reverting to default synthesis as last run was incremental and iterative incremental synthesis is disabled in this mode
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 18472
-WARNING: [Synth 8-2611] redeclaration of ansi port iic_busy is not allowed [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:46]
-WARNING: [Synth 8-2611] redeclaration of ansi port iic_scl is not allowed [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:47]
-WARNING: [Synth 8-2611] redeclaration of ansi port rd_data is not allowed [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:56]
-WARNING: [Synth 8-2611] redeclaration of ansi port sda_dg is not allowed [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:112]
+INFO: [Synth 8-7075] Helper process launched with PID 5852
 WARNING: [Synth 8-2507] parameter declaration becomes local in uii2c with formal parameter declaration list [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:21]
 WARNING: [Synth 8-2507] parameter declaration becomes local in uii2c with formal parameter declaration list [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:22]
 WARNING: [Synth 8-2507] parameter declaration becomes local in uii2c with formal parameter declaration list [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:23]
@@ -35,7 +36,7 @@ WARNING: [Synth 8-2507] parameter declaration becomes local in uii2c with formal
 WARNING: [Synth 8-2507] parameter declaration becomes local in uii2c with formal parameter declaration list [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:28]
 WARNING: [Synth 8-2507] parameter declaration becomes local in uii2c with formal parameter declaration list [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:43]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1563.566 ; gain = 5.574
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1567.953 ; gain = 8.082
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'xk265_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/xk265_top.v:3]
 INFO: [Synth 8-6157] synthesizing module 'hdmi2yuv_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/hdmi2yuv_top.v:1]
@@ -59,73 +60,69 @@ WARNING: [Synth 8-7071] port 'sda_dg' of module 'uii2c' is unconnected for insta
 WARNING: [Synth 8-7023] instance 'uii2c_inst' of module 'uii2c' has 11 connections declared, but only 10 given [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uicfg7611.v:74]
 INFO: [Synth 8-6157] synthesizing module 'ui7611reg' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/ui7611reg.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'ui7611reg' (4#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/ui7611reg.v:1]
-WARNING: [Synth 8-689] width (24) of port connection 'REG_DATA' does not match port width (32) of module 'ui7611reg' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uicfg7611.v:92]
 INFO: [Synth 8-6155] done synthesizing module 'uicfg7611' (5#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uicfg7611.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'hdmi2rgb' (6#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/hdmi2rgb.v:1]
-INFO: [Synth 8-6157] synthesizing module 'rgb2yuv' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/rgb2yuv.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'rgb2yuv' (7#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/rgb2yuv.v:1]
 INFO: [Synth 8-6157] synthesizing module 'data_merge' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/data_merge.v:1]
 	Parameter DATA_IN_WIDTH bound to: 8 - type: integer 
 	Parameter DATA_OUT_WIDTH bound to: 128 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'data_merge' (8#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/data_merge.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'data_merge' (7#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/data_merge.v:1]
 INFO: [Synth 8-6157] synthesizing module 'data_merge__parameterized0' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/data_merge.v:1]
 	Parameter DATA_IN_WIDTH bound to: 16 - type: integer 
 	Parameter DATA_OUT_WIDTH bound to: 128 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'data_merge__parameterized0' (8#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/data_merge.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'hdmi2yuv_top' (9#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/hdmi2yuv_top.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'data_merge__parameterized0' (7#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/data_merge.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'hdmi2yuv_top' (8#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/hdmi2yuv_top.v:1]
 INFO: [Synth 8-6157] synthesizing module 'extif_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/extif_top.v:1]
 INFO: [Synth 8-6157] synthesizing module 'video_in_buffer' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:1]
-INFO: [Synth 8-6157] synthesizing module 'pixel_fifo' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/pixel_fifo_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'pixel_fifo' (10#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/pixel_fifo_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'pixel_fifo' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/pixel_fifo_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'pixel_fifo' (9#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/pixel_fifo_stub.v:6]
 WARNING: [Synth 8-7071] port 'full' of module 'pixel_fifo' is unconnected for instance 'pixel_y_fifo' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:62]
 WARNING: [Synth 8-7023] instance 'pixel_y_fifo' of module 'pixel_fifo' has 14 connections declared, but only 13 given [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:62]
 WARNING: [Synth 8-7071] port 'full' of module 'pixel_fifo' is unconnected for instance 'pixel_uv_fifo' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:79]
 WARNING: [Synth 8-7023] instance 'pixel_uv_fifo' of module 'pixel_fifo' has 14 connections declared, but only 13 given [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:79]
-INFO: [Synth 8-6155] done synthesizing module 'video_in_buffer' (11#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'video_in_buffer' (10#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:1]
 INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_wrapper' [E:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/hdl/fdma_mig_ddr_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:13]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_axi_interconnect_0_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:423]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_N3ZCL2' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:803]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_auto_us_df_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/fdma_mig_ddr_auto_us_df_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_auto_us_df_0' (12#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/fdma_mig_ddr_auto_us_df_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'fdma_mig_ddr_auto_us_df_0' is unconnected for instance 'auto_us_df' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:1141]
-WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'fdma_mig_ddr_auto_us_df_0' is unconnected for instance 'auto_us_df' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:1141]
-WARNING: [Synth 8-7023] instance 'auto_us_df' of module 'fdma_mig_ddr_auto_us_df_0' has 76 connections declared, but only 74 given [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:1141]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_s00_regslice_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/fdma_mig_ddr_s00_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_s00_regslice_0' (13#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/fdma_mig_ddr_s00_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_N3ZCL2' (14#1) [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:803]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_axi_interconnect_0_0' (15#1) [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:423]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_clk_wiz_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/fdma_mig_ddr_clk_wiz_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_clk_wiz_0_0' (16#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/fdma_mig_ddr_clk_wiz_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_mig_7series_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/fdma_mig_ddr_mig_7series_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_mig_7series_0_0' (17#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/fdma_mig_ddr_mig_7series_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'app_sr_active' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:302]
-WARNING: [Synth 8-7071] port 'app_ref_ack' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:302]
-WARNING: [Synth 8-7071] port 'app_zq_ack' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:302]
-WARNING: [Synth 8-7071] port 's_axi_bid' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:302]
-WARNING: [Synth 8-7071] port 's_axi_rid' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:302]
-WARNING: [Synth 8-7071] port 'device_temp' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:302]
-WARNING: [Synth 8-7023] instance 'mig_7series_0' of module 'fdma_mig_ddr_mig_7series_0_0' has 63 connections declared, but only 57 given [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:302]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_proc_sys_reset_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/fdma_mig_ddr_proc_sys_reset_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_proc_sys_reset_0_0' (18#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/fdma_mig_ddr_proc_sys_reset_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'mb_reset' of module 'fdma_mig_ddr_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:360]
-WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'fdma_mig_ddr_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:360]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'fdma_mig_ddr_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:360]
-WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'fdma_mig_ddr_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:360]
-WARNING: [Synth 8-7023] instance 'proc_sys_reset_0' of module 'fdma_mig_ddr_proc_sys_reset_0_0' has 10 connections declared, but only 6 given [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:360]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_uiFDMA_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/fdma_mig_ddr_uiFDMA_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_uiFDMA_0_0' (19#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-24456-JingDevice/realtime/fdma_mig_ddr_uiFDMA_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'M_AXI_WID' of module 'fdma_mig_ddr_uiFDMA_0_0' is unconnected for instance 'uiFDMA_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:367]
-WARNING: [Synth 8-7023] instance 'uiFDMA_0' of module 'fdma_mig_ddr_uiFDMA_0_0' has 54 connections declared, but only 53 given [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:367]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr' (20#1) [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:13]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_wrapper' (21#1) [E:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/hdl/fdma_mig_ddr_wrapper.v:12]
-WARNING: [Synth 8-3848] Net FDMA_S_i_fdma_wvalid in module/entity extif_top does not have driver. [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/extif_top.v:58]
-INFO: [Synth 8-6155] done synthesizing module 'extif_top' (22#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/extif_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_axi_interconnect_0_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:418]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_N3ZCL2' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:798]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_auto_us_df_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_auto_us_df_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_auto_us_df_0' (11#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_auto_us_df_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'fdma_mig_ddr_auto_us_df_0' is unconnected for instance 'auto_us_df' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:1136]
+WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'fdma_mig_ddr_auto_us_df_0' is unconnected for instance 'auto_us_df' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:1136]
+WARNING: [Synth 8-7023] instance 'auto_us_df' of module 'fdma_mig_ddr_auto_us_df_0' has 76 connections declared, but only 74 given [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:1136]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_s00_regslice_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_s00_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_s00_regslice_0' (12#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_s00_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_N3ZCL2' (13#1) [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:798]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_axi_interconnect_0_0' (14#1) [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:418]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_clk_wiz_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_clk_wiz_0_0' (15#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_mig_7series_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_mig_7series_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_mig_7series_0_0' (16#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_mig_7series_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'app_sr_active' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
+WARNING: [Synth 8-7071] port 'app_ref_ack' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
+WARNING: [Synth 8-7071] port 'app_zq_ack' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
+WARNING: [Synth 8-7071] port 's_axi_bid' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
+WARNING: [Synth 8-7071] port 's_axi_rid' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
+WARNING: [Synth 8-7071] port 'device_temp' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
+WARNING: [Synth 8-7023] instance 'mig_7series_0' of module 'fdma_mig_ddr_mig_7series_0_0' has 63 connections declared, but only 57 given [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_proc_sys_reset_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_proc_sys_reset_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_proc_sys_reset_0_0' (17#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_proc_sys_reset_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'fdma_mig_ddr_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:355]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'fdma_mig_ddr_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:355]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'fdma_mig_ddr_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:355]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'fdma_mig_ddr_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:355]
+WARNING: [Synth 8-7023] instance 'proc_sys_reset_0' of module 'fdma_mig_ddr_proc_sys_reset_0_0' has 10 connections declared, but only 6 given [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:355]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_uiFDMA_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_uiFDMA_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_uiFDMA_0_0' (18#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_uiFDMA_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'M_AXI_WID' of module 'fdma_mig_ddr_uiFDMA_0_0' is unconnected for instance 'uiFDMA_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:362]
+WARNING: [Synth 8-7023] instance 'uiFDMA_0' of module 'fdma_mig_ddr_uiFDMA_0_0' has 54 connections declared, but only 53 given [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:362]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr' (19#1) [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_wrapper' (20#1) [E:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/hdl/fdma_mig_ddr_wrapper.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'extif_top' (21#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/extif_top.v:1]
 INFO: [Synth 8-6157] synthesizing module 'hevc_enc_core_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/hevc_enc_core_top.v:32]
 INFO: [Synth 8-6157] synthesizing module 'enc_ctrl' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/enc_ctrl.v:34]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/enc_ctrl.v:448]
 WARNING: [Synth 8-6014] Unused sequential element pre_l_start_o_reg was removed.  [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/enc_ctrl.v:358]
-INFO: [Synth 8-6155] done synthesizing module 'enc_ctrl' (23#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/enc_ctrl.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'enc_ctrl' (22#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/enc_ctrl.v:34]
 INFO: [Synth 8-6157] synthesizing module 'fetch_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_top.v:23]
 INFO: [Synth 8-6157] synthesizing module 'fetch_wrapper' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_wrapper.v:24]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_wrapper.v:305]
@@ -133,7 +130,7 @@ INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_wrapper.v:762]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_wrapper.v:783]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_wrapper.v:840]
-INFO: [Synth 8-6155] done synthesizing module 'fetch_wrapper' (24#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_wrapper.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'fetch_wrapper' (23#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_wrapper.v:24]
 INFO: [Synth 8-6157] synthesizing module 'fetch_cur_luma' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_cur_luma.v:31]
 INFO: [Synth 8-226] default block is never used [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_cur_luma.v:945]
 INFO: [Synth 8-226] default block is never used [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_cur_luma.v:987]
@@ -144,10 +141,10 @@ INFO: [Synth 8-6157] synthesizing module 'buf_ram_1p_128x64' [E:/Project/xk265/x
 INFO: [Synth 8-6157] synthesizing module 'ram_1p' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
 	Parameter Word_Width bound to: 64 - type: integer 
 	Parameter Addr_Width bound to: 7 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'ram_1p' (25#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'buf_ram_1p_128x64' (26#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/buf_ram_1p_128x64.v:18]
-INFO: [Synth 8-6155] done synthesizing module 'mem_lipo_1p_128x64x4' (27#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/mem_lipo_1p_128x64x4.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'fetch_cur_luma' (28#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_cur_luma.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'ram_1p' (24#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'buf_ram_1p_128x64' (25#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/buf_ram_1p_128x64.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'mem_lipo_1p_128x64x4' (26#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/mem_lipo_1p_128x64x4.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'fetch_cur_luma' (27#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_cur_luma.v:31]
 INFO: [Synth 8-6157] synthesizing module 'fetch_ref_luma' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_ref_luma.v:31]
 INFO: [Synth 8-226] default block is never used [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_ref_luma.v:271]
 INFO: [Synth 8-226] default block is never used [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_ref_luma.v:318]
@@ -156,19 +153,19 @@ INFO: [Synth 8-6157] synthesizing module 'fetch_rf_1p_128x512' [E:/Project/xk265
 INFO: [Synth 8-6157] synthesizing module 'rf_1p' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/rf_1p.v:21]
 	Parameter Word_Width bound to: 512 - type: integer 
 	Parameter Addr_Width bound to: 7 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'rf_1p' (29#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/rf_1p.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'fetch_rf_1p_128x512' (30#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/fetch_rf_1p_128x512.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'fetch_ref_luma' (31#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_ref_luma.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'rf_1p' (28#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/rf_1p.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'fetch_rf_1p_128x512' (29#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/fetch_rf_1p_128x512.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'fetch_ref_luma' (30#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_ref_luma.v:31]
 INFO: [Synth 8-6157] synthesizing module 'fetch_cur_chroma' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_cur_chroma.v:27]
 INFO: [Synth 8-6157] synthesizing module 'mem_lipo_1p_64x64x4' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/mem_lipo_1p_64x64x4.v:24]
 INFO: [Synth 8-6157] synthesizing module 'buf_ram_1p_64x64' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/buf_ram_1p_64x64.v:18]
 INFO: [Synth 8-6157] synthesizing module 'ram_1p__parameterized0' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
 	Parameter Word_Width bound to: 64 - type: integer 
 	Parameter Addr_Width bound to: 6 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'ram_1p__parameterized0' (31#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'buf_ram_1p_64x64' (32#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/buf_ram_1p_64x64.v:18]
-INFO: [Synth 8-6155] done synthesizing module 'mem_lipo_1p_64x64x4' (33#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/mem_lipo_1p_64x64x4.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'fetch_cur_chroma' (34#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_cur_chroma.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'ram_1p__parameterized0' (30#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'buf_ram_1p_64x64' (31#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/buf_ram_1p_64x64.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'mem_lipo_1p_64x64x4' (32#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/mem_lipo_1p_64x64x4.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'fetch_cur_chroma' (33#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_cur_chroma.v:27]
 INFO: [Synth 8-6157] synthesizing module 'fetch_ref_chroma' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_ref_chroma.v:29]
 INFO: [Synth 8-226] default block is never used [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_ref_chroma.v:219]
 INFO: [Synth 8-226] default block is never used [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_ref_chroma.v:278]
@@ -177,9 +174,9 @@ INFO: [Synth 8-6157] synthesizing module 'fetch_rf_1p_64x256' [E:/Project/xk265/
 INFO: [Synth 8-6157] synthesizing module 'rf_1p__parameterized0' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/rf_1p.v:21]
 	Parameter Word_Width bound to: 256 - type: integer 
 	Parameter Addr_Width bound to: 6 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'rf_1p__parameterized0' (34#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/rf_1p.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'fetch_rf_1p_64x256' (35#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/fetch_rf_1p_64x256.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'fetch_ref_chroma' (36#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_ref_chroma.v:29]
+INFO: [Synth 8-6155] done synthesizing module 'rf_1p__parameterized0' (33#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/rf_1p.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'fetch_rf_1p_64x256' (34#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/fetch_rf_1p_64x256.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'fetch_ref_chroma' (35#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_ref_chroma.v:29]
 INFO: [Synth 8-6157] synthesizing module 'fetch_db' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_db.v:32]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_db.v:195]
 INFO: [Synth 8-6157] synthesizing module 'mem_bilo_db' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/mem_bilo_db.v:28]
@@ -189,51 +186,51 @@ INFO: [Synth 8-6157] synthesizing module 'sram_tp_be_behave' [E:/Project/xk265/x
 	Parameter DAT_WD bound to: 64 - type: integer 
 	Parameter COL_WD bound to: 1 - type: integer 
 INFO: [Synth 8-251] 	 calling sram_tp_be_behave @ [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_tp_be_behave.v:76]
-INFO: [Synth 8-6155] done synthesizing module 'sram_tp_be_behave' (37#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_tp_be_behave.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'fetch_ram_2p_64x208' (38#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/fetch_ram_2p_64x208.v:27]
-INFO: [Synth 8-6155] done synthesizing module 'mem_bilo_db' (39#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/mem_bilo_db.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'sram_tp_be_behave' (36#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_tp_be_behave.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'fetch_ram_2p_64x208' (37#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/fetch_ram_2p_64x208.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'mem_bilo_db' (38#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/mem_bilo_db.v:28]
 INFO: [Synth 8-6157] synthesizing module 'fetch_ram_1p_128x32' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/fetch_ram_1p_128x32.v:23]
 INFO: [Synth 8-6157] synthesizing module 'ram_1p__parameterized1' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
 	Parameter Word_Width bound to: 128 - type: integer 
 	Parameter Addr_Width bound to: 5 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'ram_1p__parameterized1' (39#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'fetch_ram_1p_128x32' (40#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/fetch_ram_1p_128x32.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ram_1p__parameterized1' (38#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'fetch_ram_1p_128x32' (39#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/fetch_ram_1p_128x32.v:23]
 WARNING: [Synth 8-3848] Net ext_store_ready_o in module/entity fetch_db does not have driver. [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_db.v:87]
-INFO: [Synth 8-6155] done synthesizing module 'fetch_db' (41#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_db.v:32]
-INFO: [Synth 8-6155] done synthesizing module 'fetch_top' (42#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_top.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'fetch_db' (40#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_db.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'fetch_top' (41#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_top.v:23]
 INFO: [Synth 8-6157] synthesizing module 'enc_core' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/enc_core.v:22]
 INFO: [Synth 8-6157] synthesizing module 'prei_top_buf' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/prei_top_buf.v:16]
 INFO: [Synth 8-6157] synthesizing module 'prei_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/prei_top.v:13]
 INFO: [Synth 8-6157] synthesizing module 'hevc_md_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/hevc_md_top.v:13]
 INFO: [Synth 8-6157] synthesizing module 'md_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/md_top.v:7]
 INFO: [Synth 8-6157] synthesizing module 'md_fetch' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/md_fetch.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'md_fetch' (43#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/md_fetch.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'md_fetch' (42#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/md_fetch.v:7]
 INFO: [Synth 8-6157] synthesizing module 'control' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/control.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'control' (44#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/control.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'control' (43#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/control.v:11]
 INFO: [Synth 8-6157] synthesizing module 'gxgy' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/gxgy.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'gxgy' (45#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/gxgy.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'gxgy' (44#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/gxgy.v:7]
 INFO: [Synth 8-6157] synthesizing module 'counter' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/counter.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'counter' (46#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/counter.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'counter' (45#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/counter.v:4]
 INFO: [Synth 8-6157] synthesizing module 'compare' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/compare.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'compare' (47#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/compare.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'compare' (46#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/compare.v:7]
 INFO: [Synth 8-6157] synthesizing module 'dc_planar' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/DC_Plannar.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'dc_planar' (48#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/DC_Plannar.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'md_top' (49#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/md_top.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'dc_planar' (47#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/DC_Plannar.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'md_top' (48#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/md_top.v:7]
 INFO: [Synth 8-6157] synthesizing module 'fetch8x8' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/fetch8x8.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'fetch8x8' (50#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/fetch8x8.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'fetch8x8' (49#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/fetch8x8.v:9]
 INFO: [Synth 8-6157] synthesizing module 'mode_write' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/mode_write.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'mode_write' (51#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/mode_write.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'hevc_md_top' (52#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/hevc_md_top.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'mode_write' (50#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/mode_write.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'hevc_md_top' (51#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/hevc_md_top.v:13]
 INFO: [Synth 8-6157] synthesizing module 'rate_control' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/rate_control.v:22]
-INFO: [Synth 8-6155] done synthesizing module 'rate_control' (53#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/rate_control.v:22]
-INFO: [Synth 8-6155] done synthesizing module 'prei_top' (54#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/prei_top.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'rate_control' (52#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/rate_control.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'prei_top' (53#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/prei_top.v:13]
 INFO: [Synth 8-6157] synthesizing module 'prei_md_ram_sp_85x6' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/prei_md_ram_sp_85x6.v:11]
 INFO: [Synth 8-6157] synthesizing module 'ram_1p__parameterized2' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
 	Parameter Word_Width bound to: 8 - type: integer 
 	Parameter Addr_Width bound to: 7 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'ram_1p__parameterized2' (54#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'prei_md_ram_sp_85x6' (55#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/prei_md_ram_sp_85x6.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'prei_top_buf' (56#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/prei_top_buf.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'ram_1p__parameterized2' (53#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'prei_md_ram_sp_85x6' (54#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/prei_md_ram_sp_85x6.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'prei_top_buf' (55#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/prei_top_buf.v:16]
 INFO: [Synth 8-6157] synthesizing module 'posi_top_buf' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/posi_top_buf.v:22]
 INFO: [Synth 8-6157] synthesizing module 'posi_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_top.v:12]
 INFO: [Synth 8-6157] synthesizing module 'posi_ctrl' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_ctrl.v:12]
@@ -244,11 +241,11 @@ INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_ctrl.v:276]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_ctrl.v:322]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_ctrl.v:352]
-INFO: [Synth 8-6155] done synthesizing module 'posi_ctrl' (57#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_ctrl.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'posi_ctrl' (56#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_ctrl.v:12]
 INFO: [Synth 8-6157] synthesizing module 'posi_transfer' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_transfer.v:12]
 	Parameter MODE_PRE bound to: 0 - type: integer 
 	Parameter MODE_POS bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'posi_transfer' (58#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_transfer.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'posi_transfer' (57#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_transfer.v:12]
 INFO: [Synth 8-6157] synthesizing module 'posi_reference' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_reference.v:20]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_reference.v:728]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_reference.v:834]
@@ -278,7 +275,7 @@ WARNING: [Synth 8-6014] Unused sequential element idx_4x4_x_d3_r_reg was removed
 WARNING: [Synth 8-6014] Unused sequential element idx_4x4_y_d3_r_reg was removed.  [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_reference.v:538]
 WARNING: [Synth 8-6014] Unused sequential element cnt_raw_d3_r_reg was removed.  [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_reference.v:539]
 WARNING: [Synth 8-6014] Unused sequential element cnt_raw_done_d3_r_reg was removed.  [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_reference.v:540]
-INFO: [Synth 8-6155] done synthesizing module 'posi_reference' (59#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_reference.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'posi_reference' (58#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_reference.v:20]
 INFO: [Synth 8-6157] synthesizing module 'posi_prediction' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_prediction.v:12]
 INFO: [Synth 8-6157] synthesizing module 'intra_pred' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_intra/intra_pred.v:30]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_intra/intra_pred.v:784]
@@ -286,20 +283,20 @@ INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_intra/intra_pred.v:990]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_intra/intra_pred.v:1093]
 WARNING: [Synth 8-6014] Unused sequential element ref_x32_r_reg was removed.  [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_intra/intra_pred.v:539]
-INFO: [Synth 8-6155] done synthesizing module 'intra_pred' (60#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_intra/intra_pred.v:30]
-INFO: [Synth 8-6155] done synthesizing module 'posi_prediction' (61#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_prediction.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'intra_pred' (59#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_intra/intra_pred.v:30]
+INFO: [Synth 8-6155] done synthesizing module 'posi_prediction' (60#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_prediction.v:12]
 INFO: [Synth 8-6157] synthesizing module 'posi_buffer' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_buffer.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'posi_buffer' (62#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_buffer.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'posi_buffer' (61#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_buffer.v:12]
 INFO: [Synth 8-6157] synthesizing module 'posi_satd_cost' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost.v:17]
 INFO: [Synth 8-6157] synthesizing module 'posi_satd_cost_engine' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost_engine.v:17]
 	Parameter DATA_WIDTH bound to: 9 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'posi_satd_cost_engine' (63#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost_engine.v:17]
+INFO: [Synth 8-6155] done synthesizing module 'posi_satd_cost_engine' (62#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost_engine.v:17]
 INFO: [Synth 8-6157] synthesizing module 'posi_satd_cost_transpose' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost_transpose.v:17]
 	Parameter DATA_WIDTH bound to: 12 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'posi_satd_cost_transpose' (64#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost_transpose.v:17]
+INFO: [Synth 8-6155] done synthesizing module 'posi_satd_cost_transpose' (63#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost_transpose.v:17]
 INFO: [Synth 8-6157] synthesizing module 'posi_satd_cost_engine__parameterized0' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost_engine.v:17]
 	Parameter DATA_WIDTH bound to: 12 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'posi_satd_cost_engine__parameterized0' (64#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost_engine.v:17]
+INFO: [Synth 8-6155] done synthesizing module 'posi_satd_cost_engine__parameterized0' (63#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost_engine.v:17]
 INFO: [Synth 8-6157] synthesizing module 'posi_rate_estimation' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_rate_estimation.v:12]
 INFO: [Synth 8-226] default block is never used [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_rate_estimation.v:173]
 INFO: [Synth 8-226] default block is never used [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_rate_estimation.v:186]
@@ -315,12 +312,12 @@ INFO: [Synth 8-226] default block is never used [E:/Project/xk265/xk265/xk265.sr
 INFO: [Synth 8-226] default block is never used [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_rate_estimation.v:317]
 INFO: [Synth 8-226] default block is never used [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_rate_estimation.v:326]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_rate_estimation.v:302]
-INFO: [Synth 8-6155] done synthesizing module 'posi_rate_estimation' (65#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_rate_estimation.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'posi_rate_estimation' (64#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_rate_estimation.v:12]
 WARNING: [Synth 8-6014] Unused sequential element cnt_done_d1_reg was removed.  [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost.v:395]
 WARNING: [Synth 8-6014] Unused sequential element cnt_done_d2_reg was removed.  [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost.v:397]
-INFO: [Synth 8-6155] done synthesizing module 'posi_satd_cost' (66#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost.v:17]
+INFO: [Synth 8-6155] done synthesizing module 'posi_satd_cost' (65#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_satd_cost.v:17]
 INFO: [Synth 8-6157] synthesizing module 'posi_partition_decision' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_partition_decision.v:17]
-INFO: [Synth 8-6155] done synthesizing module 'posi_partition_decision' (67#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_partition_decision.v:17]
+INFO: [Synth 8-6155] done synthesizing module 'posi_partition_decision' (66#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_partition_decision.v:17]
 INFO: [Synth 8-6157] synthesizing module 'posi_memory_wrapper' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_memory_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'ram_sp_240x32' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_240x32.v:12]
 INFO: [Synth 8-6157] synthesizing module 'sram_sp_be_behave' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_sp_be_behave.v:11]
@@ -328,20 +325,20 @@ INFO: [Synth 8-6157] synthesizing module 'sram_sp_be_behave' [E:/Project/xk265/x
 	Parameter DAT_WD bound to: 32 - type: integer 
 	Parameter COL_WD bound to: 32 - type: integer 
 INFO: [Synth 8-251] 	 calling sram_sp_be_behave @ [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_sp_be_behave.v:74]
-INFO: [Synth 8-6155] done synthesizing module 'sram_sp_be_behave' (68#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_sp_be_behave.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'ram_sp_240x32' (69#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_240x32.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'sram_sp_be_behave' (67#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_sp_be_behave.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'ram_sp_240x32' (68#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_240x32.v:12]
 INFO: [Synth 8-6157] synthesizing module 'ram_sp_256x32' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_256x32.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'ram_sp_256x32' (70#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_256x32.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'ram_sp_256x32' (69#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_256x32.v:12]
 INFO: [Synth 8-6157] synthesizing module 'ram_sp_1024x32' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_1024x32.v:12]
 INFO: [Synth 8-6157] synthesizing module 'sram_sp_be_behave__parameterized0' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_sp_be_behave.v:11]
 	Parameter ADR_WD bound to: 10 - type: integer 
 	Parameter DAT_WD bound to: 32 - type: integer 
 	Parameter COL_WD bound to: 32 - type: integer 
 INFO: [Synth 8-251] 	 calling sram_sp_be_behave @ [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_sp_be_behave.v:74]
-INFO: [Synth 8-6155] done synthesizing module 'sram_sp_be_behave__parameterized0' (70#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_sp_be_behave.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'ram_sp_1024x32' (71#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_1024x32.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'posi_memory_wrapper' (72#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_memory_wrapper.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'posi_top' (73#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_top.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'sram_sp_be_behave__parameterized0' (69#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_sp_be_behave.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'ram_sp_1024x32' (70#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_1024x32.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'posi_memory_wrapper' (71#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_memory_wrapper.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'posi_top' (72#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/posi/posi_top.v:12]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/posi_top_buf.v:193]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/posi_top_buf.v:209]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/posi_top_buf.v:225]
@@ -350,9 +347,9 @@ INFO: [Synth 8-6157] synthesizing module 'posi_md_ram_sp_64x6' [E:/Project/xk265
 INFO: [Synth 8-6157] synthesizing module 'ram_1p__parameterized3' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
 	Parameter Word_Width bound to: 8 - type: integer 
 	Parameter Addr_Width bound to: 6 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'ram_1p__parameterized3' (73#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'posi_md_ram_sp_64x6' (74#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/posi_md_ram_sp_64x6.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'posi_top_buf' (75#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/posi_top_buf.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'ram_1p__parameterized3' (72#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'posi_md_ram_sp_64x6' (73#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/posi_md_ram_sp_64x6.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'posi_top_buf' (74#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/posi_top_buf.v:22]
 INFO: [Synth 8-6157] synthesizing module 'ime_top_buf' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/ime_top_buf.v:22]
 INFO: [Synth 8-6157] synthesizing module 'ime_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_top.v:17]
 INFO: [Synth 8-6157] synthesizing module 'ime_transfer' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_transfer.v:41]
@@ -366,7 +363,7 @@ INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_transfer.v:372]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_transfer.v:395]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_transfer.v:430]
-INFO: [Synth 8-6155] done synthesizing module 'ime_transfer' (76#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_transfer.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'ime_transfer' (75#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_transfer.v:41]
 INFO: [Synth 8-6157] synthesizing module 'ime_ver_mem' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ver_mem.v:10]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ver_mem.v:1150]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ver_mem.v:1159]
@@ -381,15 +378,15 @@ INFO: [Synth 8-6157] synthesizing module 'sram_sp_be_behave__parameterized1' [E:
 	Parameter DAT_WD bound to: 512 - type: integer 
 	Parameter COL_WD bound to: 1 - type: integer 
 INFO: [Synth 8-251] 	 calling sram_sp_be_behave @ [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_sp_be_behave.v:74]
-INFO: [Synth 8-6155] done synthesizing module 'sram_sp_be_behave__parameterized1' (76#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_sp_be_behave.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'ram_sp_be_192x512' (77#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_be_192x512.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'ime_ver_mem' (78#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ver_mem.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'sram_sp_be_behave__parameterized1' (75#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_sp_be_behave.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'ram_sp_be_192x512' (76#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_be_192x512.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'ime_ver_mem' (77#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ver_mem.v:10]
 INFO: [Synth 8-6157] synthesizing module 'ime_ctrl' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ctrl.v:10]
 	Parameter CMD_NUM_WIDTH bound to: 3 - type: integer 
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ctrl.v:121]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ctrl.v:153]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ctrl.v:210]
-INFO: [Synth 8-6155] done synthesizing module 'ime_ctrl' (79#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ctrl.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'ime_ctrl' (78#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ctrl.v:10]
 INFO: [Synth 8-6157] synthesizing module 'ime_addressing' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_addressing.v:27]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_addressing.v:227]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_addressing.v:356]
@@ -397,32 +394,34 @@ INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_addressing.v:400]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_addressing.v:441]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_addressing.v:568]
-INFO: [Synth 8-6155] done synthesizing module 'ime_addressing' (80#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_addressing.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'ime_addressing' (79#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_addressing.v:27]
 INFO: [Synth 8-6157] synthesizing module 'ime_dat_array' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_dat_array.v:12]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_dat_array.v:3268]
-INFO: [Synth 8-6155] done synthesizing module 'ime_dat_array' (81#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_dat_array.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'ime_dat_array' (80#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_dat_array.v:12]
 INFO: [Synth 8-6157] synthesizing module 'ime_sad_array' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_sad_array.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'ime_sad_array' (82#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_sad_array.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'ime_sad_array' (81#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_sad_array.v:12]
 INFO: [Synth 8-6157] synthesizing module 'ime_cost_store' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_cost_store.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'ime_cost_store' (83#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_cost_store.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'ime_cost_store' (82#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_cost_store.v:12]
 INFO: [Synth 8-6157] synthesizing module 'ime_partition_decision' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_partition_decision.v:12]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_partition_decision.v:546]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_partition_decision.v:765]
 INFO: [Synth 8-6157] synthesizing module 'ime_partition_decision_engine' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_partition_decision_engine.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'ime_partition_decision_engine' (84#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_partition_decision_engine.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'ime_partition_decision_engine' (83#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_partition_decision_engine.v:12]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_partition_decision.v:842]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_partition_decision.v:877]
-INFO: [Synth 8-6155] done synthesizing module 'ime_partition_decision' (85#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_partition_decision.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'ime_partition_decision' (84#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_partition_decision.v:12]
 INFO: [Synth 8-6157] synthesizing module 'ime_mv_dump' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_mv_dump.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'ime_mv_dump' (85#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_mv_dump.v:12]
+INFO: [Synth 8-6157] synthesizing module 'ime_glue_logic' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_top.v:691]
 INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-6155] done synthesizing module 'ime_mv_dump' (86#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_mv_dump.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'ime_glue_logic' (87#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_top.v:691]
-INFO: [Synth 8-6155] done synthesizing module 'ime_top' (88#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_top.v:17]
+INFO: [Synth 8-6155] done synthesizing module 'ime_glue_logic' (86#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_top.v:691]
+INFO: [Synth 8-6155] done synthesizing module 'ime_top' (87#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_top.v:17]
 	Parameter Word_Width bound to: 13 - type: integer 
 	Parameter Addr_Width bound to: 6 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'ram_1p__parameterized4' (88#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'ime_mv_ram_sp_64x13' (89#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ime_mv_ram_sp_64x13.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'ime_top_buf' (90#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/ime_top_buf.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'ram_1p__parameterized4' (87#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'ime_mv_ram_sp_64x13' (88#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ime_mv_ram_sp_64x13.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'ime_top_buf' (89#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/ime_top_buf.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'qp_lambda_table' (90#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/qp_lambda_table.v:3]
 INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 	Parameter TYPE bound to: 0 - type: integer 
 	Parameter HOR bound to: 1 - type: integer 
@@ -807,18 +806,18 @@ WARNING: [Synth 8-7129] Port rec_line_i_1[4] in module sao_statistic is either u
 WARNING: [Synth 8-7129] Port rec_line_i_1[3] in module sao_statistic is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:02:15 ; elapsed = 00:03:14 . Memory (MB): peak = 3510.293 ; gain = 1952.301
+Finished RTL Elaboration : Time (s): cpu = 00:01:43 ; elapsed = 00:02:52 . Memory (MB): peak = 3515.652 ; gain = 1955.781
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:29 ; elapsed = 00:03:38 . Memory (MB): peak = 3525.883 ; gain = 1967.891
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:53 ; elapsed = 00:03:12 . Memory (MB): peak = 3528.273 ; gain = 1968.402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:02:29 ; elapsed = 00:03:38 . Memory (MB): peak = 3525.883 ; gain = 1967.891
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:53 ; elapsed = 00:03:12 . Memory (MB): peak = 3528.273 ; gain = 1968.402
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 3979.316 ; gain = 12.562
+Netlist sorting complete. Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 3978.316 ; gain = 11.840
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -845,17 +844,18 @@ Parsing XDC File [E:/Project/xk265/xk265/xk265.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [E:/Project/xk265/xk265/xk265.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.088 . Memory (MB): peak = 5407.832 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.082 . Memory (MB): peak = 5404.559 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
 
-write_xdc: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 5515.105 ; gain = 107.273
-Constraint Validation Runtime : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 5515.105 ; gain = 107.273
+write_xdc: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 5513.383 ; gain = 108.824
+Constraint Validation Runtime : Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 5513.383 ; gain = 108.824
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'extif_top/video_in_buffer/pixel_uv_fifo' at clock pin 'rd_clk' is different from the actual clock period '5.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'extif_top/video_in_buffer/pixel_y_fifo' at clock pin 'rd_clk' is different from the actual clock period '5.000', this can lead to different synthesis results.
+WARNING: [Designutils 20-5348] Reverting to default synthesis as last run was incremental and iterative incremental synthesis is disabled in this mode
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:04:36 ; elapsed = 00:06:28 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished Constraint Validation : Time (s): cpu = 00:03:32 ; elapsed = 00:05:35 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -873,8 +873,8 @@ INFO: [Synth 8-802] inferred FSM for state register 'cnt16_reg' in module 'fme_c
 INFO: [Synth 8-802] inferred FSM for state register 'cnt08_reg' in module 'fme_ctrl'
 INFO: [Synth 8-802] inferred FSM for state register 'cur_state_r_reg' in module 'intra_ctrl'
 INFO: [Synth 8-802] inferred FSM for state register 'cur_state_r_reg' in module 'intra_ref'
-DSP Debug: swapped A/B pins for adder 00000274ABCC1330
-DSP Debug: swapped A/B pins for adder 00000274AC9437B0
+DSP Debug: swapped A/B pins for adder 00000249F07C1D00
+DSP Debug: swapped A/B pins for adder 00000249FC077DB0
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'mc_chroma_top'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'mc_ctrl'
 INFO: [Synth 8-802] inferred FSM for state register 'cur_state_r_reg' in module 'mc_tq'
@@ -1228,7 +1228,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'lcu_curr_state_r_reg' usin
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'xk265_ctrl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:07:04 ; elapsed = 00:10:08 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:05:27 ; elapsed = 00:08:44 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -1269,10 +1269,10 @@ Detailed RTL Component Info :
 	   2 Input   17 Bit       Adders := 59    
 	   8 Input   17 Bit       Adders := 10    
 	   3 Input   17 Bit       Adders := 14    
-	   4 Input   16 Bit       Adders := 4     
 	   5 Input   16 Bit       Adders := 3     
 	   2 Input   16 Bit       Adders := 105   
 	   3 Input   16 Bit       Adders := 3     
+	   4 Input   16 Bit       Adders := 1     
 	   8 Input   15 Bit       Adders := 3     
 	   4 Input   15 Bit       Adders := 6     
 	   3 Input   15 Bit       Adders := 51    
@@ -1367,7 +1367,7 @@ Detailed RTL Component Info :
 	               20 Bit    Registers := 90    
 	               19 Bit    Registers := 9     
 	               18 Bit    Registers := 25    
-	               16 Bit    Registers := 486   
+	               16 Bit    Registers := 474   
 	               15 Bit    Registers := 85    
 	               14 Bit    Registers := 36    
 	               13 Bit    Registers := 208   
@@ -1381,7 +1381,7 @@ Detailed RTL Component Info :
 	                5 Bit    Registers := 128   
 	                4 Bit    Registers := 2235  
 	                3 Bit    Registers := 117   
-	                2 Bit    Registers := 168   
+	                2 Bit    Registers := 165   
 	                1 Bit    Registers := 904   
 +---Multipliers : 
 	              16x39  Multipliers := 1     
@@ -2294,6 +2294,7 @@ INFO: [Synth 8-5546] ROM "prt_of_08_6_6_r" won't be mapped to RAM because it is 
 INFO: [Synth 8-5546] ROM "prt_of_08_6_7_r" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "prt_of_08_7_6_r" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "prt_of_08_7_7_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (posi_satd_cost/\dat_sum_1_4_7_r_reg[18] )
 WARNING: [Synth 8-6841] Block RAM (genblk1[1].mem_array_reg) originally specified as a Byte Wide Write Enable RAM cannot take advantage of ByteWide feature and is implemented with single write enable per RAM due to following reason.
 (byte width (1) is not a multiple of 8(data_only) or 9(data + parity))
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_01_cst_sad_0_28_27_r_reg[27] )
@@ -2390,7 +2391,6 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_c
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_22_20_r_reg[26] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_20_20_r_reg[26] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_22_18_r_reg[27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_20_18_r_reg[27] )
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[4]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[5]'
@@ -3351,7 +3351,7 @@ WARNING: [Synth 8-3332] Sequential element (u_prei_top/rate_control1/predict_bit
 WARNING: [Synth 8-3332] Sequential element (u_prei_top/rate_control1/predict_bit_reg[1]__0) is unused and will be removed from module prei_top_buf.
 WARNING: [Synth 8-3332] Sequential element (u_prei_top/rate_control1/predict_bit_reg[0]__0) is unused and will be removed from module prei_top_buf.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:17:16 ; elapsed = 00:26:13 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:13:46 ; elapsed = 00:22:54 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-5835] Resources of type BRAM have been overutilized. Used = 4438, Available = 1000. Will try to implement using LUT-RAM. 
 Why this net has no driver: _order_recur <const0>
@@ -3964,7 +3964,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:17:39 ; elapsed = 00:27:01 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:14:12 ; elapsed = 00:23:37 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -3997,7 +3997,7 @@ WARNING: [Synth 8-3332] Sequential element (u_prei_top/rate_control1/predict_bit
 WARNING: [Synth 8-3332] Sequential element (u_prei_top/rate_control1/predict_bit_reg[12]__0) is unused and will be removed from module prei_top_buf.
 WARNING: [Synth 8-3332] Sequential element (u_prei_top/rate_control1/predict_bit_reg[11]__0) is unused and will be removed from module prei_top_buf.
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:20:32 ; elapsed = 00:33:07 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished Timing Optimization : Time (s): cpu = 00:17:44 ; elapsed = 00:29:28 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -4236,7 +4236,7 @@ INFO: [Common 17-14] Message 'Synth 8-5844' appears 100 times and further instan
 INFO: [Common 17-14] Message 'Synth 8-5844' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-5844' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:25:26 ; elapsed = 00:41:52 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished Technology Mapping : Time (s): cpu = 00:22:40 ; elapsed = 00:37:31 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -4254,37 +4254,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:26:52 ; elapsed = 00:44:21 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished IO Insertion : Time (s): cpu = 00:24:04 ; elapsed = 00:39:47 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:26:53 ; elapsed = 00:44:23 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished Renaming Generated Instances : Time (s): cpu = 00:24:05 ; elapsed = 00:39:48 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:28:19 ; elapsed = 00:47:06 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:25:34 ; elapsed = 00:42:18 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:28:24 ; elapsed = 00:47:16 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished Renaming Generated Ports : Time (s): cpu = 00:25:40 ; elapsed = 00:42:27 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:28:38 ; elapsed = 00:47:41 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished Handling Custom Attributes : Time (s): cpu = 00:25:55 ; elapsed = 00:42:51 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:28:40 ; elapsed = 00:47:44 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished Renaming Generated Nets : Time (s): cpu = 00:25:57 ; elapsed = 00:42:54 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -4335,15 +4335,15 @@ Report Cell Usage:
 |5     |fdma_mig_ddr_s00_regslice     |      1|
 |6     |fdma_mig_ddr_uiFDMA_0         |      1|
 |7     |pixel_fifo                    |      2|
-|9     |BUFG                          |      3|
+|9     |BUFG                          |      5|
 |10    |CARRY4                        |  28115|
 |11    |DSP48E1                       |    693|
 |19    |LUT1                          |  13464|
-|20    |LUT2                          |  51716|
-|21    |LUT3                          |  39662|
+|20    |LUT2                          |  51717|
+|21    |LUT3                          |  39663|
 |22    |LUT4                          |  49576|
-|23    |LUT5                          |  73340|
-|24    |LUT6                          | 123067|
+|23    |LUT5                          |  73341|
+|24    |LUT6                          | 123066|
 |25    |MUXF7                         |  11920|
 |26    |MUXF8                         |   2518|
 |27    |PULLUP                        |      1|
@@ -4355,29 +4355,29 @@ Report Cell Usage:
 |33    |RAM64M                        |     21|
 |34    |RAM64X1S                      |   2949|
 |35    |SRL16E                        |     41|
-|36    |FDCE                          | 104412|
+|36    |FDCE                          | 104669|
 |37    |FDPE                          |   5557|
-|38    |FDRE                          |  15231|
+|38    |FDRE                          |  15225|
 |39    |FDSE                          |     63|
 |40    |LDC                           |     11|
-|41    |IBUF                          |      5|
+|41    |IBUF                          |     29|
 |42    |IOBUF                         |      1|
 |43    |OBUF                          |     12|
 +------+------------------------------+-------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:28:41 ; elapsed = 00:47:46 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Finished Writing Synthesis Report : Time (s): cpu = 00:25:59 ; elapsed = 00:42:56 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 349 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:24:21 ; elapsed = 00:45:23 . Memory (MB): peak = 5541.793 ; gain = 1967.891
-Synthesis Optimization Complete : Time (s): cpu = 00:28:42 ; elapsed = 00:47:51 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+Synthesis Optimization Runtime : Time (s): cpu = 00:22:38 ; elapsed = 00:40:55 . Memory (MB): peak = 5539.586 ; gain = 1968.402
+Synthesis Optimization Complete : Time (s): cpu = 00:25:59 ; elapsed = 00:42:59 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 5541.793 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 5539.586 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 58416 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 7 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 5 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.259 . Memory (MB): peak = 5541.793 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.241 . Memory (MB): peak = 5539.586 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 15170 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
@@ -4390,12 +4390,12 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM64M => RAM64M (RAMD64E(x4)): 21 instances
   RAM64X1S => RAM64X1S (RAMS64E): 2949 instances
 
-Synth Design complete, checksum: 47f87f26
+Synth Design complete, checksum: b24ceab7
 INFO: [Common 17-83] Releasing license: Synthesis
-1065 Infos, 416 Warnings, 0 Critical Warnings and 0 Errors encountered.
+1067 Infos, 412 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:30:32 ; elapsed = 00:50:50 . Memory (MB): peak = 5541.793 ; gain = 3983.801
+synth_design: Time (s): cpu = 00:27:32 ; elapsed = 00:45:27 . Memory (MB): peak = 5539.586 ; gain = 3979.715
 INFO: [Common 17-1381] The checkpoint 'E:/Project/xk265/xk265/xk265.runs/synth_1/xk265_top.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:01:26 ; elapsed = 00:02:15 . Memory (MB): peak = 5541.793 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:01:14 ; elapsed = 00:01:58 . Memory (MB): peak = 5539.586 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file xk265_top_utilization_synth.rpt -pb xk265_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Apr 29 18:16:05 2023...
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 30 03:59:58 2023...

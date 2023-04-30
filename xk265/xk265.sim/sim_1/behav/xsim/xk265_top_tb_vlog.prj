@@ -1,5 +1,5 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" --include "../../../../xk265.srcs/sources_1/new/core/rtl" --include "../../../../xk265.srcs/sim_1/imports" \
+verilog xil_defaultlib  --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" --include "../../../../xk265.srcs/sources_1/new/core/rtl" --include "../../../../xk265.srcs/sim_1/imports/imports" --include "../../../../../../mig_7series_1_ex/imports" \
 "../../../../xk265.ip_user_files/bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/sim/fdma_mig_ddr_s00_regslice_0.v" \
 "../../../../xk265.ip_user_files/bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/sim/fdma_mig_ddr_auto_us_df_0.v" \
 "../../../../xk265.ip_user_files/bd/fdma_mig_ddr/ipshared/4624/uiFDMA.v" \
@@ -337,10 +337,10 @@ verilog xil_defaultlib  --include "../../../../xk265.gen/sources_1/bd/fdma_mig_d
 "../../../../xk265.srcs/sources_1/new/ctrl/xk265_ctrl.v" \
 "../../../../xk265.srcs/sources_1/new/xk265_top.v" \
 
-sv xil_defaultlib  --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" --include "../../../../xk265.srcs/sources_1/new/core/rtl" --include "../../../../xk265.srcs/sim_1/imports" \
-"../../../../xk265.srcs/sim_1/imports/ddr3_model.sv" \
+sv xil_defaultlib  --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" --include "../../../../xk265.srcs/sources_1/new/core/rtl" --include "../../../../xk265.srcs/sim_1/imports/imports" --include "../../../../../../mig_7series_1_ex/imports" \
+"../../../../xk265.srcs/sim_1/imports/imports/ddr3_model.sv" \
 
-verilog xil_defaultlib  --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" --include "../../../../xk265.srcs/sources_1/new/core/rtl" --include "../../../../xk265.srcs/sim_1/imports" \
+verilog xil_defaultlib  --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" --include "../../../../xk265.srcs/sources_1/new/core/rtl" --include "../../../../xk265.srcs/sim_1/imports/imports" --include "../../../../../../mig_7series_1_ex/imports" \
 "../../../../xk265.srcs/sim_1/new/xk265_top_tb.v" \
 
 # compile glbl module

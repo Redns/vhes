@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Sat Apr 29 17:21:32 2023
+//Date        : Sun Apr 30 02:48:09 2023
 //Host        : JingDevice running 64-bit major release  (build 9200)
 //Command     : generate_target fdma_mig_ddr_wrapper.bd
 //Design      : fdma_mig_ddr_wrapper
@@ -41,7 +41,6 @@ module fdma_mig_ddr_wrapper
     FDMA_S_i_fdma_wvalid,
     clk_100M_i,
     init_calib_complete_o,
-    rst_n_i,
     ui_clk_200M_o);
   output [14:0]DDR3_o_addr;
   output [2:0]DDR3_o_ba;
@@ -74,7 +73,6 @@ module fdma_mig_ddr_wrapper
   output FDMA_S_i_fdma_wvalid;
   input clk_100M_i;
   output init_calib_complete_o;
-  input rst_n_i;
   output ui_clk_200M_o;
 
   wire [14:0]DDR3_o_addr;
@@ -108,7 +106,6 @@ module fdma_mig_ddr_wrapper
   wire FDMA_S_i_fdma_wvalid;
   wire clk_100M_i;
   wire init_calib_complete_o;
-  wire rst_n_i;
   wire ui_clk_200M_o;
 
   fdma_mig_ddr fdma_mig_ddr_i
@@ -143,6 +140,5 @@ module fdma_mig_ddr_wrapper
         .FDMA_S_i_fdma_wvalid(FDMA_S_i_fdma_wvalid),
         .clk_100M_i(clk_100M_i),
         .init_calib_complete_o(init_calib_complete_o),
-        .rst_n_i(rst_n_i),
         .ui_clk_200M_o(ui_clk_200M_o));
 endmodule

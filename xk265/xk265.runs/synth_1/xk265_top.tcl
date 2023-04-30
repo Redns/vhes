@@ -72,7 +72,6 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
 set_param simulator.modelsimInstallPath D:/Modelsim_v2020_4/win64
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {Synth 8-256} -limit 10000
@@ -305,7 +304,6 @@ read_verilog -library xil_defaultlib {
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_wrapper/rec_buf_wrapper.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_top.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/rf_1p.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/rgb2yuv.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_tq/row_ctl.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/db/sao_add_offset.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/db/sao_bo_predecision.v
@@ -341,9 +339,9 @@ set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265
 set_property used_in_synthesis false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all E:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr_ooc.xdc]
 
-read_ip -quiet e:/Project/xk265/xk265/xk265.srcs/sources_1/ip/pixel_fifo/pixel_fifo.xci
+read_ip -quiet E:/Project/xk265/xk265/xk265.srcs/sources_1/ip/pixel_fifo/pixel_fifo.xci
 set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/ip/pixel_fifo/pixel_fifo.xdc]
 set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/ip/pixel_fifo/pixel_fifo_clocks.xdc]
 set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/ip/pixel_fifo/pixel_fifo_ooc.xdc]
@@ -360,6 +358,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental E:/Project/xk265/xk265/xk265.srcs/utils_1/imports/synth_1/xk265_top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

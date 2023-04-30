@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Apr 29 17:22:40 2023
+-- Date        : Sun Apr 30 02:50:12 2023
 -- Host        : JingDevice running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_clk_wiz_0_0/fdma_mig_ddr_clk_wiz_0_0_sim_netlist.vhdl
@@ -17,7 +17,6 @@ use UNISIM.VCOMPONENTS.ALL;
 entity fdma_mig_ddr_clk_wiz_0_0_clk_wiz is
   port (
     clk_200M_o : out STD_LOGIC;
-    resetn : in STD_LOGIC;
     locked : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
@@ -27,7 +26,6 @@ architecture STRUCTURE of fdma_mig_ddr_clk_wiz_0_0_clk_wiz is
   signal clk_200M_o_fdma_mig_ddr_clk_wiz_0_0 : STD_LOGIC;
   signal clk_in1_fdma_mig_ddr_clk_wiz_0_0 : STD_LOGIC;
   signal clkfbout_fdma_mig_ddr_clk_wiz_0_0 : STD_LOGIC;
-  signal reset_high : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED : STD_LOGIC;
@@ -152,15 +150,7 @@ mmcm_adv_inst: unisim.vcomponents.MMCME2_ADV
       PSEN => '0',
       PSINCDEC => '0',
       PWRDWN => '0',
-      RST => reset_high
-    );
-mmcm_adv_inst_i_1: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => resetn,
-      O => reset_high
+      RST => '0'
     );
 end STRUCTURE;
 library IEEE;
@@ -170,7 +160,6 @@ use UNISIM.VCOMPONENTS.ALL;
 entity fdma_mig_ddr_clk_wiz_0_0 is
   port (
     clk_200M_o : out STD_LOGIC;
-    resetn : in STD_LOGIC;
     locked : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
@@ -184,7 +173,6 @@ inst: entity work.fdma_mig_ddr_clk_wiz_0_0_clk_wiz
      port map (
       clk_200M_o => clk_200M_o,
       clk_in1 => clk_in1,
-      locked => locked,
-      resetn => resetn
+      locked => locked
     );
 end STRUCTURE;

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x281CD8D6F50A738E",
+      "boundary_crc": "0x1676AC3E3FF6DD59",
       "device": "xc7z035ffg676-2",
       "gen_directory": "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr",
       "name": "fdma_mig_ddr",
@@ -138,20 +138,6 @@
       },
       "init_calib_complete_o": {
         "direction": "O"
-      },
-      "rst_n_i": {
-        "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default"
-          }
-        }
       }
     },
     "components": {
@@ -524,7 +510,7 @@
             "value": "false"
           },
           "USE_RESET": {
-            "value": "true"
+            "value": "false"
           }
         }
       },
@@ -535,6 +521,9 @@
         "inst_hier_path": "mig_7series_0",
         "parameters": {
           "BOARD_MIG_PARAM": {
+            "value": "Custom"
+          },
+          "MIG_DONT_TOUCH_PARAM": {
             "value": "Custom"
           },
           "RESET_BOARD_INTERFACE": {
@@ -628,12 +617,6 @@
           "axi_interconnect_0/S00_ARESETN",
           "axi_interconnect_0/M00_ARESETN",
           "uiFDMA_0/M_AXI_ARESETN"
-        ]
-      },
-      "resetn_0_1": {
-        "ports": [
-          "rst_n_i",
-          "clk_wiz_0/resetn"
         ]
       }
     },

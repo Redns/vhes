@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Sat Apr 29 17:07:25 2023
+// Date        : Sun Apr 30 02:50:12 2023
 // Host        : JingDevice running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_clk_wiz_0_0/fdma_mig_ddr_clk_wiz_0_0_sim_netlist.v
@@ -15,33 +15,27 @@
 (* NotValidForBitStream *)
 module fdma_mig_ddr_clk_wiz_0_0
    (clk_200M_o,
-    resetn,
     locked,
     clk_in1);
   output clk_200M_o;
-  input resetn;
   output locked;
   input clk_in1;
 
   wire clk_200M_o;
   (* IBUF_LOW_PWR *) wire clk_in1;
   wire locked;
-  wire resetn;
 
   fdma_mig_ddr_clk_wiz_0_0_clk_wiz inst
        (.clk_200M_o(clk_200M_o),
         .clk_in1(clk_in1),
-        .locked(locked),
-        .resetn(resetn));
+        .locked(locked));
 endmodule
 
 module fdma_mig_ddr_clk_wiz_0_0_clk_wiz
    (clk_200M_o,
-    resetn,
     locked,
     clk_in1);
   output clk_200M_o;
-  input resetn;
   output locked;
   input clk_in1;
 
@@ -51,8 +45,6 @@ module fdma_mig_ddr_clk_wiz_0_0_clk_wiz
   wire clk_in1_fdma_mig_ddr_clk_wiz_0_0;
   wire clkfbout_fdma_mig_ddr_clk_wiz_0_0;
   wire locked;
-  wire reset_high;
-  wire resetn;
   wire NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED;
@@ -166,12 +158,7 @@ module fdma_mig_ddr_clk_wiz_0_0_clk_wiz
         .PSEN(1'b0),
         .PSINCDEC(1'b0),
         .PWRDWN(1'b0),
-        .RST(reset_high));
-  LUT1 #(
-    .INIT(2'h1)) 
-    mmcm_adv_inst_i_1
-       (.I0(resetn),
-        .O(reset_high));
+        .RST(1'b0));
 endmodule
 `ifndef GLBL
 `define GLBL

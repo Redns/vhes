@@ -2,6 +2,7 @@ module hdmi2yuv_top(
     /* 系统信号 */
     input rst_n_i,                                  // 复位信号输入（低电平有效）
     input clk_100M_i,                               // 100MHz 时钟信号输入
+    input video_buffer_init_done_i,                 // VIDEO BUFFER 初始化完成信号
     output rst_done_o,                              // 复位完成信号输出（高电平有效）
     /* FEP 视频采集卡 ADV7611 配置信号 */ 
     inout adv_sda,                                  // ADV7611 IIC 数据信号
@@ -85,9 +86,14 @@ module hdmi2yuv_top(
     // 检测到场同步信号 vsync 上升沿时代表新的一帧开始
     always@(posedge yuv_vsync or negedge yuv_data_merge_rst_n) begin
         if(!yuv_data_merge_rst_n)
-            frame_start_flag = 1'b0;
+            frame_start_flag <= 1'b0;
+        else if(video_buffer_init_done_i)
+            // 若 FIFO 不提供完成信号给该模块，则 FIFO 复位未完成时该模块可能已经开始输出像素
+            // 若先复位 FIFO 再复位该模块则该模块复位完成前状态不可控，亦可能向 FIFO 输出错误数据
+            // 故先复位该模块使其进入稳定状态，后复位 FIFO 保证数据写入有效，最后利用 FIFO 复位完成信号启动像素拼接
+            frame_start_flag <= 1'b1;
         else
-            frame_start_flag = 1'b1;
+            frame_start_flag <= frame_start_flag;
     end
     
     // UV 分量列存储标志
