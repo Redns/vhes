@@ -151,6 +151,7 @@ vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdm
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/rtl/ui/mig_7series_v4_2_ui_wr_data.v" \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/rtl/fdma_mig_ddr_mig_7series_0_0_mig_sim.v" \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/rtl/fdma_mig_ddr_mig_7series_0_0.v" \
+"../../../bd/fdma_mig_ddr/sim/fdma_mig_ddr.v" \
 
 vlog -work axi_infrastructure_v1_1_0  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
 "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
@@ -190,7 +191,6 @@ vlog -work axi_dwidth_converter_v2_1_25  -v2k5 "+incdir+../../../../xk265.gen/so
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/sim/fdma_mig_ddr_auto_us_df_0.v" \
-"../../../bd/fdma_mig_ddr/sim/fdma_mig_ddr.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

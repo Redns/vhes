@@ -72,8 +72,6 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
 set_param simulator.modelsimInstallPath D:/Modelsim_v2020_4/win64
-set_msg_config -id {HDL 9-1061} -limit 100000
-set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -326,6 +324,11 @@ read_verilog -library xil_defaultlib {
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/xk265_top.v
 }
 add_files E:/Project/xk265/xk265/xk265.srcs/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr.bd
+set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/fdma_mig_ddr_s00_regslice_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/fdma_mig_ddr_s00_regslice_0_ooc.xdc]
+set_property used_in_synthesis false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_proc_sys_reset_0_0/fdma_mig_ddr_proc_sys_reset_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_proc_sys_reset_0_0/fdma_mig_ddr_proc_sys_reset_0_0.xdc]
 set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_proc_sys_reset_0_0/fdma_mig_ddr_proc_sys_reset_0_0_ooc.xdc]
@@ -334,11 +337,6 @@ set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265
 set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_clk_wiz_0_0/fdma_mig_ddr_clk_wiz_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/constraints/fdma_mig_ddr_mig_7series_0_0.xdc]
 set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/constraints/fdma_mig_ddr_mig_7series_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/fdma_mig_ddr_s00_regslice_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/fdma_mig_ddr_s00_regslice_0_ooc.xdc]
-set_property used_in_synthesis false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr_ooc.xdc]
 
 read_ip -quiet E:/Project/xk265/xk265/xk265.srcs/sources_1/ip/pixel_fifo/pixel_fifo.xci

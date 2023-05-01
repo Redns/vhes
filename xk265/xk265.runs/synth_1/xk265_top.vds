@@ -2,8 +2,8 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Sun Apr 30 03:11:57 2023
-# Process ID: 17492
+# Start of session at: Mon May  1 01:02:36 2023
+# Process ID: 3776
 # Current directory: E:/Project/xk265/xk265/xk265.runs/synth_1
 # Command line: vivado.exe -log xk265_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source xk265_top.tcl
 # Log file: E:/Project/xk265/xk265/xk265.runs/synth_1/xk265_top.vds
@@ -17,16 +17,15 @@ INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2021.2/dat
 Command: read_checkpoint -auto_incremental -incremental E:/Project/xk265/xk265/xk265.srcs/utils_1/imports/synth_1/xk265_top.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from E:/Project/xk265/xk265/xk265.srcs/utils_1/imports/synth_1/xk265_top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
-read_checkpoint: Time (s): cpu = 00:00:03 ; elapsed = 00:00:18 . Memory (MB): peak = 1559.871 ; gain = 0.000
+read_checkpoint: Time (s): cpu = 00:00:02 ; elapsed = 00:00:16 . Memory (MB): peak = 1552.945 ; gain = 0.000
 Command: synth_design -top xk265_top -part xc7z035ffg676-2
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z035'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z035'
 INFO: [Device 21-403] Loading part xc7z035ffg676-2
-WARNING: [Designutils 20-5348] Reverting to default synthesis as last run was incremental and iterative incremental synthesis is disabled in this mode
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 5852
+INFO: [Synth 8-7075] Helper process launched with PID 12476
 WARNING: [Synth 8-2507] parameter declaration becomes local in uii2c with formal parameter declaration list [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:21]
 WARNING: [Synth 8-2507] parameter declaration becomes local in uii2c with formal parameter declaration list [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:22]
 WARNING: [Synth 8-2507] parameter declaration becomes local in uii2c with formal parameter declaration list [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:23]
@@ -37,7 +36,7 @@ WARNING: [Synth 8-2507] parameter declaration becomes local in uii2c with formal
 WARNING: [Synth 8-2507] parameter declaration becomes local in uii2c with formal parameter declaration list [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:28]
 WARNING: [Synth 8-2507] parameter declaration becomes local in uii2c with formal parameter declaration list [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/uii2c.v:43]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1567.953 ; gain = 8.082
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1565.871 ; gain = 12.926
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'xk265_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/xk265_top.v:3]
 INFO: [Synth 8-6157] synthesizing module 'hdmi2yuv_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/hdmi2yuv_top.v:1]
@@ -74,30 +73,30 @@ INFO: [Synth 8-6155] done synthesizing module 'data_merge__parameterized0' (7#1)
 INFO: [Synth 8-6155] done synthesizing module 'hdmi2yuv_top' (8#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/hdmi2yuv_top.v:1]
 INFO: [Synth 8-6157] synthesizing module 'extif_top' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/extif_top.v:1]
 INFO: [Synth 8-6157] synthesizing module 'video_in_buffer' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:1]
-INFO: [Synth 8-6157] synthesizing module 'pixel_fifo' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/pixel_fifo_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'pixel_fifo' (9#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/pixel_fifo_stub.v:6]
-WARNING: [Synth 8-7071] port 'full' of module 'pixel_fifo' is unconnected for instance 'pixel_y_fifo' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:62]
-WARNING: [Synth 8-7023] instance 'pixel_y_fifo' of module 'pixel_fifo' has 14 connections declared, but only 13 given [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:62]
-WARNING: [Synth 8-7071] port 'full' of module 'pixel_fifo' is unconnected for instance 'pixel_uv_fifo' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:79]
-WARNING: [Synth 8-7023] instance 'pixel_uv_fifo' of module 'pixel_fifo' has 14 connections declared, but only 13 given [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:79]
+INFO: [Synth 8-6157] synthesizing module 'pixel_fifo' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/pixel_fifo_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'pixel_fifo' (9#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/pixel_fifo_stub.v:6]
+WARNING: [Synth 8-7071] port 'full' of module 'pixel_fifo' is unconnected for instance 'pixel_y_fifo' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:44]
+WARNING: [Synth 8-7023] instance 'pixel_y_fifo' of module 'pixel_fifo' has 14 connections declared, but only 13 given [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:44]
+WARNING: [Synth 8-7071] port 'full' of module 'pixel_fifo' is unconnected for instance 'pixel_uv_fifo' [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:61]
+WARNING: [Synth 8-7023] instance 'pixel_uv_fifo' of module 'pixel_fifo' has 14 connections declared, but only 13 given [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:61]
 INFO: [Synth 8-6155] done synthesizing module 'video_in_buffer' (10#1) [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/extif/video_in_buffer.v:1]
 INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_wrapper' [E:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/hdl/fdma_mig_ddr_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:13]
 INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_axi_interconnect_0_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:418]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_N3ZCL2' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:798]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_auto_us_df_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_auto_us_df_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_auto_us_df_0' (11#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_auto_us_df_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_auto_us_df_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/fdma_mig_ddr_auto_us_df_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_auto_us_df_0' (11#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/fdma_mig_ddr_auto_us_df_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'fdma_mig_ddr_auto_us_df_0' is unconnected for instance 'auto_us_df' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:1136]
 WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'fdma_mig_ddr_auto_us_df_0' is unconnected for instance 'auto_us_df' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:1136]
 WARNING: [Synth 8-7023] instance 'auto_us_df' of module 'fdma_mig_ddr_auto_us_df_0' has 76 connections declared, but only 74 given [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:1136]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_s00_regslice_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_s00_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_s00_regslice_0' (12#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_s00_regslice_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_s00_regslice_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/fdma_mig_ddr_s00_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_s00_regslice_0' (12#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/fdma_mig_ddr_s00_regslice_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_N3ZCL2' (13#1) [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:798]
 INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_axi_interconnect_0_0' (14#1) [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:418]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_clk_wiz_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_clk_wiz_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_clk_wiz_0_0' (15#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_clk_wiz_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_mig_7series_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_mig_7series_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_mig_7series_0_0' (16#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_mig_7series_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_clk_wiz_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/fdma_mig_ddr_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_clk_wiz_0_0' (15#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/fdma_mig_ddr_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_mig_7series_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/fdma_mig_ddr_mig_7series_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_mig_7series_0_0' (16#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/fdma_mig_ddr_mig_7series_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'app_sr_active' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
 WARNING: [Synth 8-7071] port 'app_ref_ack' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
 WARNING: [Synth 8-7071] port 'app_zq_ack' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
@@ -105,15 +104,15 @@ WARNING: [Synth 8-7071] port 's_axi_bid' of module 'fdma_mig_ddr_mig_7series_0_0
 WARNING: [Synth 8-7071] port 's_axi_rid' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
 WARNING: [Synth 8-7071] port 'device_temp' of module 'fdma_mig_ddr_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
 WARNING: [Synth 8-7023] instance 'mig_7series_0' of module 'fdma_mig_ddr_mig_7series_0_0' has 63 connections declared, but only 57 given [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:297]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_proc_sys_reset_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_proc_sys_reset_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_proc_sys_reset_0_0' (17#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_proc_sys_reset_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_proc_sys_reset_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/fdma_mig_ddr_proc_sys_reset_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_proc_sys_reset_0_0' (17#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/fdma_mig_ddr_proc_sys_reset_0_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'mb_reset' of module 'fdma_mig_ddr_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:355]
 WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'fdma_mig_ddr_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:355]
 WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'fdma_mig_ddr_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:355]
 WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'fdma_mig_ddr_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:355]
 WARNING: [Synth 8-7023] instance 'proc_sys_reset_0' of module 'fdma_mig_ddr_proc_sys_reset_0_0' has 10 connections declared, but only 6 given [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:355]
-INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_uiFDMA_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_uiFDMA_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_uiFDMA_0_0' (18#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-17492-JingDevice/realtime/fdma_mig_ddr_uiFDMA_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fdma_mig_ddr_uiFDMA_0_0' [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/fdma_mig_ddr_uiFDMA_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr_uiFDMA_0_0' (18#1) [E:/Project/xk265/xk265/xk265.runs/synth_1/.Xil/Vivado-3776-JingDevice/realtime/fdma_mig_ddr_uiFDMA_0_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'M_AXI_WID' of module 'fdma_mig_ddr_uiFDMA_0_0' is unconnected for instance 'uiFDMA_0' [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:362]
 WARNING: [Synth 8-7023] instance 'uiFDMA_0' of module 'fdma_mig_ddr_uiFDMA_0_0' has 54 connections declared, but only 53 given [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:362]
 INFO: [Synth 8-6155] done synthesizing module 'fdma_mig_ddr' (19#1) [e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v:13]
@@ -703,9 +702,6 @@ INFO: [Common 17-14] Message 'Synth 8-7137' appears 100 times and further instan
 WARNING: [Synth 8-6014] Unused sequential element next_range_reg was removed.  [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/cabac/cabac_urange4.v:183]
 INFO: [Synth 8-226] default block is never used [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/cabac/cabac_ulow_refine.v:670]
 WARNING: [Synth 8-6014] Unused sequential element bins_bina2bitpack_reg was removed.  [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/cabac/cabac_top.v:871]
-WARNING: [Synth 8-324] index 2 out of range [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/ctrl/xk265_ctrl.v:167]
-WARNING: [Synth 8-324] index 3 out of range [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/ctrl/xk265_ctrl.v:168]
-WARNING: [Synth 8-7129] Port pixel_buffer_empty_i in module xk265_ctrl is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rdy in module cabac_bina_lut is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ec_coe_rd_addr_i[8] in module coe_addr_trans is either unconnected or has no load
 WARNING: [Synth 8-7129] Port coeff_type_i[0] in module cabac_se_prepare_sig_coeff_ctx is either unconnected or has no load
@@ -805,20 +801,21 @@ WARNING: [Synth 8-7129] Port rec_line_i_1[6] in module sao_statistic is either u
 WARNING: [Synth 8-7129] Port rec_line_i_1[5] in module sao_statistic is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rec_line_i_1[4] in module sao_statistic is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rec_line_i_1[3] in module sao_statistic is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rec_line_i_1[2] in module sao_statistic is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:43 ; elapsed = 00:02:52 . Memory (MB): peak = 3515.652 ; gain = 1955.781
+Finished RTL Elaboration : Time (s): cpu = 00:02:42 ; elapsed = 00:03:18 . Memory (MB): peak = 3512.355 ; gain = 1959.410
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:53 ; elapsed = 00:03:12 . Memory (MB): peak = 3528.273 ; gain = 1968.402
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:13 ; elapsed = 00:03:52 . Memory (MB): peak = 3523.980 ; gain = 1971.035
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:53 ; elapsed = 00:03:12 . Memory (MB): peak = 3528.273 ; gain = 1968.402
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:03:13 ; elapsed = 00:03:52 . Memory (MB): peak = 3523.980 ; gain = 1971.035
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 3978.316 ; gain = 11.840
+Netlist sorting complete. Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3974.750 ; gain = 13.184
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -845,25 +842,24 @@ Parsing XDC File [E:/Project/xk265/xk265/xk265.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [E:/Project/xk265/xk265/xk265.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.082 . Memory (MB): peak = 5404.559 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.074 . Memory (MB): peak = 5407.406 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
 
-write_xdc: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 5513.383 ; gain = 108.824
-Constraint Validation Runtime : Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 5513.383 ; gain = 108.824
+write_xdc: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 5514.574 ; gain = 107.168
+Constraint Validation Runtime : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 5514.574 ; gain = 107.168
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'extif_top/video_in_buffer/pixel_uv_fifo' at clock pin 'rd_clk' is different from the actual clock period '5.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'extif_top/video_in_buffer/pixel_y_fifo' at clock pin 'rd_clk' is different from the actual clock period '5.000', this can lead to different synthesis results.
-WARNING: [Designutils 20-5348] Reverting to default synthesis as last run was incremental and iterative incremental synthesis is disabled in this mode
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:03:32 ; elapsed = 00:05:35 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished Constraint Validation : Time (s): cpu = 00:05:33 ; elapsed = 00:06:14 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z035ffg676-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:03:32 ; elapsed = 00:05:35 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished Loading Part and Timing Information : Time (s): cpu = 00:05:33 ; elapsed = 00:06:14 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1023,7 +1019,22 @@ Applied set_property KEEP_HIERARCHY = SOFT for extif_top/fdma_mig_ddr_wrapper/fd
 Applied set_property KEEP_HIERARCHY = SOFT for extif_top/video_in_buffer/pixel_uv_fifo. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for extif_top/video_in_buffer/pixel_y_fifo. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:32 ; elapsed = 00:05:35 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:05:33 ; elapsed = 00:06:14 . Memory (MB): peak = 5539.785 ; gain = 3986.840
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Preparing Guide Design
+---------------------------------------------------------------------------------
+got a mismatch hdmi2yuv_top
+Is not a child genome
+got a mismatch extif_top
+got a mismatch video_in_buffer
+got a mismatch xk265_ctrl
+WARNING: [Synth 8-6702] IncrSynth : No reusable genomes found, Reverting to default synthesis
+---------------------------------------------------------------------------------
+Finished Doing Graph Differ : Time (s): cpu = 00:06:01 ; elapsed = 00:06:54 . Memory (MB): peak = 5539.785 ; gain = 3986.840
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Preparing Guide Design : Time (s): cpu = 00:06:01 ; elapsed = 00:06:54 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'TS_S_reg' in module 'uicfg7611'
 INFO: [Synth 8-802] inferred FSM for state register 'cur_state_reg' in module 'enc_ctrl'
@@ -1037,8 +1048,8 @@ INFO: [Synth 8-802] inferred FSM for state register 'cnt16_reg' in module 'fme_c
 INFO: [Synth 8-802] inferred FSM for state register 'cnt08_reg' in module 'fme_ctrl'
 INFO: [Synth 8-802] inferred FSM for state register 'cur_state_r_reg' in module 'intra_ctrl'
 INFO: [Synth 8-802] inferred FSM for state register 'cur_state_r_reg' in module 'intra_ref'
-DSP Debug: swapped A/B pins for adder 00000249F07C1D00
-DSP Debug: swapped A/B pins for adder 00000249FC077DB0
+DSP Debug: swapped A/B pins for adder 00000201AD4B77D0
+DSP Debug: swapped A/B pins for adder 00000201BC313240
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'mc_chroma_top'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'mc_ctrl'
 INFO: [Synth 8-802] inferred FSM for state register 'cur_state_r_reg' in module 'mc_tq'
@@ -1392,18 +1403,28 @@ INFO: [Synth 8-3354] encoded FSM with state register 'lcu_curr_state_r_reg' usin
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'xk265_ctrl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:05:27 ; elapsed = 00:08:44 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:08:35 ; elapsed = 00:09:47 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
+
+
+Incremental Synthesis Report Summary:
+
+1. Incremental synthesis run: no
+
+   Reason for not running incremental synthesis : No reusable genomes found
+
+
+INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   32 Bit       Adders := 241   
+	   2 Input   32 Bit       Adders := 240   
 	   3 Input   32 Bit       Adders := 16    
 	   5 Input   32 Bit       Adders := 129   
 	   8 Input   32 Bit       Adders := 16    
-	   4 Input   32 Bit       Adders := 17    
+	   4 Input   32 Bit       Adders := 16    
 	   3 Input   31 Bit       Adders := 21    
 	   2 Input   31 Bit       Adders := 169   
 	   4 Input   30 Bit       Adders := 321   
@@ -1487,7 +1508,7 @@ Detailed RTL Component Info :
 	   2 Input    3 Bit       Adders := 108   
 	   3 Input    3 Bit       Adders := 22    
 	   4 Input    3 Bit       Adders := 4     
-	   2 Input    2 Bit       Adders := 54    
+	   2 Input    2 Bit       Adders := 52    
 	   2 Input    1 Bit       Adders := 9     
 +---XORs : 
 	   2 Input    128 Bit         XORs := 1     
@@ -1518,7 +1539,7 @@ Detailed RTL Component Info :
 	               39 Bit    Registers := 6     
 	               36 Bit    Registers := 1     
 	               35 Bit    Registers := 1     
-	               32 Bit    Registers := 41    
+	               32 Bit    Registers := 43    
 	               31 Bit    Registers := 32    
 	               28 Bit    Registers := 1794  
 	               27 Bit    Registers := 104   
@@ -1533,7 +1554,7 @@ Detailed RTL Component Info :
 	               18 Bit    Registers := 25    
 	               16 Bit    Registers := 474   
 	               15 Bit    Registers := 85    
-	               14 Bit    Registers := 36    
+	               14 Bit    Registers := 35    
 	               13 Bit    Registers := 208   
 	               12 Bit    Registers := 741   
 	               11 Bit    Registers := 39    
@@ -1545,7 +1566,7 @@ Detailed RTL Component Info :
 	                5 Bit    Registers := 128   
 	                4 Bit    Registers := 2235  
 	                3 Bit    Registers := 117   
-	                2 Bit    Registers := 165   
+	                2 Bit    Registers := 164   
 	                1 Bit    Registers := 904   
 +---Multipliers : 
 	              16x39  Multipliers := 1     
@@ -1620,11 +1641,10 @@ Detailed RTL Component Info :
 	  23 Input   42 Bit        Muxes := 1     
 	   7 Input   35 Bit        Muxes := 1     
 	   2 Input   35 Bit        Muxes := 6     
-	   4 Input   32 Bit        Muxes := 3     
-	   2 Input   32 Bit        Muxes := 43    
+	   4 Input   32 Bit        Muxes := 4     
+	   2 Input   32 Bit        Muxes := 44    
 	   8 Input   32 Bit        Muxes := 8     
-	   7 Input   32 Bit        Muxes := 1     
-	  10 Input   32 Bit        Muxes := 1     
+	   7 Input   32 Bit        Muxes := 2     
 	  16 Input   31 Bit        Muxes := 32    
 	   2 Input   31 Bit        Muxes := 64    
 	   2 Input   30 Bit        Muxes := 171   
@@ -1647,7 +1667,7 @@ Detailed RTL Component Info :
 	   5 Input   23 Bit        Muxes := 2     
 	   2 Input   22 Bit        Muxes := 5     
 	  32 Input   22 Bit        Muxes := 1     
-	   2 Input   21 Bit        Muxes := 86    
+	   2 Input   21 Bit        Muxes := 85    
 	   4 Input   21 Bit        Muxes := 10    
 	  18 Input   21 Bit        Muxes := 11    
 	   6 Input   21 Bit        Muxes := 3     
@@ -1676,7 +1696,7 @@ Detailed RTL Component Info :
 	   5 Input   15 Bit        Muxes := 2     
 	   6 Input   15 Bit        Muxes := 2     
 	   4 Input   15 Bit        Muxes := 2     
-	   2 Input   14 Bit        Muxes := 4     
+	   2 Input   14 Bit        Muxes := 3     
 	   9 Input   14 Bit        Muxes := 3     
 	   8 Input   14 Bit        Muxes := 1     
 	   4 Input   14 Bit        Muxes := 1     
@@ -1689,11 +1709,11 @@ Detailed RTL Component Info :
 	  13 Input   13 Bit        Muxes := 1     
 	   9 Input   13 Bit        Muxes := 4     
 	   4 Input   13 Bit        Muxes := 1     
-	   4 Input   12 Bit        Muxes := 2     
+	   4 Input   12 Bit        Muxes := 1     
 	   2 Input   12 Bit        Muxes := 786   
 	  12 Input   12 Bit        Muxes := 1     
 	   7 Input   12 Bit        Muxes := 1     
-	   2 Input   11 Bit        Muxes := 19    
+	   2 Input   11 Bit        Muxes := 20    
 	   4 Input   11 Bit        Muxes := 2     
 	   2 Input   10 Bit        Muxes := 163   
 	   3 Input   10 Bit        Muxes := 2     
@@ -1786,10 +1806,10 @@ Detailed RTL Component Info :
 	  51 Input    3 Bit        Muxes := 4     
 	  15 Input    3 Bit        Muxes := 8     
 	  32 Input    3 Bit        Muxes := 2     
-	   4 Input    2 Bit        Muxes := 63    
+	   4 Input    2 Bit        Muxes := 62    
 	   6 Input    2 Bit        Muxes := 113   
-	   2 Input    2 Bit        Muxes := 270   
-	   8 Input    2 Bit        Muxes := 35    
+	   2 Input    2 Bit        Muxes := 266   
+	   8 Input    2 Bit        Muxes := 36    
 	   3 Input    2 Bit        Muxes := 17    
 	   9 Input    2 Bit        Muxes := 3     
 	   5 Input    2 Bit        Muxes := 7     
@@ -1799,11 +1819,11 @@ Detailed RTL Component Info :
 	  22 Input    2 Bit        Muxes := 1     
 	  51 Input    2 Bit        Muxes := 2     
 	  32 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 4446  
+	   2 Input    1 Bit        Muxes := 4442  
 	   7 Input    1 Bit        Muxes := 26    
-	   8 Input    1 Bit        Muxes := 53    
+	   8 Input    1 Bit        Muxes := 54    
 	   3 Input    1 Bit        Muxes := 55    
-	   4 Input    1 Bit        Muxes := 432   
+	   4 Input    1 Bit        Muxes := 434   
 	   6 Input    1 Bit        Muxes := 31    
 	  16 Input    1 Bit        Muxes := 72    
 	   9 Input    1 Bit        Muxes := 52    
@@ -1994,9 +2014,11 @@ DSP Report: Generating DSP w_m_30, operation Mode is: A*B.
 DSP Report: operator w_m_30 is absorbed into DSP w_m_30.
 DSP Report: Generating DSP w_m_31, operation Mode is: A*B.
 DSP Report: operator w_m_31 is absorbed into DSP w_m_31.
-DSP Report: Generating DSP p_1_out, operation Mode is: (D+A)*(B:0x780).
+DSP Report: Generating DSP p_1_out, operation Mode is: (D+A)*(B:0xc0).
 DSP Report: operator p_1_out is absorbed into DSP p_1_out.
 DSP Report: operator p_0_out is absorbed into DSP p_1_out.
+DSP Report: Generating DSP p_1_out, operation Mode is: PCIN+(A:0x0):B+C.
+DSP Report: operator p_1_out is absorbed into DSP p_1_out.
 WARNING: [Synth 8-3917] design xk265_top has port adv_rst_o driven by constant 1
 WARNING: [Synth 8-3917] design xk265_top has port adv_pen_o driven by constant 1
 WARNING: [Synth 8-6014] Unused sequential element fme_mv_mem_0/u_ram_dp/mem_array_reg was removed. 
@@ -2017,6 +2039,7 @@ WARNING: [Synth 8-6841] Block RAM (genblk1[1].mem_array_reg) originally specifie
 INFO: [Synth 8-4652] Swapped enable and write-enable on 64 RAM instances of RAM genblk1[1].mem_array_reg to conserve power
 WARNING: [Synth 8-6841] Block RAM (genblk1[1].mem_array_reg) originally specified as a Byte Wide Write Enable RAM cannot take advantage of ByteWide feature and is implemented with single write enable per RAM due to following reason.
 (byte width (1) is not a multiple of 8(data_only) or 9(data + parity))
+INFO: [Common 17-14] Message 'Synth 8-7082' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-4652] Swapped enable and write-enable on 64 RAM instances of RAM genblk1[1].mem_array_reg to conserve power
 WARNING: [Synth 8-6841] Block RAM (genblk1[1].mem_array_reg) originally specified as a Byte Wide Write Enable RAM cannot take advantage of ByteWide feature and is implemented with single write enable per RAM due to following reason.
 (byte width (1) is not a multiple of 8(data_only) or 9(data + parity))
@@ -2083,9 +2106,17 @@ INFO: [Synth 8-3886] merging instance 'position_d1_r_reg[7]' (FDC) to 'idx_4x4_y
 INFO: [Synth 8-5546] ROM "ref_3_0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ref_2_0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ref_1_0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\fact1_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\fact3_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\fact3_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\delta_idx_r_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\delta_idx_r_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\delta_idx_r_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ifact1_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ifact3_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ifact3_reg[0] )
 INFO: [Synth 8-5587] ROM size for "pred_angle" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5587] ROM size for "pred_angle" is below threshold of ROM address width. It will be mapped to LUTs
-INFO: [Synth 8-5546] ROM "ref_0_0" won't be mapped to RAM because it is too sparse
 DSP Report: Generating DSP planar_00_w5, operation Mode is: A*B.
 DSP Report: operator planar_00_w5 is absorbed into DSP planar_00_w5.
 DSP Report: Generating DSP planar_00_w1, operation Mode is: C+A*B.
@@ -2457,15 +2488,76 @@ INFO: [Synth 8-5546] ROM "prt_of_08_7_5_r" won't be mapped to RAM because it is 
 INFO: [Synth 8-5546] ROM "prt_of_08_6_6_r" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "prt_of_08_6_7_r" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "prt_of_08_7_6_r" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "prt_of_08_7_7_r" won't be mapped to RAM because it is too sparse
+INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (posi_satd_cost/\dat_sum_1_4_7_r_reg[18] )
 WARNING: [Synth 8-6841] Block RAM (genblk1[1].mem_array_reg) originally specified as a Byte Wide Write Enable RAM cannot take advantage of ByteWide feature and is implemented with single write enable per RAM due to following reason.
 (byte width (1) is not a multiple of 8(data_only) or 9(data + parity))
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_01_cst_sad_0_28_27_r_reg[27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_18_04_r_reg[26] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_01_cst_sad_0_30_03_r_reg[27] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_30_02_r_reg[27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_01_cst_sad_0_17_14_r_reg[27] )
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[4]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[5]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[4]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[5]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[4]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[5]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[4]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[5]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[5]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[6]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[5]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[6]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[5]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[6]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[5]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[6]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[6]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[7]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[6]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[7]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[6]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[7]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[6]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[7]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[7]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[8]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[7]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[8]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[7]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[8]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[7]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[8]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[8]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[9]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[8]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[9]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[8]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[9]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[8]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[9]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[9]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[10]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[9]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[10]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[9]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[10]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[9]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[10]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[10]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[11]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[10]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[11]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[10]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[11]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[10]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[11]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[11]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[12]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[11]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[12]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[11]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[12]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[11]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[12]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[12]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[13]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[12]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[13]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[12]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[13]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[12]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[13]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[13]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[14]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[13]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[14]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[13]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[14]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[13]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[14]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[14]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[15]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[14]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[15]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[14]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[15]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[14]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[15]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[15]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[16]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[15]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[16]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[15]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[16]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[15]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[16]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[16]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[17]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[16]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[17]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[16]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[17]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[16]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[17]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[17]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[18]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[17]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[18]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[17]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[18]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[17]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[18]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[18]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[19]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_21_r_reg[18]' (FDCE) to 'dat_01_cst_sad_0_21_21_r_reg[19]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_21_20_r_reg[18]' (FDCE) to 'dat_01_cst_sad_0_21_20_r_reg[19]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_21_r_reg[18]' (FDCE) to 'dat_01_cst_sad_0_20_21_r_reg[19]'
+INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_20_20_r_reg[19]' (FDCE) to 'dat_01_cst_sad_0_20_20_r_reg[20]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_01_cst_sad_0_16_15_r_reg[27] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_22_22_r_reg[27] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_20_22_r_reg[27] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_22_20_r_reg[27] )
@@ -2548,77 +2640,8 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_c
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_22_20_r_reg[24] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_20_20_r_reg[25] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_22_22_r_reg[25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_20_22_r_reg[25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_22_20_r_reg[25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_22_22_r_reg[26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_20_22_r_reg[26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_22_20_r_reg[26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_20_20_r_reg[26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dat_02_cst_sad_0_22_18_r_reg[27] )
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[4]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[5]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[4]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[5]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[4]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[5]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[4]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[5]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[5]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[6]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[5]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[6]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[5]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[6]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[5]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[6]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[6]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[7]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[6]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[7]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[6]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[7]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[6]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[7]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[7]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[8]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[7]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[8]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[7]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[8]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[7]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[8]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[8]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[9]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[8]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[9]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[8]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[9]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[8]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[9]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[9]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[10]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[9]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[10]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[9]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[10]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[9]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[10]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[10]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[11]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[10]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[11]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[10]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[11]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[10]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[11]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[11]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[12]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[11]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[12]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[11]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[12]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[11]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[12]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[12]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[13]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[12]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[13]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[12]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[13]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[12]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[13]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[13]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[14]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[13]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[14]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[13]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[14]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[13]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[14]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[14]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[15]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[14]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[15]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[14]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[15]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[14]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[15]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[15]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[16]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[15]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[16]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[15]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[16]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[15]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[16]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[16]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[17]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[16]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[17]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[16]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[17]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[16]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[17]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[17]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[18]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[17]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[18]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[17]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[18]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[17]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[18]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[18]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[19]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_05_r_reg[18]' (FDCE) to 'dat_01_cst_sad_0_05_05_r_reg[19]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_05_04_r_reg[18]' (FDCE) to 'dat_01_cst_sad_0_05_04_r_reg[19]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_05_r_reg[18]' (FDCE) to 'dat_01_cst_sad_0_04_05_r_reg[19]'
-INFO: [Synth 8-3886] merging instance 'dat_01_cst_sad_0_04_04_r_reg[19]' (FDCE) to 'dat_01_cst_sad_0_04_04_r_reg[20]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5587] ROM size for "lambda_w" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5587] ROM size for "lambda_w" is below threshold of ROM address width. It will be mapped to LUTs
@@ -2949,6 +2972,7 @@ DSP Report: operator val5 is absorbed into DSP val0.
 DSP Report: Generating DSP val0, operation Mode is: PCIN+A*(B:0x11).
 DSP Report: operator val0 is absorbed into DSP val0.
 DSP Report: operator val6 is absorbed into DSP val0.
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 DSP Report: Generating DSP val3, operation Mode is: A*(B:0x3fffb).
 DSP Report: operator val3 is absorbed into DSP val3.
 DSP Report: Generating DSP val0, operation Mode is: PCIN+A*(B:0x3ffff).
@@ -3140,7 +3164,6 @@ WARNING: [Synth 8-6841] Block RAM (genblk1[1].mem_array_reg) originally specifie
 (byte width (1) is not a multiple of 8(data_only) or 9(data + parity))
 WARNING: [Synth 8-6841] Block RAM (genblk1[1].mem_array_reg) originally specified as a Byte Wide Write Enable RAM cannot take advantage of ByteWide feature and is implemented with single write enable per RAM due to following reason.
 (byte width (1) is not a multiple of 8(data_only) or 9(data + parity))
-INFO: [Common 17-14] Message 'Synth 8-7082' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-6841] Block RAM (genblk1[1].mem_array_reg) originally specified as a Byte Wide Write Enable RAM cannot take advantage of ByteWide feature and is implemented with single write enable per RAM due to following reason.
 (byte width (1) is not a multiple of 8(data_only) or 9(data + parity))
 WARNING: [Synth 8-6841] Block RAM (genblk1[1].mem_array_reg) originally specified as a Byte Wide Write Enable RAM cannot take advantage of ByteWide feature and is implemented with single write enable per RAM due to following reason.
@@ -3244,7 +3267,6 @@ DSP Report: operator temp2 is absorbed into DSP temp2.
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5587] ROM size for "qpw1" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5587] ROM size for "qpw1" is below threshold of ROM address width. It will be mapped to LUTs
-INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5587] ROM size for "last_sig_coeff_x_prefix_r" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5587] ROM size for "last_sig_coeff_y_prefix_r" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5587] ROM size for "last_sig_coeff_x_prefix_r" is below threshold of ROM address width. It will be mapped to LUTs
@@ -3267,7 +3289,6 @@ INFO: [Synth 8-5544] ROM "pos_x_suffix_y_2_r" won't be mapped to Block RAM becau
 INFO: [Synth 8-5544] ROM "ctxIdx_csbf_r" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "coeff_addr_16x16_r" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ctxIdx_split_transform_flag_r" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5546] ROM "ctx_spflag" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ctx_spflag" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ctx_spflag" won't be mapped to RAM because it is too sparse
@@ -3434,6 +3455,8 @@ INFO: [Synth 8-5546] ROM "mode21_reg64" won't be mapped to RAM because it is too
 INFO: [Synth 8-5546] ROM "mode22_reg64" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "mode23_reg64" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "mode24_reg64" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mode25_reg64" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mode26_reg64" won't be mapped to RAM because it is too sparse
 INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5544] ROM "p_1_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "p_1_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -3515,7 +3538,7 @@ WARNING: [Synth 8-3332] Sequential element (u_prei_top/rate_control1/predict_bit
 WARNING: [Synth 8-3332] Sequential element (u_prei_top/rate_control1/predict_bit_reg[1]__0) is unused and will be removed from module prei_top_buf.
 WARNING: [Synth 8-3332] Sequential element (u_prei_top/rate_control1/predict_bit_reg[0]__0) is unused and will be removed from module prei_top_buf.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:13:46 ; elapsed = 00:22:54 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:17:32 ; elapsed = 00:19:54 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-5835] Resources of type BRAM have been overutilized. Used = 4438, Available = 1000. Will try to implement using LUT-RAM. 
 WARNING: [Synth 8-3936] Found unconnected internal register 'u_db_tupu_ram_sp_64x32/u_ram_1p/data_r_reg' and it is trimmed from '32' to '25' bits. [E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v:80]
@@ -3737,7 +3760,8 @@ DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding R
 |quan                 | A*B                     | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |quan                 | A*B                     | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |quan                 | A*B                     | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|xk265_ctrl           | (D+A)*(B:0x780)         | 12     | 11     | -      | 8      | 24     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|xk265_ctrl           | (D+A)*(B:0xc0)          | 12     | 8      | -      | 8      | 21     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|xk265_ctrl           | PCIN+(A:0x0):B+C        | 30     | 12     | 11     | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
 |intra_pred__GBM1     | A*B                     | 13     | 8      | -      | -      | 21     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |intra_pred__GBM1     | C+A*B                   | 13     | 8      | 13     | -      | 13     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
 |intra_pred__GBM1     | PCIN+(A:0x0):B+(C:0x10) | 30     | 13     | 5      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
@@ -4127,7 +4151,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:14:12 ; elapsed = 00:23:37 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:18:11 ; elapsed = 00:20:38 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -4160,7 +4184,7 @@ WARNING: [Synth 8-3332] Sequential element (u_prei_top/rate_control1/predict_bit
 WARNING: [Synth 8-3332] Sequential element (u_prei_top/rate_control1/predict_bit_reg[12]__0) is unused and will be removed from module prei_top_buf.
 WARNING: [Synth 8-3332] Sequential element (u_prei_top/rate_control1/predict_bit_reg[11]__0) is unused and will be removed from module prei_top_buf.
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:17:44 ; elapsed = 00:29:28 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished Timing Optimization : Time (s): cpu = 00:23:25 ; elapsed = 00:26:10 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -4399,7 +4423,7 @@ INFO: [Common 17-14] Message 'Synth 8-5844' appears 100 times and further instan
 INFO: [Common 17-14] Message 'Synth 8-5844' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-5844' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:22:40 ; elapsed = 00:37:31 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished Technology Mapping : Time (s): cpu = 00:30:10 ; elapsed = 00:33:54 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -4417,37 +4441,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:24:04 ; elapsed = 00:39:47 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished IO Insertion : Time (s): cpu = 00:32:23 ; elapsed = 00:36:20 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:24:05 ; elapsed = 00:39:48 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished Renaming Generated Instances : Time (s): cpu = 00:32:25 ; elapsed = 00:36:22 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:25:34 ; elapsed = 00:42:18 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:34:51 ; elapsed = 00:38:54 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:25:40 ; elapsed = 00:42:27 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished Renaming Generated Ports : Time (s): cpu = 00:34:59 ; elapsed = 00:39:02 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:25:55 ; elapsed = 00:42:51 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished Handling Custom Attributes : Time (s): cpu = 00:35:22 ; elapsed = 00:39:26 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:25:57 ; elapsed = 00:42:54 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished Renaming Generated Nets : Time (s): cpu = 00:35:25 ; elapsed = 00:39:29 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -4498,29 +4522,29 @@ Report Cell Usage:
 |5     |fdma_mig_ddr_s00_regslice     |      1|
 |6     |fdma_mig_ddr_uiFDMA_0         |      1|
 |7     |pixel_fifo                    |      2|
-|9     |BUFG                          |      5|
-|10    |CARRY4                        |  28115|
-|11    |DSP48E1                       |    693|
-|19    |LUT1                          |  13464|
-|20    |LUT2                          |  51717|
-|21    |LUT3                          |  39663|
-|22    |LUT4                          |  49576|
-|23    |LUT5                          |  73341|
-|24    |LUT6                          | 123066|
-|25    |MUXF7                         |  11920|
-|26    |MUXF8                         |   2518|
+|9     |BUFG                          |      4|
+|10    |CARRY4                        |  28073|
+|11    |DSP48E1                       |    694|
+|19    |LUT1                          |  13453|
+|20    |LUT2                          |  51638|
+|21    |LUT3                          |  39636|
+|22    |LUT4                          |  49538|
+|23    |LUT5                          |  73309|
+|24    |LUT6                          | 122549|
+|25    |MUXF7                         |  11902|
+|26    |MUXF8                         |   2509|
 |27    |PULLUP                        |      1|
 |28    |RAM128X1D                     |   1536|
 |29    |RAM128X1S                     |   6412|
-|30    |RAM256X1S                     |   3216|
+|30    |RAM256X1S                     |   3176|
 |31    |RAM32X1D                      |    256|
 |32    |RAM32X1S                      |    768|
 |33    |RAM64M                        |     21|
-|34    |RAM64X1S                      |   2949|
+|34    |RAM64X1S                      |   2935|
 |35    |SRL16E                        |     41|
-|36    |FDCE                          | 104669|
-|37    |FDPE                          |   5557|
-|38    |FDRE                          |  15225|
+|36    |FDCE                          | 104343|
+|37    |FDPE                          |   5555|
+|38    |FDRE                          |  15191|
 |39    |FDSE                          |     63|
 |40    |LDC                           |     11|
 |41    |IBUF                          |     29|
@@ -4528,37 +4552,37 @@ Report Cell Usage:
 |43    |OBUF                          |     12|
 +------+------------------------------+-------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:25:59 ; elapsed = 00:42:56 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Finished Writing Synthesis Report : Time (s): cpu = 00:35:27 ; elapsed = 00:39:31 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 349 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:22:38 ; elapsed = 00:40:55 . Memory (MB): peak = 5539.586 ; gain = 1968.402
-Synthesis Optimization Complete : Time (s): cpu = 00:25:59 ; elapsed = 00:42:59 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+Synthesis finished with 0 errors, 0 critical warnings and 350 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:30:10 ; elapsed = 00:37:31 . Memory (MB): peak = 5539.785 ; gain = 1971.035
+Synthesis Optimization Complete : Time (s): cpu = 00:35:27 ; elapsed = 00:39:34 . Memory (MB): peak = 5539.785 ; gain = 3986.840
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 5539.586 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 58416 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 5 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 5539.785 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 58294 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 10 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.241 . Memory (MB): peak = 5539.586 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.239 . Memory (MB): peak = 5872.059 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 15170 instances were transformed.
+  A total of 15116 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
   LDC => LDCE: 11 instances
   RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 1536 instances
   RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 6412 instances
-  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 3216 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 3176 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 256 instances
   RAM32X1S => RAM32X1S (RAMS32): 768 instances
   RAM64M => RAM64M (RAMD64E(x4)): 21 instances
-  RAM64X1S => RAM64X1S (RAMS64E): 2949 instances
+  RAM64X1S => RAM64X1S (RAMS64E): 2935 instances
 
-Synth Design complete, checksum: b24ceab7
+Synth Design complete, checksum: 3fe95d6c
 INFO: [Common 17-83] Releasing license: Synthesis
-1067 Infos, 412 Warnings, 0 Critical Warnings and 0 Errors encountered.
+1069 Infos, 409 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:27:32 ; elapsed = 00:45:27 . Memory (MB): peak = 5539.586 ; gain = 3979.715
+synth_design: Time (s): cpu = 00:37:48 ; elapsed = 00:42:03 . Memory (MB): peak = 5872.059 ; gain = 4319.113
 INFO: [Common 17-1381] The checkpoint 'E:/Project/xk265/xk265/xk265.runs/synth_1/xk265_top.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:01:14 ; elapsed = 00:01:58 . Memory (MB): peak = 5539.586 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:01:57 ; elapsed = 00:01:58 . Memory (MB): peak = 5872.059 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file xk265_top_utilization_synth.rpt -pb xk265_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Apr 30 03:59:58 2023...
+INFO: [Common 17-206] Exiting Vivado at Mon May  1 01:47:12 2023...

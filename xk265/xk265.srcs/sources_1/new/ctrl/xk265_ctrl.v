@@ -187,12 +187,12 @@ module xk265_ctrl(
                                 if(pixel_buffer_rd_cnt_i >= ((`FRAME_SIZE - video_buffer_y_write_in_cnt) >> 4)) begin 
                                     // 缓冲区可读取数量大于该帧尾部大小
                                     video_buffer_y_write_in_cnt <= `FRAME_SIZE;
-                                    fdma_size_o <= (`FRAME_SIZE - video_buffer_y_write_in_cnt) >> 4;
+                                    fdma_size_o <= ((`FRAME_SIZE - video_buffer_y_write_in_cnt) >> 4);
                                 end
                                 else begin
                                     // 此处读取的 Y 块数目必须为 2 的倍数
                                     // 否则 UV 块读取的数目无法匹配 Y 块读取的数目
-                                    video_buffer_y_write_in_cnt <= video_buffer_y_write_in_cnt + (pixel_buffer_rd_cnt_i >> 1) << 5;
+                                    video_buffer_y_write_in_cnt <= video_buffer_y_write_in_cnt + ((pixel_buffer_rd_cnt_i >> 1) << 5);
                                     fdma_size_o <= ((pixel_buffer_rd_cnt_i >> 1) << 1);
                                 end
                             end

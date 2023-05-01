@@ -70,7 +70,7 @@ module hdmi2yuv_top(
 /************************* RGB 转 YUV 模块 *************************/
     // TODO 取消注释，启用该模块
     // rgb2yuv rgb2yuv(
-    //     .clk_i(pclk_i),
+    //     .clk_i(~pclk_i),
     //     .rst_n_i(rgb2yuv_rst_n),
     //     .hsync_i(hsync_i),
     //     .vsync_i(vsync_i),
@@ -97,9 +97,9 @@ module hdmi2yuv_top(
     end
     
     // UV 分量列存储标志
-    always@(posedge pclk_i or negedge yuv_data_merge_rst_n) begin
+    always@(negedge pclk_i or negedge yuv_data_merge_rst_n) begin
         if(!yuv_data_merge_rst_n)
-            uv_col_recorded <= 1'b1;
+            uv_col_recorded <= 1'b0;
         else 
             uv_col_recorded <= ~uv_col_recorded; 
     end
@@ -107,7 +107,7 @@ module hdmi2yuv_top(
     // UV 分量行存储标志
     always@(posedge yuv_hsync or negedge yuv_data_merge_rst_n) begin
         if(!yuv_data_merge_rst_n)
-            uv_row_recorded <= 1'b1;
+            uv_row_recorded <= 1'b0;
         else
             uv_row_recorded <= ~uv_row_recorded;
     end
@@ -117,7 +117,7 @@ module hdmi2yuv_top(
         .DATA_IN_WIDTH(8),
         .DATA_OUT_WIDTH(128)
     ) y_merge_8_to_128(
-        .clk_i(pclk_i),
+        .clk_i(~pclk_i),
         .rst_n_i(yuv_data_merge_rst_n),
         .de_i(y_recorded),
         .data_i(yuv_data[23:16]),
@@ -130,7 +130,7 @@ module hdmi2yuv_top(
         .DATA_IN_WIDTH(16),
         .DATA_OUT_WIDTH(128)
     ) uv_merge_16_to_128(
-        .clk_i(pclk_i),
+        .clk_i(~pclk_i),
         .rst_n_i(yuv_data_merge_rst_n),
         .de_i(uv_recorded),
         .data_i(yuv_data[15:0]),

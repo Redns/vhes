@@ -4,6 +4,12 @@
 # Block Designs: bd/fdma_mig_ddr/fdma_mig_ddr.bd
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fdma_mig_ddr || ORIG_REF_NAME==fdma_mig_ddr} -quiet] -quiet
 
+# IP: bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/fdma_mig_ddr_s00_regslice_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fdma_mig_ddr_s00_regslice_0 || ORIG_REF_NAME==fdma_mig_ddr_s00_regslice_0} -quiet] -quiet
+
+# IP: bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fdma_mig_ddr_auto_us_df_0 || ORIG_REF_NAME==fdma_mig_ddr_auto_us_df_0} -quiet] -quiet
+
 # IP: bd/fdma_mig_ddr/ip/fdma_mig_ddr_axi_interconnect_0_0/fdma_mig_ddr_axi_interconnect_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fdma_mig_ddr_axi_interconnect_0_0 || ORIG_REF_NAME==fdma_mig_ddr_axi_interconnect_0_0} -quiet] -quiet
 
@@ -19,10 +25,7 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fdma_mig_dd
 # IP: bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fdma_mig_ddr_mig_7series_0_0 || ORIG_REF_NAME==fdma_mig_ddr_mig_7series_0_0} -quiet] -quiet
 
-# IP: bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/fdma_mig_ddr_s00_regslice_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fdma_mig_ddr_s00_regslice_0 || ORIG_REF_NAME==fdma_mig_ddr_s00_regslice_0} -quiet] -quiet
-
-# IP: bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fdma_mig_ddr_auto_us_df_0 || ORIG_REF_NAME==fdma_mig_ddr_auto_us_df_0} -quiet] -quiet
+# IP: ip/pixel_fifo/pixel_fifo.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==pixel_fifo || ORIG_REF_NAME==pixel_fifo} -quiet] -quiet
 
 # XDC: e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr_ooc.xdc

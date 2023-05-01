@@ -28,7 +28,7 @@
 // 帧尺寸设置
 // TODO 修改此处配置 1920*1080*130
 `define FRAME_WIDTH         192
-`define FRAME_HEIGHT        10
+`define FRAME_HEIGHT        64
 `define FRAME_SIZE          `FRAME_WIDTH * `FRAME_HEIGHT
 `define FRAME_NUMS          1300
 `define FILE_VIDEO_ORIGIN   "E:/Project/xk265/core/sim/top_testbench/tv/blue_sky.yuv"   

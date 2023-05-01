@@ -33,7 +33,7 @@
 
   <dci_hr_inouts_inputs>40 Ohms</dci_hr_inouts_inputs>
 
-  <dci_cascade>0</dci_cascade>
+  <dci_cascade>1</dci_cascade>
 
   <Controller number="0">
     <MemoryDevice>DDR3_SDRAM/Components/MT41K256M16XX-125</MemoryDevice>
