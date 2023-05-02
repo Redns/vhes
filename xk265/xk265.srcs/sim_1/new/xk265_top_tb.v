@@ -59,6 +59,7 @@ module xk265_top_tb;
         .rgb_i(rgb),
         .de_i(de),
         .bs_valid_o(bs_valid),
+        .bs_data_o(bs_data),
         .DDR3_o_addr(DDR3_o_addr),
         .DDR3_o_ba(DDR3_o_ba),
         .DDR3_o_cas_n(DDR3_o_cas_n),
@@ -76,7 +77,7 @@ module xk265_top_tb;
         .DDR3_o_we_n(DDR3_o_we_n)
     );
 
-    ddr3_model u_comp_ddr3_p1(
+    ddr3_model u_ddr3_part1(
         .rst_n(DDR3_o_reset_n),
         .ck(DDR3_o_ck_p),
         .ck_n(DDR3_o_ck_n),
@@ -95,7 +96,7 @@ module xk265_top_tb;
         .odt(DDR3_o_odt)
     );
 
-    ddr3_model u_comp_ddr3_p2(
+    ddr3_model u_ddr3_part2(
         .rst_n(DDR3_o_reset_n),
         .ck(DDR3_o_ck_p),
         .ck_n(DDR3_o_ck_n),
@@ -129,11 +130,11 @@ module xk265_top_tb;
 
     initial begin
         /****************** 初始化变量 *****************/
-            rst_n <= 1'b1;
-            hsync <= 1'b0;
-            vsync <= 1'b0;
-            rgb <= 24'b0;
-            de <= 1'b0;
+            rst_n = 1'b1;
+            hsync = 1'b0;
+            vsync = 1'b0;
+            rgb = 24'b0;
+            de = 1'b0;
         
         /**************** 加载 yuv 文件 ****************/
             fp_video_origin = $fopen(`FILE_VIDEO_ORIGIN, "r");
@@ -142,35 +143,35 @@ module xk265_top_tb;
                 for(frame_row = 0; frame_row < `FRAME_HEIGHT; frame_row = frame_row + 1) begin
                     for(frame_col = 0; frame_col < `FRAME_WIDTH; frame_col = frame_col + 1) begin
                         $fread(video_read_buffer, fp_video_origin);
-                        video_stream_y[frame_serial_number][frame_row][frame_col] <= video_read_buffer;
+                        video_stream_y[frame_serial_number][frame_row][frame_col] = video_read_buffer;
                     end
                 end
                 // 读取 U 分量
                 for(frame_row = 0; frame_row < `FRAME_HEIGHT; frame_row = frame_row + 2) begin
                     for(frame_col = 0; frame_col < `FRAME_WIDTH; frame_col = frame_col + 2) begin
                         $fread(video_read_buffer, fp_video_origin);
-                        video_stream_u[frame_serial_number][frame_row][frame_col] <= video_read_buffer;
-                        video_stream_u[frame_serial_number][frame_row][frame_col + 1] <= video_read_buffer;
-                        video_stream_u[frame_serial_number][frame_row + 1][frame_col] <= video_read_buffer;
-                        video_stream_u[frame_serial_number][frame_row + 1][frame_col + 1] <= video_read_buffer;
+                        video_stream_u[frame_serial_number][frame_row][frame_col] = video_read_buffer;
+                        video_stream_u[frame_serial_number][frame_row][frame_col + 1] = video_read_buffer;
+                        video_stream_u[frame_serial_number][frame_row + 1][frame_col] = video_read_buffer;
+                        video_stream_u[frame_serial_number][frame_row + 1][frame_col + 1] = video_read_buffer;
                     end
                 end
                 // 读取 V 分量
                 for(frame_row = 0; frame_row < `FRAME_HEIGHT; frame_row = frame_row + 2) begin
                     for(frame_col = 0; frame_col < `FRAME_WIDTH; frame_col = frame_col + 2) begin
                         $fread(video_read_buffer, fp_video_origin);
-                        video_stream_v[frame_serial_number][frame_row][frame_col] <= video_read_buffer;
-                        video_stream_v[frame_serial_number][frame_row][frame_col + 1] <= video_read_buffer;
-                        video_stream_v[frame_serial_number][frame_row + 1][frame_col] <= video_read_buffer;
-                        video_stream_v[frame_serial_number][frame_row + 1][frame_col + 1] <= video_read_buffer;
+                        video_stream_v[frame_serial_number][frame_row][frame_col] = video_read_buffer;
+                        video_stream_v[frame_serial_number][frame_row][frame_col + 1] = video_read_buffer;
+                        video_stream_v[frame_serial_number][frame_row + 1][frame_col] = video_read_buffer;
+                        video_stream_v[frame_serial_number][frame_row + 1][frame_col + 1] = video_read_buffer;
                     end
                 end
             end
             $fclose(fp_video_origin);
         
         /******************* 复位模块 ******************/
-            #(10 * `FULL_SYS_CLK) rst_n <= 0;
-            #(10 * `FULL_SYS_CLK) rst_n <= 1;
+            #(10 * `FULL_SYS_CLK) rst_n = 0;
+            #(10 * `FULL_SYS_CLK) rst_n = 1;
             wait(xk265_top.hevc_enc_core_top.rstn);
         
         /******************* 监控变量 ******************/
@@ -178,22 +179,22 @@ module xk265_top_tb;
         
         /**************** 模拟 HDMI 时序 ***************/
             for(frame_serial_number = 0; frame_serial_number < `FRAME_NUMS; frame_serial_number = frame_serial_number + 1) begin
-                vsync <= 1'b1;
-                #(10 * `FULL_PCLK) vsync <= 1'b0;
+                vsync = 1'b1;
+                #(10 * `FULL_PCLK) vsync = 1'b0;
                 for(frame_row = 0; frame_row < `FRAME_HEIGHT; frame_row = frame_row + 1) begin
-                    hsync <= 1'b1;
-                    #(44 * `FULL_PCLK) hsync <= 1'b0;
+                    hsync = 1'b1;
+                    #(44 * `FULL_PCLK) hsync = 1'b0;
                     #(148 * `FULL_PCLK);
                     for(frame_col = 0; frame_col < `FRAME_WIDTH; frame_col = frame_col + 1) begin
                         @(posedge pclk) begin
-                            de <= 1'b1;
-                            rgb <= { video_stream_y[frame_serial_number][frame_row][frame_col],
+                            de = 1'b1;
+                            rgb = { video_stream_y[frame_serial_number][frame_row][frame_col],
                                      video_stream_u[frame_serial_number][frame_row][frame_col],
                                      video_stream_v[frame_serial_number][frame_row][frame_col] 
                             };
                         end
                     end
-                    @(negedge pclk) de <= 1'b0;
+                    @(negedge pclk) de = 1'b0;
                     #(88 * `FULL_PCLK);
                 end
             end

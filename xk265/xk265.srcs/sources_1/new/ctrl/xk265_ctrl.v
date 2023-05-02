@@ -85,14 +85,11 @@ module xk265_ctrl(
             extif_busy <= 1'b1;
             hevc_extif_operated_rows <= 8'b0;
         end
-        else if(!fdma_busy_i) 
-            hevc_extif_operated_rows <= hevc_extif_operated_rows + 1'b1;
         else if(hevc_extif_done_o) begin
             extif_busy <= 1'b0;
         end
-        else begin
-            extif_busy <= extif_busy;
-            hevc_extif_operated_rows <= hevc_extif_operated_rows;
+        else if(!fdma_busy_i) begin
+            hevc_extif_operated_rows <= (state == S2_extif) ? (hevc_extif_operated_rows + 1'b1) : hevc_extif_operated_rows;
         end
     end
 

@@ -19,25 +19,6 @@
 
     `define FORMAT_YUV
 
-    // 测试时修改此处的帧大小
-    `define FRAME_WIDTH     1920 // (`FRAME_W/`LCU_SIZE + 1)*`LCU_SIZE  // full LCU
-    `define FRAME_HEIGHT    1080 // (`FRAME_H/`LCU_SIZE + 1)*`LCU_SIZE  // full LCU
-
-    `define INITIAL_QP      20
-    `define GOP_LENGTH      50
-    `define FRAME_TOTAL     130
-    `define ENABLE_IinP     0
-    `define ENABLE_DBSAO    0
-    `define POSI4x4BIT      4 
-
-    `define SKIP_COST_THRESH_8  0
-    `define SKIP_COST_THRESH_16 (`SKIP_COST_THRESH_8 * 7) / 2
-    `define SKIP_COST_THRESH_32 (`SKIP_COST_THRESH_16 * 7) / 2
-    `define SKIP_COST_THRESH_64 (`SKIP_COST_THRESH_32 * 7) / 2
-
-    // 此处需要与 YUV 视频源帧数对应
-    `define CHECK_FRAME_NUM 130
-
 /* test vectors */
     `ifdef FORMAT_YUV
         `define FILE_CUR_YUV        "E:/Project/xk265/core/sim/top_testbench/tv/blue_sky.yuv"
@@ -297,15 +278,14 @@ module `TB_NAME ;
                     // 获取当前 LCU 的亮度块
                     LOAD_CUR_LUMA: 
                         begin            
-                            @(negedge clk );
                             // extif_x_o       = load_cur_luma_x_i * 64（当前 LCU 左上角亮度块在帧缓存中的列数）  
                             // extif_y_o       = load_cur_luma_y_i * 64（当前 LCU 左上角亮度块在帧缓存中的行数）
                             // extif_width_o   = 64（LCU 的宽度）                  
                             // extif_height_o  = 64（LCU 的高度）
                             for(ext_height = 0; ext_height < extif_height_o; ext_height = ext_height + 1) begin
                                 // 下方一次取 16 个亮度块，因此循环一次列数加 16
+                                @(negedge clk ) extif_wren_i = 1;
                                 for(ext_width = 0; ext_width < extif_width_o; ext_width = ext_width + 16) begin
-                                    extif_wren_i = 1 ;
                                     ext_addr = (extif_y_o + ext_height) * `FRAME_WIDTH + extif_x_o + ext_width;
                                     extif_data_i = 
                                     { 
@@ -314,8 +294,10 @@ module `TB_NAME ;
                                         ext_ori_yuv[ext_addr + 08], ext_ori_yuv[ext_addr + 09],ext_ori_yuv[ext_addr+10] ,ext_ori_yuv[ext_addr+11],
                                         ext_ori_yuv[ext_addr + 12], ext_ori_yuv[ext_addr + 13],ext_ori_yuv[ext_addr+14] ,ext_ori_yuv[ext_addr+15]
                                     };
-                                    @(negedge clk );
+                                    @(negedge clk);
                                 end
+                                extif_wren_i = 0;
+                                #(2 * `FULL_CLK);
                             end
                             extif_wren_i = 0 ;
                             #100;
@@ -741,7 +723,7 @@ module `TB_NAME ;
                 $time, frame_num, hevc_enc_core_top.u_enc_ctrl.pre_l_x_o, hevc_enc_core_top.u_enc_ctrl.pre_l_y_o );
 
             // 初始化 YUV 缓存阵列
-            for ( frame_num = 0 ; frame_num < `FRAME_TOTAL; frame_num = frame_num + 1 ) begin 
+            for ( frame_num = 0 ; frame_num < `FRAME_NUMS; frame_num = frame_num + 1 ) begin 
                 `ifdef FORMAT_YUV 
                     for ( pxl_cnt = 0 ; pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT*3/2 ; pxl_cnt = pxl_cnt + 1 ) begin 
                     fp_init = $fread( ext_tmp_yuv, fp_ori ) ;

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z035ffg676-2" LaunchTime="1682874150" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/xk265_top.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z035ffg676-2" LaunchTime="1682949057" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/xk265_top.dcp">
   <File Type="PA-TCL" Name="xk265_top.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="xk265_top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="xk265_top_reports.tcl"/>
   <File Type="RDS-RDS" Name="xk265_top.vds"/>
   <File Type="RDS-UTIL" Name="xk265_top_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="xk265_top_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="xk265_top.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="xk265_top_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="xk265_top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr.bd">
@@ -1768,10 +1765,11 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="fdma_mig_ddr_clk_wiz_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="fdma_mig_ddr_mig_7series_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="fdma_mig_ddr_s00_regslice_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="fdma_mig_ddr_auto_us_df_0"/>
 </GenRun>
