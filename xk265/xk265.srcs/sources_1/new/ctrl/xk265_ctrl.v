@@ -19,7 +19,7 @@ module xk265_ctrl(
     output reg hevc_sys_type_o,
     input hevc_sys_done_i,
     input hevc_extif_start_i,
-    output reg hevc_extif_done_o,
+    output hevc_extif_done_o,
     input [4:0] hevc_extif_mode_i,
     input [11:0] hevc_extif_x_i,
     input [11:0] hevc_extif_y_i,
@@ -55,6 +55,8 @@ module xk265_ctrl(
     reg frdw_busy;
     reg hevc_enc_busy;
 
+    reg hevc_extif_done_origin;
+
     // 帧缓存序号
     reg [15:0] hevc_enc_frame_nums;
     reg [1:0] current_read_frame_serial_number;
@@ -75,8 +77,8 @@ module xk265_ctrl(
 /**************************** 标志位 *****************************/    
     // extif 数据交互开始标志
     // hevc_extif_start_i 置位表明 HEVC 编码核要求缓冲交互数据
-    // hevc_extif_done_o 清零表明 HEVC 编码核与缓存的数据交互结束
-    always@(posedge hevc_extif_start_i or posedge hevc_extif_done_o or negedge fdma_busy_i or negedge rst_n_i) begin
+    // hevc_extif_done_origin 清零表明 HEVC 编码核与缓存的数据交互结束
+    always@(posedge hevc_extif_start_i or posedge hevc_extif_done_origin or negedge fdma_busy_i or negedge rst_n_i) begin
         if(!rst_n_i) begin
             extif_busy <= 1'b0;
             hevc_extif_operated_rows <= 8'b0;
@@ -85,7 +87,7 @@ module xk265_ctrl(
             extif_busy <= 1'b1;
             hevc_extif_operated_rows <= 8'b0;
         end
-        else if(hevc_extif_done_o) begin
+        else if(hevc_extif_done_origin) begin
             extif_busy <= 1'b0;
         end
         else if(!fdma_busy_i) begin
@@ -162,7 +164,7 @@ module xk265_ctrl(
             fdma_size_o <= 16'b0;
             // 初始化 HEVC 相关信号
             hevc_sys_start_o <= 1'b0;
-            hevc_extif_done_o <= 1'b0;
+            hevc_extif_done_origin <= 1'b0;
         end
         else begin
             // 状态机实体
@@ -246,8 +248,8 @@ module xk265_ctrl(
                                     else if(extif_rd_en_o)
                                         extif_rd_en_o <= 1'b0;
                                 end
-                                else if(!hevc_extif_done_o)
-                                    hevc_extif_done_o <= 1'b1;
+                                else if(!hevc_extif_done_origin)
+                                    hevc_extif_done_origin <= 1'b1;
                             end
                             LOAD_CUR_CHROMA: begin
                                 // TODO 考虑将此处的阈值修改为 hevc_extif_height_i / 2 - 1'b1
@@ -263,8 +265,8 @@ module xk265_ctrl(
                                     else if(extif_rd_en_o)
                                         extif_rd_en_o <= 1'b0;
                                 end
-                                else if(!hevc_extif_done_o)
-                                    hevc_extif_done_o <= 1'b1;
+                                else if(!hevc_extif_done_origin)
+                                    hevc_extif_done_origin <= 1'b1;
                             end
                             LOAD_DB_LUMA: begin
                                 // TODO 此处考虑将阈值修改为 hevc_extif_height_i - 1'b1
@@ -280,8 +282,8 @@ module xk265_ctrl(
                                     else if(extif_rd_en_o)
                                         extif_rd_en_o <= 1'b0;
                                 end
-                                else if(!hevc_extif_done_o)
-                                    hevc_extif_done_o <= 1'b1;
+                                else if(!hevc_extif_done_origin)
+                                    hevc_extif_done_origin <= 1'b1;
                             end
                             LOAD_DB_CHROMA: begin
                                 // TODO 考虑将此处的阈值修改为 hevc_extif_height_i / 2 - 1'b1
@@ -298,8 +300,8 @@ module xk265_ctrl(
                                         extif_rd_en_o <= 1'b0;
                                 end
                                 else begin
-                                    if(!hevc_extif_done_o)
-                                        hevc_extif_done_o <= 1'b1;
+                                    if(!hevc_extif_done_origin)
+                                        hevc_extif_done_origin <= 1'b1;
                                 end 
                             end
                             STORE_DB_LUMA: begin
@@ -316,8 +318,8 @@ module xk265_ctrl(
                                     else if(extif_wr_en_o)
                                         extif_wr_en_o <= 1'b0;
                                 end
-                                else if(!hevc_extif_done_o)
-                                    hevc_extif_done_o <= 1'b1;
+                                else if(!hevc_extif_done_origin)
+                                    hevc_extif_done_origin <= 1'b1;
                             end
                             STORE_DB_CHROMA: begin
                                 // TODO 考虑将此处的阈值修改为 hevc_extif_height_i / 2 - 1'b1
@@ -334,23 +336,23 @@ module xk265_ctrl(
                                         extif_wr_en_o <= 1'b0;
                                 end
                                 else begin
-                                    if(!hevc_extif_done_o)
-                                        hevc_extif_done_o <= 1'b1;
+                                    if(!hevc_extif_done_origin)
+                                        hevc_extif_done_origin <= 1'b1;
                                 end 
                             end
                             default begin
-                                if(!hevc_extif_done_o)
-                                    hevc_extif_done_o <= 1'b1;
+                                if(!hevc_extif_done_origin)
+                                    hevc_extif_done_origin <= 1'b1;
                                 else
-                                    hevc_extif_done_o <= 1'b0;
+                                    hevc_extif_done_origin <= 1'b0;
                             end 
                         endcase
                     end
                     else begin
-                        if(hevc_extif_done_o)
-                            // 由于 extif_busy 信号绑定 hevc_extif_done_o 上升沿，则 hevc_extif_done_o 置位后
-                            // 不会再进入上述语句，故 hevc_extif_done_o 需要放在此处清除
-                            hevc_extif_done_o <= 1'b0;
+                        if(hevc_extif_done_origin)
+                            // 由于 extif_busy 信号绑定 hevc_extif_done_origin 上升沿，则 hevc_extif_done_origin 置位后
+                            // 不会再进入上述语句，故 hevc_extif_done_origin 需要放在此处清除
+                            hevc_extif_done_origin <= 1'b0;
                         state <= frdw_busy ? S1_FIFO_READ : S3_HEVC_ENC;
                     end
                 end
@@ -375,4 +377,17 @@ module xk265_ctrl(
             endcase
         end
     end
+
+/**************************** 时移模块 *****************************/
+    // 时移 DDR 输出数据
+    // 保证其在时钟下降沿切换数据
+    time_shift#(
+        .DATA_WIDTH(1)
+    ) hevc_extif_done_origin_time_shift(
+        .clk_i(clk_ui),
+        .rst_n_i(rst_n_i),
+        .data_i(hevc_extif_done_origin),
+        .data_o(hevc_extif_done_o)
+    );
+    
 endmodule

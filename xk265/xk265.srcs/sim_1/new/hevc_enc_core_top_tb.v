@@ -79,19 +79,19 @@ module `TB_NAME ;
         reg                             sys_start             ;
         reg                             sys_type              ;
         // PIC_WIDTH = 6 + 6 + 1
-        // 图像最大宽度为 2^PIC_WIDTH = 8192
+        // 图像�?大宽度为 2^PIC_WIDTH = 8192
         reg   [`PIC_WIDTH      -1 :0]   sys_all_x             ;
         // PIC_HEIGHT = 6 + 6
-        // 图像最大高度为 2^PIC_HEIGHT = 4096
+        // 图像�?大高度为 2^PIC_HEIGHT = 4096
         reg   [`PIC_HEIGHT     -1 :0]   sys_all_y             ;
         reg   [6               -1 :0]   sys_init_qp           ;
         wire                            sys_done              ;
         reg                             sys_IinP_ena          ;
-        // 此处解块滤波使能 (sys_db_ena_i) 和 自适应补偿使能 (sys_sao_ena_i) 共用信号 sys_dbsao_ena
+        // 此处解块滤波使能 (sys_db_ena_i) �? 自�?�应补偿使能 (sys_sao_ena_i) 共用信号 sys_dbsao_ena
         reg                             sys_dbsao_ena         ;
         reg   [5               -1 :0]   sys_posi4x4bit        ;
         // skip cost thresh
-        // 与帧间预测相关
+        // 与帧间预测相�?
         reg   [32-1:0]                  skip_cost_thresh_08   ;
         reg   [32-1:0]                  skip_cost_thresh_16   ;
         reg   [32-1:0]                  skip_cost_thresh_32   ;
@@ -190,14 +190,14 @@ module `TB_NAME ;
             rstn = 1;
         end 
 
-        // 例化 HEVC 编码核
+        // 例化 HEVC 编码�?
         hevc_enc_core_top hevc_enc_core_top(
         // global
         .clk                 ( clk                  ),
         .rstn                ( rstn                 ),
         // sys_cfg_if
         .sys_start_i         ( sys_start            ),
-        .sys_type_i          ( sys_type             ),
+        .sys_type_i          ( `INTRA             ),
         .sys_all_x_i         ( sys_all_x            ),
         .sys_all_y_i         ( sys_all_y            ),
         .sys_init_qp_i       ( sys_init_qp          ),
@@ -251,14 +251,14 @@ module `TB_NAME ;
                     LOAD_REF_SUB      = 02 ,
                     LOAD_CUR_LUMA     = 03 ,    // 加载当前 LCU 的亮度块
                     LOAD_REF_LUMA     = 04 ,    // 
-                    LOAD_CUR_CHROMA   = 05 ,    // 加载当前色度块
+                    LOAD_CUR_CHROMA   = 05 ,    // 加载当前色度�?
                     LOAD_REF_CHROMA   = 06 ,
                     LOAD_DB_LUMA      = 07 ,
                     LOAD_DB_CHROMA    = 08 ,
-                    STORE_DB_LUMA     = 09 ,    // 保存重建后的亮度块
-                    STORE_DB_CHROMA   = 10 ;    // 保存重建后的色度块
+                    STORE_DB_LUMA     = 09 ,    // 保存重建后的亮度�?
+                    STORE_DB_CHROMA   = 10 ;    // 保存重建后的色度�?
 
-        /* 原始/重建/参考像素阵列 */
+        /* 原始/重建/参�?�像素阵�? */
         /* YUV420 格式，UV 尺寸为图片尺寸的 1/2，故缓冲区大小为 FRAME_WIDTH * FRAME_HEIGHT * 1.5 */
             // 原始图像阵列
             reg [`PIXEL_WIDTH-1 :0]     ext_ori_yuv [`FRAME_WIDTH*`FRAME_HEIGHT*3/2-1:0] ;
@@ -272,18 +272,18 @@ module `TB_NAME ;
             extif_data_i = 0 ;
         
             forever begin
-                // 等待 HEVC Core 发送数据处理命令
+                // 等待 HEVC Core 发�?�数据处理命�?
                 @(negedge extif_start_o);
                 case(extif_mode_o)
                     // 获取当前 LCU 的亮度块
                     LOAD_CUR_LUMA: 
                         begin            
-                            // extif_x_o       = load_cur_luma_x_i * 64（当前 LCU 左上角亮度块在帧缓存中的列数）  
-                            // extif_y_o       = load_cur_luma_y_i * 64（当前 LCU 左上角亮度块在帧缓存中的行数）
+                            // extif_x_o       = load_cur_luma_x_i * 64（当�? LCU 左上角亮度块在帧缓存中的列数�?  
+                            // extif_y_o       = load_cur_luma_y_i * 64（当�? LCU 左上角亮度块在帧缓存中的行数�?
                             // extif_width_o   = 64（LCU 的宽度）                  
                             // extif_height_o  = 64（LCU 的高度）
                             for(ext_height = 0; ext_height < extif_height_o; ext_height = ext_height + 1) begin
-                                // 下方一次取 16 个亮度块，因此循环一次列数加 16
+                                // 下方�?次取 16 个亮度块，因此循环一次列数加 16
                                 @(negedge clk ) extif_wren_i = 1;
                                 for(ext_width = 0; ext_width < extif_width_o; ext_width = ext_width + 16) begin
                                     ext_addr = (extif_y_o + ext_height) * `FRAME_WIDTH + extif_x_o + ext_width;
@@ -301,7 +301,7 @@ module `TB_NAME ;
                             end
                             extif_wren_i = 0 ;
                             #100;
-                            // 发送数据加载完成信号
+                            // 发�?�数据加载完成信�?
                             @(negedge clk)
                             extif_done_i = 1 ;
                             @(negedge clk)
@@ -327,13 +327,13 @@ module `TB_NAME ;
                             end
                             extif_wren_i = 0 ;
                             #100;
-                            // 发送数据加载完成信号
+                            // 发�?�数据加载完成信�?
                             @(negedge clk)
                             extif_done_i = 1 ;
                             @(negedge clk)
                             extif_done_i = 0 ;
                         end
-                    // 加载重建后的亮度块
+                    // 加载重建后的亮度�?
                     LOAD_DB_LUMA: 
                         begin             
                             @(negedge clk);
@@ -358,7 +358,7 @@ module `TB_NAME ;
                             @(negedge clk)
                             extif_done_i = 0;
                         end
-                    // 加载重建后的色度块
+                    // 加载重建后的色度�?
                     LOAD_DB_CHROMA:  
                         begin             
                             @(negedge clk);
@@ -383,7 +383,7 @@ module `TB_NAME ;
                             @(negedge clk)
                             extif_done_i = 0;
                         end
-                    // 存储重建后的亮度块
+                    // 存储重建后的亮度�?
                     STORE_DB_LUMA: 
                         begin             
                             @(negedge clk);
@@ -407,7 +407,7 @@ module `TB_NAME ;
                             @(negedge clk)
                             extif_done_i = 0;
                         end
-                    // 存储重建后的色度块
+                    // 存储重建后的色度�?
                     STORE_DB_CHROMA: 
                         begin             
                             @(negedge clk);
@@ -445,11 +445,11 @@ module `TB_NAME ;
         end
 
         initial begin 
-            /* 初始化变量 */
+            /* 初始化变�? */
                 // sys if 
                 sys_type = `INTRA;
                 sys_start = 0;
-                // 设置初始量化值
+                // 设置初始量化�?
                 sys_init_qp = `INITIAL_QP ;
                 // 设置待编码帧尺寸
                 sys_all_x = `FRAME_WIDTH ;
@@ -494,13 +494,13 @@ module `TB_NAME ;
                 ime_cfg = $fscanf( fp_ime_cfg ,"%d" ,ime_cfg_dat );
                 ime_cfg = $fscanf( fp_ime_cfg ,"%d" ,ime_cfg_dat );
                 // frame size
-                // 读取帧尺寸
-                // 宽度：416px
-                // 高度：240px
+                // 读取帧尺�?
+                // 宽度�?416px
+                // 高度�?240px
                 ime_cfg = $fscanf( fp_ime_cfg ,"%d" ,ime_cfg_dat );
                 ime_cfg = $fscanf( fp_ime_cfg ,"%d" ,ime_cfg_dat );
 
-            /* 读取并拼接命令 */
+            /* 读取并拼接命�? */
                 // cfg
                 // cmd_num_i = 1
                 ime_cfg = $fscanf( fp_ime_cfg ,"%d" ,cmd_num_i   );
@@ -722,7 +722,7 @@ module `TB_NAME ;
             $monitor( "\tat %08d, Frame Number = %02d, mb_x_first = %02d, mb_y_first = %02d",
                 $time, frame_num, hevc_enc_core_top.u_enc_ctrl.pre_l_x_o, hevc_enc_core_top.u_enc_ctrl.pre_l_y_o );
 
-            // 初始化 YUV 缓存阵列
+            // 初始�? YUV 缓存阵列
             for ( frame_num = 0 ; frame_num < `FRAME_NUMS; frame_num = frame_num + 1 ) begin 
                 `ifdef FORMAT_YUV 
                     for ( pxl_cnt = 0 ; pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT*3/2 ; pxl_cnt = pxl_cnt + 1 ) begin 
@@ -740,9 +740,9 @@ module `TB_NAME ;
                 `endif
 
                 `ifdef FORMAT_NV12
-                    // 将帧数据缓存至 ext_ori_yuv 阵列
+                    // 将帧数据缓存�? ext_ori_yuv 阵列
                     // 采用 NV12 格式，Y 单独存储，U、V 交替存储
-                    // 采样格式 4：2：0，因此 Y、U、V 总像素点数为帧尺寸的 1.5 倍
+                    // 采样格式 4�?2�?0，因�? Y、U、V 总像素点数为帧尺寸的 1.5 �?
                     for (pxl_cnt = 0 ; pxl_cnt < `FRAME_WIDTH*`FRAME_HEIGHT * 3 / 2; pxl_cnt = pxl_cnt + 1) begin 
                         fp_init = $fread(ext_tmp_yuv, fp_ori) ;
                         ext_ori_yuv[pxl_cnt] = ext_tmp_yuv ;
@@ -754,13 +754,13 @@ module `TB_NAME ;
                     // GOP 首帧（即 I 帧）
                     sys_type = `INTRA;
                 else 
-                    // GOP 未结束，下一拍帧间预测编码 P 帧
+                    // GOP 未结束，下一拍帧间预测编�? P �?
                     sys_type = `INTER ;
 
                 // 执行编码过程
-                // sys_start 上升沿启动编码
-                // sys_type 控制编码类型（帧内/帧间）
-                // sys_done 上升沿代表编码完成
+                // sys_start 上升沿启动编�?
+                // sys_type 控制编码类型（帧�?/帧间�?
+                // sys_done 上升沿代表编码完�?
                 begin
                     @(negedge clk);
                     sys_start = 1 ;
@@ -774,8 +774,8 @@ module `TB_NAME ;
             $finish ;
         end 
 
-        // HEVC 字节流检查
-        // bs_val_o 置位时数据有效
+        // HEVC 字节流检�?
+        // bs_val_o 置位时数据有�?
         `ifdef CHECK_BS 
             always@(posedge clk) begin
                 if (bs_val_o == 1) begin 

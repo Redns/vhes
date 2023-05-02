@@ -70,7 +70,12 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param checkpoint.writeSynthRtdsInDcp 1
+set_param chipscope.maxJobs 2
 set_param simulator.modelsimInstallPath D:/Modelsim_v2020_4/win64
+set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 set_msg_config  -id {[BD 41-1271]}  -suppress 
 set_msg_config  -id {[BD 41-1306]}  -suppress 
@@ -194,41 +199,11 @@ read_verilog -library xil_defaultlib {
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/fetch_rf_1p_64x256.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_top.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fetch/fetch_wrapper.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_buf_wrapper.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_cost.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_ctrl.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_interpolator.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_interpolator_8pel.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_interpolator_8x8.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_ip_half_ver.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_ip_quarter_ver.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_mv_buffer.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_mv_candidate_prepare.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/fme_mv_ram_dp_64x20.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_pred.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_satd_8x8.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_satd_gen.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_skip.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/fme_top.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/fme_top_buf.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/gxgy.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/hdmi2rgb.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/hdmi2yuv/hdmi2yuv_top.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/hevc_enc_core_top.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/hevc_md_top.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_addressing.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_cost_store.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ctrl.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_dat_array.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_mv_dump.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ime_mv_ram_sp_64x13.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_partition_decision.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_partition_decision_engine.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_sad_array.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_top.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/ime_top_buf.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_transfer.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/ime/ime_ver_mem.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_intra/intra_buf_wrapper.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_intra/intra_ctrl.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_intra/intra_pred.v
@@ -279,18 +254,14 @@ read_verilog -library xil_defaultlib {
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/prei/prei_top.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/top/prei_top_buf.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_tq/q_iq.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/fme/qp_lambda_table.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_tq/quan.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_1p.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/ram_dp.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_1024x32.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_1536x32.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_240x32.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_256x32.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_384x32.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_be_128x64.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_be_192x128.v
-  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_be_192x512.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_be_192x64.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_sp_be_64x23.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/ram_tp_be_32x64.v
@@ -325,6 +296,7 @@ read_verilog -library xil_defaultlib {
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/db/sao_type_decision.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_sp_be_behave.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/lib/behave/mem/sram_tp_be_behave.v
+  E:/Project/xk265/xk265/xk265.srcs/sources_1/new/time_shift/time_shift.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/mem/tq_ram_sp_32x16.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_tq/tq_top.v
   E:/Project/xk265/xk265/xk265.srcs/sources_1/new/core/rtl/rec/rec_tq/transform_mtr.v

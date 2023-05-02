@@ -50,6 +50,8 @@ module extif_top(
 
     wire [127:0] video_buffer_pixel_out;
 
+    wire [127:0] extif_data_origin;
+
     wire FDMA_S_i_fdma_wvalid, FDMA_S_i_fdma_rvalid;
 
     wire FDMA_S_i_fdma_wbusy, FDMA_S_i_fdma_rbusy;
@@ -57,6 +59,7 @@ module extif_top(
     // 该模块复位顺序为：FDMA MIG DDR --> Video Buffer
     // 整个系统除 hdmi2rgb 模块外均工作在 ui_clk_200M 时钟下，若先复位 Video Buffer 则由于没有 ui_clk 直接系统锁死
     assign video_buffer_rst_n = rst_n_i && fdma_mig_ddr_rst_done;
+    assign time_shift_rst_n = rst_n_i && rst_done_o;
 
     // Video Buffer 读使能
     // pixel_rd_en_i 代表系统要求读取 FIFO 数据至 DDR 中
@@ -64,8 +67,6 @@ module extif_top(
     assign video_buffer_rd_en = is_fifo_write && FDMA_S_i_fdma_wvalid;
     // hevc ---> ddr
     assign hevc_rd_en_o = !is_fifo_write && FDMA_S_i_fdma_wvalid;
-    // ddr ---> hevc
-    assign hevc_wr_en_o = FDMA_S_i_fdma_rvalid;
 
     // FDMA 写入数据
     // 该接口可能由 YUV FIFO 或 HEVC 写入，因此需要通过 FIFO 读使能判断具体哪一个写数据
@@ -124,7 +125,7 @@ module extif_top(
         .FDMA_S_i_fdma_raddr(FDMA_S_i_fdma_addr),
         .FDMA_S_i_fdma_rareq(extif_rd_en_i),
         .FDMA_S_i_fdma_rbusy(FDMA_S_i_fdma_rbusy),
-        .FDMA_S_i_fdma_rdata(extif_data_o),
+        .FDMA_S_i_fdma_rdata(extif_data_origin),
         .FDMA_S_i_fdma_rready(1'b1),
         .FDMA_S_i_fdma_rsize(FDMA_S_i_fdma_size),
         .FDMA_S_i_fdma_rvalid(FDMA_S_i_fdma_rvalid),
@@ -138,6 +139,29 @@ module extif_top(
         .clk_100M_i(clk_100M_i),
         .init_calib_complete_o(fdma_mig_ddr_rst_done),
         .ui_clk_200M_o(clk_ui_200M_o)
+    );
+
+/**************************** 时移模块 *****************************/
+    // 时移 DDR 输出数据
+    // 保证其在时钟下降沿切换数据
+    time_shift#(
+        .DATA_WIDTH(128)
+    ) hevc_extif_data_o_time_shift(
+        .clk_i(clk_ui_200M_o),
+        .rst_n_i(time_shift_rst_n),
+        .data_i(extif_data_origin),
+        .data_o(extif_data_o)
+    );
+
+    // 时移 DDR 输出数据使能
+    // 保证其在时钟下降沿切换
+    time_shift#(
+        .DATA_WIDTH(1)
+    ) hevc_extif_wren_time_shift(
+        .clk_i(clk_ui_200M_o),
+        .rst_n_i(time_shift_rst_n),
+        .data_i(FDMA_S_i_fdma_rvalid),
+        .data_o(hevc_wr_en_o)
     );
 
 endmodule

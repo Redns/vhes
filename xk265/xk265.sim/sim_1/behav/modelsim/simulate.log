@@ -13,8 +13,8 @@
 # //
 # do {hevc_enc_core_top_tb_simulate.do}
 # vsim -voptargs=""+acc"" -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm -lib xil_defaultlib xil_defaultlib.hevc_enc_core_top_tb xil_defaultlib.glbl 
-# Start time: 21:08:34 on May 02,2023
-# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Start time: 00:10:27 on May 03,2023
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading work.hevc_enc_core_top_tb(fast)
 # Loading work.hevc_enc_core_top(fast)
 # Loading work.enc_ctrl(fast)
@@ -78,72 +78,15 @@
 # Loading work.sram_sp_be_behave(fast__1)
 # Loading work.posi_md_ram_sp_64x6(fast)
 # Loading work.ram_1p(fast__4)
-# Loading work.ime_top_buf(fast)
-# Loading work.ime_top(fast)
-# Loading work.ime_transfer(fast)
-# Loading work.ime_ver_mem(fast)
-# Loading work.ram_sp_be_192x512(fast)
-# Loading work.sram_sp_be_behave(fast__2)
-# Loading work.ime_ctrl(fast)
-# Loading work.ime_addressing(fast)
-# Loading work.ime_dat_array(fast)
-# Loading work.ime_sad_array(fast)
-# Loading work.ime_cost_store(fast)
-# Loading work.ime_partition_decision(fast)
-# Loading work.ime_partition_decision_engine(fast)
-# Loading work.ime_mv_dump(fast)
-# Loading work.ime_glue_logic(fast)
-# Loading work.ime_mv_ram_sp_64x13(fast)
-# Loading work.ram_1p(fast__5)
-# Loading work.fme_top_buf(fast)
-# Loading work.fme_top(fast)
-# Loading work.qp_lambda_table(fast)
-# Loading work.fme_interpolator_8x8(fast)
-# Loading work.fme_interpolator_8pel(fast)
-# Loading work.fme_interpolator(fast)
-# Loading work.fme_interpolator(fast__1)
-# Loading work.fme_interpolator(fast__2)
-# Loading work.clip2(fast)
-# Loading work.fme_ip_half_ver(fast)
-# Loading work.fme_interpolator(fast__3)
-# Loading work.clip(fast)
-# Loading work.fme_interpolator(fast__4)
-# Loading work.fme_ip_quarter_ver(fast)
-# Loading work.fme_interpolator(fast__5)
-# Loading work.fme_interpolator(fast__6)
-# Loading work.fme_interpolator(fast__7)
-# Loading work.fme_interpolator(fast__8)
-# Loading work.fme_satd_gen(fast)
-# Loading work.fme_satd_8x8(fast)
-# Loading work.hadamard_trans_2d(fast)
-# Loading work.hadamard_trans_1d(fast)
-# Loading work.hadamard_trans_1d(fast__1)
-# Loading work.fme_abs(fast)
-# Loading work.fme_cost(fast)
-# Loading work.bits_num(fast)
-# Loading work.db_mv_ram_sp_64x20(fast)
-# Loading work.ram_1p(fast__6)
-# Loading work.fme_ctrl(fast)
-# Loading work.fme_pred(fast)
-# Loading work.fme_mv_buffer(fast)
-# Loading work.db_mv_ram_sp_512x20(fast)
-# Loading work.ram_1p(fast__7)
-# Loading work.fme_mv_candidate_prepare(fast)
-# Loading work.fme_skip(fast)
-# Loading work.fme_buf_wrapper(fast)
-# Loading work.ram_sp_be_128x64(fast)
-# Loading work.sram_sp_be_behave(fast__3)
-# Loading work.fme_mv_ram_dp_64x20(fast)
-# Loading work.ram_dp(fast)
 # Loading work.rec_top(fast)
 # Loading work.intra_top(fast)
 # Loading work.intra_ctrl(fast)
 # Loading work.intra_ref(fast)
 # Loading work.intra_buf_wrapper(fast)
 # Loading work.ram_sp_384x32(fast)
-# Loading work.sram_sp_be_behave(fast__4)
+# Loading work.sram_sp_be_behave(fast__2)
 # Loading work.ram_sp_1536x32(fast)
-# Loading work.sram_sp_be_behave(fast__5)
+# Loading work.sram_sp_be_behave(fast__3)
 # Loading work.mc_top(fast)
 # Loading work.mc_chroma_top(fast)
 # Loading work.mc_chroma_ip4x4(fast)
@@ -155,6 +98,7 @@
 # Loading work.mvd_top(fast)
 # Loading work.mvd_can_mv_addr(fast)
 # Loading work.mc_mv_ram_sp_512x20(fast)
+# Loading work.ram_1p(fast__5)
 # Loading work.mvd_getBits(fast)
 # Loading work.tq_top(fast)
 # Loading work.dct_top_2d(fast)
@@ -184,7 +128,7 @@
 # Loading work.addr_ctl(fast)
 # Loading work.mux32_1(fast)
 # Loading work.tq_ram_sp_32x16(fast)
-# Loading work.ram_1p(fast__8)
+# Loading work.ram_1p(fast__6)
 # Loading work.ctl2(fast)
 # Loading work.mux_2(fast)
 # Loading work.pe_i(fast)
@@ -200,28 +144,31 @@
 # Loading work.rec_buf_cef_rot(fast)
 # Loading work.rec_buf_cef(fast)
 # Loading work.ram_sp_be_192x128(fast)
-# Loading work.sram_sp_be_behave(fast__6)
+# Loading work.sram_sp_be_behave(fast__4)
 # Loading work.rec_buf_rec_rot(fast)
 # Loading work.rec_buf_rec(fast)
 # Loading work.ram_sp_be_192x64(fast)
-# Loading work.sram_sp_be_behave(fast__7)
+# Loading work.sram_sp_be_behave(fast__5)
 # Loading work.rec_buf_mvd_rot(fast)
 # Loading work.ram_sp_be_64x23(fast)
-# Loading work.sram_sp_be_behave(fast__8)
+# Loading work.sram_sp_be_behave(fast__6)
 # Loading work.IinP_flag_gen(fast)
 # Loading work.dbsao_top(fast)
 # Loading work.dbsao_controller(fast)
 # Loading work.dbsao_datapath(fast)
 # Loading work.db_bs(fast)
 # Loading work.db_cbf_ram_sp_64x16(fast)
-# Loading work.ram_1p(fast__9)
+# Loading work.ram_1p(fast__7)
 # Loading work.db_tu_edge(fast)
 # Loading work.db_pu_edge(fast)
 # Loading work.db_tupu_ram_sp_64x32(fast)
-# Loading work.ram_1p(fast__10)
+# Loading work.ram_1p(fast__8)
 # Loading work.db_qp(fast)
 # Loading work.db_qp_ram_sp_64x20(fast)
+# Loading work.ram_1p(fast__9)
 # Loading work.db_mv(fast)
+# Loading work.db_mv_ram_sp_64x20(fast)
+# Loading work.db_mv_ram_sp_512x20(fast)
 # Loading work.db_filter(fast)
 # Loading work.db_lut_beta(fast)
 # Loading work.db_lut_tc(fast)
@@ -277,6 +224,11 @@
 # Loading work.glbl(fast)
 # 1
 # 1
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: 26892  Hostname: JINGDEVICE  ProcessID: 24544
+#           Attempting to use alternate WLF file "./wlftd8c6x9".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftd8c6x9
 # .main_pane.wave.interior.cs.body.pw.wf
 # .main_pane.structure.interior.cs.body.struct
 # .main_pane.objects.interior.cs.body.tree
@@ -301,15 +253,6 @@
 # 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_posi_top_buf.u_posi_top.posi_memory_wrapper.ram_sp_240x32.sram_sp_be_behave
 # 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_posi_top_buf.u_posi_top.posi_memory_wrapper.ram_sp_256x32.sram_sp_be_behave
 # 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_posi_top_buf.u_posi_top.posi_memory_wrapper.ram_sp_1024x32.sram_sp_be_behave
-# 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_ime_top_buf.u_ime_top.ime_ver_mem.vertical_memory.sram_sp_be_behave
-# 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_fme_top_buf.fme_rec_mem_0.m_buf_cef_0.sram_sp_be_behave
-# 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_fme_top_buf.fme_rec_mem_0.m_buf_cef_1.sram_sp_be_behave
-# 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_fme_top_buf.fme_rec_mem_0.m_buf_cef_2.sram_sp_be_behave
-# 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_fme_top_buf.fme_rec_mem_0.m_buf_cef_3.sram_sp_be_behave
-# 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_fme_top_buf.fme_rec_mem_1.m_buf_cef_0.sram_sp_be_behave
-# 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_fme_top_buf.fme_rec_mem_1.m_buf_cef_1.sram_sp_be_behave
-# 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_fme_top_buf.fme_rec_mem_1.m_buf_cef_2.sram_sp_be_behave
-# 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_fme_top_buf.fme_rec_mem_1.m_buf_cef_3.sram_sp_be_behave
 # 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_rec_top.u_intra_top.u_intra_buf_wrapper.m_buf_row.sram_sp_be_behave
 # 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_rec_top.u_intra_top.u_intra_buf_wrapper.m_buf_col.sram_sp_be_behave
 # 	 calling sram_sp_be_behave @hevc_enc_core_top_tb.hevc_enc_core_top.u_enc_core.u_rec_top.u_intra_top.u_intra_buf_wrapper.m_buf_fra.sram_sp_be_behave
@@ -351,3 +294,35 @@ run -all
 # 	at   475085, Frame Number =  0, mb_x_first =  7, mb_y_first =  0
 # 	at   599275, Frame Number =  0, mb_x_first =  8, mb_y_first =  0
 # 	at   726625, Frame Number =  0, mb_x_first =  9, mb_y_first =  0
+# 	at   854765, Frame Number =  0, mb_x_first = 10, mb_y_first =  0
+# 	at   980535, Frame Number =  0, mb_x_first = 11, mb_y_first =  0
+# 	at  1033345, Frame Number =  0, mb_x_first = 12, mb_y_first =  0
+# 	at  1074405, Frame Number =  0, mb_x_first = 13, mb_y_first =  0
+# 	at  1118525, Frame Number =  0, mb_x_first = 14, mb_y_first =  0
+# 	at  1151785, Frame Number =  0, mb_x_first = 15, mb_y_first =  0
+# 	at  1185045, Frame Number =  0, mb_x_first = 16, mb_y_first =  0
+# 	at  1223045, Frame Number =  0, mb_x_first = 17, mb_y_first =  0
+# 	at  1261045, Frame Number =  0, mb_x_first = 18, mb_y_first =  0
+# 	at  1294305, Frame Number =  0, mb_x_first = 19, mb_y_first =  0
+# 	at  1322825, Frame Number =  0, mb_x_first = 20, mb_y_first =  0
+# 	at  1349885, Frame Number =  0, mb_x_first = 21, mb_y_first =  0
+# 	at  1380085, Frame Number =  0, mb_x_first = 22, mb_y_first =  0
+# 	at  1415025, Frame Number =  0, mb_x_first = 23, mb_y_first =  0
+# 	at  1452035, Frame Number =  0, mb_x_first = 24, mb_y_first =  0
+# 	at  1528835, Frame Number =  0, mb_x_first = 25, mb_y_first =  0
+# 	at  1649865, Frame Number =  0, mb_x_first = 26, mb_y_first =  0
+# 	at  1778005, Frame Number =  0, mb_x_first = 27, mb_y_first =  0
+# 	at  1896665, Frame Number =  0, mb_x_first = 28, mb_y_first =  0
+# 	at  2014535, Frame Number =  0, mb_x_first = 29, mb_y_first =  0
+# 	at  2120755, Frame Number =  0, mb_x_first =  0, mb_y_first =  1
+# 	at  2239415, Frame Number =  0, mb_x_first =  1, mb_y_first =  1
+# 	at  2358865, Frame Number =  0, mb_x_first =  2, mb_y_first =  1
+# 	at  2476735, Frame Number =  0, mb_x_first =  3, mb_y_first =  1
+# 	at  2561135, Frame Number =  0, mb_x_first =  4, mb_y_first =  1
+# 	at  2686115, Frame Number =  0, mb_x_first =  5, mb_y_first =  1
+# 	at  2786905, Frame Number =  0, mb_x_first =  6, mb_y_first =  1
+# 	at  2900925, Frame Number =  0, mb_x_first =  7, mb_y_first =  1
+# Break key hit
+# Break in Module re_level0_cal at ../../../../xk265.srcs/sources_1/new/core/rtl/rec/rec_tq/re_level0_cal.v line 317
+# End time: 00:17:14 on May 03,2023, Elapsed time: 0:06:47
+# Errors: 0, Warnings: 4
