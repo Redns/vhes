@@ -64,11 +64,10 @@ module extif_top(
     assign video_buffer_rd_en = is_fifo_write && FDMA_S_i_fdma_wvalid;
     // hevc ---> ddr
     assign hevc_rd_en_o = !is_fifo_write && FDMA_S_i_fdma_wvalid;
-    // ddr ---> hevc
-    assign hevc_wr_en_o = FDMA_S_i_fdma_rvalid;
 
     // FDMA 写入数据
     // 该接口可能由 YUV FIFO 或 HEVC 写入，因此需要通过 FIFO 读使能判断具体哪一个写数据
+    wire [127:0] fdma_mig_ddr_rdata;
     wire [127:0] fdma_mig_ddr_wdata = is_fifo_write ? video_buffer_pixel_out : extif_data_i;
     assign fdma_mig_ddr_wareq = pixel_rd_en_i || extif_wr_en_i;
 
@@ -124,7 +123,7 @@ module extif_top(
         .FDMA_S_i_fdma_raddr(FDMA_S_i_fdma_addr),
         .FDMA_S_i_fdma_rareq(extif_rd_en_i),
         .FDMA_S_i_fdma_rbusy(FDMA_S_i_fdma_rbusy),
-        .FDMA_S_i_fdma_rdata(extif_data_o),
+        .FDMA_S_i_fdma_rdata(fdma_mig_ddr_rdata),
         .FDMA_S_i_fdma_rready(1'b1),
         .FDMA_S_i_fdma_rsize(FDMA_S_i_fdma_size),
         .FDMA_S_i_fdma_rvalid(FDMA_S_i_fdma_rvalid),
@@ -138,6 +137,24 @@ module extif_top(
         .clk_100M_i(clk_100M_i),
         .init_calib_complete_o(fdma_mig_ddr_rst_done),
         .ui_clk_200M_o(clk_ui_200M_o)
+    );
+
+    time_shift#(
+        .DATA_WIDTH(1)
+    ) hevc_wr_en_shift(
+        .clk_i(clk_ui_200M_o),
+        .rst_n_i(rst_done_o),
+        .data_i(FDMA_S_i_fdma_rvalid),
+        .data_o(hevc_wr_en_o)
+    );
+
+    time_shift#(
+        .DATA_WIDTH(128)
+    ) extif_data_o_shift(
+        .clk_i(clk_ui_200M_o),
+        .rst_n_i(rst_done_o),
+        .data_i(fdma_mig_ddr_rdata),
+        .data_o(extif_data_o)
     );
 
 endmodule

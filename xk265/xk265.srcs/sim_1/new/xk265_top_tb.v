@@ -40,7 +40,11 @@ module xk265_top_tb;
     wire DDR3_o_reset_n;
     wire DDR3_o_we_n;
 
+    reg [7:0] check_bs;
+    reg [31:0] bs_check_byte_cnt;
+
     integer fp_video_origin;
+    integer fp_video_bitstream;
     integer frame_serial_number;
     integer frame_row, frame_col;
 
@@ -48,6 +52,9 @@ module xk265_top_tb;
     reg [7:0] video_stream_y[`FRAME_NUMS - 1:0][`FRAME_HEIGHT - 1:0][`FRAME_WIDTH - 1:0];
     reg [7:0] video_stream_u[`FRAME_NUMS - 1:0][`FRAME_HEIGHT - 1:0][`FRAME_WIDTH - 1:0];
     reg [7:0] video_stream_v[`FRAME_NUMS - 1:0][`FRAME_HEIGHT - 1:0][`FRAME_WIDTH - 1:0]; 
+
+    // TODO delete this
+    wire ui_clk;
 
 /*************************** 例化顶层模块 ************************/
     xk265_top xk265_top(
@@ -74,7 +81,9 @@ module xk265_top_tb;
         .DDR3_o_odt(DDR3_o_odt),
         .DDR3_o_ras_n(DDR3_o_ras_n),
         .DDR3_o_reset_n(DDR3_o_reset_n),
-        .DDR3_o_we_n(DDR3_o_we_n)
+        .DDR3_o_we_n(DDR3_o_we_n),
+        // TODO 此端口仅供信号测试
+        .clk_ui_200M(ui_clk)
     );
 
     ddr3_model u_ddr3_part1(
@@ -135,9 +144,13 @@ module xk265_top_tb;
             vsync = 1'b0;
             rgb = 24'b0;
             de = 1'b0;
-        
+
+            check_bs = 8'b0;
+            bs_check_byte_cnt = 32'b0;
+
         /**************** 加载 yuv 文件 ****************/
             fp_video_origin = $fopen(`FILE_VIDEO_ORIGIN, "r");
+            fp_video_bitstream = $fopen(`FILE_CHECK_BS, "r");
             for(frame_serial_number = 0; frame_serial_number < `FRAME_NUMS; frame_serial_number = frame_serial_number + 1) begin
                 // 读取 Y 分量
                 for(frame_row = 0; frame_row < `FRAME_HEIGHT; frame_row = frame_row + 1) begin
@@ -199,5 +212,19 @@ module xk265_top_tb;
                 end
             end
     end
+
+/***************************** 码流检查 **************************/
+    `ifdef CHECK_BS 
+        always@(posedge ui_clk) begin
+            if(bs_valid) begin
+                $fscanf(fp_video_bitstream, "%h", check_bs);
+                if (check_bs != bs_data) begin
+                    $display("ERROR at BS at bs_byte_cnt = %5d, f265 is %h, h265 is %h", bs_check_byte_cnt, check_bs, bs_data);
+                    $finish;
+                end
+                bs_check_byte_cnt <= bs_check_byte_cnt + 1'b1;
+            end
+        end 
+    `endif
 
 endmodule

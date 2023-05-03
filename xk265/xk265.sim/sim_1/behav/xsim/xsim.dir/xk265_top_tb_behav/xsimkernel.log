@@ -1,7 +1,0 @@
-Running: xsim.dir/xk265_top_tb_behav/xsimk.exe -simmode gui -wdb xk265_top_tb_behav.wdb -simrunnum 0 -socket 10993
-Design successfully loaded
-Design Loading Memory Usage: 154288 KB (Peak: 154288 KB)
-Design Loading CPU Usage: 249 ms
-Simulation completed
-Simulation Memory Usage: 352144 KB (Peak: 352144 KB)
-Simulation CPU Usage: 961202 ms

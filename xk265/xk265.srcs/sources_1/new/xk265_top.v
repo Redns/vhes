@@ -33,7 +33,9 @@ module xk265_top(
     output [0:0]DDR3_o_odt,
     output DDR3_o_ras_n,
     output DDR3_o_reset_n,
-    output DDR3_o_we_n
+    output DDR3_o_we_n,
+    // TODO 此端口仅供测试使用
+    output clk_ui_200M
 );
 
 /*************************** 信号线定义 ****************************/
@@ -45,7 +47,8 @@ module xk265_top(
     assign hevc_core_rst_n = rst_n_i && extif_top_rst_done;
 
     // 时钟信号
-    wire clk_ui_200M;
+    // TODO 取消注释
+    // wire clk_ui_200M;
 
     // HDMI2RGB & extif
     wire vsync;
@@ -167,19 +170,19 @@ module xk265_top(
         .skip_cost_thresh_64(`SKIP_COST_THRESH_64),
         /* 重建配置 */ 
         .sys_rc_mod64_sum_o(),
-        .sys_rc_bitnum_i(10000),
-        .sys_rc_k(0),
-        .sys_rc_roi_height(1),
-        .sys_rc_roi_width(1),
-        .sys_rc_roi_x(4),
-        .sys_rc_roi_y(2),
-        .sys_rc_roi_enable(0),
-        .sys_rc_L1_frame_byte(100),
-        .sys_rc_L2_frame_byte(300),
-        .sys_rc_lcu_en(0),
-        .sys_rc_max_qp(51),
-        .sys_rc_min_qp(10),
-        .sys_rc_delta_qp(4),
+        .sys_rc_bitnum_i(32'h2710),
+        .sys_rc_k(16'h0),
+        .sys_rc_roi_height(6'h1),
+        .sys_rc_roi_width(7'h1),
+        .sys_rc_roi_x(7'h4),
+        .sys_rc_roi_y(7'h2),
+        .sys_rc_roi_enable(1'h0),
+        .sys_rc_L1_frame_byte(10'h64),
+        .sys_rc_L2_frame_byte(10'h12c),
+        .sys_rc_lcu_en(1'h0),
+        .sys_rc_max_qp(6'h33),
+        .sys_rc_min_qp(6'ha),
+        .sys_rc_delta_qp(6'h4),
         /* 运动估计配置 */
         .sys_ime_cmd_num_i(3'h1),
         .sys_ime_cmd_dat_i(232'h5292000a284),

@@ -25,22 +25,26 @@
 `define INTRA               1'd0
 `define INTER               1'd1
 
-// 帧尺寸设置
+`define CHECK_BS
+
+// 帧尺寸设�?
 // TODO 修改相关数据
-`define FRAME_WIDTH         1920
-`define FRAME_HEIGHT        1080
+`define FRAME_WIDTH         640
+`define FRAME_HEIGHT        128
 `define FRAME_SIZE          `FRAME_WIDTH * `FRAME_HEIGHT
-`define FRAME_NUMS          130
-`define FILE_VIDEO_ORIGIN   "E:/Project/xk265/core/sim/top_testbench/tv/blue_sky.yuv"   
+`define FRAME_NUMS          10
+
+`define FILE_VIDEO_ORIGIN   "E:/Project/xk265/core/sw/blue_sky.yuv"   
+`define FILE_CHECK_BS       "E:/Project/xk265/core/sim/top_testbench/tv/s_bit_stream.dat"
 
 // 其他设置
 `define INITIAL_QP      20
-`define GOP_LENGTH      50
+`define GOP_LENGTH      1
 `define ENABLE_IinP     0
 `define ENABLE_DBSAO    0
 `define POSI4x4BIT      4 
 
-// 阈值跳过
+// 阈�?�跳�?
 `define SKIP_COST_THRESH_8  0
 `define SKIP_COST_THRESH_16 (`SKIP_COST_THRESH_8 * 7) / 2
 `define SKIP_COST_THRESH_32 (`SKIP_COST_THRESH_16 * 7) / 2
@@ -112,8 +116,8 @@
 // PIC SIZE Width
 `define PIC_X_WIDTH 6
 `define PIC_Y_WIDTH 6
-// 图像最大宽度为 2^PIC_WIDTH = 8192
-// 图像最大高度为 2^PIC_HEIGHT = 4096
+// 图像�?大宽度为 2^PIC_WIDTH = 8192
+// 图像�?大高度为 2^PIC_HEIGHT = 4096
 `define PIC_WIDTH   6+6+1
 `define PIC_HEIGHT  6+6
 
