@@ -1,3 +1,6 @@
+/*
+ * 将输入信号延迟 1.5 个时钟输出
+*/
 module time_shift
 #(
     parameter DATA_WIDTH    =   128

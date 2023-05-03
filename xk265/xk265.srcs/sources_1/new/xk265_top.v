@@ -71,7 +71,6 @@ module xk265_top(
     wire fdma_busy;
 
     // CTRL & HEVC
-    wire hevc_sys_type;
     wire [4:0] hevc_extif_mode;
     wire hevc_sys_start, hevc_sys_done;
     wire hevc_extif_start, hevc_extif_done;
@@ -154,7 +153,7 @@ module xk265_top(
         .rstn(hevc_core_rst_n),
         /* 系统配置 */
         .sys_start_i(hevc_sys_start),
-        .sys_type_i(hevc_sys_type),
+        .sys_type_i(`INTRA),
         .sys_all_x_i(`FRAME_WIDTH),
         .sys_all_y_i(`FRAME_HEIGHT),
         .sys_init_qp_i(`INITIAL_QP),
@@ -217,7 +216,7 @@ module xk265_top(
         .fdma_size_o(fdma_size),
         .fdma_busy_i(fdma_busy),
         .hevc_sys_start_o(hevc_sys_start),
-        .hevc_sys_type_o(hevc_sys_type),
+        .hevc_sys_type_o(),
         .hevc_sys_done_i(hevc_sys_done),
         .hevc_extif_start_i(hevc_extif_start),
         .hevc_extif_done_o(hevc_extif_done),
