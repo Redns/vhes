@@ -1,0 +1,79 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Wed May  3 04:39:46 2023
+# Process ID: 32920
+# Current directory: E:/Project/xk265/xk265
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent22804 E:\Project\xk265\xk265\xk265.xpr
+# Log file: E:/Project/xk265/xk265/vivado.log
+# Journal file: E:/Project/xk265/xk265\vivado.jou
+# Running On: JingDevice, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 4, Host memory: 17005 MB
+#-----------------------------------------------------------
+start_gui
+open_project E:/Project/xk265/xk265/xk265.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files E:/Project/mig_7series_0_ex/imports/ddr3_model_parameters.vh] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 E:/Project/mig_7series_0_ex/imports/ddr3_model_parameters.vh
+launch_simulation -install_path D:/Modelsim_v2020_4/win64 -gcc_install_path D:/Program%20Files/mingw64/mingw64/bin
+set_property -dict [list CONFIG.Full_Threshold_Assert_Value {12288} CONFIG.Full_Threshold_Negate_Value {12287}] [get_ips pixel_fifo]
+generate_target all [get_files  E:/Project/xk265/xk265/xk265.srcs/sources_1/ip/pixel_fifo/pixel_fifo.xci]
+catch { config_ip_cache -export [get_ips -all pixel_fifo] }
+export_ip_user_files -of_objects [get_files E:/Project/xk265/xk265/xk265.srcs/sources_1/ip/pixel_fifo/pixel_fifo.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] E:/Project/xk265/xk265/xk265.srcs/sources_1/ip/pixel_fifo/pixel_fifo.xci]
+export_simulation -of_objects [get_files E:/Project/xk265/xk265/xk265.srcs/sources_1/ip/pixel_fifo/pixel_fifo.xci] -directory E:/Project/xk265/xk265/xk265.ip_user_files/sim_scripts -ip_user_files_dir E:/Project/xk265/xk265/xk265.ip_user_files -ipstatic_source_dir E:/Project/xk265/xk265/xk265.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Modelsim_v2020_4/xilinx_libs} {questa=E:/Project/xk265/xk265/xk265.cache/compile_simlib/questa} {riviera=E:/Project/xk265/xk265/xk265.cache/compile_simlib/riviera} {activehdl=E:/Project/xk265/xk265/xk265.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation -install_path D:/Modelsim_v2020_4/win64 -gcc_install_path D:/Program%20Files/mingw64/mingw64/bin
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top xk265_top_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation -install_path D:/Modelsim_v2020_4/win64 -gcc_install_path D:/Program%20Files/mingw64/mingw64/bin
+set_property generate_scripts_only 1 [current_fileset -simset]
+launch_simulation -install_path D:/Modelsim_v2020_4/win64 -gcc_install_path D:/Program%20Files/mingw64/mingw64/bin
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top hevc_enc_core_top_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+set_property generate_scripts_only 0 [current_fileset -simset]
+launch_simulation -install_path D:/Modelsim_v2020_4/win64 -gcc_install_path D:/Program%20Files/mingw64/mingw64/bin
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property generate_scripts_only 1 [current_fileset -simset]
+launch_simulation -install_path D:/Modelsim_v2020_4/win64 -gcc_install_path D:/Program%20Files/mingw64/mingw64/bin
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top xk265_top_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation -install_path D:/Modelsim_v2020_4/win64 -gcc_install_path D:/Program%20Files/mingw64/mingw64/bin
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top hevc_enc_core_top_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation -install_path D:/Modelsim_v2020_4/win64 -gcc_install_path D:/Program%20Files/mingw64/mingw64/bin
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top xk265_top_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation -install_path D:/Modelsim_v2020_4/win64 -gcc_install_path D:/Program%20Files/mingw64/mingw64/bin
