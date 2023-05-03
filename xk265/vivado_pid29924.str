@@ -1,0 +1,379 @@
+/*
+
+Xilinx Vivado v2021.2 (64-bit) [Major: 2021, Minor: 2]
+SW Build: 3367213 on Tue Oct 19 02:48:09 MDT 2021
+IP Build: 3369179 on Thu Oct 21 08:25:16 MDT 2021
+
+Process ID (PID): 29924
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Wed May 03 14:53:51 CST 2023
+Time zone: 	China Standard Time (Asia/Shanghai)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 1920x1080
+Screen resolution (DPI): 125
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=15
+Scale size: 19
+
+Java version: 	11.0.11 64-bit
+Java home: 	D:/Xilinx/Vivado/2021.2/tps/win64/jre11.0.11_9
+Java executable: 	D:/Xilinx/Vivado/2021.2/tps/win64/jre11.0.11_9/bin/java.exe
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Dsun.java2d.d3d=false, -Dsun.awt.nopixfmt=true, -Dsun.java2d.dpiaware=true, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	26892
+User home directory: C:/Users/26892
+User working directory: E:/Project/xk265/xk265
+User country: 	CN
+User language: 	zh
+User locale: 	zh_CN
+
+RDI_BASEROOT: D:/Xilinx/Vivado
+HDI_APPROOT: D:/Xilinx/Vivado/2021.2
+RDI_DATADIR: D:/Xilinx/Vivado/2021.2/data
+RDI_BINDIR: D:/Xilinx/Vivado/2021.2/bin
+
+Vivado preferences file: C:/Users/26892/AppData/Roaming/Xilinx/Vivado/2021.2/vivado.xml
+Vivado preferences directory: C:/Users/26892/AppData/Roaming/Xilinx/Vivado/2021.2/
+Vivado layouts directory: C:/Users/26892/AppData/Roaming/Xilinx/Vivado/2021.2/data/layouts
+PlanAhead jar file: 	D:/Xilinx/Vivado/2021.2/lib/classes/planAhead.jar
+Vivado log file: 	E:/Project/xk265/xk265/vivado.log
+Vivado journal file: 	E:/Project/xk265/xk265/vivado.jou
+Engine tmp dir: 	E:/Project/xk265/xk265/.Xil/Vivado-29924-JingDevice
+
+Xilinx Environment Variables
+----------------------------
+XILINX: D:/Xilinx/Vivado/2021.2/ids_lite/ISE
+XILINX_DSP: D:/Xilinx/Vivado/2021.2/ids_lite/ISE
+XILINX_HLS: D:/Xilinx/Vitis_HLS/2021.2
+XILINX_PLANAHEAD: D:/Xilinx/Vivado/2021.2
+XILINX_SDK: D:/Xilinx/Vitis/2021.2
+XILINX_VITIS: D:/Xilinx/Vitis/2021.2
+XILINX_VIVADO: D:/Xilinx/Vivado/2021.2
+XILINX_VIVADO_HLS: D:/Xilinx/Vivado/2021.2
+
+
+GUI allocated memory:	256 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,511 MB
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 68 MB (+69307kb) [00:00:07]
+// [Engine Memory]: 1,511 MB (+1432463kb) [00:00:07]
+// Opening Vivado Project: E:\Project\xk265\xk265\xk265.xpr. Version: Vivado v2021.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project E:/Project/xk265/xk265/xk265.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,511 MB. GUI used memory: 56 MB. Current time: 5/3/23, 2:53:52 PM CST
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: MSGMGR_REFRESH_MSG
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LOAD_FEATURE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 78 MB (+6588kb) [00:00:31]
+// [Engine Memory]: 1,605 MB (+20092kb) [00:00:31]
+// [GUI Memory]: 87 MB (+4785kb) [00:00:31]
+// [GUI Memory]: 105 MB (+14829kb) [00:00:32]
+// WARNING: HEventQueue.dispatchEvent() is taking  3703 ms.
+// Tcl Message: open_project E:/Project/xk265/xk265/xk265.xpr 
+// Tcl Message: INFO: [BD 41-2613] The output directory e:/Project/xk265/xk265/xk265.gen/sources_1/bd/xk265_vrsp_system for xk265_vrsp_system cannot be found. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/Project/xk265/xk265/xk265.ip_user_files/uisrc'. INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2021.2/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,624 MB. GUI used memory: 63 MB. Current time: 5/3/23, 2:54:13 PM CST
+// Tcl Message: open_project: Time (s): cpu = 00:00:26 ; elapsed = 00:00:25 . Memory (MB): peak = 1748.215 ; gain = 198.414 
+// Project name: xk265; location: E:/Project/xk265/xk265; part: xc7z035ffg676-2
+dismissDialog("Open Project"); // bA
+// [GUI Memory]: 119 MB (+9174kb) [00:00:37]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // a
+// [GUI Memory]: 130 MB (+4768kb) [00:00:46]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 25 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 2); // D
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 2); // D
+// Elapsed time: 26 seconds
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "IP Sources", 1); // i
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, pixel_fifo]", 1, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, pixel_fifo]", 1, false, false, false, false, false, true); // D - Double Click
+// Run Command: PAResourceCommand.PACommandNames_RECUSTOMIZE_CORE
+// WARNING: HEventQueue.dispatchEvent() is taking  1231 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,686 MB. GUI used memory: 86 MB. Current time: 5/3/23, 2:55:23 PM CST
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Status Flags", 2); // bj
+// [Engine Memory]: 1,688 MB (+2605kb) [00:01:45]
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Data Counts", 3); // bj
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Native Ports", 1); // bj
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Basic", 0); // bj
+dismissDialog("Re-customize IP"); // r
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Hierarchy", 0); // i
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, xk265_top (xk265_top.v)]", 3); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, xk265_top (xk265_top.v), extif_top : extif_top (extif_top.v)]", 5); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fdma_mig_ddr (fdma_mig_ddr.bd)]", 14, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fdma_mig_ddr (fdma_mig_ddr.bd)]", 14, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenuItem(PAResourceCommand.PACommandNames_CREATE_TOP_HDL, "Create HDL Wrapper..."); // ao
+// Run Command: PAResourceCommand.PACommandNames_CREATE_TOP_HDL
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Create HDL Wrapper"); // a
+// Tcl Message: make_wrapper -files [get_files E:/Project/xk265/xk265/xk265.srcs/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr.bd] -top 
+// TclEventType: RSB_CHANGE_CURRENT_DIAGRAM
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_LOCK_CHANGE
+// TclEventType: MSGMGR_REFRESH_MSG
+// Tcl Message: INFO: [BD 41-1662] The design 'fdma_mig_ddr.bd' is already validated. Therefore parameter propagation will not be re-run. 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,727 MB. GUI used memory: 85 MB. Current time: 5/3/23, 2:55:57 PM CST
+// [Engine Memory]: 1,783 MB (+11356kb) [00:02:23]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_CLOSE_DIAGRAM
+// [Engine Memory]: 1,875 MB (+2888kb) [00:02:25]
+// Create Top HDL Elapsed Time: 14.2s
+// Tcl Message: VHDL Output written to : e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v VHDL Output written to : e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/sim/fdma_mig_ddr.v VHDL Output written to : e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/hdl/fdma_mig_ddr_wrapper.v 
+// Tcl Message: make_wrapper: Time (s): cpu = 00:00:04 ; elapsed = 00:00:14 . Memory (MB): peak = 1998.629 ; gain = 193.898 
+// Elapsed time: 14 seconds
+dismissDialog("Create HDL Wrapper"); // bA
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 143 MB (+7530kb) [00:02:27]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 19 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, xk265_top (xk265_top.v), extif_top : extif_top (extif_top.v)]", 4, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, xk265_top (xk265_top.v), extif_top : extif_top (extif_top.v)]", 4, true, false, false, false, false, true); // D - Double Click - Node
+// WARNING: HEventQueue.dispatchEvent() is taking  2674 ms.
+dismissDialog("Opening Editor"); // bA
+// HMemoryUtils.trashcanNow. Engine heap size: 1,934 MB. GUI used memory: 88 MB. Current time: 5/3/23, 2:56:32 PM CST
+selectCodeEditor("extif_top.v", 427, 276); // be
+selectCodeEditor("extif_top.v", 430, 208); // be
+selectCodeEditor("extif_top.v", 468, 130); // be
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, xk265_top (xk265_top.v), xk265_ctrl : xk265_ctrl (xk265_ctrl.v)]", 6, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, xk265_top (xk265_top.v), xk265_ctrl : xk265_ctrl (xk265_ctrl.v)]", 6, true, false, false, false, false, true); // D - Double Click - Node
+// WARNING: HEventQueue.dispatchEvent() is taking  2576 ms.
+dismissDialog("Opening Editor"); // bA
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 21); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 22); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, xk265_top_tb (xk265_top_tb.v)]", 24, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, xk265_top_tb (xk265_top_tb.v)]", 24, true, false, false, false, false, true); // D - Double Click - Node
+// WARNING: HEventQueue.dispatchEvent() is taking  2631 ms.
+dismissDialog("Opening Editor"); // bA
+// Elapsed time: 11 seconds
+selectCodeEditor("xk265_top_tb.v", 332, 150); // be
+selectCodeEditor("xk265_top_tb.v", 62, 95); // be
+selectCodeEditor("xk265_top_tb.v", 33, 92); // be
+// Elapsed time: 17 seconds
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "settings"); // D
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// WARNING: HEventQueue.dispatchEvent() is taking  1956 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 2,027 MB. GUI used memory: 100 MB. Current time: 5/3/23, 2:57:37 PM CST
+// [Engine Memory]: 2,029 MB (+62444kb) [00:03:57]
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, Simulation]", 1, false); // B
+dismissDialog("Settings"); // d
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // n
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: RSB_CHANGE_CURRENT_DIAGRAM
+// TclEventType: RSB_LOCK_CHANGE
+// TclEventType: MSGMGR_REFRESH_MSG
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target Simulation [get_files E:/Project/xk265/xk265/xk265.srcs/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr.bd] 
+// Tcl Message: INFO: [BD 41-1662] The design 'fdma_mig_ddr.bd' is already validated. Therefore parameter propagation will not be re-run. 
+// Tcl Message: VHDL Output written to : e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.v VHDL Output written to : e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/sim/fdma_mig_ddr.v VHDL Output written to : e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/hdl/fdma_mig_ddr_wrapper.v 
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/s00_couplers/s00_regslice . 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created. INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created. INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/s00_couplers/auto_us_df . INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 . INFO: [BD 41-1029] Generation completed for the IP Integrator block uiFDMA_0 . 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 . 
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 162 MB (+11751kb) [00:04:10]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,059 MB. GUI used memory: 96 MB. Current time: 5/3/23, 2:57:57 PM CST
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_CLOSE_DIAGRAM
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block mig_7series_0 . 
+// Tcl Message: Exporting to file e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/hw_handoff/fdma_mig_ddr.hwh Generated Hardware Definition File e:/Project/xk265/xk265/xk265.gen/sources_1/bd/fdma_mig_ddr/synth/fdma_mig_ddr.hwdef 
+// Tcl Message: generate_target: Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 2212.098 ; gain = 83.562 
+// Tcl Message: export_ip_user_files -of_objects [get_files E:/Project/xk265/xk265/xk265.srcs/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr.bd] -no_script -sync -force -quiet 
+// Tcl Message: export_simulation -of_objects [get_files E:/Project/xk265/xk265/xk265.srcs/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr.bd] -directory E:/Project/xk265/xk265/xk265.ip_user_files/sim_scripts -ip_user_files_dir E:/Project/xk265/xk265/xk265.ip_user_files -ipstatic_source_dir E:/Project/xk265/xk265/xk265.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Modelsim_v2020_4/xilinx_libs} {questa=E:/Project/xk265/xk265/xk265.cache/compile_simlib/questa} {riviera=E:/Project/xk265/xk265/xk265.cache/compile_simlib/riviera} {activehdl=E:/Project/xk265/xk265/xk265.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet 
+// [Engine Memory]: 2,139 MB (+9275kb) [00:04:31]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,139 MB. GUI used memory: 99 MB. Current time: 5/3/23, 2:58:12 PM CST
+// TclEventType: PROJECT_CHANGE
+// [GUI Memory]: 170 MB (+321kb) [00:04:35]
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target all [get_files E:/Project/xk265/xk265/xk265.srcs/sources_1/ip/pixel_fifo/pixel_fifo.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'pixel_fifo'... INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pixel_fifo'... INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'pixel_fifo'... INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'pixel_fifo'... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,174 MB. GUI used memory: 98 MB. Current time: 5/3/23, 2:58:37 PM CST
+// Tcl Message: export_ip_user_files -of_objects [get_files E:/Project/xk265/xk265/xk265.srcs/sources_1/ip/pixel_fifo/pixel_fifo.xci] -no_script -sync -force -quiet 
+// Tcl Message: export_simulation -of_objects [get_files E:/Project/xk265/xk265/xk265.srcs/sources_1/ip/pixel_fifo/pixel_fifo.xci] -directory E:/Project/xk265/xk265/xk265.ip_user_files/sim_scripts -ip_user_files_dir E:/Project/xk265/xk265/xk265.ip_user_files -ipstatic_source_dir E:/Project/xk265/xk265/xk265.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Modelsim_v2020_4/xilinx_libs} {questa=E:/Project/xk265/xk265/xk265.cache/compile_simlib/questa} {riviera=E:/Project/xk265/xk265/xk265.cache/compile_simlib/riviera} {activehdl=E:/Project/xk265/xk265/xk265.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// HMemoryUtils.trashcanNow. Engine heap size: 2,174 MB. GUI used memory: 99 MB. Current time: 5/3/23, 2:58:42 PM CST
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// Tcl Message: create_fileset -blockset pixel_fifo 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top pixel_fifo [get_fileset pixel_fifo] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: move_files -fileset [get_fileset pixel_fifo] [get_files -of_objects [get_fileset sources_1] E:/Project/xk265/xk265/xk265.srcs/sources_1/ip/pixel_fifo/pixel_fifo.xci] 
+// Tcl Message: launch_run pixel_fifo_synth_1 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Wed May  3 14:58:50 2023] Launched pixel_fifo_synth_1... Run output will be captured here: E:/Project/xk265/xk265/xk265.runs/pixel_fifo_synth_1/runme.log 
+// Tcl Message: wait_on_run pixel_fifo_synth_1  
+// Tcl Message: [Wed May  3 14:58:51 2023] Waiting for pixel_fifo_synth_1 to finish... 
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: [Wed May  3 14:58:56 2023] Waiting for pixel_fifo_synth_1 to finish... 
+// Tcl Message: [Wed May  3 14:59:01 2023] Waiting for pixel_fifo_synth_1 to finish... 
+// Tcl Message: [Wed May  3 14:59:06 2023] Waiting for pixel_fifo_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,182 MB. GUI used memory: 108 MB. Current time: 5/3/23, 2:59:12 PM CST
+// Tcl Message: [Wed May  3 14:59:16 2023] Waiting for pixel_fifo_synth_1 to finish... 
+// Tcl Message: [Wed May  3 14:59:26 2023] Waiting for pixel_fifo_synth_1 to finish... 
+// Tcl Message: [Wed May  3 14:59:36 2023] Waiting for pixel_fifo_synth_1 to finish... 
+// Tcl Message: [Wed May  3 14:59:46 2023] Waiting for pixel_fifo_synth_1 to finish... 
+// Tcl Message: [Wed May  3 15:00:06 2023] Waiting for pixel_fifo_synth_1 to finish... 
+// Tcl Message: [Wed May  3 15:00:26 2023] Waiting for pixel_fifo_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,182 MB. GUI used memory: 108 MB. Current time: 5/3/23, 3:00:42 PM CST
+// Tcl Message: [Wed May  3 15:00:46 2023] Waiting for pixel_fifo_synth_1 to finish... 
+// Tcl Message: [Wed May  3 15:01:06 2023] Waiting for pixel_fifo_synth_1 to finish... 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Tcl Message: [Wed May  3 15:01:11 2023] pixel_fifo_synth_1 finished 
+// Tcl Message: wait_on_runs: Time (s): cpu = 00:00:06 ; elapsed = 00:02:21 . Memory (MB): peak = 2260.273 ; gain = 0.000 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,186 MB. GUI used memory: 109 MB. Current time: 5/3/23, 3:01:12 PM CST
+// Tcl Message: launch_simulation -install_path D:/Modelsim_v2020_4/win64 -gcc_install_path D:/Program%20Files/mingw64/mingw64/bin 
+// Tcl Message: Command: launch_simulation  -install_path D:/Modelsim_v2020_4/win64 -gcc_install_path D:/Program%20Files/mingw64/mingw64/bin -scripts_only 
+// Tcl Message: INFO: [Vivado 12-12492] Generating simulation scripts for 'ModelSim' simulator. INFO: [Vivado 12-12493] Simulation top is 'xk265_top_tb' 
+// Tcl Message: INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'ModelSim' simulator... INFO: [Runs 36-567] Checking/generating simulation output products for IPs/BDs (if any)... 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// Tcl Message: INFO: [Vivado 12-5680] Creating behavioral simulation scripts in 'E:/Project/xk265/xk265/xk265.sim/sim_1/behav/modelsim' INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs INFO: [USF-ModelSim-47] Finding simulator installation... INFO: [USF-ModelSim-50] Using simulator executables from 'D:/Modelsim_v2020_4/win64/vsim.exe' INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [USF-modelsim-7] Finding pre-compiled libraries... INFO: [USF-modelsim-11] File 'D:/Modelsim_v2020_4/xilinx_libs/modelsim.ini' copied to run dir:'E:/Project/xk265/xk265/xk265.sim/sim_1/behav/modelsim' INFO: [SIM-utils-54] Inspecting design source files for 'xk265_top_tb' in fileset 'sim_1'... 
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// Tcl Message: INFO: [USF-ModelSim-107] Finding global include files... INFO: [USF-ModelSim-108] Finding include directories and verilog header directory paths... INFO: [USF-ModelSim-109] Fetching design files from 'sim_1'... 
+// Tcl Message: INFO: [USF-ModelSim-2] ModelSim::Compile design INFO: [USF-ModelSim-15] Creating automatic 'do' files... INFO: [USF-ModelSim-68] Script generated:E:/Project/xk265/xk265/xk265.sim/sim_1/behav/modelsim/compile.bat INFO: [USF-ModelSim-4] ModelSim::Simulate design INFO: [USF-ModelSim-68] Script generated:E:/Project/xk265/xk265/xk265.sim/sim_1/behav/modelsim/simulate.bat 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 2260.273 ; gain = 0.000 
+// 'd' command handler elapsed time: 215 seconds
+// Elapsed time: 215 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 166 seconds
+selectCodeEditor("xk265_top_tb.v", 454, 86); // be
+// Elapsed time: 34 seconds
+selectCodeEditor("xk265_top_tb.v", 209, 324); // be
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog Header]", 1); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog Header, enc_defines.v]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog Header, enc_defines.v]", 2, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  3128 ms.
+dismissDialog("Opening Editor"); // bA
+// Elapsed time: 153 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, xk265_top (xk265_top.v)]", 3, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, xk265_top (xk265_top.v)]", 3, true, false, false, false, false, true); // D - Double Click - Node
+// WARNING: HEventQueue.dispatchEvent() is taking  3013 ms.
+dismissDialog("Opening Editor"); // bA
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, xk265_top (xk265_top.v)]", 3); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, xk265_top (xk265_top.v), hevc_enc_core_top : hevc_enc_core_top (hevc_enc_core_top.v)]", 6, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, xk265_top (xk265_top.v), hevc_enc_core_top : hevc_enc_core_top (hevc_enc_core_top.v), u_enc_ctrl : enc_ctrl (enc_ctrl.v)]", 7, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  3063 ms.
+dismissDialog("Opening Editor"); // bA
+// Elapsed time: 10 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, xk265_top (xk265_top.v), hevc_enc_core_top : hevc_enc_core_top (hevc_enc_core_top.v), u_enc_core : enc_core (enc_core.v)]", 9); // D
+// HMemoryUtils.trashcanNow. Engine heap size: 2,210 MB. GUI used memory: 118 MB. Current time: 5/3/23, 3:31:15 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,210 MB. GUI used memory: 107 MB. Current time: 5/3/23, 4:01:18 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,210 MB. GUI used memory: 108 MB. Current time: 5/3/23, 4:31:21 PM CST
+// Elapsed time: 6418 seconds
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "IP Sources", 1); // i
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Libraries", 2); // i
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "IP Sources", 1); // i
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, pixel_fifo]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, pixel_fifo, Instantiation Template]", 2, true, false, false, false, false, true); // D - Double Click - Node
+// Run Command: PAResourceCommand.PACommandNames_RECUSTOMIZE_CORE
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Status Flags", 2); // bj
+dismissDialog("Re-customize IP"); // r

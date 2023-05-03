@@ -5,6 +5,45 @@
 -makelib xcelium_lib/xpm \
   "D:/Xilinx/Vivado/2021.2/data/ip/xpm/xpm_VCOMP.vhd" \
 -endlib
+-makelib xcelium_lib/axi_infrastructure_v1_1_0 \
+  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_register_slice_v2_1_25 \
+  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/e1e6/hdl/axi_register_slice_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/sim/fdma_mig_ddr_s00_regslice_0.v" \
+-endlib
+-makelib xcelium_lib/generic_baseblocks_v2_1_0 \
+  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/fifo_generator_v13_2_6 \
+  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8ae1/simulation/fifo_generator_vlog_beh.v" \
+-endlib
+-makelib xcelium_lib/fifo_generator_v13_2_6 \
+  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8ae1/hdl/fifo_generator_v13_2_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/fifo_generator_v13_2_6 \
+  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8ae1/hdl/fifo_generator_v13_2_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_data_fifo_v2_1_24 \
+  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/fa53/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_protocol_converter_v2_1_25 \
+  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8fe4/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_clock_converter_v2_1_24 \
+  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/23c0/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/blk_mem_gen_v8_4_5 \
+  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/25a8/simulation/blk_mem_gen_v8_4.v" \
+-endlib
+-makelib xcelium_lib/axi_dwidth_converter_v2_1_25 \
+  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/38b4/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/sim/fdma_mig_ddr_auto_us_df_0.v" \
+-endlib
 -makelib xcelium_lib/lib_cdc_v1_0_2 \
   "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd" \
 -endlib
@@ -121,45 +160,6 @@
   "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/rtl/fdma_mig_ddr_mig_7series_0_0_mig_sim.v" \
   "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/rtl/fdma_mig_ddr_mig_7series_0_0.v" \
   "../../../bd/fdma_mig_ddr/sim/fdma_mig_ddr.v" \
--endlib
--makelib xcelium_lib/axi_infrastructure_v1_1_0 \
-  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/axi_register_slice_v2_1_25 \
-  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/e1e6/hdl/axi_register_slice_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/sim/fdma_mig_ddr_s00_regslice_0.v" \
--endlib
--makelib xcelium_lib/generic_baseblocks_v2_1_0 \
-  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/fifo_generator_v13_2_6 \
-  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8ae1/simulation/fifo_generator_vlog_beh.v" \
--endlib
--makelib xcelium_lib/fifo_generator_v13_2_6 \
-  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8ae1/hdl/fifo_generator_v13_2_rfs.vhd" \
--endlib
--makelib xcelium_lib/fifo_generator_v13_2_6 \
-  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8ae1/hdl/fifo_generator_v13_2_rfs.v" \
--endlib
--makelib xcelium_lib/axi_data_fifo_v2_1_24 \
-  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/fa53/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/axi_protocol_converter_v2_1_25 \
-  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8fe4/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/axi_clock_converter_v2_1_24 \
-  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/23c0/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/blk_mem_gen_v8_4_5 \
-  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/25a8/simulation/blk_mem_gen_v8_4.v" \
--endlib
--makelib xcelium_lib/axi_dwidth_converter_v2_1_25 \
-  "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/38b4/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/sim/fdma_mig_ddr_auto_us_df_0.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

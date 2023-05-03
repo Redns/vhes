@@ -5,10 +5,14 @@ vlib modelsim_lib/msim/xil_defaultlib
 
 vmap xil_defaultlib modelsim_lib/msim/xil_defaultlib
 
+vlog -work xil_defaultlib  -incr -mfcu "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/sim/fdma_mig_ddr_s00_regslice_0.v" \
+"../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/sim/fdma_mig_ddr_auto_us_df_0.v" \
+
 vcom -work xil_defaultlib  -93 \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_proc_sys_reset_0_0/sim/fdma_mig_ddr_proc_sys_reset_0_0.vhd" \
 
-vlog -work xil_defaultlib  -incr -mfcu "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
+vlog -work xil_defaultlib  -incr -mfcu "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
 "../../../bd/fdma_mig_ddr/ipshared/4624/uiFDMA.v" \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_uiFDMA_0_0/sim/fdma_mig_ddr_uiFDMA_0_0.v" \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_clk_wiz_0_0/fdma_mig_ddr_clk_wiz_0_0_clk_wiz.v" \
@@ -115,8 +119,6 @@ vlog -work xil_defaultlib  -incr -mfcu "+incdir+../../../../xk265.gen/sources_1/
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/rtl/fdma_mig_ddr_mig_7series_0_0_mig_sim.v" \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/rtl/fdma_mig_ddr_mig_7series_0_0.v" \
 "../../../bd/fdma_mig_ddr/sim/fdma_mig_ddr.v" \
-"../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/sim/fdma_mig_ddr_s00_regslice_0.v" \
-"../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/sim/fdma_mig_ddr_auto_us_df_0.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

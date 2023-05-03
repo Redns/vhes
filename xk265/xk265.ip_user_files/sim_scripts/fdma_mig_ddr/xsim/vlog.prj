@@ -1,4 +1,6 @@
-verilog xil_defaultlib --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
+verilog xil_defaultlib --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" --include "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/sim/fdma_mig_ddr_s00_regslice_0.v" \
+"../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/sim/fdma_mig_ddr_auto_us_df_0.v" \
 "../../../bd/fdma_mig_ddr/ipshared/4624/uiFDMA.v" \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_uiFDMA_0_0/sim/fdma_mig_ddr_uiFDMA_0_0.v" \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_clk_wiz_0_0/fdma_mig_ddr_clk_wiz_0_0_clk_wiz.v" \
@@ -105,8 +107,6 @@ verilog xil_defaultlib --include "../../../../xk265.gen/sources_1/bd/fdma_mig_dd
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/rtl/fdma_mig_ddr_mig_7series_0_0_mig_sim.v" \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/rtl/fdma_mig_ddr_mig_7series_0_0.v" \
 "../../../bd/fdma_mig_ddr/sim/fdma_mig_ddr.v" \
-"../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/sim/fdma_mig_ddr_s00_regslice_0.v" \
-"../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/sim/fdma_mig_ddr_auto_us_df_0.v" \
 
 verilog xil_defaultlib "glbl.v"
 

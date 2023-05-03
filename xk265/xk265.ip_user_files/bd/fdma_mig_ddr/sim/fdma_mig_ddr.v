@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Mon May  1 16:03:06 2023
+//Date        : Wed May  3 14:57:42 2023
 //Host        : JingDevice running 64-bit major release  (build 9200)
 //Command     : generate_target fdma_mig_ddr.bd
 //Design      : fdma_mig_ddr

@@ -2,11 +2,9 @@ vlib work
 vlib riviera
 
 vlib riviera/xpm
-vlib riviera/lib_cdc_v1_0_2
-vlib riviera/proc_sys_reset_v5_0_13
-vlib riviera/xil_defaultlib
 vlib riviera/axi_infrastructure_v1_1_0
 vlib riviera/axi_register_slice_v2_1_25
+vlib riviera/xil_defaultlib
 vlib riviera/generic_baseblocks_v2_1_0
 vlib riviera/fifo_generator_v13_2_6
 vlib riviera/axi_data_fifo_v2_1_24
@@ -14,13 +12,13 @@ vlib riviera/axi_protocol_converter_v2_1_25
 vlib riviera/axi_clock_converter_v2_1_24
 vlib riviera/blk_mem_gen_v8_4_5
 vlib riviera/axi_dwidth_converter_v2_1_25
+vlib riviera/lib_cdc_v1_0_2
+vlib riviera/proc_sys_reset_v5_0_13
 
 vmap xpm riviera/xpm
-vmap lib_cdc_v1_0_2 riviera/lib_cdc_v1_0_2
-vmap proc_sys_reset_v5_0_13 riviera/proc_sys_reset_v5_0_13
-vmap xil_defaultlib riviera/xil_defaultlib
 vmap axi_infrastructure_v1_1_0 riviera/axi_infrastructure_v1_1_0
 vmap axi_register_slice_v2_1_25 riviera/axi_register_slice_v2_1_25
+vmap xil_defaultlib riviera/xil_defaultlib
 vmap generic_baseblocks_v2_1_0 riviera/generic_baseblocks_v2_1_0
 vmap fifo_generator_v13_2_6 riviera/fifo_generator_v13_2_6
 vmap axi_data_fifo_v2_1_24 riviera/axi_data_fifo_v2_1_24
@@ -28,13 +26,54 @@ vmap axi_protocol_converter_v2_1_25 riviera/axi_protocol_converter_v2_1_25
 vmap axi_clock_converter_v2_1_24 riviera/axi_clock_converter_v2_1_24
 vmap blk_mem_gen_v8_4_5 riviera/blk_mem_gen_v8_4_5
 vmap axi_dwidth_converter_v2_1_25 riviera/axi_dwidth_converter_v2_1_25
+vmap lib_cdc_v1_0_2 riviera/lib_cdc_v1_0_2
+vmap proc_sys_reset_v5_0_13 riviera/proc_sys_reset_v5_0_13
 
-vlog -work xpm  -sv2k12 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
+vlog -work xpm  -sv2k12 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
 "D:/Xilinx/Vivado/2021.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
 "D:/Xilinx/Vivado/2021.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm -93 \
 "D:/Xilinx/Vivado/2021.2/data/ip/xpm/xpm_VCOMP.vhd" \
+
+vlog -work axi_infrastructure_v1_1_0  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
+
+vlog -work axi_register_slice_v2_1_25  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/e1e6/hdl/axi_register_slice_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/sim/fdma_mig_ddr_s00_regslice_0.v" \
+
+vlog -work generic_baseblocks_v2_1_0  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
+
+vlog -work fifo_generator_v13_2_6  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8ae1/simulation/fifo_generator_vlog_beh.v" \
+
+vcom -work fifo_generator_v13_2_6 -93 \
+"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8ae1/hdl/fifo_generator_v13_2_rfs.vhd" \
+
+vlog -work fifo_generator_v13_2_6  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8ae1/hdl/fifo_generator_v13_2_rfs.v" \
+
+vlog -work axi_data_fifo_v2_1_24  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/fa53/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
+
+vlog -work axi_protocol_converter_v2_1_25  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8fe4/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+
+vlog -work axi_clock_converter_v2_1_24  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/23c0/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
+
+vlog -work blk_mem_gen_v8_4_5  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/25a8/simulation/blk_mem_gen_v8_4.v" \
+
+vlog -work axi_dwidth_converter_v2_1_25  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/38b4/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
+"../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/sim/fdma_mig_ddr_auto_us_df_0.v" \
 
 vcom -work lib_cdc_v1_0_2 -93 \
 "../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd" \
@@ -45,7 +84,7 @@ vcom -work proc_sys_reset_v5_0_13 -93 \
 vcom -work xil_defaultlib -93 \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_proc_sys_reset_0_0/sim/fdma_mig_ddr_proc_sys_reset_0_0.vhd" \
 
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" \
 "../../../bd/fdma_mig_ddr/ipshared/4624/uiFDMA.v" \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_uiFDMA_0_0/sim/fdma_mig_ddr_uiFDMA_0_0.v" \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_clk_wiz_0_0/fdma_mig_ddr_clk_wiz_0_0_clk_wiz.v" \
@@ -152,45 +191,6 @@ vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdm
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/rtl/fdma_mig_ddr_mig_7series_0_0_mig_sim.v" \
 "../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0/user_design/rtl/fdma_mig_ddr_mig_7series_0_0.v" \
 "../../../bd/fdma_mig_ddr/sim/fdma_mig_ddr.v" \
-
-vlog -work axi_infrastructure_v1_1_0  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
-"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
-
-vlog -work axi_register_slice_v2_1_25  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
-"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/e1e6/hdl/axi_register_slice_v2_1_vl_rfs.v" \
-
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
-"../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_s00_regslice_0/sim/fdma_mig_ddr_s00_regslice_0.v" \
-
-vlog -work generic_baseblocks_v2_1_0  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
-"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
-
-vlog -work fifo_generator_v13_2_6  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
-"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8ae1/simulation/fifo_generator_vlog_beh.v" \
-
-vcom -work fifo_generator_v13_2_6 -93 \
-"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8ae1/hdl/fifo_generator_v13_2_rfs.vhd" \
-
-vlog -work fifo_generator_v13_2_6  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
-"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8ae1/hdl/fifo_generator_v13_2_rfs.v" \
-
-vlog -work axi_data_fifo_v2_1_24  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
-"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/fa53/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
-
-vlog -work axi_protocol_converter_v2_1_25  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
-"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/8fe4/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
-
-vlog -work axi_clock_converter_v2_1_24  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
-"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/23c0/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
-
-vlog -work blk_mem_gen_v8_4_5  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
-"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/25a8/simulation/blk_mem_gen_v8_4.v" \
-
-vlog -work axi_dwidth_converter_v2_1_25  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
-"../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/38b4/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
-
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/62b6" "+incdir+../../../../xk265.gen/sources_1/bd/fdma_mig_ddr/ipshared/ec67/hdl" \
-"../../../bd/fdma_mig_ddr/ip/fdma_mig_ddr_auto_us_df_0/sim/fdma_mig_ddr_auto_us_df_0.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"
