@@ -2,9 +2,11 @@
 *.dat
 *.dcp
 
-xk265/.Xil
-xk265/xk265.cache
-xk265/xk265.gen
-xk265/xk265.runs
-xk265/xk265.sim
-xk265/xk265.tempFiles
+hevc_encode_system/.Xil
+hevc_encode_system/hevc_encode_system.hw
+hevc_encode_system/hevc_encode_system.gen
+hevc_encode_system/hevc_encode_system.sim
+hevc_encode_system/hevc_encode_system.runs
+hevc_encode_system/hevc_encode_system.cache
+hevc_encode_system/hevc_encode_system.tempFiles
+hevc_encode_system/hevc_encode_system.ip_user_files
