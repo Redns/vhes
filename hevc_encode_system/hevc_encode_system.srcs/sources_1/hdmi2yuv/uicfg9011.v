@@ -1,12 +1,14 @@
-module uicfg7611#(
-    parameter	 CLK_DIV  = 16'd499
+module uicfg9011#(
+    // 输入时钟为 50MHz 时分频系数为 499
+    // 输入时钟为 100MHz 时分频系数为 999
+    parameter	 CLK_DIV  = 16'd999
 )
 (
     input  clk_i,
     input  rst_n,
-    output adv_scl,
-    inout  adv_sda,
-    output reg cfg_done
+    output sil_scl,
+    inout  sil_sda,
+    output reg sil_cfg_done
 );	
 
     //reset counter for delay time
@@ -33,12 +35,12 @@ module uicfg7611#(
             REG_INDEX<= 9'd0;
             iic_en  <= 1'b0;
             wr_data <= 32'd0;
-            cfg_done<= 1'b0;
+            sil_cfg_done<= 1'b0;
             TS_S    <= 2'd0;    
         end
         else begin
             case(TS_S)
-                0:if(cfg_done == 1'b0)
+                0:if(sil_cfg_done == 1'b0)
                     TS_S <= 2'd1;
                 1:if(!iic_busy)begin//write data
                     iic_en  <= 1'b1; 
@@ -57,7 +59,7 @@ module uicfg7611#(
                 end
                 3:begin//read rtc register
                     if(REG_INDEX == REG_SIZE)begin
-                        cfg_done <= 1'b1;
+                        sil_cfg_done <= 1'b1;
                     end
                     TS_S 	<= 2'd0;
                 end 
@@ -69,13 +71,13 @@ module uicfg7611#(
     (
         .WMEN_LEN(4),
         .RMEN_LEN(1),
-        .CLK_DIV(CLK_DIV)//499 for 50M 999 for 100M
+        .CLK_DIV(CLK_DIV)
     )
     uii2c_inst
     (
         .clk_i(clk_i),
-        .iic_scl(adv_scl),
-        .iic_sda(adv_sda),
+        .iic_scl(sil_scl),
+        .iic_sda(sil_sda),
         .wr_data(wr_data),
         .wr_cnt(8'd3),//write data max len = 4BYTES
         .rd_data(),   //read not used
@@ -85,8 +87,7 @@ module uicfg7611#(
         .iic_busy(iic_busy)
     );
 
-    // 7611reg
-    ui7611reg  ui7611reg_inst(
+    sil9011reg  sil9011reg_inst(
         .REG_SIZE(REG_SIZE),
         .REG_INDEX(REG_INDEX),
         .REG_DATA(REG_DATA)

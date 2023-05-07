@@ -5,10 +5,8 @@ module hdmi2yuv_top(
     input video_buffer_init_done_i,                 // VIDEO BUFFER 初始化完成信号
     output rst_done_o,                              // 复位完成信号输出（高电平有效）
     /* FEP 视频采集卡 ADV7611 配置信号 */ 
-    inout adv_sda,                                  // ADV7611 IIC 数据信号
-    output adv_scl,                                 // ADV7611 IIC 时钟信号
-    output adv_rst_o,                               // ADV7611 复位信号
-    output adv_pen_o,                               // ADV7611 电源使能信号
+    inout sil_sda,                                  // ADV7611 IIC 数据信号
+    output sil_scl,                                 // ADV7611 IIC 时钟信号
     /* HDMI 行场同步信号 */ 
     input pclk_i,                                   // 像素时钟输入（1080P@60fps：148.5MHz）
     input hsync_i,                                  // 行同步信号输入
@@ -29,13 +27,8 @@ module hdmi2yuv_top(
     reg frame_start_flag;
 
     // YUV 输出信号
-    // TODO 取消注释，注释掉紧跟的 wire 语句
-    // wire [23:0] yuv_data;
-    // wire yuv_hsync, yuv_vsync, yuv_de;
-    wire [23:0] yuv_data = rgb_i;
-    wire yuv_hsync = hsync_i;
-    wire yuv_vsync = vsync_i;
-    wire yuv_de = de_i;
+    wire [23:0] yuv_data;
+    wire yuv_hsync, yuv_vsync, yuv_de;
 
     // UV 分量行列存储标志
     // YUV420 格式下 UV 分量隔行隔列采样
@@ -52,35 +45,29 @@ module hdmi2yuv_top(
     assign uv_recorded = frame_start_flag && yuv_de && uv_row_recorded && uv_col_recorded;
 
     assign vsync_o = yuv_vsync;
-    // TODO 删除此处 rst_done_o
-    assign rst_done_o = rst_n_i;
 
 /************************ ADV7611 配置模块 *************************/
     hdmi2rgb hdmi2rgb(
         .clk_i(clk_100M_i),
         .rst_n_i(rst_n_i),
-        .adv_sda(adv_sda),
-        .adv_scl(adv_scl),
-        .adv_rst_o(adv_rst_o),
-        .adv_pen_o(adv_pen_o),
-        // TODO 输出信号接到 rst_done_o
-        .adv_cfg_done_o()
+        .sil_sda(sil_sda),
+        .sil_scl(sil_scl),
+        .sil_cfg_done_o(rst_done_o)
     );
 
 /************************* RGB 转 YUV 模块 *************************/
-    // TODO 取消注释，启用该模块
-    // rgb2yuv rgb2yuv(
-    //     .clk_i(~pclk_i),
-    //     .rst_n_i(rgb2yuv_rst_n),
-    //     .hsync_i(hsync_i),
-    //     .vsync_i(vsync_i),
-    //     .de_i(de_i),
-    //     .rgb_i(rgb_i),
-    //     .yuv_o(yuv_data),
-    //     .hsync_o(yuv_hsync),
-    //     .vsync_o(yuv_vsync),
-    //     .de_o(yuv_de)
-    // );
+    rgb2yuv rgb2yuv(
+        .clk_i(~pclk_i),
+        .rst_n_i(rgb2yuv_rst_n),
+        .hsync_i(hsync_i),
+        .vsync_i(vsync_i),
+        .de_i(de_i),
+        .rgb_i(rgb_i),
+        .yuv_o(yuv_data),
+        .hsync_o(yuv_hsync),
+        .vsync_o(yuv_vsync),
+        .de_o(yuv_de)
+    );
 
 /************************* YUV 像素数据拼接 *************************/
     // 检测到场同步信号 vsync 上升沿时代表新的一帧开始

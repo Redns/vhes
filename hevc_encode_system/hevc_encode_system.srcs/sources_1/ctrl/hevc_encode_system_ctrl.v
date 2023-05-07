@@ -235,7 +235,6 @@ module hevc_encode_system_ctrl(
                     if(extif_busy) begin
                         case(hevc_extif_mode_i)
                             LOAD_CUR_LUMA: begin
-                                // TODO 此处考虑将阈值修改为 hevc_extif_height_i - 1'b1
                                 if(hevc_extif_operated_rows < hevc_extif_height_i) begin
                                     if(!fdma_busy_i) begin
                                         // 启动 extif 数据读取
@@ -252,7 +251,6 @@ module hevc_encode_system_ctrl(
                                     hevc_extif_done <= 1'b1;
                             end
                             LOAD_CUR_CHROMA: begin
-                                // TODO 考虑将此处的阈值修改为 hevc_extif_height_i / 2 - 1'b1
                                 if(hevc_extif_operated_rows < hevc_extif_height_i / 2) begin
                                     if(!fdma_busy_i) begin
                                         // 启动 extif 数据读取
@@ -269,7 +267,6 @@ module hevc_encode_system_ctrl(
                                     hevc_extif_done <= 1'b1;
                             end
                             LOAD_DB_LUMA: begin
-                                // TODO 此处考虑将阈值修改为 hevc_extif_height_i - 1'b1
                                 if(hevc_extif_operated_rows < hevc_extif_height_i) begin
                                     if(!fdma_busy_i) begin
                                         // 启动 extif 数据读取
@@ -286,7 +283,6 @@ module hevc_encode_system_ctrl(
                                     hevc_extif_done <= 1'b1;
                             end
                             LOAD_DB_CHROMA: begin
-                                // TODO 考虑将此处的阈值修改为 hevc_extif_height_i / 2 - 1'b1
                                 if(hevc_extif_operated_rows < hevc_extif_height_i / 2) begin
                                     if(!fdma_busy_i) begin
                                         // 启动 extif 数据读取
@@ -305,7 +301,6 @@ module hevc_encode_system_ctrl(
                                 end 
                             end
                             STORE_DB_LUMA: begin
-                                // TODO 此处考虑将阈值修改为 hevc_extif_height_i - 1'b1
                                 if(hevc_extif_operated_rows < hevc_extif_height_i) begin
                                     if(!fdma_busy_i) begin
                                         // 启动 extif 数据写入
@@ -322,7 +317,6 @@ module hevc_encode_system_ctrl(
                                     hevc_extif_done <= 1'b1;
                             end
                             STORE_DB_CHROMA: begin
-                                // TODO 考虑将此处的阈值修改为 hevc_extif_height_i / 2 - 1'b1
                                 if(hevc_extif_operated_rows < hevc_extif_height_i / 2) begin
                                     if(!fdma_busy_i) begin
                                         // 启动 extif 数据读取

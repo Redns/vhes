@@ -5,10 +5,8 @@ module hevc_encode_system_top(
     input rst_n_i,                                  // 复位信号输入（低电平有效）
     input clk_100M_i,                               // 100MHz 时钟信号输入
     /* FEP 视频采集卡 ADV7611 配置信号 */ 
-    inout adv_sda,                                  // ADV7611 IIC 数据信号
-    output adv_scl,                                 // ADV7611 IIC 时钟信号
-    output adv_rst_o,                               // ADV7611 复位信号
-    output adv_pen_o,                               // ADV7611 电源使能信号
+    inout sil_sda,                                  // SIL9011 IIC 数据信号
+    output sil_scl,                                 // SIL9011 IIC 时钟信号
     /* HDMI 行场同步信号 */ 
     input pclk_i,                                   // 像素时钟输入（1080P@60fps：148.5MHz）
     input hsync_i,                                  // 行同步信号输入
@@ -17,7 +15,7 @@ module hevc_encode_system_top(
     input de_i,                                     // 像素有效标志输入
     /* HEVC 码流输出 */ 
     output bs_valid_o,                              // 码流有效标志输出
-    output [7:0] bs_data_o,                         // 码流数据（LCU 裸流）
+    output [31:0] bs_data_o,                         // 码流数据（LCU 裸流）
     /* DDR 相关信号 */ 
     output [14:0]DDR3_o_addr,
     output [2:0]DDR3_o_ba,
@@ -33,22 +31,22 @@ module hevc_encode_system_top(
     output [0:0]DDR3_o_odt,
     output DDR3_o_ras_n,
     output DDR3_o_reset_n,
-    output DDR3_o_we_n,
-    // TODO 此端口仅供测试使用
-    output clk_ui_200M
+    output DDR3_o_we_n
 );
 
 /*************************** 信号线定义 ****************************/
     // 复位信号
     // 复位顺序：HDMI to RGB --> extif --> HEVC CORE 
-    wire hdmi2rgb_rst_done, extif_top_rst_done;
+    wire hdmi2rgb_rst_done;
+    wire extif_top_rst_done;
+    wire vsp_top_rst_done;
 
     assign extif_top_rst_n = rst_n_i && hdmi2rgb_rst_done;
     assign hevc_core_rst_n = rst_n_i && extif_top_rst_done;
+    assign vsp_top_rst_n   = rst_n_i && extif_top_rst_done;
 
     // 时钟信号
-    // TODO 取消注释
-    // wire clk_ui_200M;
+    wire clk_ui_200M;
 
     // HDMI2RGB & extif
     wire vsync;
@@ -81,16 +79,18 @@ module hevc_encode_system_top(
     wire hevc_wr_en, hevc_rd_en;
     wire [127:0] extif_data_in_hevc_data_out, extif_data_out_hevc_data_in; 
 
+    // HEVC 裸流
+    wire bs_valid;
+    wire [7:0] bs_data;
+
 /************************ HDMI 转 RGB 模块 *************************/
     hdmi2yuv_top hdmi2yuv_top(
         .rst_n_i(rst_n_i),
-        .video_buffer_init_done_i(extif_top_rst_done),
+        .video_buffer_init_done_i(vsp_top_rst_done),
         .clk_100M_i(clk_100M_i),
         .rst_done_o(hdmi2rgb_rst_done),
-        .adv_sda(adv_sda),
-        .adv_scl(adv_scl),
-        .adv_rst_o(adv_rst_o),
-        .adv_pen_o(adv_pen_o),
+        .sil_sda(sil_sda),
+        .sil_scl(sil_scl),
         .pclk_i(pclk_i),
         .hsync_i(hsync_i),
         .vsync_i(vsync_i),
@@ -146,9 +146,6 @@ module hevc_encode_system_top(
 
 /************************** HEVC 编码核 ***************************/
     enc_core_top enc_core_top(
-        // TODO 考虑采用动态时钟
-        // 加载数据时使用 200MHz DDR 用户时钟
-        // 执行编码时使用 400MHz 时钟
         .clk(clk_ui_200M),
         .rstn(hevc_core_rst_n),
         /* 系统配置 */
@@ -198,8 +195,8 @@ module hevc_encode_system_top(
         .extif_data_i(extif_data_out_hevc_data_in),
         .extif_data_o(extif_data_in_hevc_data_out),
         /* 码流输出 */
-        .bs_val_o(bs_valid_o),
-        .bs_dat_o(bs_data_o)
+        .bs_val_o(bs_valid),
+        .bs_dat_o(bs_data)
     );
 
 /************************** 编码控制模块 ***************************/
@@ -225,6 +222,19 @@ module hevc_encode_system_top(
         .hevc_extif_y_i(hevc_extif_y),
         .hevc_extif_width_i(hevc_extif_width),
         .hevc_extif_height_i(hevc_extif_height)
+    );
+
+/************************** 裸流封装模块 ***************************/
+    vsp_top vsp_top(
+        .clk_i(clk_ui_200M),
+        .rst_n_i(vsp_top_rst_n),
+        .rst_done_o(vsp_top_rst_done),
+        .hevc_encode_start_i(hevc_sys_start),
+        .hevc_encode_done_i(hevc_sys_done),
+        .bs_data_i(bs_data),
+        .bs_data_valid_i(bs_valid),
+        .hevc_bs_data_valid_o(bs_valid_o),
+        .hevc_bs_data_o(bs_data_o)
     );
 
 endmodule
