@@ -1,12 +1,13 @@
 module vsp_top(
     input clk_i,
+    input bs_rd_clk_i,
     input rst_n_i,
     output reg rst_done_o,
     input hevc_encode_start_i,
     input hevc_encode_done_i,
     input [7:0] bs_data_i,
-    input bs_data_valid_i,
-    output hevc_bs_data_valid_o,
+    input bs_valid_i,
+    output hevc_bs_valid_o,
     output [31:0] hevc_bs_data_o
 );
 
@@ -19,17 +20,28 @@ module vsp_top(
                 S6_WRITE_TRAIL_HEADER   =   6,
                 S7_WRITE_TRAIL_DATA     =   7;
 
+    // 状态机状态
+    // 帧序号（0 ~ 255）
     reg [2:0] state; 
     reg [7:0] frame_sn_i;
 
+    // VSPS 相关端口
     reg vsps_data_valid;
     reg [2:0] vsps_type;
     reg [7:0] vsps_index;
     wire [7:0] vsps_data;
     wire [7:0] vsps_data_size;
 
-    wire hevc_bs_data_valid = vsps_data_valid ? vsps_data_valid : bs_data_valid_i;
-    wire [7:0] hevc_bs_data = vsps_data_valid ? vsps_data : bs_data_i;
+    // 复位信号
+    wire bs_fifo_wr_rst_busy;
+    wire bs_fifo_rd_rst_busy;
+    wire state_rst_n = rst_n_i && !bs_fifo_wr_rst_busy && !bs_fifo_rd_rst_busy;
+
+    wire hevc_bs_valid;
+    wire [31:0] hevc_bs_data;
+
+    wire hevc_bare_bs_data_valid = vsps_data_valid ? vsps_data_valid : bs_valid_i;
+    wire [7:0] hevc_bare_bs_data = vsps_data_valid ? vsps_data : bs_data_i;
 
     vsps vsps(
         .type_i(vsps_type),
@@ -48,15 +60,30 @@ module vsp_top(
     (
         .clk_i(~clk_i),
         .rst_n_i(rst_n_i),
-        .de_i(hevc_bs_data_valid),
-        .data_i(hevc_bs_data),
-        .de_o(hevc_bs_data_valid_o),
-        .data_o(hevc_bs_data_o)
+        .de_i(hevc_bare_bs_data_valid),
+        .data_i(hevc_bare_bs_data),
+        .de_o(hevc_bs_valid),
+        .data_o(hevc_bs_data)
+    );
+
+    hevc_bs_fifo hevc_bs_fifo (
+        .rst(~rst_n_i),                 
+        .wr_clk(clk_i),            
+        .rd_clk(bs_rd_clk_i),           
+        .din(hevc_bs_data),                  
+        .wr_en(hevc_bs_valid),             
+        .rd_en(1'b1),              
+        .dout(hevc_bs_data_o),               
+        .full(),                
+        .empty(),              
+        .valid(hevc_bs_valid_o),              
+        .wr_rst_busy(bs_fifo_wr_rst_busy),  
+        .rd_rst_busy(bs_fifo_rd_rst_busy)  
     );
 
     // 帧序号进程
-    always@(posedge hevc_encode_done_i or negedge rst_n_i) begin
-        if(!rst_n_i)
+    always@(posedge hevc_encode_done_i or negedge state_rst_n) begin
+        if(!state_rst_n)
             frame_sn_i <= 8'b0;
         else if(hevc_encode_done_i)
             frame_sn_i <= frame_sn_i + 1'b1;
@@ -64,8 +91,8 @@ module vsp_top(
             frame_sn_i <= frame_sn_i;
     end
 
-    always@(posedge clk_i or negedge rst_n_i) begin
-        if(!rst_n_i) begin
+    always@(posedge clk_i or negedge state_rst_n) begin
+        if(!state_rst_n) begin
             // 初始化状态
             state <= S0_INIT;
             // 初始化 VSPS

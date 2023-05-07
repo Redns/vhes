@@ -4,6 +4,7 @@ module hevc_encode_system_top(
     /* 系统信号 */
     input rst_n_i,                                  // 复位信号输入（低电平有效）
     input clk_100M_i,                               // 100MHz 时钟信号输入
+    output rst_done_o,                              // 复位完成标志
     /* FEP 视频采集卡 ADV7611 配置信号 */ 
     inout sil_sda,                                  // SIL9011 IIC 数据信号
     output sil_scl,                                 // SIL9011 IIC 时钟信号
@@ -14,8 +15,9 @@ module hevc_encode_system_top(
     input [23:0] rgb_i,                             // RGB888 信号输入
     input de_i,                                     // 像素有效标志输入
     /* HEVC 码流输出 */ 
+    input bs_rd_clk_i,                              // 码流读取时钟（最少为 50MHz）
     output bs_valid_o,                              // 码流有效标志输出
-    output [31:0] bs_data_o,                         // 码流数据（LCU 裸流）
+    output [31:0] bs_data_o,                        // 码流数据（LCU 裸流）
     /* DDR 相关信号 */ 
     output [14:0]DDR3_o_addr,
     output [2:0]DDR3_o_ba,
@@ -39,14 +41,13 @@ module hevc_encode_system_top(
     // 复位顺序：HDMI to RGB --> extif --> HEVC CORE 
     wire hdmi2rgb_rst_done;
     wire extif_top_rst_done;
-    wire vsp_top_rst_done;
+
+    // 用户 200MHz 时钟
+    wire clk_ui_200M;
 
     assign extif_top_rst_n = rst_n_i && hdmi2rgb_rst_done;
     assign hevc_core_rst_n = rst_n_i && extif_top_rst_done;
     assign vsp_top_rst_n   = rst_n_i && extif_top_rst_done;
-
-    // 时钟信号
-    wire clk_ui_200M;
 
     // HDMI2RGB & extif
     wire vsync;
@@ -86,7 +87,7 @@ module hevc_encode_system_top(
 /************************ HDMI 转 RGB 模块 *************************/
     hdmi2yuv_top hdmi2yuv_top(
         .rst_n_i(rst_n_i),
-        .video_buffer_init_done_i(vsp_top_rst_done),
+        .video_buffer_init_done_i(rst_done_o),
         .clk_100M_i(clk_100M_i),
         .rst_done_o(hdmi2rgb_rst_done),
         .sil_sda(sil_sda),
@@ -227,13 +228,14 @@ module hevc_encode_system_top(
 /************************** 裸流封装模块 ***************************/
     vsp_top vsp_top(
         .clk_i(clk_ui_200M),
+        .bs_rd_clk_i(bs_rd_clk_i),
         .rst_n_i(vsp_top_rst_n),
         .rst_done_o(vsp_top_rst_done),
         .hevc_encode_start_i(hevc_sys_start),
         .hevc_encode_done_i(hevc_sys_done),
         .bs_data_i(bs_data),
-        .bs_data_valid_i(bs_valid),
-        .hevc_bs_data_valid_o(bs_valid_o),
+        .bs_valid_i(bs_valid),
+        .hevc_bs_valid_o(bs_valid_o),
         .hevc_bs_data_o(bs_data_o)
     );
 

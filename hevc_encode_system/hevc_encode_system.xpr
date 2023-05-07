@@ -48,9 +48,8 @@
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../../../project/xk265/hevc_encode_system"/>
-    <Option Name="IPRepoPath" Val="$PIPUSERFILESDIR/uisrc"/>
-    <Option Name="IPRepoPath" Val="$PIPUSERFILESDIR/repo"/>
-    <Option Name="IPRepoPath" Val="c:/Users/26892/AppData/Roaming/Xilinx/ip_repo"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../Graduation/1_docs/3_board/03_soc_demo/3-2_ex_soc_sdk/3-2-03_axi_bus/12_axi_stream2dma_soc/soc_prj"/>
+    <Option Name="IPRepoPath" Val="C:/Users/26892/AppData/Roaming/Xilinx/ip_repo"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPDefaultOutputPath" Val="$PGENDIR/sources_1"/>
     <Option Name="IPCachePermission" Val="read"/>
@@ -61,19 +60,19 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="WTXSimLaunchSim" Val="1"/>
-    <Option Name="WTModelSimLaunchSim" Val="28"/>
+    <Option Name="WTModelSimLaunchSim" Val="32"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="3"/>
-    <Option Name="WTModelSimExportSim" Val="3"/>
-    <Option Name="WTQuestaExportSim" Val="3"/>
+    <Option Name="WTXSimExportSim" Val="4"/>
+    <Option Name="WTModelSimExportSim" Val="4"/>
+    <Option Name="WTQuestaExportSim" Val="4"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="3"/>
-    <Option Name="WTRivieraExportSim" Val="3"/>
-    <Option Name="WTActivehdlExportSim" Val="3"/>
+    <Option Name="WTVcsExportSim" Val="4"/>
+    <Option Name="WTRivieraExportSim" Val="4"/>
+    <Option Name="WTActivehdlExportSim" Val="4"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -90,33 +89,49 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr.bd">
+      <File Path="$PSRCDIR/sources_1/bd/hevc_encode_system/hevc_encode_system.bd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="fdma_mig_ddr.bd" FileRelPathName="ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0.xci">
-          <Proxy FileSetName="fdma_mig_ddr_auto_us_df_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="fdma_mig_ddr.bd" FileRelPathName="ip/fdma_mig_ddr_s00_regslice_0/fdma_mig_ddr_s00_regslice_0.xci">
-          <Proxy FileSetName="fdma_mig_ddr_s00_regslice_0"/>
-        </CompFileExtendedInfo>
+      </File>
+      <File Path="$PGENDIR/sources_1/bd/hevc_encode_system/hdl/hevc_encode_system_wrapper.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/fdma_mig_ddr/fdma_mig_ddr.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
         <CompFileExtendedInfo CompFileName="fdma_mig_ddr.bd" FileRelPathName="ip/fdma_mig_ddr_uiFDMA_0_0/fdma_mig_ddr_uiFDMA_0_0.xci">
           <Proxy FileSetName="fdma_mig_ddr_uiFDMA_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="fdma_mig_ddr.bd" FileRelPathName="ip/fdma_mig_ddr_clk_wiz_0_0/fdma_mig_ddr_clk_wiz_0_0.xci">
           <Proxy FileSetName="fdma_mig_ddr_clk_wiz_0_0"/>
         </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="fdma_mig_ddr.bd" FileRelPathName="ip/fdma_mig_ddr_proc_sys_reset_0_0/fdma_mig_ddr_proc_sys_reset_0_0.xci">
+          <Proxy FileSetName="fdma_mig_ddr_proc_sys_reset_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="fdma_mig_ddr.bd" FileRelPathName="ip/fdma_mig_ddr_s00_regslice_0/fdma_mig_ddr_s00_regslice_0.xci">
+          <Proxy FileSetName="fdma_mig_ddr_s00_regslice_0"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="fdma_mig_ddr.bd" FileRelPathName="ip/fdma_mig_ddr_mig_7series_0_0/fdma_mig_ddr_mig_7series_0_0.xci">
           <Proxy FileSetName="fdma_mig_ddr_mig_7series_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="fdma_mig_ddr.bd" FileRelPathName="ip/fdma_mig_ddr_proc_sys_reset_0_0/fdma_mig_ddr_proc_sys_reset_0_0.xci">
-          <Proxy FileSetName="fdma_mig_ddr_proc_sys_reset_0_0"/>
+        <CompFileExtendedInfo CompFileName="fdma_mig_ddr.bd" FileRelPathName="ip/fdma_mig_ddr_auto_us_df_0/fdma_mig_ddr_auto_us_df_0.xci">
+          <Proxy FileSetName="fdma_mig_ddr_auto_us_df_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/prei/DC_Plannar.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -124,6 +139,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/enc_defines.v">
         <FileInfo SFType="VHeader">
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
           <Attr Name="IsVisible" Val="1"/>
@@ -131,6 +147,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/IinP_flag_gen.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -138,6 +155,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/addr_ctl.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -145,6 +163,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/be.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -152,6 +171,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/be_delay.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -159,6 +179,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/be_level0.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -166,6 +187,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/be_level1.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -173,6 +195,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/buf_ram_1p_128x64.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -180,6 +203,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/buf_ram_1p_64x64.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -187,6 +211,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_bina.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -194,6 +219,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_bina_lut.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -201,6 +227,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_bina_tools.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -208,6 +235,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_binmix.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -215,6 +243,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_binsort.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -222,6 +251,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_bitpack.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -229,6 +259,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/cabac_ram_sp_64x16.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -236,6 +267,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_rlps4.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -243,6 +275,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_rlps4_1bin.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -250,6 +283,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_se_prepare.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -257,6 +291,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_se_prepare_amplitude_of_coeff.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -264,6 +299,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_se_prepare_coeff.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -271,6 +307,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_se_prepare_coeff_last_sig_xy.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -278,6 +315,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_se_prepare_cu.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -285,6 +323,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_se_prepare_intra.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -292,6 +331,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_se_prepare_intra_luma.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -299,6 +339,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_se_prepare_mv.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -306,6 +347,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_se_prepare_mvd.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -313,6 +355,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_se_prepare_sao_offset.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -320,6 +363,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_se_prepare_sig_coeff_ctx.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -327,6 +371,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_se_prepare_tu.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -334,6 +379,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -341,6 +387,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_ucontext.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -348,6 +395,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_ucontext_t.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -355,6 +403,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_ucontext_tt.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -362,6 +411,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_ulow.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -369,6 +419,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_ulow_1bin.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -376,6 +427,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_ulow_refine.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -383,6 +435,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_urange4.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -390,6 +443,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/cabac_urange4_full.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -397,6 +451,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/chroma_qp.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -404,6 +459,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/coe_addr_trans.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -411,6 +467,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/prei/compare.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -418,6 +475,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/prei/control.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -425,6 +483,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/prei/counter.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -432,6 +491,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/ctl0.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -439,6 +499,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/ctl1.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -446,6 +507,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/ctl2.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -453,6 +515,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/ctl3.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -460,6 +523,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/hdmi2yuv/data_merge.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -467,6 +531,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/db_bs.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -474,6 +539,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/db_cbf_ram_sp_64x16.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -481,6 +547,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/db_chroma_filter.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -488,6 +555,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/db_clip3_str.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -495,6 +563,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/db_filter.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -502,6 +571,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/db_lut_beta.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -509,6 +579,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/db_lut_tc.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -516,6 +587,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/db_mv.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -523,6 +595,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/db_mv_ram_sp_512x20.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -530,6 +603,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/db_mv_ram_sp_64x20.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -537,6 +611,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/db_normal_filter.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -544,6 +619,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/db_pu_edge.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -551,6 +627,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/db_qp.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -558,6 +635,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/db_qp_ram_sp_64x20.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -565,6 +643,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/db_strong_filter.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -572,6 +651,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/db_tu_edge.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -579,6 +659,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/db_tupu_ram_sp_64x32.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -586,6 +667,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/dbsao_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -593,6 +675,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/dbsao_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -600,6 +683,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/dbsao_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -607,6 +691,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/dct_top_2d.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -614,6 +699,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/top/enc_core.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -621,6 +707,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/top/enc_core_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -628,6 +715,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/top/enc_ctrl.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -635,6 +723,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/top/enc_data_pipeline.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -642,6 +731,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/extif/extif_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -649,6 +739,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/fdma_mig_ddr/hdl/fdma_mig_ddr_wrapper.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -656,6 +747,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/prei/fetch8x8.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -663,6 +755,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fetch/fetch_cur_chroma.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -670,6 +763,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fetch/fetch_cur_luma.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -677,6 +771,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fetch/fetch_db.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -684,6 +779,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/fetch_ram_1p_128x32.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -691,6 +787,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/fetch_ram_2p_64x208.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -698,6 +795,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fetch/fetch_ref_chroma.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -705,6 +803,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fetch/fetch_ref_luma.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -712,6 +811,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/fetch_rf_1p_128x512.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -719,6 +819,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/fetch_rf_1p_64x256.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -726,6 +827,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fetch/fetch_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -733,6 +835,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fetch/fetch_wrapper.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -740,6 +843,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_buf_wrapper.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -747,6 +851,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_cost.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -754,6 +859,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_ctrl.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -761,6 +867,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_interpolator.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -768,6 +875,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_interpolator_8pel.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -775,6 +883,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_interpolator_8x8.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -782,6 +891,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_ip_half_ver.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -789,6 +899,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_ip_quarter_ver.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -796,6 +907,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_mv_buffer.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -803,6 +915,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_mv_candidate_prepare.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -810,6 +923,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/fme_mv_ram_dp_64x20.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -817,6 +931,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_pred.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -824,6 +939,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_satd_8x8.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -831,6 +947,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_satd_gen.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -838,6 +955,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_skip.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -845,6 +963,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/fme_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -852,6 +971,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/top/fme_top_buf.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -859,6 +979,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/prei/gxgy.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -866,6 +987,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/hdmi2yuv/hdmi2rgb.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -873,6 +995,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/hdmi2yuv/hdmi2yuv_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -880,6 +1003,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/ctrl/hevc_encode_system_ctrl.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -887,6 +1011,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/prei/hevc_md_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -894,6 +1019,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/ime/ime_addressing.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -901,6 +1027,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/ime/ime_cost_store.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -908,6 +1035,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/ime/ime_ctrl.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -915,6 +1043,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/ime/ime_dat_array.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -922,6 +1051,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/ime/ime_mv_dump.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -929,6 +1059,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/ime_mv_ram_sp_64x13.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -936,6 +1067,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/ime/ime_partition_decision.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -943,6 +1075,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/ime/ime_partition_decision_engine.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -950,6 +1083,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/ime/ime_sad_array.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -957,6 +1091,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/ime/ime_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -964,6 +1099,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/top/ime_top_buf.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -971,6 +1107,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/ime/ime_transfer.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -978,6 +1115,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/ime/ime_ver_mem.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -985,6 +1123,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_intra/intra_buf_wrapper.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -992,6 +1131,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_intra/intra_ctrl.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -999,6 +1139,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_intra/intra_pred.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1006,6 +1147,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_intra/intra_ref.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1013,6 +1155,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_intra/intra_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1020,6 +1163,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_mc/mc_chroma_filter.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1027,6 +1171,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_mc/mc_chroma_ip4x4.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1034,6 +1179,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_mc/mc_chroma_ip_1p.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1041,6 +1187,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_mc/mc_chroma_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1048,6 +1195,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_mc/mc_ctrl.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1055,6 +1203,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/mc_mv_ram_sp_512x20.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1062,6 +1211,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_mc/mc_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1069,6 +1219,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_mc/mc_tq.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1076,6 +1227,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/prei/md_fetch.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1083,6 +1235,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/prei/md_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1090,6 +1243,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fetch/mem_bilo_db.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1097,6 +1251,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/mem_lipo_1p_128x64x4.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1104,6 +1259,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/mem_lipo_1p_64x64x4.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1111,6 +1267,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/mod.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1118,6 +1275,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/prei/mode_write.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1125,6 +1283,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/mux0.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1132,6 +1291,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/mux1.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1139,6 +1299,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/mux2.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1146,6 +1307,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/mux3.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1153,6 +1315,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/mux32_1.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1160,6 +1323,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_mc/mvd_can_mv_addr.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1167,6 +1331,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_mc/mvd_getBits.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1174,6 +1339,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_mc/mvd_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1181,6 +1347,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/offset_shift.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1188,6 +1355,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/pe.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1195,6 +1363,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/pe_i.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1202,6 +1371,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/cabac/pipo.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1209,6 +1379,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/posi/posi_buffer.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1216,6 +1387,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/posi/posi_ctrl.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1223,6 +1395,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/posi_md_ram_sp_64x6.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1230,6 +1403,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/posi/posi_memory_wrapper.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1237,6 +1411,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/posi/posi_partition_decision.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1244,6 +1419,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/posi/posi_prediction.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1251,6 +1427,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/posi/posi_rate_estimation.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1258,6 +1435,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/posi/posi_reference.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1265,6 +1443,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/posi/posi_satd_cost.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1272,6 +1451,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/posi/posi_satd_cost_engine.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1279,6 +1459,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/posi/posi_satd_cost_transpose.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1286,6 +1467,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/posi/posi_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1293,6 +1475,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/top/posi_top_buf.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1300,6 +1483,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/posi/posi_transfer.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1307,6 +1491,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/prei_md_ram_sp_85x6.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1314,6 +1499,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/prei/prei_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1321,6 +1507,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/top/prei_top_buf.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1328,6 +1515,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/q_iq.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1335,6 +1523,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/fme/qp_lambda_table.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1342,6 +1531,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/quan.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1349,6 +1539,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/lib/behave/mem/ram_1p.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1356,6 +1547,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/lib/behave/mem/ram_dp.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1363,6 +1555,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/ram_sp_1024x32.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1370,6 +1563,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/ram_sp_1536x32.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1377,6 +1571,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/ram_sp_240x32.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1384,6 +1579,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/ram_sp_256x32.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1391,6 +1587,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/ram_sp_384x32.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1398,6 +1595,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/ram_sp_be_128x64.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1405,6 +1603,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/ram_sp_be_192x128.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1412,6 +1611,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/ram_sp_be_192x512.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1419,6 +1619,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/ram_sp_be_192x64.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1426,6 +1627,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/ram_sp_be_64x23.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1433,6 +1635,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/ram_tp_be_32x64.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1440,6 +1643,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/prei/rate_control.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1447,6 +1651,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/re.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1454,6 +1659,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/re_in_ctl.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1461,6 +1667,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/re_level0.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1468,6 +1675,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/re_level0_cal.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1475,6 +1683,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/re_level1.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1482,6 +1691,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/re_level1_cal.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1489,6 +1699,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/re_level2.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1496,6 +1707,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/re_level2_cal.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1503,6 +1715,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/re_level3.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1510,6 +1723,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/re_out_ctl.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1517,6 +1731,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_wrapper/rec_buf_cef.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1524,6 +1739,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_wrapper/rec_buf_cef_rot.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1531,6 +1747,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_wrapper/rec_buf_mvd_rot.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1538,6 +1755,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_wrapper/rec_buf_pre.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1545,6 +1763,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_wrapper/rec_buf_rec.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1552,6 +1771,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_wrapper/rec_buf_rec_rot.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1559,6 +1779,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_wrapper/rec_buf_wrapper.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1566,6 +1787,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1573,6 +1795,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/lib/behave/mem/rf_1p.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1580,6 +1803,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/hdmi2yuv/rgb2yuv.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1587,6 +1811,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/row_ctl.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1594,6 +1819,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/sao_add_offset.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1601,6 +1827,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/sao_bo_predecision.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1608,6 +1835,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/sao_cal_offset.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1615,6 +1843,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/sao_mode.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1622,6 +1851,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/sao_statistic.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1629,6 +1859,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/sao_sum_diff.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1636,6 +1867,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/sao_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1643,6 +1875,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/db/sao_type_decision.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1650,6 +1883,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/hdmi2yuv/sil9011reg.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1657,6 +1891,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/lib/behave/mem/sram_sp_be_behave.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1664,6 +1899,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/lib/behave/mem/sram_tp_be_behave.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1671,6 +1907,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/time_shift/time_shift.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1678,6 +1915,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/mem/tq_ram_sp_32x16.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1685,6 +1923,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/tq_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1692,6 +1931,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/core/rtl/rec/rec_tq/transform_mtr.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1699,6 +1939,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/hdmi2yuv/uicfg9011.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1706,6 +1947,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/hdmi2yuv/uii2c.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1713,6 +1955,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/extif/video_in_buffer.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1720,6 +1963,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/vsp/vsp_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1727,6 +1971,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/vsp/vsps.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1734,6 +1979,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/hevc_encode_system_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1835,26 +2081,18 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/../../../project/xk265/hevc_encode_system/component.xml">
+        <FileInfo SFType="IPXACT"/>
+      </File>
       <File Path="$PSRCDIR/sources_1/bd/fdma_mig_ddr/ip/fdma_mig_ddr_mig_7series_0_0/mig_a.prj">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="ScopedToCell" Val="fdma_mig_ddr_mig_7series_0_0"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../project/xk265/hevc_encode_system/component.xml">
-        <FileInfo SFType="IPXACT"/>
-      </File>
-      <File Path="$PSRCDIR/sources_1/bd/hevc_encode_system/hevc_encode_system.bd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="hevc_encode_system_top"/>
+        <Option Name="TopModule" Val="hevc_encode_system_wrapper"/>
       </Config>
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
@@ -1971,6 +2209,7 @@
     <FileSet Name="pixel_fifo" Type="BlockSrcs" RelSrcDir="$PSRCDIR/pixel_fifo" RelGenDir="$PGENDIR/pixel_fifo">
       <File Path="$PSRCDIR/sources_1/ip/pixel_fifo/pixel_fifo.xci">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -2017,6 +2256,20 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
+    <FileSet Name="hevc_bs_fifo" Type="BlockSrcs" RelSrcDir="$PSRCDIR/hevc_bs_fifo" RelGenDir="$PGENDIR/hevc_bs_fifo">
+      <File Path="$PSRCDIR/sources_1/ip/hevc_bs_fifo/hevc_bs_fifo.xci">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="hevc_bs_fifo"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
   </FileSets>
   <Simulators>
     <Simulator Name="XSim">
@@ -2037,14 +2290,11 @@
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="15">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z100ffg900-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" IncrementalCheckpoint="$PSRCDIR/utils_1/imports/synth_1/hevc_encode_system_top.dcp" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z100ffg900-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" IncrementalCheckpoint="$PSRCDIR/utils_1/imports/synth_1/hevc_encode_system_top.dcp" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
@@ -2119,11 +2369,19 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
+    <Run Id="hevc_bs_fifo_synth_1" Type="Ft3:Synth" SrcSet="hevc_bs_fifo" Part="xc7z100ffg900-2" ConstrsSet="hevc_bs_fifo" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/hevc_bs_fifo_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/hevc_bs_fifo_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z100ffg900-2" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -2241,6 +2499,23 @@
       <RQSFiles/>
     </Run>
     <Run Id="fdma_mig_ddr_auto_us_df_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z100ffg900-2" ConstrsSet="fdma_mig_ddr_auto_us_df_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="fdma_mig_ddr_auto_us_df_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/fdma_mig_ddr_auto_us_df_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="hevc_bs_fifo_impl_1" Type="Ft2:EntireDesign" Part="xc7z100ffg900-2" ConstrsSet="hevc_bs_fifo" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="hevc_bs_fifo_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/hevc_bs_fifo_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>
