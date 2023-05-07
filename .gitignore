@@ -2,11 +2,11 @@
 *.dat
 *.dcp
 
-hevc_encode_system/.Xil
-hevc_encode_system/hevc_encode_system.hw
-hevc_encode_system/hevc_encode_system.gen
-hevc_encode_system/hevc_encode_system.sim
-hevc_encode_system/hevc_encode_system.runs
-hevc_encode_system/hevc_encode_system.cache
-hevc_encode_system/hevc_encode_system.tempFiles
-hevc_encode_system/hevc_encode_system.ip_user_files
+vhes/.Xil
+vhes/vhes.hw
+vhes/vhes.gen
+vhes/vhes.sim
+vhes/vhes.runs
+vhes/vhes.cache
+vhes/vhes.tempFiles
+vhes/vhes.ip_user_files
