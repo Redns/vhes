@@ -9,4 +9,15 @@ vhes/vhes.sim
 vhes/vhes.runs
 vhes/vhes.cache
 vhes/vhes.tempFiles
-vhes/vhes.ip_user_files
+vhes/xgui
+
+vhes_core/.Xil
+vhes_core/vhes_core.hw
+vhes_core/vhes_core.gen
+vhes_core/vhes_core.sim
+vhes_core/vhes_core.runs
+vhes_core/vhes_core.cache
+vhes_core/vhes_core.tempFiles
+
+vhes_server/vhes_server/bin
+vhes_server/vhes_server/obj

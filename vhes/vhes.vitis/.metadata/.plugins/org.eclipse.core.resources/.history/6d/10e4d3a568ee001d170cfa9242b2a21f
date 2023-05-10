@@ -1,0 +1,37 @@
+#include "usb.h"
+
+/**
+ * @brief  初始化 USB
+ * @param  u32 buffer_size 收发缓冲区长度（单位：Byte）
+ * @return XST_SUCCESS/XST_FAILURE
+ */
+int init_usb(XScuGic intc_instance, XUsbPs usb_instance, u32 buffer_size)
+{
+    // USB 外设基地址 + 命令偏移地址
+    u32 *usb_base = (u32 *)0xE0002140;
+    // 复位 USB 外设
+    *usb_base = 0x00080002;
+    // 等待复位完成
+    while((*usb_base & 0x2) > 0) {}
+    if(xusb_COMMS_init(&intc_instance, &usb_instance, XPAR_XUSBPS_0_DEVICE_ID, XPAR_XUSBPS_0_INTR, buffer_size) == XST_SUCCESS)
+    {
+//        u8  buffer[512];
+//        u32 receiveByteCnt;
+//        while(1)
+//        {
+//            receiveByteCnt = xusb_COMMS_rx_bytes_available();
+//            if(receiveByteCnt != 0)
+//            {
+//                receiveByteCnt = xusb_COMMS_receive_data(buffer, receiveByteCnt);
+//                buffer[receiveByteCnt] = 0;
+//                // TODO 检查此处接收是否正确
+//                if(strcmp(buffer, "CONNECTED") == 0)
+//                {
+    	print("[SUCCESS] USB INIT DONE\n")
+                      return XST_SUCCESS;
+//                }
+//            }
+//        }
+    }
+    return XST_FAILURE;
+}

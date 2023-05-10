@@ -20,3 +20,20 @@ domain active {zynq_fsbl}
 domain active {standalone_ps7_cortexa9_0}
 platform generate -quick
 platform generate
+platform config -updatehw {E:/Project/xk265/vhes/vhes_wrapper.xsa}
+platform generate -domains 
+bsp reload
+bsp reload
+platform generate -domains 
+platform clean
+platform generate
+bsp reload
+domain active {zynq_fsbl}
+bsp reload
+platform clean
+platform generate
+platform clean
+platform generate
+domain active {standalone_ps7_cortexa9_0}
+bsp reload
+platform generate -domains 

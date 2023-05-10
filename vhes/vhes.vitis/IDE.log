@@ -14,3 +14,2150 @@
 02:38:50 INFO  : Result from executing command 'getProjects': vhes_wrapper
 02:38:50 INFO  : Result from executing command 'getPlatforms': vhes_wrapper|E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/vhes_wrapper.xpfm
 02:38:50 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+14:43:24 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+14:44:32 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+14:44:47 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+14:45:23 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+14:45:31 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+14:45:59 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+14:46:37 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+14:47:11 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+14:47:27 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+14:47:46 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+14:48:50 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+14:49:27 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+15:08:22 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+15:08:39 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:26:51 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:27:39 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:28:10 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:28:27 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:28:49 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:29:57 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:30:24 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:30:42 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:33:06 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:33:56 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:34:33 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:35:39 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:36:48 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:37:14 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:38:51 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:39:37 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:39:54 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:40:37 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:41:01 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:42:18 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:42:50 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+17:44:00 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+19:44:59 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:45:00 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+19:45:00 INFO  : 'jtag frequency' command is executed.
+19:45:01 INFO  : Context for 'APU' is selected.
+19:45:01 INFO  : System reset is completed.
+19:45:04 INFO  : 'after 3000' command is executed.
+19:45:04 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+19:45:18 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+19:45:18 INFO  : Context for 'APU' is selected.
+19:45:19 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+19:45:19 INFO  : 'configparams force-mem-access 1' command is executed.
+19:45:19 INFO  : Context for 'APU' is selected.
+19:45:19 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+19:45:20 INFO  : 'ps7_init' command is executed.
+19:45:20 INFO  : 'ps7_post_config' command is executed.
+19:45:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:45:20 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:45:20 INFO  : 'configparams force-mem-access 0' command is executed.
+19:45:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:45:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:45:21 INFO  : 'con' command is executed.
+19:45:21 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+19:45:21 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+19:46:04 INFO  : Disconnected from the channel tcfchan#2.
+19:46:05 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:46:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+19:46:14 ERROR : Could not find ARM device on the board for connection 'Local'.
+Check if the target is in:
+1. Split JTAG - No operations are possible with ARM DAP.
+2. Non JTAG bootmode - Bootrom may need time to enable DAP.
+Please try again.
+
+
+Troubleshooting hints:
+1. Check whether board is connected to system properly.
+2. In case of zynq board, check whether Digilent/Xilinx cable switch settings are correct.
+3. If you are using Xilinx Platform Cable USB, ensure that status LED is green.
+19:46:56 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:47:05 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+19:47:05 ERROR : Could not find ARM device on the board for connection 'Local'.
+Check if the target is in:
+1. Split JTAG - No operations are possible with ARM DAP.
+2. Non JTAG bootmode - Bootrom may need time to enable DAP.
+Please try again.
+
+
+Troubleshooting hints:
+1. Check whether board is connected to system properly.
+2. In case of zynq board, check whether Digilent/Xilinx cable switch settings are correct.
+3. If you are using Xilinx Platform Cable USB, ensure that status LED is green.
+19:47:17 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:47:17 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+19:47:17 INFO  : 'jtag frequency' command is executed.
+19:47:17 INFO  : Context for 'APU' is selected.
+19:47:17 INFO  : System reset is completed.
+19:47:20 INFO  : 'after 3000' command is executed.
+19:47:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+19:47:35 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+19:47:35 INFO  : Context for 'APU' is selected.
+19:47:35 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+19:47:35 INFO  : 'configparams force-mem-access 1' command is executed.
+19:47:35 INFO  : Context for 'APU' is selected.
+19:47:35 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+19:47:36 INFO  : 'ps7_init' command is executed.
+19:47:36 INFO  : 'ps7_post_config' command is executed.
+19:47:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:47:36 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:47:36 INFO  : 'configparams force-mem-access 0' command is executed.
+19:47:36 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:47:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:47:36 INFO  : 'con' command is executed.
+19:47:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+19:47:36 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+19:50:30 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+19:50:36 INFO  : Disconnected from the channel tcfchan#3.
+19:50:37 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:50:38 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+19:50:38 INFO  : 'jtag frequency' command is executed.
+19:50:38 INFO  : Context for 'APU' is selected.
+19:50:38 INFO  : System reset is completed.
+19:50:41 INFO  : 'after 3000' command is executed.
+19:50:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+19:50:56 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+19:50:56 INFO  : Context for 'APU' is selected.
+19:50:56 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+19:50:56 INFO  : 'configparams force-mem-access 1' command is executed.
+19:50:56 INFO  : Context for 'APU' is selected.
+19:50:56 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+19:50:56 INFO  : 'ps7_init' command is executed.
+19:50:56 INFO  : 'ps7_post_config' command is executed.
+19:50:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:50:57 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:50:57 INFO  : 'configparams force-mem-access 0' command is executed.
+19:50:57 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:50:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:50:57 INFO  : 'con' command is executed.
+19:50:57 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+19:50:57 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+19:54:33 INFO  : Disconnected from the channel tcfchan#4.
+19:56:17 INFO  : Hardware specification for platform project 'vhes_wrapper' is updated.
+19:56:27 INFO  : Result from executing command 'getProjects': vhes_wrapper
+19:56:27 INFO  : Result from executing command 'getPlatforms': vhes_wrapper|E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/vhes_wrapper.xpfm
+19:56:27 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+19:56:43 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+19:56:46 INFO  : The hardware specification used by project 'vhes' is out of sync with the platform. Resource files extracted from the hardware specification will be updated.
+19:56:46 INFO  : The file 'E:\Project\xk265\vhes\vhes.vitis\vhes\_ide\bitstream\vhes_wrapper.bit' stored in project is removed.
+19:56:47 INFO  : The updated bitstream files are copied from platform to folder 'E:\Project\xk265\vhes\vhes.vitis\vhes\_ide\bitstream' in project 'vhes'.
+19:56:47 INFO  : The file 'E:\Project\xk265\vhes\vhes.vitis\vhes\_ide\psinit\ps7_init.tcl' stored in project is removed.
+19:56:52 INFO  : The updated ps init files are copied from platform to folder 'E:\Project\xk265\vhes\vhes.vitis\vhes\_ide\psinit' in project 'vhes'.
+19:56:54 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:56:55 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+19:56:55 INFO  : 'jtag frequency' command is executed.
+19:56:55 INFO  : Context for 'APU' is selected.
+19:56:55 INFO  : System reset is completed.
+19:56:58 INFO  : 'after 3000' command is executed.
+19:56:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+19:57:13 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+19:57:13 INFO  : Context for 'APU' is selected.
+19:57:13 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+19:57:13 INFO  : 'configparams force-mem-access 1' command is executed.
+19:57:13 INFO  : Context for 'APU' is selected.
+19:57:13 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+19:57:14 INFO  : 'ps7_init' command is executed.
+19:57:14 INFO  : 'ps7_post_config' command is executed.
+19:57:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:57:14 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:57:14 INFO  : 'configparams force-mem-access 0' command is executed.
+19:57:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:57:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:57:14 INFO  : 'con' command is executed.
+19:57:14 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+19:57:14 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+19:58:44 INFO  : Disconnected from the channel tcfchan#6.
+19:58:49 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+19:58:53 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:58:54 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+19:58:54 INFO  : 'jtag frequency' command is executed.
+19:58:54 INFO  : Context for 'APU' is selected.
+19:58:54 INFO  : System reset is completed.
+19:58:57 INFO  : 'after 3000' command is executed.
+19:58:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+19:59:12 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+19:59:12 INFO  : Context for 'APU' is selected.
+19:59:12 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+19:59:12 INFO  : 'configparams force-mem-access 1' command is executed.
+19:59:12 INFO  : Context for 'APU' is selected.
+19:59:12 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+19:59:13 INFO  : 'ps7_init' command is executed.
+19:59:13 INFO  : 'ps7_post_config' command is executed.
+19:59:13 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:59:13 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:59:13 INFO  : 'configparams force-mem-access 0' command is executed.
+19:59:13 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:59:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:59:14 INFO  : 'con' command is executed.
+19:59:14 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+19:59:14 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:01:25 INFO  : Disconnected from the channel tcfchan#7.
+20:01:28 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:01:29 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:01:29 INFO  : 'jtag frequency' command is executed.
+20:01:29 INFO  : Context for 'APU' is selected.
+20:01:29 INFO  : System reset is completed.
+20:01:32 INFO  : 'after 3000' command is executed.
+20:01:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:01:47 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:01:47 INFO  : Context for 'APU' is selected.
+20:01:47 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:01:47 INFO  : 'configparams force-mem-access 1' command is executed.
+20:01:47 INFO  : Context for 'APU' is selected.
+20:01:47 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:01:48 INFO  : 'ps7_init' command is executed.
+20:01:48 INFO  : 'ps7_post_config' command is executed.
+20:01:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:01:48 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:01:48 INFO  : 'configparams force-mem-access 0' command is executed.
+20:01:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:01:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:01:48 INFO  : 'con' command is executed.
+20:01:48 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:01:48 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:07:44 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+20:08:02 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+20:08:11 INFO  : Disconnected from the channel tcfchan#8.
+20:08:12 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:08:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+20:08:21 ERROR : Could not find ARM device on the board for connection 'Local'.
+Check if the target is in:
+1. Split JTAG - No operations are possible with ARM DAP.
+2. Non JTAG bootmode - Bootrom may need time to enable DAP.
+Please try again.
+
+
+Troubleshooting hints:
+1. Check whether board is connected to system properly.
+2. In case of zynq board, check whether Digilent/Xilinx cable switch settings are correct.
+3. If you are using Xilinx Platform Cable USB, ensure that status LED is green.
+20:08:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:08:24 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:08:24 INFO  : 'jtag frequency' command is executed.
+20:08:24 INFO  : Context for 'APU' is selected.
+20:08:24 INFO  : System reset is completed.
+20:08:27 INFO  : 'after 3000' command is executed.
+20:08:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:08:44 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:08:44 INFO  : Context for 'APU' is selected.
+20:08:44 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:08:44 INFO  : 'configparams force-mem-access 1' command is executed.
+20:08:44 INFO  : Context for 'APU' is selected.
+20:08:44 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:08:45 INFO  : 'ps7_init' command is executed.
+20:08:45 INFO  : 'ps7_post_config' command is executed.
+20:08:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:08:46 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:08:46 INFO  : 'configparams force-mem-access 0' command is executed.
+20:08:46 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:08:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:08:46 INFO  : 'con' command is executed.
+20:08:46 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:08:46 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:12:42 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+20:14:26 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+20:14:33 INFO  : Disconnected from the channel tcfchan#9.
+20:14:34 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:14:34 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:14:34 ERROR : port closed
+20:14:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+20:14:34 ERROR : port closed
+20:14:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:14:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+20:14:50 ERROR : Could not find ARM device on the board for connection 'Local'.
+Check if the target is in:
+1. Split JTAG - No operations are possible with ARM DAP.
+2. Non JTAG bootmode - Bootrom may need time to enable DAP.
+Please try again.
+
+
+Troubleshooting hints:
+1. Check whether board is connected to system properly.
+2. In case of zynq board, check whether Digilent/Xilinx cable switch settings are correct.
+3. If you are using Xilinx Platform Cable USB, ensure that status LED is green.
+20:14:50 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:14:50 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:14:50 INFO  : 'jtag frequency' command is executed.
+20:14:50 INFO  : Context for 'APU' is selected.
+20:14:50 INFO  : System reset is completed.
+20:14:53 INFO  : 'after 3000' command is executed.
+20:14:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:15:08 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:15:08 INFO  : Context for 'APU' is selected.
+20:15:08 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:15:08 INFO  : 'configparams force-mem-access 1' command is executed.
+20:15:08 INFO  : Context for 'APU' is selected.
+20:15:08 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:15:08 INFO  : 'ps7_init' command is executed.
+20:15:09 INFO  : 'ps7_post_config' command is executed.
+20:15:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:15:09 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:15:09 INFO  : 'configparams force-mem-access 0' command is executed.
+20:15:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:15:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:15:09 INFO  : 'con' command is executed.
+20:15:09 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:15:09 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:15:30 INFO  : Disconnected from the channel tcfchan#10.
+20:15:31 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:15:31 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:15:31 INFO  : 'jtag frequency' command is executed.
+20:15:33 INFO  : Context for 'APU' is selected.
+20:15:33 INFO  : System reset is completed.
+20:15:36 INFO  : 'after 3000' command is executed.
+20:15:36 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:15:51 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:15:51 INFO  : Context for 'APU' is selected.
+20:15:51 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:15:51 INFO  : 'configparams force-mem-access 1' command is executed.
+20:15:51 INFO  : Context for 'APU' is selected.
+20:15:51 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:15:52 INFO  : 'ps7_init' command is executed.
+20:15:52 INFO  : 'ps7_post_config' command is executed.
+20:15:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:15:52 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:15:52 INFO  : 'configparams force-mem-access 0' command is executed.
+20:15:52 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:15:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:15:53 INFO  : 'con' command is executed.
+20:15:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:15:53 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:19:06 INFO  : Disconnected from the channel tcfchan#11.
+20:20:02 INFO  : No changes in MSS file content so sources will not be generated.
+20:20:23 INFO  : Result from executing command 'getProjects': vhes_wrapper
+20:20:23 INFO  : Result from executing command 'getPlatforms': vhes_wrapper|E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/vhes_wrapper.xpfm
+20:20:31 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:20:32 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:20:32 INFO  : 'jtag frequency' command is executed.
+20:20:32 INFO  : Context for 'APU' is selected.
+20:20:32 INFO  : System reset is completed.
+20:20:35 INFO  : 'after 3000' command is executed.
+20:20:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:20:49 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:20:49 INFO  : Context for 'APU' is selected.
+20:20:50 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:20:50 INFO  : 'configparams force-mem-access 1' command is executed.
+20:20:50 INFO  : Context for 'APU' is selected.
+20:20:50 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:20:50 INFO  : 'ps7_init' command is executed.
+20:20:50 INFO  : 'ps7_post_config' command is executed.
+20:20:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:20:51 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:20:51 INFO  : 'configparams force-mem-access 0' command is executed.
+20:20:51 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:20:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:20:51 INFO  : 'con' command is executed.
+20:20:51 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:20:51 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:21:17 INFO  : Disconnected from the channel tcfchan#13.
+20:21:26 INFO  : Result from executing command 'removePlatformRepo': 
+20:21:39 ERROR : Hardware specification file is not configured properly in the launch configuration 'Vhes'. 
+Make sure that the application 'vhes' is built properly for configuration 'Debug' before launching.
+20:21:45 ERROR : Hardware specification file is not configured properly in the launch configuration 'Vhes'. 
+Make sure that the application 'vhes' is built properly for configuration 'Debug' before launching.
+20:22:13 INFO  : Result from executing command 'getProjects': vhes_wrapper
+20:22:13 INFO  : Result from executing command 'getPlatforms': 
+20:22:13 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+20:22:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:22:31 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:22:31 INFO  : 'jtag frequency' command is executed.
+20:22:31 INFO  : Context for 'APU' is selected.
+20:22:31 INFO  : System reset is completed.
+20:22:34 INFO  : 'after 3000' command is executed.
+20:22:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:22:49 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:22:49 INFO  : Context for 'APU' is selected.
+20:22:49 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:22:49 INFO  : 'configparams force-mem-access 1' command is executed.
+20:22:49 INFO  : Context for 'APU' is selected.
+20:22:49 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:22:49 INFO  : 'ps7_init' command is executed.
+20:22:49 INFO  : 'ps7_post_config' command is executed.
+20:22:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:22:50 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:22:50 INFO  : 'configparams force-mem-access 0' command is executed.
+20:22:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:22:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:22:50 INFO  : 'con' command is executed.
+20:22:50 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:22:50 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:56:18 INFO  : No changes in MSS file content so sources will not be generated.
+21:13:19 INFO  : Disconnected from the channel tcfchan#16.
+21:13:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:13:29 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+21:13:29 ERROR : Could not find ARM device on the board for connection 'Local'.
+Check if the target is in:
+1. Split JTAG - No operations are possible with ARM DAP.
+2. Non JTAG bootmode - Bootrom may need time to enable DAP.
+Please try again.
+
+
+Troubleshooting hints:
+1. Check whether board is connected to system properly.
+2. In case of zynq board, check whether Digilent/Xilinx cable switch settings are correct.
+3. If you are using Xilinx Platform Cable USB, ensure that status LED is green.
+21:17:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:17:36 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+21:17:36 INFO  : 'jtag frequency' command is executed.
+21:17:36 INFO  : Context for 'APU' is selected.
+21:17:36 INFO  : System reset is completed.
+21:17:39 INFO  : 'after 3000' command is executed.
+21:17:39 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+21:17:55 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+21:17:55 INFO  : Context for 'APU' is selected.
+21:17:55 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+21:17:55 INFO  : 'configparams force-mem-access 1' command is executed.
+21:17:55 INFO  : Context for 'APU' is selected.
+21:17:55 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+21:17:55 INFO  : 'ps7_init' command is executed.
+21:17:55 INFO  : 'ps7_post_config' command is executed.
+21:17:55 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:17:56 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:17:56 INFO  : 'configparams force-mem-access 0' command is executed.
+21:17:56 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:17:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:17:56 INFO  : 'con' command is executed.
+21:17:56 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:17:56 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+21:22:50 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+21:22:57 INFO  : Disconnected from the channel tcfchan#17.
+21:22:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:22:58 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+21:22:58 INFO  : 'jtag frequency' command is executed.
+21:22:59 INFO  : Context for 'APU' is selected.
+21:22:59 INFO  : System reset is completed.
+21:23:02 INFO  : 'after 3000' command is executed.
+21:23:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+21:23:17 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+21:23:17 INFO  : Context for 'APU' is selected.
+21:23:17 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+21:23:17 INFO  : 'configparams force-mem-access 1' command is executed.
+21:23:17 INFO  : Context for 'APU' is selected.
+21:23:17 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+21:23:17 INFO  : 'ps7_init' command is executed.
+21:23:17 INFO  : 'ps7_post_config' command is executed.
+21:23:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:23:18 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:23:18 INFO  : 'configparams force-mem-access 0' command is executed.
+21:23:18 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:23:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:23:18 INFO  : 'con' command is executed.
+21:23:18 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:23:18 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+21:34:46 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+21:35:03 INFO  : Disconnected from the channel tcfchan#18.
+21:35:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:35:13 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+21:35:13 ERROR : Could not find ARM device on the board for connection 'Local'.
+Check if the target is in:
+1. Split JTAG - No operations are possible with ARM DAP.
+2. Non JTAG bootmode - Bootrom may need time to enable DAP.
+Please try again.
+
+
+Troubleshooting hints:
+1. Check whether board is connected to system properly.
+2. In case of zynq board, check whether Digilent/Xilinx cable switch settings are correct.
+3. If you are using Xilinx Platform Cable USB, ensure that status LED is green.
+21:35:31 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:35:40 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+21:35:40 ERROR : Could not find ARM device on the board for connection 'Local'.
+Check if the target is in:
+1. Split JTAG - No operations are possible with ARM DAP.
+2. Non JTAG bootmode - Bootrom may need time to enable DAP.
+Please try again.
+
+
+Troubleshooting hints:
+1. Check whether board is connected to system properly.
+2. In case of zynq board, check whether Digilent/Xilinx cable switch settings are correct.
+3. If you are using Xilinx Platform Cable USB, ensure that status LED is green.
+21:35:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:35:50 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+21:35:50 INFO  : 'jtag frequency' command is executed.
+21:35:50 INFO  : Context for 'APU' is selected.
+21:35:50 INFO  : System reset is completed.
+21:35:53 INFO  : 'after 3000' command is executed.
+21:35:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+21:36:10 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+21:36:10 INFO  : Context for 'APU' is selected.
+21:36:10 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+21:36:10 INFO  : 'configparams force-mem-access 1' command is executed.
+21:36:10 INFO  : Context for 'APU' is selected.
+21:36:10 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+21:36:12 INFO  : 'ps7_init' command is executed.
+21:36:12 INFO  : 'ps7_post_config' command is executed.
+21:36:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:36:12 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:36:12 INFO  : 'configparams force-mem-access 0' command is executed.
+21:36:12 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:36:13 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:36:13 INFO  : 'con' command is executed.
+21:36:13 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:36:13 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+22:13:33 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:13:44 INFO  : Disconnected from the channel tcfchan#19.
+22:13:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:13:46 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:13:46 INFO  : 'jtag frequency' command is executed.
+22:13:46 INFO  : Context for 'APU' is selected.
+22:13:46 INFO  : System reset is completed.
+22:13:49 INFO  : 'after 3000' command is executed.
+22:13:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:14:04 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:14:04 INFO  : Context for 'APU' is selected.
+22:14:04 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:14:04 INFO  : 'configparams force-mem-access 1' command is executed.
+22:14:04 INFO  : Context for 'APU' is selected.
+22:14:04 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:14:05 INFO  : 'ps7_init' command is executed.
+22:14:05 INFO  : 'ps7_post_config' command is executed.
+22:14:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:14:06 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:14:06 INFO  : 'configparams force-mem-access 0' command is executed.
+22:14:06 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:14:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:14:06 INFO  : 'con' command is executed.
+22:14:06 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:14:06 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+22:15:01 INFO  : Disconnected from the channel tcfchan#20.
+22:15:02 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:15:02 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:15:02 INFO  : 'jtag frequency' command is executed.
+22:15:02 INFO  : Context for 'APU' is selected.
+22:15:02 INFO  : System reset is completed.
+22:15:05 INFO  : 'after 3000' command is executed.
+22:15:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:15:20 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:15:20 INFO  : Context for 'APU' is selected.
+22:15:20 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:15:20 INFO  : 'configparams force-mem-access 1' command is executed.
+22:15:20 INFO  : Context for 'APU' is selected.
+22:15:20 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:15:21 INFO  : 'ps7_init' command is executed.
+22:15:21 INFO  : 'ps7_post_config' command is executed.
+22:15:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:15:22 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:15:22 INFO  : 'configparams force-mem-access 0' command is executed.
+22:15:22 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:15:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:15:22 INFO  : 'con' command is executed.
+22:15:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:15:22 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+22:15:53 INFO  : Disconnected from the channel tcfchan#21.
+22:16:14 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:17:16 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:18:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:18:03 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:18:03 INFO  : 'jtag frequency' command is executed.
+22:18:03 INFO  : Context for 'APU' is selected.
+22:18:03 INFO  : System reset is completed.
+22:18:06 INFO  : 'after 3000' command is executed.
+22:18:06 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:18:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:18:21 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:18:21 INFO  : Context for 'APU' is selected.
+22:18:22 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:18:22 INFO  : 'configparams force-mem-access 1' command is executed.
+22:18:22 INFO  : Context for 'APU' is selected.
+22:18:22 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:18:22 INFO  : 'ps7_init' command is executed.
+22:18:23 INFO  : 'ps7_post_config' command is executed.
+22:18:23 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:18:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:18:23 INFO  : 'jtag frequency' command is executed.
+22:18:23 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:18:23 INFO  : Context for 'APU' is selected.
+22:18:23 INFO  : 'configparams force-mem-access 0' command is executed.
+22:18:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:18:23 INFO  : System reset is completed.
+22:18:24 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:18:27 INFO  : 'after 3000' command is executed.
+22:18:27 ERROR : Already running
+22:18:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:18:41 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:18:41 INFO  : Context for 'APU' is selected.
+22:18:41 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:18:41 INFO  : 'configparams force-mem-access 1' command is executed.
+22:18:41 INFO  : Context for 'APU' is selected.
+22:18:41 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:18:42 INFO  : 'ps7_init' command is executed.
+22:18:42 INFO  : 'ps7_post_config' command is executed.
+22:18:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:18:43 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:18:43 INFO  : 'configparams force-mem-access 0' command is executed.
+22:18:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:18:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:18:43 INFO  : 'con' command is executed.
+22:18:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:18:43 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+22:28:42 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:29:00 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:29:18 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:30:26 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:30:32 INFO  : Disconnected from the channel tcfchan#22.
+22:30:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:30:42 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+22:30:42 ERROR : Could not find ARM device on the board for connection 'Local'.
+Check if the target is in:
+1. Split JTAG - No operations are possible with ARM DAP.
+2. Non JTAG bootmode - Bootrom may need time to enable DAP.
+Please try again.
+
+
+Troubleshooting hints:
+1. Check whether board is connected to system properly.
+2. In case of zynq board, check whether Digilent/Xilinx cable switch settings are correct.
+3. If you are using Xilinx Platform Cable USB, ensure that status LED is green.
+22:30:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:30:58 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:30:58 INFO  : 'jtag frequency' command is executed.
+22:30:58 INFO  : Context for 'APU' is selected.
+22:30:59 INFO  : System reset is completed.
+22:31:02 INFO  : 'after 3000' command is executed.
+22:31:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:31:16 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:31:17 INFO  : Context for 'APU' is selected.
+22:31:17 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:31:17 INFO  : 'configparams force-mem-access 1' command is executed.
+22:31:17 INFO  : Context for 'APU' is selected.
+22:31:17 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:31:19 INFO  : 'ps7_init' command is executed.
+22:31:19 INFO  : 'ps7_post_config' command is executed.
+22:31:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:31:20 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:31:20 INFO  : 'configparams force-mem-access 0' command is executed.
+22:31:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:31:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:31:21 INFO  : 'con' command is executed.
+22:31:21 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:31:21 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+22:35:34 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:36:34 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:36:41 INFO  : Disconnected from the channel tcfchan#23.
+22:36:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:36:43 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:36:43 INFO  : 'jtag frequency' command is executed.
+22:36:43 INFO  : Context for 'APU' is selected.
+22:36:43 INFO  : System reset is completed.
+22:36:46 INFO  : 'after 3000' command is executed.
+22:36:46 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:37:01 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:37:01 INFO  : Context for 'APU' is selected.
+22:37:01 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:37:01 INFO  : 'configparams force-mem-access 1' command is executed.
+22:37:01 INFO  : Context for 'APU' is selected.
+22:37:01 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:37:02 INFO  : 'ps7_init' command is executed.
+22:37:02 INFO  : 'ps7_post_config' command is executed.
+22:37:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:37:03 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:37:03 INFO  : 'configparams force-mem-access 0' command is executed.
+22:37:03 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:37:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:37:03 INFO  : 'con' command is executed.
+22:37:03 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:37:03 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+22:46:17 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:47:04 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:47:13 INFO  : Disconnected from the channel tcfchan#24.
+22:47:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:47:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+22:47:23 ERROR : Could not find ARM device on the board for connection 'Local'.
+Check if the target is in:
+1. Split JTAG - No operations are possible with ARM DAP.
+2. Non JTAG bootmode - Bootrom may need time to enable DAP.
+Please try again.
+
+
+Troubleshooting hints:
+1. Check whether board is connected to system properly.
+2. In case of zynq board, check whether Digilent/Xilinx cable switch settings are correct.
+3. If you are using Xilinx Platform Cable USB, ensure that status LED is green.
+22:47:27 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:47:28 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:47:28 INFO  : 'jtag frequency' command is executed.
+22:47:28 INFO  : Context for 'APU' is selected.
+22:47:28 INFO  : System reset is completed.
+22:47:31 INFO  : 'after 3000' command is executed.
+22:47:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:47:33 ERROR : 'fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit' is cancelled.
+22:47:33 ERROR : Exception occured while running Program Device.
+java.lang.RuntimeException: 'fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit' is cancelled.
+22:47:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+----------------End of Script----------------
+
+22:47:33 ERROR : 'fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit' is cancelled.
+22:47:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:47:46 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:47:46 INFO  : 'jtag frequency' command is executed.
+22:47:46 INFO  : Context for 'APU' is selected.
+22:47:46 INFO  : System reset is completed.
+22:47:49 INFO  : 'after 3000' command is executed.
+22:47:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:48:04 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:48:04 INFO  : Context for 'APU' is selected.
+22:48:04 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:48:04 INFO  : 'configparams force-mem-access 1' command is executed.
+22:48:04 INFO  : Context for 'APU' is selected.
+22:48:04 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:48:06 INFO  : 'ps7_init' command is executed.
+22:48:06 INFO  : 'ps7_post_config' command is executed.
+22:48:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:48:06 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:48:06 INFO  : 'configparams force-mem-access 0' command is executed.
+22:48:06 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:48:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:48:07 INFO  : 'con' command is executed.
+22:48:07 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:48:07 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+22:49:04 INFO  : Disconnected from the channel tcfchan#25.
+22:49:05 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:49:06 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:49:06 INFO  : 'jtag frequency' command is executed.
+22:49:06 INFO  : Context for 'APU' is selected.
+22:49:06 INFO  : System reset is completed.
+22:49:09 INFO  : 'after 3000' command is executed.
+22:49:09 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:49:24 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:49:24 INFO  : Context for 'APU' is selected.
+22:49:24 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:49:24 INFO  : 'configparams force-mem-access 1' command is executed.
+22:49:24 INFO  : Context for 'APU' is selected.
+22:49:24 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:49:26 INFO  : 'ps7_init' command is executed.
+22:49:26 INFO  : 'ps7_post_config' command is executed.
+22:49:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:49:26 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:49:26 INFO  : 'configparams force-mem-access 0' command is executed.
+22:49:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:49:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:49:27 INFO  : 'con' command is executed.
+22:49:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:49:27 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+22:50:21 INFO  : Disconnected from the channel tcfchan#26.
+22:50:29 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:50:30 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:50:30 INFO  : 'jtag frequency' command is executed.
+22:50:30 INFO  : Context for 'APU' is selected.
+22:50:30 INFO  : System reset is completed.
+22:50:33 INFO  : 'after 3000' command is executed.
+22:50:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:50:48 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:50:48 INFO  : Context for 'APU' is selected.
+22:50:48 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:50:48 INFO  : 'configparams force-mem-access 1' command is executed.
+22:50:48 INFO  : Context for 'APU' is selected.
+22:50:48 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:50:49 INFO  : 'ps7_init' command is executed.
+22:50:49 INFO  : 'ps7_post_config' command is executed.
+22:50:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:50:50 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:50:50 INFO  : 'configparams force-mem-access 0' command is executed.
+22:50:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:50:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:50:50 INFO  : 'con' command is executed.
+22:50:50 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:50:50 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+22:52:18 INFO  : Disconnected from the channel tcfchan#27.
+22:52:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:52:20 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:52:20 INFO  : 'jtag frequency' command is executed.
+22:52:20 INFO  : Context for 'APU' is selected.
+22:52:20 INFO  : System reset is completed.
+22:52:23 INFO  : 'after 3000' command is executed.
+22:52:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:52:38 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:52:38 INFO  : Context for 'APU' is selected.
+22:52:38 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:52:38 INFO  : 'configparams force-mem-access 1' command is executed.
+22:52:39 INFO  : Context for 'APU' is selected.
+22:52:39 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:52:41 INFO  : 'ps7_init' command is executed.
+22:52:41 INFO  : 'ps7_post_config' command is executed.
+22:52:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:52:42 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:52:42 INFO  : 'configparams force-mem-access 0' command is executed.
+22:52:42 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:52:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:52:42 INFO  : 'con' command is executed.
+22:52:42 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:52:42 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+22:53:25 INFO  : Disconnected from the channel tcfchan#28.
+22:54:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:54:14 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:54:14 INFO  : 'jtag frequency' command is executed.
+22:54:14 INFO  : Context for 'APU' is selected.
+22:54:14 INFO  : System reset is completed.
+22:54:17 INFO  : 'after 3000' command is executed.
+22:54:17 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:54:32 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:54:32 INFO  : Context for 'APU' is selected.
+22:54:32 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:54:32 INFO  : 'configparams force-mem-access 1' command is executed.
+22:54:32 INFO  : Context for 'APU' is selected.
+22:54:32 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:54:33 INFO  : 'ps7_init' command is executed.
+22:54:33 INFO  : 'ps7_post_config' command is executed.
+22:54:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:54:34 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:54:34 INFO  : 'configparams force-mem-access 0' command is executed.
+22:54:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:54:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:54:35 INFO  : 'con' command is executed.
+22:54:35 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:54:35 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+22:56:22 INFO  : Disconnected from the channel tcfchan#29.
+22:56:52 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:56:53 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:56:53 INFO  : 'jtag frequency' command is executed.
+22:56:53 INFO  : Context for 'APU' is selected.
+22:56:53 INFO  : System reset is completed.
+22:56:56 INFO  : 'after 3000' command is executed.
+22:56:56 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:57:11 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:57:11 INFO  : Context for 'APU' is selected.
+22:57:11 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:57:11 INFO  : 'configparams force-mem-access 1' command is executed.
+22:57:11 INFO  : Context for 'APU' is selected.
+22:57:11 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:57:12 INFO  : 'ps7_init' command is executed.
+22:57:12 INFO  : 'ps7_post_config' command is executed.
+22:57:13 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:57:13 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:57:13 INFO  : 'configparams force-mem-access 0' command is executed.
+22:57:13 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:57:13 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:57:13 INFO  : 'con' command is executed.
+22:57:13 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:57:13 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+22:57:58 INFO  : Disconnected from the channel tcfchan#30.
+22:58:13 INFO  : Result from executing command 'removePlatformRepo': 
+22:58:57 INFO  : Result from executing command 'getProjects': vhes_wrapper
+22:58:57 INFO  : Result from executing command 'getPlatforms': 
+22:58:57 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:59:06 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:59:07 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+22:59:07 INFO  : 'jtag frequency' command is executed.
+22:59:07 INFO  : Context for 'APU' is selected.
+22:59:07 INFO  : System reset is completed.
+22:59:10 INFO  : 'after 3000' command is executed.
+22:59:10 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+22:59:25 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+22:59:25 INFO  : Context for 'APU' is selected.
+22:59:25 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+22:59:25 INFO  : 'configparams force-mem-access 1' command is executed.
+22:59:25 INFO  : Context for 'APU' is selected.
+22:59:25 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+22:59:26 INFO  : 'ps7_init' command is executed.
+22:59:26 INFO  : 'ps7_post_config' command is executed.
+22:59:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:59:27 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:59:27 INFO  : 'configparams force-mem-access 0' command is executed.
+22:59:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:59:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:59:27 INFO  : 'con' command is executed.
+22:59:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:59:27 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+23:04:06 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+23:04:11 INFO  : Disconnected from the channel tcfchan#33.
+23:04:12 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:04:13 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+23:04:13 INFO  : 'jtag frequency' command is executed.
+23:04:13 INFO  : Context for 'APU' is selected.
+23:04:13 INFO  : System reset is completed.
+23:04:16 INFO  : 'after 3000' command is executed.
+23:04:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+23:04:30 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+23:04:30 INFO  : Context for 'APU' is selected.
+23:04:31 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+23:04:31 INFO  : 'configparams force-mem-access 1' command is executed.
+23:04:31 INFO  : Context for 'APU' is selected.
+23:04:31 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+23:04:31 INFO  : 'ps7_init' command is executed.
+23:04:31 INFO  : 'ps7_post_config' command is executed.
+23:04:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:04:32 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:04:32 INFO  : 'configparams force-mem-access 0' command is executed.
+23:04:32 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:04:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:04:32 INFO  : 'con' command is executed.
+23:04:32 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+23:04:32 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+23:08:01 INFO  : Disconnected from the channel tcfchan#34.
+23:08:15 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+23:10:47 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+23:11:02 INFO  : Result from executing command 'removePlatformRepo': 
+23:11:44 INFO  : Result from executing command 'getProjects': vhes_wrapper
+23:11:44 INFO  : Result from executing command 'getPlatforms': 
+23:11:45 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+23:11:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:11:59 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+23:11:59 INFO  : 'jtag frequency' command is executed.
+23:11:59 INFO  : Context for 'APU' is selected.
+23:11:59 INFO  : System reset is completed.
+23:12:02 INFO  : 'after 3000' command is executed.
+23:12:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+23:12:16 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+23:12:17 INFO  : Context for 'APU' is selected.
+23:12:17 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+23:12:17 INFO  : 'configparams force-mem-access 1' command is executed.
+23:12:17 INFO  : Context for 'APU' is selected.
+23:12:17 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+23:12:17 INFO  : 'ps7_init' command is executed.
+23:12:17 INFO  : 'ps7_post_config' command is executed.
+23:12:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:12:18 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:12:18 INFO  : 'configparams force-mem-access 0' command is executed.
+23:12:18 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:12:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:12:18 INFO  : 'con' command is executed.
+23:12:18 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+23:12:18 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+23:13:56 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+23:14:12 INFO  : Disconnected from the channel tcfchan#37.
+23:14:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:14:14 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+23:14:14 INFO  : 'jtag frequency' command is executed.
+23:14:14 INFO  : Context for 'APU' is selected.
+23:14:14 INFO  : System reset is completed.
+23:14:17 INFO  : 'after 3000' command is executed.
+23:14:17 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+23:14:31 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+23:14:32 INFO  : Context for 'APU' is selected.
+23:14:32 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+23:14:32 INFO  : 'configparams force-mem-access 1' command is executed.
+23:14:32 INFO  : Context for 'APU' is selected.
+23:14:32 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+23:14:33 INFO  : 'ps7_init' command is executed.
+23:14:33 INFO  : 'ps7_post_config' command is executed.
+23:14:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:14:33 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:14:33 INFO  : 'configparams force-mem-access 0' command is executed.
+23:14:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:14:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:14:34 INFO  : 'con' command is executed.
+23:14:34 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+23:14:34 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+23:21:53 INFO  : Example project xusbps_intr_example_1 has been created successfully.
+23:23:04 INFO  : Result from executing command 'getProjects': vhes_wrapper
+23:23:04 INFO  : Result from executing command 'getPlatforms': vhes_wrapper|E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/vhes_wrapper.xpfm
+23:23:05 INFO  : Checking for BSP changes to sync application flags for project 'xusbps_intr_example_1'...
+23:25:48 INFO  : Disconnected from the channel tcfchan#38.
+23:25:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:25:50 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+23:25:50 INFO  : 'jtag frequency' command is executed.
+23:25:50 INFO  : Context for 'APU' is selected.
+23:25:50 INFO  : System reset is completed.
+23:25:53 INFO  : 'after 3000' command is executed.
+23:25:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+23:26:08 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/bitstream/vhes_wrapper.bit"
+23:26:08 INFO  : Context for 'APU' is selected.
+23:26:08 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+23:26:08 INFO  : 'configparams force-mem-access 1' command is executed.
+23:26:08 INFO  : Context for 'APU' is selected.
+23:26:08 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/psinit/ps7_init.tcl' is done.
+23:26:09 INFO  : 'ps7_init' command is executed.
+23:26:09 INFO  : 'ps7_post_config' command is executed.
+23:26:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:26:10 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/Debug/xusbps_intr_example_1.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:26:10 INFO  : 'configparams force-mem-access 0' command is executed.
+23:26:10 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/Debug/xusbps_intr_example_1.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:26:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:26:10 INFO  : 'con' command is executed.
+23:26:10 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+23:26:10 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\xusbps_intr_example_1_system\_ide\scripts\usb_sample.tcl'
+23:28:01 INFO  : Disconnected from the channel tcfchan#40.
+23:28:02 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:28:03 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+23:28:03 INFO  : 'jtag frequency' command is executed.
+23:28:03 INFO  : Context for 'APU' is selected.
+23:28:03 INFO  : System reset is completed.
+23:28:06 INFO  : 'after 3000' command is executed.
+23:28:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+23:28:20 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/bitstream/vhes_wrapper.bit"
+23:28:21 INFO  : Context for 'APU' is selected.
+23:28:21 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+23:28:21 INFO  : 'configparams force-mem-access 1' command is executed.
+23:28:21 INFO  : Context for 'APU' is selected.
+23:28:21 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/psinit/ps7_init.tcl' is done.
+23:28:22 INFO  : 'ps7_init' command is executed.
+23:28:22 INFO  : 'ps7_post_config' command is executed.
+23:28:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:28:23 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/Debug/xusbps_intr_example_1.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:28:23 INFO  : 'configparams force-mem-access 0' command is executed.
+23:28:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/Debug/xusbps_intr_example_1.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:28:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:28:23 INFO  : 'con' command is executed.
+23:28:23 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+23:28:23 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\xusbps_intr_example_1_system\_ide\scripts\usb_sample.tcl'
+20:19:08 INFO  : Disconnected from the channel tcfchan#41.
+20:19:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:19:10 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:19:10 INFO  : 'jtag frequency' command is executed.
+20:19:10 INFO  : Context for 'APU' is selected.
+20:19:10 INFO  : System reset is completed.
+20:19:13 INFO  : 'after 3000' command is executed.
+20:19:13 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:19:28 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/bitstream/vhes_wrapper.bit"
+20:19:28 INFO  : Context for 'APU' is selected.
+20:19:28 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:19:28 INFO  : 'configparams force-mem-access 1' command is executed.
+20:19:28 INFO  : Context for 'APU' is selected.
+20:19:28 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/psinit/ps7_init.tcl' is done.
+20:19:29 INFO  : 'ps7_init' command is executed.
+20:19:29 INFO  : 'ps7_post_config' command is executed.
+20:19:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:19:29 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/Debug/xusbps_intr_example_1.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:19:29 INFO  : 'configparams force-mem-access 0' command is executed.
+20:19:29 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/Debug/xusbps_intr_example_1.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:19:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:19:29 INFO  : 'con' command is executed.
+20:19:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:19:29 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\xusbps_intr_example_1_system\_ide\scripts\usb_sample.tcl'
+20:19:41 INFO  : Disconnected from the channel tcfchan#42.
+20:19:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:19:43 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:19:43 INFO  : 'jtag frequency' command is executed.
+20:19:43 INFO  : Context for 'APU' is selected.
+20:19:43 INFO  : System reset is completed.
+20:19:46 INFO  : 'after 3000' command is executed.
+20:19:46 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:20:00 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:20:00 INFO  : Context for 'APU' is selected.
+20:20:00 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:20:00 INFO  : 'configparams force-mem-access 1' command is executed.
+20:20:01 INFO  : Context for 'APU' is selected.
+20:20:01 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:20:01 INFO  : 'ps7_init' command is executed.
+20:20:01 INFO  : 'ps7_post_config' command is executed.
+20:20:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:20:02 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:20:02 INFO  : 'configparams force-mem-access 0' command is executed.
+20:20:02 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:20:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:20:02 INFO  : 'con' command is executed.
+20:20:02 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:20:02 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:22:08 INFO  : Disconnected from the channel tcfchan#43.
+20:22:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:22:10 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:22:10 INFO  : 'jtag frequency' command is executed.
+20:22:10 INFO  : Context for 'APU' is selected.
+20:22:10 INFO  : System reset is completed.
+20:22:13 INFO  : 'after 3000' command is executed.
+20:22:13 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:22:28 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:22:29 INFO  : Context for 'APU' is selected.
+20:22:29 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:22:29 INFO  : 'configparams force-mem-access 1' command is executed.
+20:22:29 INFO  : Context for 'APU' is selected.
+20:22:29 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:22:30 INFO  : 'ps7_init' command is executed.
+20:22:30 INFO  : 'ps7_post_config' command is executed.
+20:22:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:22:31 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:22:31 INFO  : 'configparams force-mem-access 0' command is executed.
+20:22:31 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:22:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:22:31 INFO  : 'con' command is executed.
+20:22:31 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:22:31 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:48:45 INFO  : Disconnected from the channel tcfchan#44.
+20:48:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:48:46 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:48:46 INFO  : 'jtag frequency' command is executed.
+20:48:46 INFO  : Context for 'APU' is selected.
+20:48:46 INFO  : System reset is completed.
+20:48:49 INFO  : 'after 3000' command is executed.
+20:48:50 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:49:04 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:49:05 INFO  : Context for 'APU' is selected.
+20:49:05 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:49:05 INFO  : 'configparams force-mem-access 1' command is executed.
+20:49:05 INFO  : Context for 'APU' is selected.
+20:49:05 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:49:06 INFO  : 'ps7_init' command is executed.
+20:49:06 INFO  : 'ps7_post_config' command is executed.
+20:49:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:49:07 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:49:07 INFO  : 'configparams force-mem-access 0' command is executed.
+20:49:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:49:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:49:07 INFO  : 'con' command is executed.
+20:49:07 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:49:07 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:50:30 INFO  : Disconnected from the channel tcfchan#45.
+20:50:31 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:50:32 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:50:32 INFO  : 'jtag frequency' command is executed.
+20:50:32 INFO  : Context for 'APU' is selected.
+20:50:32 INFO  : System reset is completed.
+20:50:35 INFO  : 'after 3000' command is executed.
+20:50:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:50:50 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:50:50 INFO  : Context for 'APU' is selected.
+20:50:50 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:50:50 INFO  : 'configparams force-mem-access 1' command is executed.
+20:50:50 INFO  : Context for 'APU' is selected.
+20:50:50 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:50:51 INFO  : 'ps7_init' command is executed.
+20:50:51 INFO  : 'ps7_post_config' command is executed.
+20:50:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:50:52 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:50:52 INFO  : 'configparams force-mem-access 0' command is executed.
+20:50:52 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:50:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:50:52 INFO  : 'con' command is executed.
+20:50:52 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:50:52 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:51:22 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+20:51:32 INFO  : Disconnected from the channel tcfchan#46.
+20:51:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:51:34 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:51:34 INFO  : 'jtag frequency' command is executed.
+20:51:34 INFO  : Context for 'APU' is selected.
+20:51:34 INFO  : System reset is completed.
+20:51:37 INFO  : 'after 3000' command is executed.
+20:51:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:51:52 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:51:52 INFO  : Context for 'APU' is selected.
+20:51:52 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:51:52 INFO  : 'configparams force-mem-access 1' command is executed.
+20:51:52 INFO  : Context for 'APU' is selected.
+20:51:52 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:51:53 INFO  : 'ps7_init' command is executed.
+20:51:53 INFO  : 'ps7_post_config' command is executed.
+20:51:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:51:54 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:51:54 INFO  : 'configparams force-mem-access 0' command is executed.
+20:51:54 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:51:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:51:54 INFO  : 'con' command is executed.
+20:51:54 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:51:54 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:55:07 INFO  : Disconnected from the channel tcfchan#47.
+20:55:08 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:55:08 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:55:08 INFO  : 'jtag frequency' command is executed.
+20:55:08 INFO  : Context for 'APU' is selected.
+20:55:08 INFO  : System reset is completed.
+20:55:11 INFO  : 'after 3000' command is executed.
+20:55:11 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:55:27 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:55:28 INFO  : Context for 'APU' is selected.
+20:55:28 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:55:28 INFO  : 'configparams force-mem-access 1' command is executed.
+20:55:28 INFO  : Context for 'APU' is selected.
+20:55:28 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:55:29 INFO  : 'ps7_init' command is executed.
+20:55:29 INFO  : 'ps7_post_config' command is executed.
+20:55:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:55:30 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:55:30 INFO  : 'configparams force-mem-access 0' command is executed.
+20:55:30 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:55:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:55:30 INFO  : 'con' command is executed.
+20:55:30 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:55:30 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+20:55:36 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+20:55:55 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+20:56:00 INFO  : Disconnected from the channel tcfchan#48.
+20:56:01 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:56:01 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+20:56:01 INFO  : 'jtag frequency' command is executed.
+20:56:02 INFO  : Context for 'APU' is selected.
+20:56:02 INFO  : System reset is completed.
+20:56:05 INFO  : 'after 3000' command is executed.
+20:56:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+20:56:19 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit"
+20:56:20 INFO  : Context for 'APU' is selected.
+20:56:20 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+20:56:20 INFO  : 'configparams force-mem-access 1' command is executed.
+20:56:20 INFO  : Context for 'APU' is selected.
+20:56:20 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+20:56:21 INFO  : 'ps7_init' command is executed.
+20:56:21 INFO  : 'ps7_post_config' command is executed.
+20:56:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:56:22 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:56:22 INFO  : 'configparams force-mem-access 0' command is executed.
+20:56:22 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:56:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:56:22 INFO  : 'con' command is executed.
+20:56:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:56:22 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+21:17:53 INFO  : Disconnected from the channel tcfchan#49.
+21:17:54 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:17:54 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+21:17:54 INFO  : 'jtag frequency' command is executed.
+21:17:54 INFO  : Context for 'APU' is selected.
+21:17:54 INFO  : System reset is completed.
+21:17:57 INFO  : 'after 3000' command is executed.
+21:17:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+21:18:12 INFO  : Device configured successfully with "E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/bitstream/vhes_wrapper.bit"
+21:18:13 INFO  : Context for 'APU' is selected.
+21:18:13 INFO  : Hardware design and registers information is loaded from 'E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa'.
+21:18:13 INFO  : 'configparams force-mem-access 1' command is executed.
+21:18:13 INFO  : Context for 'APU' is selected.
+21:18:13 INFO  : Sourcing of 'E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/psinit/ps7_init.tcl' is done.
+21:18:14 INFO  : 'ps7_init' command is executed.
+21:18:14 INFO  : 'ps7_post_config' command is executed.
+21:18:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:18:14 INFO  : The application 'E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/Debug/xusbps_intr_example_1.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:18:14 INFO  : 'configparams force-mem-access 0' command is executed.
+21:18:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/bitstream/vhes_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/hw/vhes_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/xk265/vhes/vhes.vitis/xusbps_intr_example_1/Debug/xusbps_intr_example_1.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:18:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:18:15 INFO  : 'con' command is executed.
+21:18:15 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:18:15 INFO  : Launch script is exported to file 'E:\Project\xk265\vhes\vhes.vitis\xusbps_intr_example_1_system\_ide\scripts\usb_sample.tcl'
+21:51:26 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+21:51:46 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+22:01:40 INFO  : Disconnected from the channel tcfchan#50.

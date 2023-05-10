@@ -1,30 +1,58 @@
-02:38:50 **** Build of configuration Debug for project vhes ****
+21:51:46 **** Incremental Build of configuration Debug for project vhes ****
 make all 
 make --no-print-directory pre-build
 a9-linaro-pre-build-step
 ' '
 make --no-print-directory main-build
-'Building file: ../src/helloworld.c'
+'Building file: ../src/main.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IE:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/sw/vhes_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-'Finished building: ../src/helloworld.c'
+arm-none-eabi-gcc -Wall -O0 -g3 -IE:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/sw/vhes_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\dma_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\interrupt" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\sys_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\reset" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\gpio" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
 ' '
 'Building file: ../src/platform.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IE:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/sw/vhes_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+arm-none-eabi-gcc -Wall -O0 -g3 -IE:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/sw/vhes_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\dma_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\interrupt" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\sys_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\reset" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\gpio" -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
 'Finished building: ../src/platform.c'
+' '
+'Building file: ../libs/sys_intr/sys_intr.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -IE:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/sw/vhes_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\dma_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\interrupt" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\sys_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\reset" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\gpio" -c -fmessage-length=0 -MT"libs/sys_intr/sys_intr.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"libs/sys_intr/sys_intr.d" -MT"libs/sys_intr/sys_intr.o" -o "libs/sys_intr/sys_intr.o" "../libs/sys_intr/sys_intr.c"
+'Finished building: ../libs/sys_intr/sys_intr.c'
+' '
+'Building file: ../libs/reset/reset.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -IE:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/sw/vhes_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\dma_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\interrupt" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\sys_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\reset" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\gpio" -c -fmessage-length=0 -MT"libs/reset/reset.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"libs/reset/reset.d" -MT"libs/reset/reset.o" -o "libs/reset/reset.o" "../libs/reset/reset.c"
+'Finished building: ../libs/reset/reset.c'
+' '
+'Building file: ../libs/interrupt/interrupt.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -IE:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/sw/vhes_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\dma_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\interrupt" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\sys_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\reset" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\gpio" -c -fmessage-length=0 -MT"libs/interrupt/interrupt.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"libs/interrupt/interrupt.d" -MT"libs/interrupt/interrupt.o" -o "libs/interrupt/interrupt.o" "../libs/interrupt/interrupt.c"
+'Finished building: ../libs/interrupt/interrupt.c'
+' '
+'Building file: ../libs/gpio/gpio.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -IE:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/sw/vhes_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\dma_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\interrupt" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\sys_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\reset" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\gpio" -c -fmessage-length=0 -MT"libs/gpio/gpio.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"libs/gpio/gpio.d" -MT"libs/gpio/gpio.o" -o "libs/gpio/gpio.o" "../libs/gpio/gpio.c"
+'Finished building: ../libs/gpio/gpio.c'
+' '
+'Building file: ../libs/dma_intr/dma_intr.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -IE:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/sw/vhes_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\dma_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\interrupt" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\sys_intr" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\reset" -I"E:\Project\xk265\vhes\vhes.vitis\vhes\libs\gpio" -c -fmessage-length=0 -MT"libs/dma_intr/dma_intr.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"libs/dma_intr/dma_intr.d" -MT"libs/dma_intr/dma_intr.o" -o "libs/dma_intr/dma_intr.o" "../libs/dma_intr/dma_intr.c"
+../libs/dma_intr/dma_intr.c:69:13: warning: 'DMA_TxIntrHandler' defined but not used [-Wunused-function]
+   69 | static void DMA_TxIntrHandler(void *Callback)
+      |             ^~~~~~~~~~~~~~~~~
+'Finished building: ../libs/dma_intr/dma_intr.c'
 ' '
 'Building target: vhes.elf'
 'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LE:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/sw/vhes_wrapper/standalone_ps7_cortexa9_0/bsplib/lib -o "vhes.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LE:/Project/xk265/vhes/vhes.vitis/vhes_wrapper/export/vhes_wrapper/sw/vhes_wrapper/standalone_ps7_cortexa9_0/bsplib/lib -o "vhes.elf"  ./src/main.o ./src/platform.o  ./libs/sys_intr/sys_intr.o  ./libs/reset/reset.o  ./libs/interrupt/interrupt.o  ./libs/gpio/gpio.o  ./libs/dma_intr/dma_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 'Finished building target: vhes.elf'
 ' '
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size vhes.elf  |tee "vhes.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  19060	   1144	  22568	  42772	   a714	vhes.elf
+  49894	   3032	  24712	  77638	  12f46	vhes.elf
 'Finished building: vhes.elf.size'
 ' '
 
-02:38:53 Build Finished (took 2s.908ms)
+21:51:49 Build Finished (took 3s.398ms)
 
