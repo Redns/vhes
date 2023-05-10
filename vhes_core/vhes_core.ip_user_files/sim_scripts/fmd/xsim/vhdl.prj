@@ -1,5 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../bd/fmd/ip/fmd_proc_sys_reset_0_0/sim/fmd_proc_sys_reset_0_0.vhd" \
-"../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_1/sim/bd_51bb_psr_aclk_0.vhd" \
-
-nosort
