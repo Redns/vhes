@@ -1,9 +1,15 @@
+*.dcp
+
 vhes/.Xil
 vhes/vhes.cache
 vhes/vhes.gen
 vhes/vhes.hw
 vhes/vhes.runs
 vhes/vhes.sim
+vhes/vhes.vitis/.metadata
+vhes/vhes.vitis/.vscode
+vhes/vhes.vitis/vhes/_ide
+vhes/vhes.vitis/vhes/Debug
 
 vhes_server/.vs
 vhes_server/vhes_server/bin

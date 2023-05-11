@@ -1,34 +1,34 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.994904",
-   "Default View_TopLeft":"602,80",
+   "Default View_TopLeft":"187,80",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
 #  -string -flagsOSRD
+preplace port DDR_PL -pg 1 -lvl 5 -x 1470 -y 320 -defaultsOSRD
 preplace port FDMA_S_i -pg 1 -lvl 0 -x -10 -y 210 -defaultsOSRD
-preplace port port-id_init_calib_complete_o -pg 1 -lvl 5 -x 1460 -y 400 -defaultsOSRD
+preplace port port-id_init_calib_complete_o -pg 1 -lvl 5 -x 1470 -y 400 -defaultsOSRD
 preplace port port-id_clk_100M_i -pg 1 -lvl 0 -x -10 -y 330 -defaultsOSRD
-preplace port port-id_clk_ui_200M_o -pg 1 -lvl 5 -x 1460 -y 170 -defaultsOSRD
-preplace port DDR_PL -pg 1 -lvl 5 -x 1460 -y 320 -defaultsOSRD
+preplace port port-id_clk_ui_200M_o -pg 1 -lvl 5 -x 1470 -y 170 -defaultsOSRD
 preplace inst mig_7series_0 -pg 1 -lvl 4 -x 1290 -y 360 -defaultsOSRD
 preplace inst uiFDMA_0 -pg 1 -lvl 2 -x 720 -y 230 -defaultsOSRD
 preplace inst proc_sys_reset_0 -pg 1 -lvl 1 -x 400 -y 110 -defaultsOSRD
 preplace inst axi_smc -pg 1 -lvl 3 -x 1000 -y 250 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 400 -y 330 -defaultsOSRD
 preplace netloc clk_in1_0_1 1 0 1 N 330
-preplace netloc clk_wiz_0_clk_200M_o 1 1 3 580J 340 NJ 340 1140
-preplace netloc clk_wiz_0_locked 1 1 3 570J 330 850J 350 N
+preplace netloc clk_wiz_0_clk_200M_o 1 1 3 570J 330 850J 370 N
+preplace netloc clk_wiz_0_locked 1 1 3 NJ 340 NJ 340 1140
 preplace netloc mig_7series_0_init_calib_complete 1 4 1 NJ 400
 preplace netloc mig_7series_0_mmcm_locked 1 0 5 10 0 NJ 0 NJ 0 NJ 0 1430
-preplace netloc mig_7series_0_ui_clk1 1 0 5 20 220 580 310 850 170 N 170 1440
+preplace netloc mig_7series_0_ui_clk1 1 0 5 20 220 570 310 850 170 N 170 1440
 preplace netloc mig_7series_0_ui_clk_sync_rst 1 0 5 30 10 NJ 10 NJ 10 NJ 10 1420
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 3 590 320 860 330 1150J
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 3 580 320 860 330 1150J
 preplace netloc FDMA_S_0_1 1 0 2 NJ 210 NJ
 preplace netloc axi_smc_M00_AXI 1 3 1 1160 250n
 preplace netloc mig_7series_0_DDR3 1 4 1 NJ 320
 preplace netloc uiFDMA_0_M_AXI 1 2 1 N 230
-levelinfo -pg 1 -10 400 720 1000 1290 1460
-pagesize -pg 1 -db -bbox -sgen -140 -130 1650 460
+levelinfo -pg 1 -10 400 720 1000 1290 1470
+pagesize -pg 1 -db -bbox -sgen -140 -130 1660 460
 "
 }
 {

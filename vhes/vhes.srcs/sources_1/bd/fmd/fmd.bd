@@ -292,20 +292,23 @@
           "CLK_OUT1_PORT": {
             "value": "clk_200M_o"
           },
+          "FEEDBACK_SOURCE": {
+            "value": "FDBK_AUTO"
+          },
           "MMCM_BANDWIDTH": {
             "value": "OPTIMIZED"
           },
           "MMCM_CLKFBOUT_MULT_F": {
-            "value": "10"
+            "value": "10.000"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "5"
+            "value": "5.000"
           },
           "MMCM_COMPENSATION": {
             "value": "ZHOLD"
           },
           "PRIMITIVE": {
-            "value": "PLL"
+            "value": "MMCM"
           },
           "USE_RESET": {
             "value": "false"

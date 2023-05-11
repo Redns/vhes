@@ -1,0 +1,131 @@
+2023-05-12T01:33:42.010062600255-01:33:42 **** Incremental Build of project vhes_top ****
+000-buildplatform.bat 12277 vhes_top freertos10_xilinx_ps7_cortexa9_0 
+000-XSDB Server Channel: tcfchan#2
+000-Building the BSP Library for domain  - freertos10_xilinx_ps7_cortexa9_0 on processor ps7_cortexa9_0
+000-make --no-print-directory seq_libs
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/axidma_v9_13/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/axidma_v9_13/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+000-" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+000-tartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none
+000--eabi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=h
+000-ard -nostartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_11/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_11/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-e
+000-abi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=har
+000-d -nostartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_2/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/ddrps_v1_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+000-"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+000-rtfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_7/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+000- "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+000-artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_8/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/dmaps_v2_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+000-"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+000-rtfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_15/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/emacps_v3_15/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+000-" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+000-tartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_10/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-n
+000-one-eabi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-ab
+000-i=hard -nostartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"includes"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_9/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/gpiops_v3_9/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+000- "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+000-artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/lwip211_v1_6/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/lwip211_v1_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+000-" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+000-tartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_6/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/scugic_v4_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+000- "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+000-artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_3/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-a
+000-s" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -no
+000-startfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_4/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/scuwdt_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+000- "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+000-artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_11/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/uartps_v3_11/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+000-" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+000-tartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_6/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/xadcps_v2_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+000- "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+000-artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Running Make libs in ps7_cortexa9_0/libsrc/lwip211_v1_6/src"
+000-
+000-make -C ps7_cortexa9_0/libsrc/lwip211_v1_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+000-ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+000-tfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+000-
+000-"Compiling lwip src and adapter files"
+000-
+000/vhes_top/ps7_cortexa9_0/freertos10_xilinx_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/lwip211_v1_6/src/lwip-2.1.1/src/core/init.c194-1-1#error "If you want to use DHCP ARP checking, you have to define LWIP_DHCP=1 and LWIP_ARP=1 in your lwipopts.h"22:lwip-2.1.1/src/core/init.c:194:2: error: #error "If you want to use DHCP ARP checking, you have to define LWIP_DHCP=1 and LWIP_ARP=1 in your lwipopts.h"
+000-  194 | #error "If you want to use DHCP ARP checking, you have to define LWIP_DHCP=1 and LWIP_ARP=1 in your lwipopts.h"
+000-      |  ^~~~~
+000/vhes_top0-1-1make[2]: *** [Makefile:55: init.o] Error 12-make[2]: *** [Makefile:55: init.o] Error 1
+000/vhes_top0-1-1make[1]: *** [Makefile:46: ps7_cortexa9_0/libsrc/lwip211_v1_6/src/make.libs] Error 22-make[1]: *** [Makefile:46: ps7_cortexa9_0/libsrc/lwip211_v1_6/src/make.libs] Error 2
+000/vhes_top0-1-1make: *** [Makefile:18: all] Error 22-make: *** [Makefile:18: all] Error 2
+000-Failed to build  the bsp sources for domain - freertos10_xilinx_ps7_cortexa9_0
+000-Failed to generate the platform.
+000-Reason: Failed to build  the bsp sources for domain - freertos10_xilinx_ps7_cortexa9_0
+000-    invoked from within
+000-"::tcf::eval -progress {apply {{msg} {puts $msg}}} {tcf_send_command tcfchan#0 xsdb eval s es {{platform active vhes_top; platform generate  -domains freertos10_xilinx_ps7_cortexa9_0}}}"
+000-    (procedure "::tcf::send_command" line 4)
+000-    invoked from within
+000-"tcf send_command $::xsdb::curchan xsdb eval s es [list "platform active $PLATFORM_NAME; platform generate $target"]"
+000-    invoked from within
+000-"if { $iswindows == 1 } {    
+000-
+000-    set XSDB_PORT [lindex $argv 0]
+000-    set PLATFORM_NAME [lindex $argv 1]
+000-    set arglen [llength $argv]
+000-    set lastind..."
+000-    (file "D:/Xilinx/Vitis/2021.2\scripts\vitis\util\buildplatform.tcl" line 11)
+00255-
+01:33:50 Build Finished (took 8s.697ms)
+
