@@ -29,3 +29,15 @@ bsp config dhcp_does_arp_check "true"
 bsp write
 bsp reload
 catch {bsp regenerate}
+platform clean
+platform active {vhes_top}
+platform config -updatehw {E:/Project/vhes/vhes/vhes_top.xsa}
+bsp reload
+bsp config arp_queueing "1"
+bsp config dhcp_does_arp_check "false"
+bsp write
+bsp reload
+catch {bsp regenerate}
+platform generate
+platform clean
+platform generate

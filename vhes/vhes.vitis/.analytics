@@ -5,3 +5,25 @@ timestamp=[2023-05-12 00:40:35], mode=APP_CREATION, duration=0:00:20.228, durati
 timestamp=[2023-05-12 00:42:43], mode=PLATFORM_GENERATION, duration=0:00:32.097, duration_ms=32097, data={name=vhes_top}
 timestamp=[2023-05-12 00:42:46], mode=BUILD, duration=0:00:02.506, duration_ms=2506, data={name=vhes, configuration=Debug, clean_build=false}
 timestamp=[2023-05-12 01:33:50], mode=PLATFORM_GENERATION, duration=0:00:08.818, duration_ms=8818, data={name=vhes_top}
+timestamp=[2023-05-14 15:15:45], mode=WORKBENCH_START, duration=0:00:12.781, duration_ms=12781, data={}
+timestamp=[2023-05-14 15:15:47], mode=WORKBENCH_UI_INIT, duration=0:00:01.630, duration_ms=1630, data={editors_count=6, platform_editors_count=4, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,vhes,vhes_system,vhes_top}
+timestamp=[2023-05-14 15:15:53], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.059, duration_ms=59, data={}
+timestamp=[2023-05-14 15:16:28], mode=PLATFORM_GENERATION, duration=0:00:21.414, duration_ms=21414, data={name=vhes_top}
+timestamp=[2023-05-14 15:16:55], mode=PLATFORM_GENERATION, duration=0:00:09.270, duration_ms=9270, data={name=vhes_top}
+timestamp=[2023-05-14 15:17:31], mode=PLATFORM_GENERATION, duration=0:00:05.564, duration_ms=5564, data={name=vhes_top}
+timestamp=[2023-05-14 15:17:51], mode=PLATFORM_GENERATION, duration=0:00:16.787, duration_ms=16787, data={name=vhes_top}
+timestamp=[2023-05-14 15:18:45], mode=PLATFORM_GENERATION, duration=0:00:14.081, duration_ms=14081, data={name=vhes_top}
+timestamp=[2023-05-14 15:20:56], mode=PLATFORM_GENERATION, duration=0:00:33.862, duration_ms=33862, data={name=vhes_top}
+timestamp=[2023-05-14 15:21:18], mode=BUILD, duration=0:00:01.434, duration_ms=1434, data={name=vhes, configuration=Debug, clean_build=false}
+timestamp=[2023-05-14 15:22:45], mode=BUILD, duration=0:00:00.206, duration_ms=206, data={name=vhes, configuration=Debug, clean_build=true}
+timestamp=[2023-05-14 15:22:45], mode=BUILD, duration=0:00:00.632, duration_ms=632, data={name=vhes, configuration=Debug, clean_build=false}
+timestamp=[2023-05-14 15:23:09], mode=BUILD, duration=0:00:00.516, duration_ms=516, data={name=vhes, configuration=Debug, clean_build=false}
+timestamp=[2023-05-14 15:24:10], mode=BUILD, duration=0:00:00.519, duration_ms=519, data={name=vhes, configuration=Debug, clean_build=false}
+timestamp=[2023-05-14 15:24:40], mode=BUILD, duration=0:00:00.455, duration_ms=455, data={name=vhes, configuration=Debug, clean_build=false}
+timestamp=[2023-05-14 15:25:13], mode=BUILD, duration=0:00:00.434, duration_ms=434, data={name=vhes, configuration=Debug, clean_build=false}
+timestamp=[2023-05-14 15:26:05], mode=BUILD, duration=0:00:01.137, duration_ms=1137, data={name=vhes, configuration=Debug, clean_build=false}
+timestamp=[2023-05-14 15:26:46], mode=BUILD, duration=0:00:01.191, duration_ms=1191, data={name=vhes, configuration=Debug, clean_build=false}
+timestamp=[2023-05-14 15:27:14], mode=PLATFORM_GENERATION, duration=0:00:05.570, duration_ms=5570, data={name=vhes_top}
+timestamp=[2023-05-14 15:27:15], mode=BUILD, duration=0:00:00.240, duration_ms=240, data={name=vhes, configuration=Debug, clean_build=true}
+timestamp=[2023-05-14 15:27:53], mode=PLATFORM_GENERATION, duration=0:00:35.482, duration_ms=35482, data={name=vhes_top}
+timestamp=[2023-05-14 15:27:58], mode=BUILD, duration=0:00:05.616, duration_ms=5616, data={name=vhes, configuration=Debug, clean_build=false}

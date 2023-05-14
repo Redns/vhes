@@ -205,7 +205,6 @@ BEGIN LIBRARY
  PARAMETER LIBRARY_VER = 1.6
  PARAMETER PROC_INSTANCE = ps7_cortexa9_0
  PARAMETER api_mode = SOCKET_API
- PARAMETER dhcp_does_arp_check = true
  PARAMETER mem_size = 524288
  PARAMETER memp_n_pbuf = 1024
  PARAMETER memp_n_tcp_seg = 1024
