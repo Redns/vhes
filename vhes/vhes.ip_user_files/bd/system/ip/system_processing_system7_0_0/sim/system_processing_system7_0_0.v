@@ -56,6 +56,12 @@
 `timescale 1ns/1ps
 
 module system_processing_system7_0_0 (
+I2C0_SDA_I, 
+I2C0_SDA_O, 
+I2C0_SDA_T, 
+I2C0_SCL_I, 
+I2C0_SCL_O, 
+I2C0_SCL_T, 
 M_AXI_GP0_ARVALID, 
 M_AXI_GP0_AWVALID, 
 M_AXI_GP0_BREADY, 
@@ -165,6 +171,12 @@ PS_SRSTB,
 PS_CLK, 
 PS_PORB 
 );
+input I2C0_SDA_I;
+output I2C0_SDA_O;
+output I2C0_SDA_T;
+input I2C0_SCL_I;
+output I2C0_SCL_O;
+output I2C0_SCL_T;
 output M_AXI_GP0_ARVALID;
 output M_AXI_GP0_AWVALID;
 output M_AXI_GP0_BREADY;

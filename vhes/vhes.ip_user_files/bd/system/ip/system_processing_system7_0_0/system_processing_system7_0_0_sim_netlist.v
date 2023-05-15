@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Wed May 10 23:50:29 2023
+// Date        : Sun May 14 21:27:10 2023
 // Host        : JingDevice running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/Project/vhes/vhes/vhes.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0_sim_netlist.v
@@ -15,7 +15,13 @@
 (* CHECK_LICENSE_TYPE = "system_processing_system7_0_0,processing_system7_v5_5_processing_system7,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "processing_system7_v5_5_processing_system7,Vivado 2021.2" *) 
 (* NotValidForBitStream *)
 module system_processing_system7_0_0
-   (M_AXI_GP0_ARVALID,
+   (I2C0_SDA_I,
+    I2C0_SDA_O,
+    I2C0_SDA_T,
+    I2C0_SCL_I,
+    I2C0_SCL_O,
+    I2C0_SCL_T,
+    M_AXI_GP0_ARVALID,
     M_AXI_GP0_AWVALID,
     M_AXI_GP0_BREADY,
     M_AXI_GP0_RREADY,
@@ -123,6 +129,12 @@ module system_processing_system7_0_0
     PS_SRSTB,
     PS_CLK,
     PS_PORB);
+  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SDA_I" *) input I2C0_SDA_I;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SDA_O" *) output I2C0_SDA_O;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SDA_T" *) output I2C0_SDA_T;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SCL_I" *) input I2C0_SCL_I;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SCL_O" *) output I2C0_SCL_O;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SCL_T" *) output I2C0_SCL_T;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_GP0 ARVALID" *) output M_AXI_GP0_ARVALID;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_GP0 AWVALID" *) output M_AXI_GP0_AWVALID;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_GP0 BREADY" *) output M_AXI_GP0_BREADY;
@@ -253,6 +265,12 @@ module system_processing_system7_0_0
   wire DDR_WEB;
   wire FCLK_CLK0;
   wire FCLK_RESET0_N;
+  wire I2C0_SCL_I;
+  wire I2C0_SCL_O;
+  wire I2C0_SCL_T;
+  wire I2C0_SDA_I;
+  wire I2C0_SDA_O;
+  wire I2C0_SDA_T;
   wire [0:0]IRQ_F2P;
   wire [53:0]MIO;
   wire M_AXI_GP0_ACLK;
@@ -401,10 +419,6 @@ module system_processing_system7_0_0
   wire NLW_inst_FTMT_P2F_TRIG_1_UNCONNECTED;
   wire NLW_inst_FTMT_P2F_TRIG_2_UNCONNECTED;
   wire NLW_inst_FTMT_P2F_TRIG_3_UNCONNECTED;
-  wire NLW_inst_I2C0_SCL_O_UNCONNECTED;
-  wire NLW_inst_I2C0_SCL_T_UNCONNECTED;
-  wire NLW_inst_I2C0_SDA_O_UNCONNECTED;
-  wire NLW_inst_I2C0_SDA_T_UNCONNECTED;
   wire NLW_inst_I2C1_SCL_O_UNCONNECTED;
   wire NLW_inst_I2C1_SCL_T_UNCONNECTED;
   wire NLW_inst_I2C1_SDA_O_UNCONNECTED;
@@ -695,7 +709,7 @@ module system_processing_system7_0_0
   (* C_USE_S_AXI_HP2 = "0" *) 
   (* C_USE_S_AXI_HP3 = "0" *) 
   (* HW_HANDOFF = "system_processing_system7_0_0.hwdef" *) 
-  (* POWER = "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666666} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={32} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS18} bidis={24} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={13} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p0} clockFreq={100.000000} usageRate={0.5} /><IO interface={GigE} ioStandard={LVCMOS18} bidis={14} ioBank={Vcco_p1} clockFreq={125.000000} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1000.000} /><AXI interface={S_AXI_HP0} dataWidth={64} clockFreq={100} usageRate={0.5} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={100} usageRate={0.5} />/>" *) 
+  (* POWER = "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666666} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={32} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS18} bidis={24} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={13} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={I2C} ioStandard={} bidis={1} ioBank={} clockFreq={111.111115} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p0} clockFreq={100.000000} usageRate={0.5} /><IO interface={GigE} ioStandard={LVCMOS18} bidis={14} ioBank={Vcco_p1} clockFreq={125.000000} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1000.000} /><AXI interface={S_AXI_HP0} dataWidth={64} clockFreq={100} usageRate={0.5} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={100} usageRate={0.5} />/>" *) 
   (* USE_TRACE_DATA_EDGE_DETECTOR = "0" *) 
   system_processing_system7_0_0_processing_system7_v5_5_processing_system7 inst
        (.CAN0_PHY_RX(1'b0),
@@ -852,12 +866,12 @@ module system_processing_system7_0_0
         .GPIO_I({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .GPIO_O(NLW_inst_GPIO_O_UNCONNECTED[63:0]),
         .GPIO_T(NLW_inst_GPIO_T_UNCONNECTED[63:0]),
-        .I2C0_SCL_I(1'b0),
-        .I2C0_SCL_O(NLW_inst_I2C0_SCL_O_UNCONNECTED),
-        .I2C0_SCL_T(NLW_inst_I2C0_SCL_T_UNCONNECTED),
-        .I2C0_SDA_I(1'b0),
-        .I2C0_SDA_O(NLW_inst_I2C0_SDA_O_UNCONNECTED),
-        .I2C0_SDA_T(NLW_inst_I2C0_SDA_T_UNCONNECTED),
+        .I2C0_SCL_I(I2C0_SCL_I),
+        .I2C0_SCL_O(I2C0_SCL_O),
+        .I2C0_SCL_T(I2C0_SCL_T),
+        .I2C0_SDA_I(I2C0_SDA_I),
+        .I2C0_SDA_O(I2C0_SDA_O),
+        .I2C0_SDA_T(I2C0_SDA_T),
         .I2C1_SCL_I(1'b0),
         .I2C1_SCL_O(NLW_inst_I2C1_SCL_O_UNCONNECTED),
         .I2C1_SCL_T(NLW_inst_I2C1_SCL_T_UNCONNECTED),
@@ -1404,7 +1418,7 @@ endmodule
 (* C_USE_S_AXI_ACP = "0" *) (* C_USE_S_AXI_GP0 = "0" *) (* C_USE_S_AXI_GP1 = "0" *) 
 (* C_USE_S_AXI_HP0 = "1" *) (* C_USE_S_AXI_HP1 = "0" *) (* C_USE_S_AXI_HP2 = "0" *) 
 (* C_USE_S_AXI_HP3 = "0" *) (* HW_HANDOFF = "system_processing_system7_0_0.hwdef" *) (* ORIG_REF_NAME = "processing_system7_v5_5_processing_system7" *) 
-(* POWER = "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666666} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={32} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS18} bidis={24} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={13} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p0} clockFreq={100.000000} usageRate={0.5} /><IO interface={GigE} ioStandard={LVCMOS18} bidis={14} ioBank={Vcco_p1} clockFreq={125.000000} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1000.000} /><AXI interface={S_AXI_HP0} dataWidth={64} clockFreq={100} usageRate={0.5} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={100} usageRate={0.5} />/>" *) (* USE_TRACE_DATA_EDGE_DETECTOR = "0" *) 
+(* POWER = "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666666} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={32} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS18} bidis={24} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={13} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={I2C} ioStandard={} bidis={1} ioBank={} clockFreq={111.111115} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p0} clockFreq={100.000000} usageRate={0.5} /><IO interface={GigE} ioStandard={LVCMOS18} bidis={14} ioBank={Vcco_p1} clockFreq={125.000000} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1000.000} /><AXI interface={S_AXI_HP0} dataWidth={64} clockFreq={100} usageRate={0.5} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={100} usageRate={0.5} />/>" *) (* USE_TRACE_DATA_EDGE_DETECTOR = "0" *) 
 module system_processing_system7_0_0_processing_system7_v5_5_processing_system7
    (CAN0_PHY_TX,
     CAN0_PHY_RX,
@@ -2800,7 +2814,13 @@ module system_processing_system7_0_0_processing_system7_v5_5_processing_system7
   wire FCLK_CLK0;
   wire [0:0]FCLK_CLK_unbuffered;
   wire FCLK_RESET0_N;
+  wire I2C0_SCL_I;
+  wire I2C0_SCL_O;
+  wire I2C0_SCL_T;
   wire I2C0_SCL_T_n;
+  wire I2C0_SDA_I;
+  wire I2C0_SDA_O;
+  wire I2C0_SDA_T;
   wire I2C0_SDA_T_n;
   wire I2C1_SCL_T_n;
   wire I2C1_SDA_T_n;
@@ -3416,8 +3436,6 @@ module system_processing_system7_0_0_processing_system7_v5_5_processing_system7
   wire PS7_i_n_430;
   wire PS7_i_n_431;
   wire PS7_i_n_432;
-  wire PS7_i_n_44;
-  wire PS7_i_n_46;
   wire PS7_i_n_48;
   wire PS7_i_n_5;
   wire PS7_i_n_50;
@@ -4164,10 +4182,6 @@ module system_processing_system7_0_0_processing_system7_v5_5_processing_system7
   assign GPIO_T[2] = \<const0> ;
   assign GPIO_T[1] = \<const0> ;
   assign GPIO_T[0] = \<const0> ;
-  assign I2C0_SCL_O = \<const0> ;
-  assign I2C0_SCL_T = \<const0> ;
-  assign I2C0_SDA_O = \<const0> ;
-  assign I2C0_SDA_T = \<const0> ;
   assign I2C1_SCL_O = \<const0> ;
   assign I2C1_SCL_T = \<const0> ;
   assign I2C1_SDA_O = \<const0> ;
@@ -5048,6 +5062,16 @@ module system_processing_system7_0_0_processing_system7_v5_5_processing_system7
         .PAD(DDR_WEB));
   GND GND
        (.G(\<const0> ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    I2C0_SCL_T_INST_0
+       (.I0(I2C0_SCL_T_n),
+        .O(I2C0_SCL_T));
+  LUT1 #(
+    .INIT(2'h1)) 
+    I2C0_SDA_T_INST_0
+       (.I0(I2C0_SDA_T_n),
+        .O(I2C0_SDA_T));
   (* BOX_TYPE = "PRIMITIVE" *) 
   PS7 PS7_i
        (.DDRA(buffered_DDR_Addr),
@@ -5161,11 +5185,11 @@ module system_processing_system7_0_0_processing_system7_v5_5_processing_system7
         .EMIOGPIOI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .EMIOGPIOO({PS7_i_n_873,PS7_i_n_874,PS7_i_n_875,PS7_i_n_876,PS7_i_n_877,PS7_i_n_878,PS7_i_n_879,PS7_i_n_880,PS7_i_n_881,PS7_i_n_882,PS7_i_n_883,PS7_i_n_884,PS7_i_n_885,PS7_i_n_886,PS7_i_n_887,PS7_i_n_888,PS7_i_n_889,PS7_i_n_890,PS7_i_n_891,PS7_i_n_892,PS7_i_n_893,PS7_i_n_894,PS7_i_n_895,PS7_i_n_896,PS7_i_n_897,PS7_i_n_898,PS7_i_n_899,PS7_i_n_900,PS7_i_n_901,PS7_i_n_902,PS7_i_n_903,PS7_i_n_904,PS7_i_n_905,PS7_i_n_906,PS7_i_n_907,PS7_i_n_908,PS7_i_n_909,PS7_i_n_910,PS7_i_n_911,PS7_i_n_912,PS7_i_n_913,PS7_i_n_914,PS7_i_n_915,PS7_i_n_916,PS7_i_n_917,PS7_i_n_918,PS7_i_n_919,PS7_i_n_920,PS7_i_n_921,PS7_i_n_922,PS7_i_n_923,PS7_i_n_924,PS7_i_n_925,PS7_i_n_926,PS7_i_n_927,PS7_i_n_928,PS7_i_n_929,PS7_i_n_930,PS7_i_n_931,PS7_i_n_932,PS7_i_n_933,PS7_i_n_934,PS7_i_n_935,PS7_i_n_936}),
         .EMIOGPIOTN(gpio_out_t_n),
-        .EMIOI2C0SCLI(1'b0),
-        .EMIOI2C0SCLO(PS7_i_n_44),
+        .EMIOI2C0SCLI(I2C0_SCL_I),
+        .EMIOI2C0SCLO(I2C0_SCL_O),
         .EMIOI2C0SCLTN(I2C0_SCL_T_n),
-        .EMIOI2C0SDAI(1'b0),
-        .EMIOI2C0SDAO(PS7_i_n_46),
+        .EMIOI2C0SDAI(I2C0_SDA_I),
+        .EMIOI2C0SDAO(I2C0_SDA_O),
         .EMIOI2C0SDATN(I2C0_SDA_T_n),
         .EMIOI2C1SCLI(1'b0),
         .EMIOI2C1SCLO(PS7_i_n_48),

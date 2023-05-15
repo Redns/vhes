@@ -3,11 +3,6 @@ module hdmi2yuv_top(
     input rst_n_i,                                  // 复位信号输入（低电平有效）
     input clk_100M_i,                               // 100MHz 时钟信号输入
     input video_buffer_init_done_i,                 // VIDEO BUFFER 初始化完成信号
-    output rst_done_o,                              // 复位完成信号输出（高电平有效）
-    /* HDMI 视频采集卡 ADV7611 配置信号 */ 
-    inout sii_sda,                                  // ADV7611 IIC 数据信号
-    output sii_scl,                                 // ADV7611 IIC 时钟信号
-    output sii_rst_n,
     /* HDMI 行场同步信号 */ 
     input pclk_i,                                   // 像素时钟输入（1080P@60fps：148.5MHz）
     input hsync_i,                                  // 行同步信号输入
@@ -43,20 +38,10 @@ module hdmi2yuv_top(
 
     assign vsync_o = yuv_vsync;
 
-/************************ ADV7611 配置模块 *************************/
-    hdmi2rgb hdmi2rgb(
-        .clk_i(clk_100M_i),
-        .rst_n_i(rst_n_i),
-        .sii_sda(sii_sda),
-        .sii_scl(sii_scl),
-        .sii_rst_n(sii_rst_n),
-        .sii_cfg_done_o(rst_done_o)
-    );
-
 /************************* RGB 转 YUV 模块 *************************/
     rgb2yuv rgb2yuv(
         .clk_i(~pclk_i),
-        .rst_n_i(rst_done_o),
+        .rst_n_i(rst_n_i),
         .hsync_i(hsync_i),
         .vsync_i(vsync_i),
         .de_i(de_i),
@@ -69,8 +54,8 @@ module hdmi2yuv_top(
 
 /************************* YUV 像素数据拼接 *************************/
     // 检测到场同步信号 vsync 上升沿时代表新的一帧开始
-    always@(posedge yuv_vsync or negedge rst_done_o) begin
-        if(!rst_done_o)
+    always@(posedge yuv_vsync or negedge rst_n_i) begin
+        if(!rst_n_i)
             frame_start_flag <= 1'b0;
         else if(video_buffer_init_done_i)
             // 若 FIFO 不提供完成信号给该模块，则 FIFO 复位未完成时该模块可能已经开始输出像素
@@ -82,16 +67,16 @@ module hdmi2yuv_top(
     end
     
     // UV 分量列存储标志
-    always@(posedge pclk_i or negedge rst_done_o) begin
-        if(!rst_done_o)
+    always@(posedge pclk_i or negedge rst_n_i) begin
+        if(!rst_n_i)
             uv_col_recorded <= 1'b0;
         else 
             uv_col_recorded <= ~uv_col_recorded; 
     end
 
     // UV 分量行存储标志
-    always@(posedge yuv_hsync or negedge rst_done_o) begin
-        if(!rst_done_o)
+    always@(posedge yuv_hsync or negedge rst_n_i) begin
+        if(!rst_n_i)
             uv_row_recorded <= 1'b0;
         else
             uv_row_recorded <= ~uv_row_recorded;
@@ -103,7 +88,7 @@ module hdmi2yuv_top(
         .DATA_OUT_WIDTH(128)
     ) y_merge_8_to_128(
         .clk_i(~pclk_i),
-        .rst_n_i(rst_done_o),
+        .rst_n_i(rst_n_i),
         .de_i(y_recorded),
         .data_i(yuv_data[23:16]),
         .de_o(y_de_o),       
@@ -116,7 +101,7 @@ module hdmi2yuv_top(
         .DATA_OUT_WIDTH(128)
     ) uv_merge_16_to_128(
         .clk_i(~pclk_i),
-        .rst_n_i(rst_done_o),
+        .rst_n_i(rst_n_i),
         .de_i(uv_recorded),
         .data_i(yuv_data[15:0]),
         .de_o(uv_de_o),      

@@ -16,10 +16,6 @@ module vhes_core_top#
     input rst_n_i,                                  // 复位信号（低电平有效）
     input clk_100M_i,                               // 时钟信号（100MHz）
     output rst_done_o,                              // 复位完成标志
-    /* HDMI 解析芯片 SII9011 配置信号 */ 
-    inout sii_sda,                                  // SII9011 IIC 数据线
-    output sii_scl,                                 // SII9011 IIC 时钟线
-    output sii_rst_n,                               // SII9011 复位信号
     /* HDMI 信号 */ 
     input pclk_i,                                   // 像素时钟（1080P@60fps：148.5MHz）
     input hsync_i,                                  // 行同步信号
@@ -57,7 +53,8 @@ module vhes_core_top#
     // DDR 用户时钟
     wire clk_ui_200M;
 
-    assign extif_top_rst_n = hdmi2rgb_rst_done;
+    assign hdmi2rgb_rst_n  = rst_n_i;
+    assign extif_top_rst_n = rst_n_i;
     assign hevc_core_rst_n = extif_top_rst_done;
     assign vsp_top_rst_n   = extif_top_rst_done;
 
@@ -98,13 +95,9 @@ module vhes_core_top#
 
 /************************ HDMI 转 RGB 模块 *************************/
     hdmi2yuv_top hdmi2yuv_top(
-        .rst_n_i(rst_n_i),
+        .rst_n_i(hdmi2rgb_rst_n),
         .video_buffer_init_done_i(rst_done_o),
         .clk_100M_i(clk_100M_i),
-        .rst_done_o(hdmi2rgb_rst_done),
-        .sii_sda(sii_sda),
-        .sii_scl(sii_scl),
-        .sii_rst_n(sii_rst_n),
         .pclk_i(pclk_i),
         .hsync_i(hsync_i),
         .vsync_i(vsync_i),

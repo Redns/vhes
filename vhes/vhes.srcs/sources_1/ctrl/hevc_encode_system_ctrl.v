@@ -85,7 +85,6 @@ module hevc_encode_system_ctrl#
     // extif 数据交互开始标志
     // hevc_extif_start_i 置位表明 HEVC 编码核要求缓冲交互数据
     // hevc_extif_done 清零表明 HEVC 编码核与缓存的数据交互结束
-    // TODO 使用同步逻辑
     always@(posedge hevc_extif_start_i or posedge hevc_extif_done or negedge fdma_busy_i or negedge rst_n_i) begin
         if(!rst_n_i) begin
             extif_busy <= 1'b0;
@@ -119,7 +118,6 @@ module hevc_encode_system_ctrl#
 
     // STATE2_FRDW 相关逻辑
     // frdw_busy 表示该状态正忙，不允许切换至其他状态，其他状态空闲时应立即切换至该状态
-    // TODO 使用同步逻辑
     always@(posedge pixel_buffer_full_i or negedge fdma_busy_i or negedge rst_n_i) begin
         if(!rst_n_i) 
             frdw_busy <= 1'b0;

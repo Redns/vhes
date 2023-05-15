@@ -29,7 +29,7 @@ module vhes_top(
     input de_i,                                     // RGB888 格式像素数据有效标志
     /* HDMI 解析芯片 SII9011 配置信号 */ 
     inout sii_sda,                                  // SII9011 IIC 数据线
-    output sii_scl,                                 // sii9011 IIC 时钟线
+    inout sii_scl,                                  // sii9011 IIC 时钟线
     output sii_rst_n,                               // SII9011 复位信号
     /* PL DDR 相关信号 */ 
     output [14:0]DDR_PL_addr,
@@ -95,9 +95,6 @@ module vhes_top(
         .rst_n_i(vhes_core_rst_n),
         .clk_100M_i(clk_100M),
         .rst_done_o(vhes_core_rst_done),
-        .sii_sda(sii_sda),
-        .sii_scl(sii_scl),
-        .sii_rst_n(sii_rst_n),
         .pclk_i(pclk_i),
         .hsync_i(hsync_i),
         .vsync_i(vsync_i),
@@ -149,7 +146,10 @@ module vhes_top(
         .axis_transform_en_i(hevc_bs_valid),
         .axis_transform_start_i(vhes_core_rst_done),
         .clk_100M_o(clk_100M),
-        .rst_n_o(vhes_core_rst_n)
+        .rst_n_o(vhes_core_rst_n),
+        .sii_scl_io(sii_scl),
+        .sii_sda_io(sii_sda),
+        .sii_rst_n_o(sii_rst_n)
     );
 
 endmodule

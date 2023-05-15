@@ -72,7 +72,7 @@ module vsp_top(
         .rd_clk(bs_rd_clk_i),           
         .din(hevc_bs_data),                  
         .wr_en(hevc_bs_valid),             
-        .rd_en(1'b1),              
+        .rd_en(rst_done_o),              
         .dout(hevc_bs_data_o),               
         .full(),                
         .empty(),              
