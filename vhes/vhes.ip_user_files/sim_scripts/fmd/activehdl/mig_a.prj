@@ -23,7 +23,7 @@
 
   <Version>4.2</Version>
 
-  <SystemClock>No Buffer</SystemClock>
+  <SystemClock>Differential</SystemClock>
 
   <ReferenceClock>Use System Clock</ReferenceClock>
 
@@ -33,12 +33,12 @@
 
   <InternalVref>0</InternalVref>
 
-  <dci_hr_inouts_inputs>40 Ohms</dci_hr_inouts_inputs>
+  <dci_hr_inouts_inputs>50 Ohms</dci_hr_inouts_inputs>
 
   <dci_cascade>1</dci_cascade>
 
   <Controller number="0">
-    <MemoryDevice>DDR3_SDRAM/Components/MT41J256m16XX-125</MemoryDevice>
+    <MemoryDevice>DDR3_SDRAM/Components/MT41K256M16XX-125</MemoryDevice>
     <TimePeriod>1250</TimePeriod>
     <VccAuxIO>2.0V</VccAuxIO>
     <PHYRatio>4:1</PHYRatio>
@@ -137,6 +137,9 @@
       <Pin IN_TERM="" IOSTANDARD="LVCMOS15" PADName="E11" SLEW="" VCCAUX_IO="HIGH" name="ddr3_reset_n"/>
       <Pin IN_TERM="" IOSTANDARD="SSTL15" PADName="F7" SLEW="" VCCAUX_IO="HIGH" name="ddr3_we_n"/>
     </PinSelection>
+    <System_Clock>
+      <Pin Bank="34" PADName="F9/E8(CC_P/N)" name="sys_clk_p/n"/>
+    </System_Clock>
     <System_Control>
       <Pin Bank="Select Bank" PADName="No connect" name="sys_rst"/>
       <Pin Bank="Select Bank" PADName="No connect" name="init_calib_complete"/>
@@ -170,8 +173,8 @@
       <C0_C_RD_WR_ARB_ALGORITHM>RD_PRI_REG</C0_C_RD_WR_ARB_ALGORITHM>
       <C0_S_AXI_ADDR_WIDTH>30</C0_S_AXI_ADDR_WIDTH>
       <C0_S_AXI_DATA_WIDTH>256</C0_S_AXI_DATA_WIDTH>
-      <C0_S_AXI_ID_WIDTH>4</C0_S_AXI_ID_WIDTH>
-      <C0_S_AXI_SUPPORTS_NARROW_BURST>0</C0_S_AXI_SUPPORTS_NARROW_BURST>
+      <C0_S_AXI_ID_WIDTH>1</C0_S_AXI_ID_WIDTH>
+      <C0_S_AXI_SUPPORTS_NARROW_BURST>1</C0_S_AXI_SUPPORTS_NARROW_BURST>
     </AXIParameters>
   </Controller>
 

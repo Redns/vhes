@@ -38,3 +38,8 @@ platform generate -domains freertos10_xilinx_domain
 platform generate -domains freertos10_xilinx_domain 
 platform clean
 platform generate
+platform config -updatehw {E:/Project/vhes/vhes/vhes_top.xsa}
+platform generate -domains 
+platform active {vhes_top}
+platform config -updatehw {E:/Project/vhes/vhes/vhes_top.xsa}
+platform generate -domains 

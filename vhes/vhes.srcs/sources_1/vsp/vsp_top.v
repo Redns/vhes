@@ -1,14 +1,16 @@
 module vsp_top(
     input clk_i,
-    input bs_rd_clk_i,
+    input clk_bs_rd_i,
     input rst_n_i,
     output reg rst_done_o,
     input hevc_encode_start_i,
     input hevc_encode_done_i,
     input [7:0] bs_data_i,
     input bs_valid_i,
+    input hevc_bs_rd_en_i,
     output hevc_bs_valid_o,
-    output [31:0] hevc_bs_data_o
+    output [31:0] hevc_bs_data_o,
+    output hevc_bs_overflow_o
 );
 
     parameter   S0_INIT                 =   0,
@@ -33,16 +35,20 @@ module vsp_top(
     wire [7:0] vsps_data_size;
 
     // 复位信号
+    wire bs_fifo_full;
     wire bs_fifo_wr_rst_busy;
     wire bs_fifo_rd_rst_busy;
-    wire state_rst_n = !bs_fifo_wr_rst_busy && !bs_fifo_rd_rst_busy;
 
     wire hevc_bs_valid;
     wire [31:0] hevc_bs_data;
 
-    wire hevc_bare_bs_data_valid = vsps_data_valid ? vsps_data_valid : bs_valid_i;
-    wire [7:0] hevc_bare_bs_data = vsps_data_valid ? vsps_data : bs_data_i;
+    assign hevc_bs_overflow_o = bs_fifo_full && hevc_bs_valid && !hevc_bs_rd_en_i;
+    assign state_rst_n = !bs_fifo_wr_rst_busy && !bs_fifo_rd_rst_busy;
 
+    wire [7:0] hevc_bare_bs_data = vsps_data_valid ? vsps_data : bs_data_i;
+    wire hevc_bare_bs_data_valid = vsps_data_valid ? vsps_data_valid : bs_valid_i;
+    
+    // VSPS
     vsps vsps(
         .type_i(vsps_type),
         .index_i(vsps_index),
@@ -66,23 +72,24 @@ module vsp_top(
         .data_o(hevc_bs_data)
     );
 
+    // TODO 此处可能导致 AXIS 数据转换丢失第一个数据
+    // 若确实数据丢书考虑将模式改为 STANDARD FIFO 以取代 FIRST WORD FALL THROUGH
     hevc_bs_fifo hevc_bs_fifo (
         .rst(~rst_n_i),                 
         .wr_clk(clk_i),            
-        .rd_clk(bs_rd_clk_i),           
+        .rd_clk(clk_bs_rd_i),           
         .din(hevc_bs_data),                  
         .wr_en(hevc_bs_valid),             
-        .rd_en(rst_done_o),              
+        .rd_en(hevc_bs_rd_en_i),              
         .dout(hevc_bs_data_o),               
-        .full(),                
-        .empty(),              
+        .full(bs_fifo_full),                     
         .valid(hevc_bs_valid_o),              
         .wr_rst_busy(bs_fifo_wr_rst_busy),  
         .rd_rst_busy(bs_fifo_rd_rst_busy)  
     );
 
     // 帧序号进程
-    always@(posedge hevc_encode_done_i or negedge state_rst_n) begin
+    always@(posedge clk_i) begin
         if(!state_rst_n)
             frame_sn_i <= 8'b0;
         else if(hevc_encode_done_i)
@@ -91,7 +98,8 @@ module vsp_top(
             frame_sn_i <= frame_sn_i;
     end
 
-    always@(posedge clk_i or negedge state_rst_n) begin
+    // 状态机进程
+    always@(posedge clk_i) begin
         if(!state_rst_n) begin
             // 初始化状态
             state <= S0_INIT;

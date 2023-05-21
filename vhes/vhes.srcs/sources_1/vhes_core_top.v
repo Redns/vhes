@@ -9,12 +9,13 @@ module vhes_core_top#
     parameter ENABLE_IINP   =   0,
     parameter ENABLE_DB     =   0,
     parameter ENABLE_SAO    =   0,
-    parameter POSI4x4BIT    =   0
+    parameter POSI4x4BIT    =   4
 )
 (
     /* 系统信号 */
     input rst_n_i,                                  // 复位信号（低电平有效）
-    input clk_100M_i,                               // 时钟信号（100MHz）
+    input clk_200M_p_i,                             // 200MHz 差分时钟 P 端信号输入
+    input clk_200M_n_i,                             // 200MHz 差分时钟 N 端信号输入
     output rst_done_o,                              // 复位完成标志
     /* HDMI 信号 */ 
     input pclk_i,                                   // 像素时钟（1080P@60fps：148.5MHz）
@@ -23,9 +24,13 @@ module vhes_core_top#
     input [23:0] rgb_i,                             // RGB888 格式像素数据
     input de_i,                                     // RGB888 格式像素数据有效标志
     /* HEVC 码流信号 */ 
-    input bs_rd_clk_i,                              // 码流读取时钟信号（不得低于 DDR 用户时钟的 25%，即 50MHz）
+    input clk_bs_rd_i,                              // 码流读取时钟信号（不得低于 DDR 用户时钟的 25%，即 50MHz）
+    input bs_rd_en_i,                               // 码流读取信号（高电平有效）
     output bs_valid_o,                              // 码流数据有效标志（高电平有效）
     output [31:0] bs_data_o,                        // 码流数据（封装好 NALU 头部）
+    /* 标志位 */
+    output bs_overflow_o,                           // 码流溢出标志（缓冲区 FIFO 已满且仍有数据输入，无数据读出，部分码流丢失）
+    output skip_frame_flag_o,                       // 帧跳过标志（缓冲区写入速率大于编码速率，部分帧未来得及编码）
     /* DDR 相关信号 */ 
     output [14:0]DDR_PL_addr,
     output [2:0]DDR_PL_ba,
@@ -45,18 +50,22 @@ module vhes_core_top#
 );
 
 /*************************** 信号线定义 ****************************/
-    // 复位完成信号
-    // 复位顺序：hdmi2rgb >> extif >> hevc_core >> vsp 
-    wire hdmi2rgb_rst_done;
-    wire extif_top_rst_done;
-
     // DDR 用户时钟
     wire clk_ui_200M;
 
-    assign hdmi2rgb_rst_n  = rst_n_i;
-    assign extif_top_rst_n = rst_n_i;
+    // 复位完成信号
+    // 复位顺序：hdmi2rgb >> extif >> ctrl & hevc_core & vsp 
+    wire hdmi2rgb_top_rst_done;
+    wire extif_top_rst_done;
+    wire vsp_top_rst_done;
+
+    assign hdmi2rgb_top_rst_n  = rst_n_i;
+    assign extif_top_rst_n = hdmi2rgb_top_rst_done;
+    assign hevc_encode_system_ctrl_rst_n = extif_top_rst_done;
     assign hevc_core_rst_n = extif_top_rst_done;
     assign vsp_top_rst_n   = extif_top_rst_done;
+
+    assign rst_done_o = vsp_top_rst_done;
 
     // HDMI2RGB & extif
     wire vsync;
@@ -95,9 +104,9 @@ module vhes_core_top#
 
 /************************ HDMI 转 RGB 模块 *************************/
     hdmi2yuv_top hdmi2yuv_top(
-        .rst_n_i(hdmi2rgb_rst_n),
-        .video_buffer_init_done_i(rst_done_o),
-        .clk_100M_i(clk_100M_i),
+        .rst_n_i(hdmi2rgb_top_rst_n),
+        .rst_done_o(hdmi2rgb_top_rst_done),
+        .convert_en_i(vsp_top_rst_done),
         .pclk_i(pclk_i),
         .hsync_i(hsync_i),
         .vsync_i(vsync_i),
@@ -114,7 +123,8 @@ module vhes_core_top#
     extif_top extif_top(
         .rst_n_i(extif_top_rst_n),
         .rst_done_o(extif_top_rst_done),
-        .clk_100M_i(clk_100M_i),
+        .clk_200M_p_i(clk_200M_p_i),
+        .clk_200M_n_i(clk_200M_n_i),
         .clk_ui_200M_o(clk_ui_200M),
         .pclk_i(pclk_i),
         .y_de_i(pixel_y_de),
@@ -210,11 +220,14 @@ module vhes_core_top#
     hevc_encode_system_ctrl#
     (
         .GOP_LENGTH(GOP_LENGTH),
+        .FRAME_WIDTH(FRAME_WIDTH),
+        .FRAME_HEIGHT(FRAME_HEIGHT),
         .FRAME_SIZE(FRAME_WIDTH * FRAME_HEIGHT)
     ) hevc_encode_system_ctrl
     (
-        .clk_ui(clk_ui_200M),
-        .rst_n_i(rst_n_i),
+        .clk_i(clk_ui_200M),
+        .rst_n_i(hevc_encode_system_ctrl_rst_n),
+        .skip_frame_flag_o(skip_frame_flag_o),
         .pixel_type_o(pixel_type),
         .pixel_buffer_rd_en_o(pixel_buffer_rd_en),
         .pixel_buffer_full_i(pixel_buffer_full),
@@ -239,15 +252,17 @@ module vhes_core_top#
 /************************** 裸流封装模块 ***************************/
     vsp_top vsp_top(
         .clk_i(clk_ui_200M),
-        .bs_rd_clk_i(bs_rd_clk_i),
+        .clk_bs_rd_i(clk_bs_rd_i),
         .rst_n_i(vsp_top_rst_n),
-        .rst_done_o(rst_done_o),
+        .rst_done_o(vsp_top_rst_done),
         .hevc_encode_start_i(hevc_sys_start),
         .hevc_encode_done_i(hevc_sys_done),
         .bs_data_i(bs_data),
         .bs_valid_i(bs_valid),
+        .hevc_bs_rd_en_i(bs_rd_en_i),
         .hevc_bs_valid_o(bs_valid_o),
-        .hevc_bs_data_o(bs_data_o)
+        .hevc_bs_data_o(bs_data_o),
+        .hevc_bs_overflow_o(bs_overflow_o)
     );
 
 endmodule

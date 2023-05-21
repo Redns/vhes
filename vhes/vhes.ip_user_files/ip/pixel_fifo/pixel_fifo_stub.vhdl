@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Thu May 11 00:32:50 2023
+-- Date        : Thu May 18 00:54:03 2023
 -- Host        : JingDevice running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               e:/Project/vhes/vhes/vhes.gen/sources_1/ip/pixel_fifo/pixel_fifo_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top pixel_fifo -prefix
+--               pixel_fifo_ pixel_fifo_stub.vhdl
 -- Design      : pixel_fifo
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z100ffg900-2

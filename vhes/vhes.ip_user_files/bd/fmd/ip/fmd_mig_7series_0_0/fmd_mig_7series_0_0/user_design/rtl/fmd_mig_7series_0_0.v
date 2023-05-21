@@ -86,8 +86,9 @@ module fmd_mig_7series_0_0 (
   output [3:0]     ddr3_dm,
   output [0:0]       ddr3_odt,
   // Inputs
-  // Single-ended system clock
-  input             sys_clk_i,
+  // Differential system clocks
+  input             sys_clk_p,
+  input             sys_clk_n,
   // user interface signals
   output            ui_clk,
   output            ui_clk_sync_rst,
@@ -97,7 +98,7 @@ module fmd_mig_7series_0_0 (
   output            app_ref_ack,
   output            app_zq_ack,
   // Slave Interface Write Address Ports
-  input [3:0]           s_axi_awid,
+  input [0:0]           s_axi_awid,
   input [29:0]         s_axi_awaddr,
   input [7:0]           s_axi_awlen,
   input [2:0]           s_axi_awsize,
@@ -116,11 +117,11 @@ module fmd_mig_7series_0_0 (
   output            s_axi_wready,
   // Slave Interface Write Response Ports
   input         s_axi_bready,
-  output [3:0]          s_axi_bid,
+  output [0:0]          s_axi_bid,
   output [1:0]          s_axi_bresp,
   output            s_axi_bvalid,
   // Slave Interface Read Address Ports
-  input [3:0]           s_axi_arid,
+  input [0:0]           s_axi_arid,
   input [29:0]         s_axi_araddr,
   input [7:0]           s_axi_arlen,
   input [2:0]           s_axi_arsize,
@@ -133,7 +134,7 @@ module fmd_mig_7series_0_0 (
   output            s_axi_arready,
   // Slave Interface Read Data Ports
   input         s_axi_rready,
-  output [3:0]          s_axi_rid,
+  output [0:0]          s_axi_rid,
   output [255:0]            s_axi_rdata,
   output [1:0]          s_axi_rresp,
   output            s_axi_rlast,
@@ -223,7 +224,8 @@ module fmd_mig_7series_0_0 (
     .s_axi_rvalid                   (s_axi_rvalid),
     .s_axi_rready                   (s_axi_rready),
     // System Clock Ports
-    .sys_clk_i                       (sys_clk_i),
+    .sys_clk_p                       (sys_clk_p),
+    .sys_clk_n                       (sys_clk_n),
        .device_temp            (device_temp),
        `ifdef SKIP_CALIB
        .calib_tap_req                    (calib_tap_req),

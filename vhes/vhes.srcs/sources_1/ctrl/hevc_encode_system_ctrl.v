@@ -1,15 +1,16 @@
 `include "enc_defines.v"
 
 module hevc_encode_system_ctrl#
-    (
-        parameter GOP_LENGTH    =   1,
-        parameter FRAME_WIDTH   =   1920,
-        parameter FRAME_HEIGHT  =   1080,
-        parameter FRAME_SIZE    =   FRAME_WIDTH * FRAME_HEIGHT
-    )
-    (
-    input clk_ui,
+(
+    parameter GOP_LENGTH    =   1,
+    parameter FRAME_WIDTH   =   1920,
+    parameter FRAME_HEIGHT  =   1080,
+    parameter FRAME_SIZE    =   FRAME_WIDTH * FRAME_HEIGHT
+)
+(
+    input clk_i,
     input rst_n_i,
+    output reg skip_frame_flag_o,
     /* Video Buffer 相关信号 */
     output reg pixel_type_o,
     output reg pixel_buffer_rd_en_o,
@@ -36,13 +37,13 @@ module hevc_encode_system_ctrl#
 
 /*************************** 参数定义 ****************************/
     // 状态机状态
-    parameter   S0_INIT         =   0,
+    localparam  S0_INIT         =   0,
                 S1_FIFO_READ    =   1,
-                S2_extif         =   2,
+                S2_EXTIF        =   2,
                 S3_HEVC_ENC     =   3;
 
     // 外部存储数据访问操作
-    parameter   LOAD_CUR_SUB      = 01 ,
+    localparam  LOAD_CUR_SUB      = 01 ,
                 LOAD_REF_SUB      = 02 ,
                 LOAD_CUR_LUMA     = 03 ,    // 加载当前 LCU 的亮度块
                 LOAD_REF_LUMA     = 04 ,    
@@ -63,6 +64,14 @@ module hevc_encode_system_ctrl#
     reg hevc_enc_busy;
 
     reg hevc_extif_done;
+
+    // 状态缓存
+    reg [1 :0] fdma_busy_cache;
+    reg [4 :0] extif_mode_cache;
+    reg [11:0] extif_x_cache;
+    reg [11:0] extif_y_cache;
+    reg [7 :0] extif_width_cache;
+    reg [7 :0] extif_height_cache; 
 
     // 帧缓存序号
     reg [15:0] hevc_enc_frame_nums;
@@ -85,53 +94,64 @@ module hevc_encode_system_ctrl#
     // extif 数据交互开始标志
     // hevc_extif_start_i 置位表明 HEVC 编码核要求缓冲交互数据
     // hevc_extif_done 清零表明 HEVC 编码核与缓存的数据交互结束
-    always@(posedge hevc_extif_start_i or posedge hevc_extif_done or negedge fdma_busy_i or negedge rst_n_i) begin
+    always@(posedge clk_i) begin
         if(!rst_n_i) begin
             extif_busy <= 1'b0;
-            hevc_extif_operated_rows <= 8'b0;
+            extif_mode_cache <= 5'b0;
+            extif_x_cache <= 12'b0;
+            extif_y_cache <= 12'b0;
+            extif_width_cache <= 8'b0;
+            extif_height_cache <= 8'b0;
         end
         else if(hevc_extif_start_i) begin
             extif_busy <= 1'b1;
-            hevc_extif_operated_rows <= 8'b0;
+            extif_mode_cache <= hevc_extif_mode_i;
+            extif_x_cache <= hevc_extif_x_i;
+            extif_y_cache <= hevc_extif_y_i;
+            extif_width_cache <= hevc_extif_width_i;
+            extif_height_cache <= hevc_extif_height_i;
         end
         else if(hevc_extif_done) begin
             extif_busy <= 1'b0;
-        end
-        else if(!fdma_busy_i) begin
-            hevc_extif_operated_rows <= (state == S2_extif) ? (hevc_extif_operated_rows + 1'b1) : hevc_extif_operated_rows;
         end
     end
 
     // HEVC 编码开始标志
     // hevc_sys_start_o 置位表明要求 HEVC 开始编码
     // hevc_sys_done_i 置位表明 HEVC 该帧编码结束
-    always@(posedge clk_ui or negedge rst_n_i) begin
-        if(!rst_n_i)
+    always@(posedge clk_i) begin
+        if(!rst_n_i) begin
             hevc_enc_busy <= 1'b0;
-        else if(hevc_sys_start_o)
+        end
+        else if(hevc_sys_start_o) begin
             hevc_enc_busy <= 1'b1;
-        else if(hevc_sys_done_i)
+        end
+        else if(hevc_sys_done_i) begin
             hevc_enc_busy <= 1'b0;
-        else
-            hevc_enc_busy <= hevc_enc_busy;
+        end
     end
 
     // STATE2_FRDW 相关逻辑
     // frdw_busy 表示该状态正忙，不允许切换至其他状态，其他状态空闲时应立即切换至该状态
-    always@(posedge pixel_buffer_full_i or negedge fdma_busy_i or negedge rst_n_i) begin
-        if(!rst_n_i) 
+    always@(posedge clk_i) begin
+        if(!rst_n_i) begin
             frdw_busy <= 1'b0;
-        else if(pixel_buffer_full_i) 
-            frdw_busy <= 1'b1;
-        else if(!fdma_busy_i)  
-            frdw_busy <= pixel_type_o ? 1'b0 : 1'b1;
-        else
-            frdw_busy <= frdw_busy;
+            fdma_busy_cache <= 2'b0;
+        end
+        else begin
+            fdma_busy_cache <= { fdma_busy_cache[0], fdma_busy_i };
+            if(pixel_buffer_full_i) begin
+                frdw_busy <= 1'b1;
+            end
+            else if(fdma_busy_cache[0] && (!fdma_busy_i) && pixel_type_o) begin
+                frdw_busy <= 1'b0;
+            end
+        end
     end
     
     // HEVC 编码模式设置（帧内/帧间）
     // GOP 首帧采用帧内编码，其余采用帧间编码
-    always@(posedge clk_ui or negedge rst_n_i) begin
+    always@(posedge clk_i) begin
         if(!rst_n_i) begin
             hevc_sys_type_o <= `INTRA;
             hevc_enc_frame_nums <= 16'b0;
@@ -147,17 +167,21 @@ module hevc_encode_system_ctrl#
     end
 
 /*************************** 状态转换 ****************************/
-    always@(posedge clk_ui or negedge rst_n_i) begin
+    always@(posedge clk_i) begin
         if(!rst_n_i) begin
             // 初始化状态
             state <= S0_INIT;
             // 初始化帧操作序号
             current_read_frame_serial_number <= 2'b0;
+            // 初始化标志位
+            skip_frame_flag_o <= 1'b0;
             // 初始化帧缓冲区地址
             video_frame_baseaddr[0] <= 32'h000_0000;
             video_frame_baseaddr[1] <= 32'h100_0000;
             video_frame_baseaddr[2] <= 32'h200_0000;
             video_frame_baseaddr[3] <= 32'h300_0000;
+            // 初始化 EXTIF 已操作行数
+            hevc_extif_operated_rows <= 8'b0;
             // 初始化 video_buffer 读取计数器
             video_buffer_y_write_in_cnt <= 32'h0;
             video_buffer_uv_write_in_cnt <= 32'h0;
@@ -179,7 +203,6 @@ module hevc_encode_system_ctrl#
         end
         else begin
             // 状态机实体
-            // 由于标志位置位与 case 块并行执行，相关运算会延后一个时钟
             case(state)
                 S0_INIT: begin
                     state <= frdw_busy ? S1_FIFO_READ : S0_INIT;
@@ -187,7 +210,7 @@ module hevc_encode_system_ctrl#
                 S1_FIFO_READ: begin
                     if(frdw_busy) begin
                         // 将 YUV 缓冲区 FIFO 数据写入 DDR
-                        if(!fdma_busy_i && !pixel_buffer_rd_en_o) begin
+                        if((!fdma_busy_i) && (!fdma_busy_cache[1]) && (!pixel_buffer_rd_en_o)) begin
                             // FDMA 处于空闲状态且未启动一次新的缓存
                             if(video_buffer_y_write_in_cnt == (video_buffer_uv_write_in_cnt << 1)) begin
                                 // 启动一次新的 Y 分量缓存
@@ -214,158 +237,225 @@ module hevc_encode_system_ctrl#
                                 video_buffer_uv_write_in_cnt <= (video_buffer_y_write_in_cnt >> 1);
                                 fdma_size_o <= (fdma_size_o >> 1);
                                 fdma_addr_o <= video_frame_baseaddr[current_write_frame_serial_number] + FRAME_SIZE + video_buffer_uv_write_in_cnt;
+                                // TODO 移动至 STATE2_FRDW always 块
+                                // 根据 YUV 像素计数器判断是否需要更改写指针（current & previous）
+                                if(video_buffer_y_write_in_cnt == FRAME_SIZE) begin
+                                    // 清空 YUV 计数器
+                                    video_buffer_y_write_in_cnt <= 32'b0;
+                                    video_buffer_uv_write_in_cnt <= 32'b0;
+                                    // 切换写指针
+                                    case({ current_write_frame_serial_number, current_read_frame_serial_number})
+                                        { 2'd1, 2'd0 }: current_write_frame_serial_number <= 2'd2;
+                                        { 2'd1, 2'd2 }: current_write_frame_serial_number <= 2'd3;
+                                        { 2'd1, 2'd3 }: current_write_frame_serial_number <= 2'd2;
+                                        { 2'd2, 2'd1 }: current_write_frame_serial_number <= 2'd3;
+                                        { 2'd2, 2'd3 }: current_write_frame_serial_number <= 2'd1;
+                                        { 2'd3, 2'd1 }: current_write_frame_serial_number <= 2'd2;
+                                        { 2'd3, 2'd2 }: current_write_frame_serial_number <= 2'd1;
+                                        default: current_write_frame_serial_number <= current_write_frame_serial_number;
+                                    endcase 
+                                    previous_write_frame_serial_number <= current_write_frame_serial_number;
+                                    // 控制帧跳过标志位
+                                    case({ current_write_frame_serial_number, current_read_frame_serial_number})
+                                        { 2'd1, 2'd2 }: skip_frame_flag_o <= 1'b1;
+                                        { 2'd2, 2'd3 }: skip_frame_flag_o <= 1'b1;
+                                        { 2'd3, 2'd1 }: skip_frame_flag_o <= 1'b1;
+                                        default: skip_frame_flag_o <= skip_frame_flag_o;
+                                    endcase 
+                                end
                             end
                         end
-                        else if(pixel_buffer_rd_en_o)
+                        else if(pixel_buffer_rd_en_o) begin
                             pixel_buffer_rd_en_o <= 1'b0;
+                        end
                     end
                     else begin
-                        // FRDW 状态结束，代表一次输入视频流缓存完成
-                        // 根据 YUV 像素计数器判断是否需要更改写指针（current & previous）
-                        if(video_buffer_y_write_in_cnt == FRAME_SIZE) begin
-                            // 清空 YUV 计数器
-                            video_buffer_y_write_in_cnt <= 32'b0;
-                            video_buffer_uv_write_in_cnt <= 32'b0;
-                            // 切换写指针
-                            case({ current_write_frame_serial_number, current_read_frame_serial_number})
-                                { 2'd1, 2'd0 }: current_write_frame_serial_number <= 2'd2;
-                                { 2'd1, 2'd2 }: current_write_frame_serial_number <= 2'd3;
-                                { 2'd1, 2'd3 }: current_write_frame_serial_number <= 2'd2;
-                                { 2'd2, 2'd1 }: current_write_frame_serial_number <= 2'd3;
-                                { 2'd2, 2'd3 }: current_write_frame_serial_number <= 2'd1;
-                                { 2'd3, 2'd1 }: current_write_frame_serial_number <= 2'd2;
-                                { 2'd3, 2'd2 }: current_write_frame_serial_number <= 2'd1;
-                                default: current_write_frame_serial_number <= current_write_frame_serial_number;
-                            endcase 
-                            previous_write_frame_serial_number <= current_write_frame_serial_number;
+                        if(extif_busy) begin
+                            state <= S2_EXTIF;
+                            hevc_extif_operated_rows <= 8'b0;
                         end
-                        state <= extif_busy ? S2_extif : S3_HEVC_ENC;
+                        else begin
+                            state <= S3_HEVC_ENC;
+                        end
                     end 
                 end
-                S2_extif: begin
+                S2_EXTIF: begin
                     if(extif_busy) begin
-                        case(hevc_extif_mode_i)
+                        case(extif_mode_cache)
                             LOAD_CUR_LUMA: begin
-                                if(hevc_extif_operated_rows < hevc_extif_height_i) begin
-                                    if(!fdma_busy_i) begin
+                                if(hevc_extif_operated_rows < extif_height_cache) begin
+                                    if((!fdma_busy_i) && (!extif_rd_en_o)) begin
                                         // 启动 extif 数据读取
                                         // 设置读取起始地址和突发传输数目
                                         // 一行需要传输的字节数为 hevc_extif_width_i，fdma 单次传输 16 字节，因此突发传输数量为 hevc_extif_width / 16
                                         extif_rd_en_o <= 1'b1;
-                                        fdma_addr_o <= video_frame_baseaddr[current_read_frame_serial_number] + (hevc_extif_y_i + hevc_extif_operated_rows) * FRAME_WIDTH + hevc_extif_x_i;
-                                        fdma_size_o <= (hevc_extif_width_i >> 4);
+                                        fdma_addr_o <= video_frame_baseaddr[current_read_frame_serial_number] + (extif_y_cache + hevc_extif_operated_rows) * FRAME_WIDTH + extif_x_cache;
+                                        fdma_size_o <= (extif_width_cache >> 4);
+                                        // 更新 EXTIF 操作行数
+                                        hevc_extif_operated_rows <= hevc_extif_operated_rows + 1'b1;
                                     end
-                                    else if(extif_rd_en_o)
+                                    else if(extif_rd_en_o) begin
                                         extif_rd_en_o <= 1'b0;
+                                    end
                                 end
-                                else if(!hevc_extif_done)
-                                    hevc_extif_done <= 1'b1;
+                                else begin 
+                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
+                                        hevc_extif_done <= 1'b1;
+                                    end
+                                    if(extif_rd_en_o) begin
+                                        extif_rd_en_o <= 1'b0;
+                                    end
+                                end
                             end
                             LOAD_CUR_CHROMA: begin
-                                if(hevc_extif_operated_rows < hevc_extif_height_i / 2) begin
-                                    if(!fdma_busy_i) begin
+                                if(hevc_extif_operated_rows < (extif_height_cache >> 1)) begin
+                                    if((!fdma_busy_i) && (!extif_rd_en_o)) begin
                                         // 启动 extif 数据读取
                                         // 设置读取起始地址和突发传输数目
                                         // 一行需要传输的字节数为 hevc_extif_width_i，fdma 单次传输 16 字节，因此突发传输数量为 hevc_extif_width / 16
                                         extif_rd_en_o <= 1'b1;
-                                        fdma_addr_o <= video_frame_baseaddr[current_read_frame_serial_number] + FRAME_WIDTH * FRAME_HEIGHT + (hevc_extif_y_i / 2 + hevc_extif_operated_rows) * FRAME_WIDTH + hevc_extif_x_i;
-                                        fdma_size_o <= (hevc_extif_width_i >> 4);
+                                        fdma_addr_o <= video_frame_baseaddr[current_read_frame_serial_number] + FRAME_WIDTH * FRAME_HEIGHT + ((extif_y_cache >> 1) + hevc_extif_operated_rows) * FRAME_WIDTH + extif_x_cache;
+                                        fdma_size_o <= (extif_width_cache >> 4);
+                                        // 更新 EXTIF 操作行数
+                                        hevc_extif_operated_rows <= hevc_extif_operated_rows + 1'b1;
                                     end
-                                    else if(extif_rd_en_o)
+                                    else if(extif_rd_en_o) begin
                                         extif_rd_en_o <= 1'b0;
+                                    end
                                 end
-                                else if(!hevc_extif_done)
-                                    hevc_extif_done <= 1'b1;
+                                else begin 
+                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
+                                        hevc_extif_done <= 1'b1;
+                                    end
+                                    if(extif_rd_en_o) begin
+                                        extif_rd_en_o <= 1'b0;
+                                    end
+                                end
                             end
                             LOAD_DB_LUMA: begin
-                                if(hevc_extif_operated_rows < hevc_extif_height_i) begin
-                                    if(!fdma_busy_i) begin
+                                if(hevc_extif_operated_rows < extif_height_cache) begin
+                                    if((!fdma_busy_i) && (!extif_rd_en_o)) begin
                                         // 启动 extif 数据读取
                                         // 设置读取起始地址和突发传输数目
                                         // 一行需要传输的字节数为 hevc_extif_width_i，fdma 单次传输 16 字节，因此突发传输数量为 hevc_extif_width / 16
                                         extif_rd_en_o <= 1'b1;
-                                        fdma_addr_o <= video_frame_baseaddr[0] + (hevc_extif_y_i + hevc_extif_operated_rows) * FRAME_WIDTH + hevc_extif_x_i;
-                                        fdma_size_o <= (hevc_extif_width_i >> 4);
+                                        fdma_addr_o <= video_frame_baseaddr[0] + (extif_y_cache + hevc_extif_operated_rows) * FRAME_WIDTH + extif_x_cache;
+                                        fdma_size_o <= (extif_width_cache >> 4);
+                                        // 更新 EXTIF 操作行数
+                                        hevc_extif_operated_rows <= hevc_extif_operated_rows + 1'b1;
                                     end
-                                    else if(extif_rd_en_o)
+                                    else if(extif_rd_en_o) begin
                                         extif_rd_en_o <= 1'b0;
+                                    end
                                 end
-                                else if(!hevc_extif_done)
-                                    hevc_extif_done <= 1'b1;
+                                else begin 
+                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
+                                        hevc_extif_done <= 1'b1;
+                                    end
+                                    if(extif_rd_en_o) begin
+                                        extif_rd_en_o <= 1'b0;
+                                    end
+                                end
                             end
                             LOAD_DB_CHROMA: begin
-                                if(hevc_extif_operated_rows < hevc_extif_height_i / 2) begin
-                                    if(!fdma_busy_i) begin
+                                if(hevc_extif_operated_rows < (extif_height_cache >> 1)) begin
+                                    if((!fdma_busy_i) && (!extif_rd_en_o)) begin
                                         // 启动 extif 数据读取
                                         // 设置读取起始地址和突发传输数目
                                         // 一行需要传输的字节数为 hevc_extif_width_i，fdma 单次传输 16 字节，因此突发传输数量为 hevc_extif_width / 16
                                         extif_rd_en_o <= 1'b1;
-                                        fdma_addr_o <= video_frame_baseaddr[0] + FRAME_WIDTH * FRAME_HEIGHT + (hevc_extif_y_i / 2 + hevc_extif_operated_rows) * FRAME_WIDTH + hevc_extif_x_i;
-                                        fdma_size_o <= (hevc_extif_width_i >> 4);
+                                        fdma_addr_o <= video_frame_baseaddr[0] + FRAME_WIDTH * FRAME_HEIGHT + ((extif_y_cache >> 1) + hevc_extif_operated_rows) * FRAME_WIDTH + extif_x_cache;
+                                        fdma_size_o <= (extif_width_cache >> 4);
+                                        // 更新 EXTIF 操作行数
+                                        hevc_extif_operated_rows <= hevc_extif_operated_rows + 1'b1;
                                     end
-                                    else if(extif_rd_en_o)
+                                    else if(extif_rd_en_o) begin
                                         extif_rd_en_o <= 1'b0;
+                                    end
                                 end
-                                else begin
-                                    if(!hevc_extif_done)
+                                else begin 
+                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
                                         hevc_extif_done <= 1'b1;
-                                end 
+                                    end
+                                    if(extif_rd_en_o) begin
+                                        extif_rd_en_o <= 1'b0;
+                                    end
+                                end
                             end
                             STORE_DB_LUMA: begin
-                                if(hevc_extif_operated_rows < hevc_extif_height_i) begin
-                                    if(!fdma_busy_i) begin
+                                if(hevc_extif_operated_rows < extif_height_cache) begin
+                                    if((!fdma_busy_i) && (!extif_wr_en_o)) begin
                                         // 启动 extif 数据写入
                                         // 设置读取起始地址和突发传输数目
                                         // 一行需要传输的字节数为 hevc_extif_width_i，fdma 单次传输 16 字节，因此突发传输数量为 hevc_extif_width / 16
                                         extif_wr_en_o <= 1'b1;
-                                        fdma_addr_o <= video_frame_baseaddr[0] + (hevc_extif_y_i + hevc_extif_operated_rows) * FRAME_WIDTH + hevc_extif_x_i;
-                                        fdma_size_o <= (hevc_extif_width_i >> 4);
+                                        fdma_addr_o <= video_frame_baseaddr[0] + (extif_y_cache + hevc_extif_operated_rows) * FRAME_WIDTH + extif_x_cache;
+                                        fdma_size_o <= (extif_width_cache >> 4);
+                                        // 更新 EXTIF 操作行数
+                                        hevc_extif_operated_rows <= hevc_extif_operated_rows + 1'b1;
                                     end
-                                    else if(extif_wr_en_o)
+                                    else if(extif_wr_en_o) begin
                                         extif_wr_en_o <= 1'b0;
+                                    end
                                 end
-                                else if(!hevc_extif_done)
-                                    hevc_extif_done <= 1'b1;
+                                else begin 
+                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
+                                        hevc_extif_done <= 1'b1;
+                                    end
+                                    if(extif_wr_en_o) begin
+                                        extif_wr_en_o <= 1'b0;
+                                    end
+                                end
                             end
                             STORE_DB_CHROMA: begin
-                                if(hevc_extif_operated_rows < hevc_extif_height_i / 2) begin
-                                    if(!fdma_busy_i) begin
+                                if(hevc_extif_operated_rows < (extif_height_cache >> 1)) begin
+                                    if((!fdma_busy_i) && (!extif_wr_en_o)) begin
                                         // 启动 extif 数据读取
                                         // 设置读取起始地址和突发传输数目
                                         // 一行需要传输的字节数为 hevc_extif_width_i，fdma 单次传输 16 字节，因此突发传输数量为 hevc_extif_width / 16
                                         extif_wr_en_o <= 1'b1;
-                                        fdma_addr_o <= video_frame_baseaddr[0] + FRAME_WIDTH * FRAME_HEIGHT + (hevc_extif_y_i / 2 + hevc_extif_operated_rows) * FRAME_WIDTH + hevc_extif_x_i;
-                                        fdma_size_o <= (hevc_extif_width_i >> 4);
+                                        fdma_addr_o <= video_frame_baseaddr[0] + FRAME_WIDTH * FRAME_HEIGHT + ((extif_y_cache >> 1) + hevc_extif_operated_rows) * FRAME_WIDTH + extif_x_cache;
+                                        fdma_size_o <= (extif_width_cache >> 4);
+                                        // 更新 EXTIF 操作行数
+                                        hevc_extif_operated_rows <= hevc_extif_operated_rows + 1'b1;
                                     end
-                                    else if(extif_wr_en_o)
+                                    else if(extif_wr_en_o) begin
                                         extif_wr_en_o <= 1'b0;
+                                    end
                                 end
-                                else begin
-                                    if(!hevc_extif_done)
+                                else begin 
+                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
                                         hevc_extif_done <= 1'b1;
-                                end 
+                                    end
+                                    if(extif_wr_en_o) begin
+                                        extif_wr_en_o <= 1'b0;
+                                    end
+                                end
                             end
                             default begin
-                                if(!hevc_extif_done)
+                                if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
                                     hevc_extif_done <= 1'b1;
-                                else
-                                    hevc_extif_done <= 1'b0;
+                                end
                             end 
                         endcase
                     end
                     else begin
-                        if(hevc_extif_done)
+                        if(hevc_extif_done) begin
                             // 由于 extif_busy 信号绑定 hevc_extif_done 上升沿，则 hevc_extif_done 置位后
                             // 不会再进入上述语句，故 hevc_extif_done 需要放在此处清除
                             hevc_extif_done <= 1'b0;
+                        end
                         state <= frdw_busy ? S1_FIFO_READ : S3_HEVC_ENC;
                     end
                 end
                 S3_HEVC_ENC: begin
-                    if(frdw_busy)
+                    if(frdw_busy) begin
                         state <= S1_FIFO_READ;
-                    else if(extif_busy) 
-                        state <= S2_extif;
+                    end
+                    else if(extif_busy) begin 
+                        state <= S2_EXTIF;
+                        hevc_extif_operated_rows <= 8'b0;
+                    end
                     else begin
                         // 根据 pwfsn 和 crfsn 启动 HEVC 编码
                         if(hevc_enc_busy) 
@@ -386,7 +476,7 @@ module hevc_encode_system_ctrl#
     time_shift#(
         .DATA_WIDTH(1)
     ) extif_done_time_shift(
-        .clk_i(clk_ui),
+        .clk_i(clk_i),
         .rst_n_i(rst_n_i),
         .data_i(hevc_extif_done),
         .data_o(hevc_extif_done_o)

@@ -2,7 +2,8 @@ module extif_top(
     /* 系统信号 */
     input rst_n_i,                              // 复位信号输入（低电平有效）
     output rst_done_o,                          // 复位完成输出（高电平有效）
-    input clk_100M_i,                           // 100MHz 时钟信号输入
+    input clk_200M_p_i,                         // 200MHz 差分时钟 P 端信号输入
+    input clk_200M_n_i,                         // 200MHz 差分时钟 N 端信号输入
     output clk_ui_200M_o,                       // 200MHz 用户操作时钟输出（与 DDR 交互必须使用此时钟）
     /* YUV FIFO 相关信号 */ 
     input pclk_i,                               // 像素时钟输入（1080P@60fps：148.5MHz）
@@ -46,17 +47,23 @@ module extif_top(
 /*************************** 信号线定义 ****************************/
     reg is_fifo_write;
 
-    wire fdma_mig_ddr_rst_done;
-
     wire [127:0] video_buffer_pixel_out;
 
-    wire FDMA_S_i_fdma_wvalid, FDMA_S_i_fdma_rvalid;
-
     wire FDMA_S_i_fdma_wbusy, FDMA_S_i_fdma_rbusy;
+    wire FDMA_S_i_fdma_wvalid, FDMA_S_i_fdma_rvalid;
     
-    // 该模块复位顺序为：FDMA MIG DDR --> Video Buffer
+    // 该模块复位顺序为：FDMA_MIG_DDR >> VIDEO_BUFFER >> TIME_SHIFT 
     // 整个系统除 hdmi2rgb 模块外均工作在 ui_clk_200M 时钟下，若先复位 Video Buffer 则由于没有 ui_clk 直接系统锁死
-    // assign video_buffer_rst_n = rst_n_i && fdma_mig_ddr_rst_done;
+    wire fdma_mig_ddr_rst_done;
+    wire video_buffer_rst_done;
+
+    // 系统复位完成标志
+    assign rst_done_o = video_buffer_rst_done;
+
+    // 各模块复位信号
+    assign fdma_mig_ddr_rst_n = rst_n_i;
+    assign video_buffer_rst_n = fdma_mig_ddr_rst_done;
+    assign time_shift_rst_n = video_buffer_rst_done;
 
     // Video Buffer 读使能
     // pixel_rd_en_i 代表系统要求读取 FIFO 数据至 DDR 中
@@ -74,7 +81,7 @@ module extif_top(
     // FDMA 读写繁忙标志
     assign FDMA_S_i_fdma_busy = FDMA_S_i_fdma_wbusy || FDMA_S_i_fdma_rbusy;
 
-    always@(posedge clk_ui_200M_o or negedge rst_n_i) begin
+    always@(posedge clk_ui_200M_o) begin
         if(!rst_n_i) 
             is_fifo_write <= 1'b1;
         else if(pixel_rd_en_i)
@@ -87,8 +94,8 @@ module extif_top(
 
 /*********************** YUV FIFO 视频缓冲区 ************************/
     video_in_buffer video_in_buffer(
-        .rst_n_i(fdma_mig_ddr_rst_done),
-        .rst_done_o(rst_done_o),
+        .rst_n_i(video_buffer_rst_n),
+        .rst_done_o(video_buffer_rst_done),
         .wr_clk_i(pclk_i),
         .rd_clk_i(clk_ui_200M_o),
         .y_de_i(y_de_i),
@@ -104,6 +111,11 @@ module extif_top(
 
 /************************** FDMA MIG DDR **************************/
     fmd_wrapper fmd_wrapper(
+        .rst_n_i(fdma_mig_ddr_rst_n),
+        .clk_200M_i_clk_n(clk_200M_n_i),
+        .clk_200M_i_clk_p(clk_200M_p_i),
+        .rst_done_o(fdma_mig_ddr_rst_done),
+        .clk_ui_200M_o(clk_ui_200M_o),
         .DDR_PL_addr(DDR_PL_addr),
         .DDR_PL_ba(DDR_PL_ba),
         .DDR_PL_cas_n(DDR_PL_cas_n),
@@ -132,17 +144,14 @@ module extif_top(
         .FDMA_S_i_fdma_wdata(fdma_mig_ddr_wdata),
         .FDMA_S_i_fdma_wready(1'b1),
         .FDMA_S_i_fdma_wsize(FDMA_S_i_fdma_size),
-        .FDMA_S_i_fdma_wvalid(FDMA_S_i_fdma_wvalid),
-        .clk_100M_i(clk_100M_i),
-        .init_calib_complete_o(fdma_mig_ddr_rst_done),
-        .clk_ui_200M_o(clk_ui_200M_o)
+        .FDMA_S_i_fdma_wvalid(FDMA_S_i_fdma_wvalid)
     );
 
     time_shift#(
         .DATA_WIDTH(1)
     ) hevc_wr_en_shift(
         .clk_i(clk_ui_200M_o),
-        .rst_n_i(rst_done_o),
+        .rst_n_i(time_shift_rst_n),
         .data_i(FDMA_S_i_fdma_rvalid),
         .data_o(hevc_wr_en_o)
     );
@@ -151,7 +160,7 @@ module extif_top(
         .DATA_WIDTH(128)
     ) extif_data_o_shift(
         .clk_i(clk_ui_200M_o),
-        .rst_n_i(rst_done_o),
+        .rst_n_i(time_shift_rst_n),
         .data_i(fdma_mig_ddr_rdata),
         .data_o(extif_data_o)
     );

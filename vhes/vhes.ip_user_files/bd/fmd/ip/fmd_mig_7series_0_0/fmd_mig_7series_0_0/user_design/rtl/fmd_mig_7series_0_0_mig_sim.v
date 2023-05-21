@@ -422,7 +422,7 @@ module fmd_mig_7series_0_0_mig #
                                      // It is associated to a set of IODELAYs with
                                      // an IDELAYCTRL that have same IODELAY CONTROLLER
                                      // clock frequency (300MHz/400MHz).
-   parameter SYSCLK_TYPE           = "NO_BUFFER",
+   parameter SYSCLK_TYPE           = "DIFFERENTIAL",
                                      // System clock type DIFFERENTIAL, SINGLE_ENDED,
                                      // NO_BUFFER
    parameter REFCLK_TYPE           = "USE_SYSTEM_CLOCK",
@@ -461,7 +461,7 @@ module fmd_mig_7series_0_0_mig #
    parameter nCK_PER_CLK           = 4,
    // # of memory CKs per fabric CLK
    
-   parameter DIFF_TERM_SYSCLK      = "TRUE",
+   parameter DIFF_TERM_SYSCLK      = "FALSE",
                                      // Differential Termination for System
                                      // clock input pins
       
@@ -476,7 +476,7 @@ module fmd_mig_7series_0_0_mig #
                                      // 1/2, 1/4 and 1/8 of fabrick clock.
                                      // Valid for DDR2/DDR3 AXI interfaces
                                      // based on GUI selection
-   parameter C_S_AXI_ID_WIDTH              = 4,
+   parameter C_S_AXI_ID_WIDTH              = 1,
                                              // Width of all master and slave ID signals.
                                              // # = >= 1.
    parameter C_S_AXI_MEM_SIZE              = "1073741824",
@@ -492,7 +492,7 @@ module fmd_mig_7series_0_0_mig #
    parameter C_MC_nCK_PER_CLK              = 4,
                                              // Indicates whether to instatiate upsizer
                                              // Range: 0, 1
-   parameter C_S_AXI_SUPPORTS_NARROW_BURST = 0,
+   parameter C_S_AXI_SUPPORTS_NARROW_BURST = 1,
                                              // Indicates whether to instatiate upsizer
                                              // Range: 0, 1
    parameter C_RD_WR_ARB_ALGORITHM          = "RD_PRI_REG",
@@ -595,8 +595,9 @@ module fmd_mig_7series_0_0_mig #
 
    // Inputs
    
-   // Single-ended system clock
-   input                                        sys_clk_i,
+   // Differential system clocks
+   input                                        sys_clk_p,
+   input                                        sys_clk_n,
    
    
    // user interface signals
@@ -770,8 +771,7 @@ module fmd_mig_7series_0_0_mig #
   // Interrupt output
   wire                              interrupt;
 
-  wire                              sys_clk_p;
-  wire                              sys_clk_n;
+  wire                              sys_clk_i;
   wire                              mmcm_clk;
   wire                              clk_ref_p;
   wire                              clk_ref_n;
@@ -864,8 +864,7 @@ module fmd_mig_7series_0_0_mig #
   assign ui_clk = clk;
   assign ui_clk_sync_rst = rst;
   
-  assign sys_clk_p = 1'b0;
-  assign sys_clk_n = 1'b0;
+  assign sys_clk_i = 1'b0;
   assign clk_ref_i = 1'b0;
   assign device_temp = device_temp_s;
       

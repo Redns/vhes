@@ -132,66 +132,7 @@
   "../../../bd/fmd/ip/fmd_proc_sys_reset_0_0/sim/fmd_proc_sys_reset_0_0.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/sim/bd_51bb.v" \
--endlib
--makelib xcelium_lib/xlconstant_v1_1_7 \
-  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_0/sim/bd_51bb_one_0.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_1/sim/bd_51bb_psr_aclk_0.vhd" \
--endlib
--makelib xcelium_lib/smartconnect_v1_0 -sv \
-  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/f0b6/hdl/sc_util_v1_0_vl_rfs.sv" \
-  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/ea34/hdl/sc_mmu_v1_0_vl_rfs.sv" \
--endlib
--makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_2/sim/bd_51bb_s00mmu_0.sv" \
--endlib
--makelib xcelium_lib/smartconnect_v1_0 -sv \
-  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/4fd2/hdl/sc_transaction_regulator_v1_0_vl_rfs.sv" \
--endlib
--makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_3/sim/bd_51bb_s00tr_0.sv" \
--endlib
--makelib xcelium_lib/smartconnect_v1_0 -sv \
-  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/8047/hdl/sc_si_converter_v1_0_vl_rfs.sv" \
--endlib
--makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_4/sim/bd_51bb_s00sic_0.sv" \
--endlib
--makelib xcelium_lib/smartconnect_v1_0 -sv \
-  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/b89e/hdl/sc_axi2sc_v1_0_vl_rfs.sv" \
--endlib
--makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_5/sim/bd_51bb_s00a2s_0.sv" \
--endlib
--makelib xcelium_lib/smartconnect_v1_0 -sv \
-  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/66be/hdl/sc_node_v1_0_vl_rfs.sv" \
--endlib
--makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_6/sim/bd_51bb_sarn_0.sv" \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_7/sim/bd_51bb_srn_0.sv" \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_8/sim/bd_51bb_sawn_0.sv" \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_9/sim/bd_51bb_swn_0.sv" \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_10/sim/bd_51bb_sbn_0.sv" \
--endlib
--makelib xcelium_lib/smartconnect_v1_0 -sv \
-  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/7005/hdl/sc_sc2axi_v1_0_vl_rfs.sv" \
--endlib
--makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_11/sim/bd_51bb_m00s2a_0.sv" \
--endlib
--makelib xcelium_lib/smartconnect_v1_0 -sv \
-  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/93a6/hdl/sc_exit_v1_0_vl_rfs.sv" \
--endlib
--makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/bd_0/ip/ip_12/sim/bd_51bb_m00e_0.sv" \
--endlib
--makelib xcelium_lib/smartconnect_v1_0 -sv \
-  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/c012/hdl/sc_switchboard_v1_0_vl_rfs.sv" \
+  "../../../bd/fmd/sim/fmd.v" \
 -endlib
 -makelib xcelium_lib/axi_infrastructure_v1_1_0 \
   "../../../../vhes.gen/sources_1/bd/fmd/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
@@ -199,14 +140,38 @@
 -makelib xcelium_lib/axi_register_slice_v2_1_25 \
   "../../../../vhes.gen/sources_1/bd/fmd/ipshared/e1e6/hdl/axi_register_slice_v2_1_vl_rfs.v" \
 -endlib
--makelib xcelium_lib/axi_vip_v1_1_11 -sv \
-  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/63b7/hdl/axi_vip_v1_1_vl_rfs.sv" \
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/fmd/ip/fmd_s00_regslice_0/sim/fmd_s00_regslice_0.v" \
+-endlib
+-makelib xcelium_lib/generic_baseblocks_v2_1_0 \
+  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/fifo_generator_v13_2_6 \
+  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/8ae1/simulation/fifo_generator_vlog_beh.v" \
+-endlib
+-makelib xcelium_lib/fifo_generator_v13_2_6 \
+  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/8ae1/hdl/fifo_generator_v13_2_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/fifo_generator_v13_2_6 \
+  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/8ae1/hdl/fifo_generator_v13_2_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_data_fifo_v2_1_24 \
+  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/fa53/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_protocol_converter_v2_1_25 \
+  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/8fe4/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_clock_converter_v2_1_24 \
+  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/23c0/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/blk_mem_gen_v8_4_5 \
+  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/25a8/simulation/blk_mem_gen_v8_4.v" \
+-endlib
+-makelib xcelium_lib/axi_dwidth_converter_v2_1_25 \
+  "../../../../vhes.gen/sources_1/bd/fmd/ipshared/38b4/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/fmd/ip/fmd_axi_smc_0/sim/fmd_axi_smc_0.v" \
-  "../../../bd/fmd/ip/fmd_clk_wiz_0_0/fmd_clk_wiz_0_0_clk_wiz.v" \
-  "../../../bd/fmd/ip/fmd_clk_wiz_0_0/fmd_clk_wiz_0_0.v" \
-  "../../../bd/fmd/sim/fmd.v" \
+  "../../../bd/fmd/ip/fmd_auto_us_df_0/sim/fmd_auto_us_df_0.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

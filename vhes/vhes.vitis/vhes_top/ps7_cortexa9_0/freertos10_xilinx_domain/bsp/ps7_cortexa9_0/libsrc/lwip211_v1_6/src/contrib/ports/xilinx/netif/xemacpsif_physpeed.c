@@ -525,6 +525,8 @@ static u32_t get_phy_speed_ksz9031(XEmacPs *xemacpsp, u32_t phy_addr)
 	u16_t status;
 	u16_t status_speed;
 	u32_t timeout_counter = 0;
+	u32_t temp_speed;
+	u32_t phyregtemp;
 
 	xil_printf("Start PHY autonegotiation \r\n");
 
@@ -584,7 +586,7 @@ static u32_t get_phy_speed_ksz9031(XEmacPs *xemacpsp, u32_t phy_addr)
 
 		if (timeout_counter == 30) {
 			xil_printf("Auto negotiation error \r\n");
-			return 10;
+			return;
 		}
 		XEmacPs_PhyRead(xemacpsp, phy_addr, IEEE_STATUS_REG_OFFSET, &status);
 	}

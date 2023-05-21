@@ -1,26 +1,11 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2023/05/11 00:39:54
-// Design Name: 
-// Module Name: vhes_top
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 
 module vhes_top(
+    input clk_200M_p_i,
+    input clk_200M_n_i,
+    output sys_init_done_o,
+    output bs_overflow_n_o,
+    output skip_frame_flag_n_o,
     /* HDMI 信号 */ 
     input pclk_i,                                   // 像素时钟（1080P@60fps：148.5MHz）
     input hsync_i,                                  // 行同步信号
@@ -73,12 +58,18 @@ module vhes_top(
 );
 
 /************************** 信号线定义 *************************/
-    wire clk_100M;
     wire vhes_core_rst_n;
-    wire vhes_core_rst_done;
 
+    wire hevc_bs_rd_en;
+    wire hevc_bs_rd_clk;
     wire hevc_bs_valid;
     wire [31:0] hevc_bs_data;
+
+    wire bs_overflow;
+    wire skip_frame_flag;
+
+    assign bs_overflow_n_o = ~bs_overflow;
+    assign skip_frame_flag_n_o = ~skip_frame_flag;
 
     vhes_core_top#
     (
@@ -89,18 +80,22 @@ module vhes_top(
         .ENABLE_IINP(0),
         .ENABLE_DB(0),
         .ENABLE_SAO(0),
-        .POSI4x4BIT(0)
+        .POSI4x4BIT(4)
     ) vhes_core_top
     (
         .rst_n_i(vhes_core_rst_n),
-        .clk_100M_i(clk_100M),
-        .rst_done_o(vhes_core_rst_done),
+        .clk_200M_p_i(clk_200M_p_i),
+        .clk_200M_n_i(clk_200M_n_i),
+        .rst_done_o(sys_init_done_o),
+        .bs_overflow_o(bs_overflow),
+        .skip_frame_flag_o(skip_frame_flag),
         .pclk_i(pclk_i),
         .hsync_i(hsync_i),
         .vsync_i(vsync_i),
         .rgb_i(rgb_i),
         .de_i(de_i),
-        .bs_rd_clk_i(clk_100M),
+        .clk_bs_rd_i(hevc_bs_rd_clk),
+        .bs_rd_en_i(hevc_bs_rd_en),
         .bs_valid_o(hevc_bs_valid),
         .bs_data_o(hevc_bs_data),
         .DDR_PL_addr(DDR_PL_addr),
@@ -142,11 +137,12 @@ module vhes_top(
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-        .axis_transform_data_i(hevc_bs_data),
-        .axis_transform_en_i(hevc_bs_valid),
-        .axis_transform_start_i(vhes_core_rst_done),
-        .clk_100M_o(clk_100M),
-        .rst_n_o(vhes_core_rst_n),
+        .bs_data_i(hevc_bs_data),
+        .bs_valid_i(hevc_bs_valid),
+        .axis_transform_start_o(hevc_bs_rd_en),
+        .vhes_core_rst_n_o(vhes_core_rst_n),
+        .vhes_core_rst_done_i(sys_init_done_o),
+        .clk_100M_o(hevc_bs_rd_clk),
         .sii_scl_io(sii_scl),
         .sii_sda_io(sii_sda),
         .sii_rst_n_o(sii_rst_n)

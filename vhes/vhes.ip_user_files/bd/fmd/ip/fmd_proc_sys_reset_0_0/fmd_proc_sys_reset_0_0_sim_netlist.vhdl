@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Thu May 11 00:28:35 2023
+-- Date        : Thu May 11 00:28:34 2023
 -- Host        : JingDevice running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/Project/vhes/vhes/vhes.gen/sources_1/bd/fmd/ip/fmd_proc_sys_reset_0_0/fmd_proc_sys_reset_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top fmd_proc_sys_reset_0_0 -prefix
+--               fmd_proc_sys_reset_0_0_ fmd_proc_sys_reset_0_0_sim_netlist.vhdl
 -- Design      : fmd_proc_sys_reset_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -26,8 +26,6 @@ entity fmd_proc_sys_reset_0_0_cdc_sync is
     mb_debug_sys_rst : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fmd_proc_sys_reset_0_0_cdc_sync : entity is "cdc_sync";
 end fmd_proc_sys_reset_0_0_cdc_sync;
 
 architecture STRUCTURE of fmd_proc_sys_reset_0_0_cdc_sync is
@@ -247,8 +245,6 @@ entity fmd_proc_sys_reset_0_0_upcnt_n is
     seq_cnt_en : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fmd_proc_sys_reset_0_0_upcnt_n : entity is "upcnt_n";
 end fmd_proc_sys_reset_0_0_upcnt_n;
 
 architecture STRUCTURE of fmd_proc_sys_reset_0_0_upcnt_n is
@@ -413,8 +409,6 @@ entity fmd_proc_sys_reset_0_0_lpf is
     mb_debug_sys_rst : in STD_LOGIC;
     aux_reset_in : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fmd_proc_sys_reset_0_0_lpf : entity is "lpf";
 end fmd_proc_sys_reset_0_0_lpf;
 
 architecture STRUCTURE of fmd_proc_sys_reset_0_0_lpf is
@@ -603,8 +597,6 @@ entity fmd_proc_sys_reset_0_0_sequence_psr is
     lpf_int : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fmd_proc_sys_reset_0_0_sequence_psr : entity is "sequence_psr";
 end fmd_proc_sys_reset_0_0_sequence_psr;
 
 architecture STRUCTURE of fmd_proc_sys_reset_0_0_sequence_psr is
@@ -943,8 +935,6 @@ entity fmd_proc_sys_reset_0_0_proc_sys_reset is
   attribute C_NUM_PERP_ARESETN of fmd_proc_sys_reset_0_0_proc_sys_reset : entity is 1;
   attribute C_NUM_PERP_RST : integer;
   attribute C_NUM_PERP_RST of fmd_proc_sys_reset_0_0_proc_sys_reset : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fmd_proc_sys_reset_0_0_proc_sys_reset : entity is "proc_sys_reset";
 end fmd_proc_sys_reset_0_0_proc_sys_reset;
 
 architecture STRUCTURE of fmd_proc_sys_reset_0_0_proc_sys_reset is

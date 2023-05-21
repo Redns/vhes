@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Thu May 11 00:28:36 2023
+// Date        : Thu May 11 00:28:35 2023
 // Host        : JingDevice running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/Project/vhes/vhes/vhes.gen/sources_1/bd/fmd/ip/fmd_uiFDMA_0_0/fmd_uiFDMA_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top fmd_uiFDMA_0_0 -prefix
+//               fmd_uiFDMA_0_0_ fmd_uiFDMA_0_0_sim_netlist.v
 // Design      : fmd_uiFDMA_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -247,7 +247,6 @@ module fmd_uiFDMA_0_0
         .fdma_wvalid(fdma_wvalid));
 endmodule
 
-(* ORIG_REF_NAME = "uiFDMA" *) 
 module fmd_uiFDMA_0_0_uiFDMA
    (fdma_wvalid,
     fdma_rvalid,
