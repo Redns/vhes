@@ -78,7 +78,7 @@ module vhes_core_top#
 
     wire pixel_buffer_full;
     wire pixel_buffer_empty;
-    wire [13:0] pixel_buffer_rd_cnt;
+    wire [10:0] pixel_buffer_rd_cnt;
     wire frame_last_block_come;
 
     // CTRL & extif

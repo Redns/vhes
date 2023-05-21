@@ -43,3 +43,6 @@ platform generate -domains
 platform active {vhes_top}
 platform config -updatehw {E:/Project/vhes/vhes/vhes_top.xsa}
 platform generate -domains 
+platform active {vhes_top}
+platform config -updatehw {E:/Project/vhes/vhes/vhes_top.xsa}
+platform generate -domains 

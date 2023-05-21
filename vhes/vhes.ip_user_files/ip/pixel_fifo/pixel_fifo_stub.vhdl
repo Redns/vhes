@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Thu May 18 00:54:03 2023
+-- Date        : Sun May 21 21:26:34 2023
 -- Host        : JingDevice running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub -rename_top pixel_fifo -prefix
---               pixel_fifo_ pixel_fifo_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub
+--               e:/Project/vhes/vhes/vhes.gen/sources_1/ip/pixel_fifo/pixel_fifo_stub.vhdl
 -- Design      : pixel_fifo
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z100ffg900-2
@@ -23,7 +23,7 @@ entity pixel_fifo is
     dout : out STD_LOGIC_VECTOR ( 127 downto 0 );
     full : out STD_LOGIC;
     empty : out STD_LOGIC;
-    rd_data_count : out STD_LOGIC_VECTOR ( 13 downto 0 );
+    rd_data_count : out STD_LOGIC_VECTOR ( 10 downto 0 );
     prog_full : out STD_LOGIC;
     wr_rst_busy : out STD_LOGIC;
     rd_rst_busy : out STD_LOGIC
@@ -35,7 +35,7 @@ architecture stub of pixel_fifo is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "rst,wr_clk,rd_clk,din[127:0],wr_en,rd_en,dout[127:0],full,empty,rd_data_count[13:0],prog_full,wr_rst_busy,rd_rst_busy";
+attribute black_box_pad_pin of stub : architecture is "rst,wr_clk,rd_clk,din[127:0],wr_en,rd_en,dout[127:0],full,empty,rd_data_count[10:0],prog_full,wr_rst_busy,rd_rst_busy";
 attribute x_core_info : string;
 attribute x_core_info of stub : architecture is "fifo_generator_v13_2_6,Vivado 2021.2";
 begin

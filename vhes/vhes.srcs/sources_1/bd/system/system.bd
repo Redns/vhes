@@ -33,7 +33,7 @@
         }
       },
       "gpio_sii_rst_n": "",
-      "gpio_pl_rst_n": "",
+      "gpio_vhes_core_rst_n": "",
       "gpio_axis_transmit_start": "",
       "gpio_vhes_core_rst_done": ""
     },
@@ -2024,11 +2024,11 @@
           }
         }
       },
-      "gpio_pl_rst_n": {
+      "gpio_vhes_core_rst_n": {
         "vlnv": "xilinx.com:ip:axi_gpio:2.0",
         "xci_name": "system_axi_gpio_1_0",
         "xci_path": "ip\\system_axi_gpio_1_0\\system_axi_gpio_1_0.xci",
-        "inst_hier_path": "gpio_pl_rst_n",
+        "inst_hier_path": "gpio_vhes_core_rst_n",
         "parameters": {
           "C_GPIO_WIDTH": {
             "value": "1"
@@ -2110,7 +2110,7 @@
       "ps7_0_axi_periph_M02_AXI": {
         "interface_ports": [
           "ps7_0_axi_periph/M02_AXI",
-          "gpio_pl_rst_n/S_AXI"
+          "gpio_vhes_core_rst_n/S_AXI"
         ]
       },
       "ps7_0_axi_periph_M03_AXI": {
@@ -2159,7 +2159,7 @@
       },
       "axi_gpio_1_gpio_io_o": {
         "ports": [
-          "gpio_pl_rst_n/gpio_io_o",
+          "gpio_vhes_core_rst_n/gpio_io_o",
           "vhes_core_rst_n_o"
         ]
       },
@@ -2195,7 +2195,7 @@
           "ui_axisbufw_0/W_wclk_i",
           "gpio_sii_rst_n/s_axi_aclk",
           "ps7_0_axi_periph/M01_ACLK",
-          "gpio_pl_rst_n/s_axi_aclk",
+          "gpio_vhes_core_rst_n/s_axi_aclk",
           "ps7_0_axi_periph/M02_ACLK",
           "gpio_axis_transmit_start/s_axi_aclk",
           "ps7_0_axi_periph/M03_ACLK",
@@ -2222,7 +2222,7 @@
           "gpio_sii_rst_n/s_axi_aresetn",
           "ps7_0_axi_periph/M01_ARESETN",
           "ui_axisbufw_0/ui_rstn",
-          "gpio_pl_rst_n/s_axi_aresetn",
+          "gpio_vhes_core_rst_n/s_axi_aresetn",
           "ps7_0_axi_periph/M02_ARESETN",
           "gpio_axis_transmit_start/s_axi_aresetn",
           "ps7_0_axi_periph/M03_ARESETN",
@@ -2252,7 +2252,7 @@
                 "range": "64K"
               },
               "SEG_axi_gpio_1_Reg": {
-                "address_block": "/gpio_pl_rst_n/S_AXI/Reg",
+                "address_block": "/gpio_vhes_core_rst_n/S_AXI/Reg",
                 "offset": "0x41210000",
                 "range": "64K"
               },

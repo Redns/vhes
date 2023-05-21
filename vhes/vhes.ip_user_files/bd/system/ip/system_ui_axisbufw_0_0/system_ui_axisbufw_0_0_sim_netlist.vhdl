@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
 -- Date        : Wed May 10 23:50:27 2023
 -- Host        : JingDevice running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/Project/vhes/vhes/vhes.gen/sources_1/bd/system/ip/system_ui_axisbufw_0_0/system_ui_axisbufw_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_ui_axisbufw_0_0 -prefix
+--               system_ui_axisbufw_0_0_ system_ui_axisbufw_0_0_sim_netlist.vhdl
 -- Design      : system_ui_axisbufw_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -21,8 +21,6 @@ entity system_ui_axisbufw_0_0_fs_cap is
     vs_i : in STD_LOGIC;
     fs_cap_o : out STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_ui_axisbufw_0_0_fs_cap : entity is "fs_cap";
   attribute VIDEO_ENABLE : integer;
   attribute VIDEO_ENABLE of system_ui_axisbufw_0_0_fs_cap : entity is 0;
 end system_ui_axisbufw_0_0_fs_cap;
@@ -114,8 +112,6 @@ entity system_ui_axisbufw_0_0_xpm_cdc_gray is
   attribute DEST_SYNC_FF of system_ui_axisbufw_0_0_xpm_cdc_gray : entity is 2;
   attribute INIT_SYNC_FF : integer;
   attribute INIT_SYNC_FF of system_ui_axisbufw_0_0_xpm_cdc_gray : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_ui_axisbufw_0_0_xpm_cdc_gray : entity is "xpm_cdc_gray";
   attribute REG_OUTPUT : integer;
   attribute REG_OUTPUT of system_ui_axisbufw_0_0_xpm_cdc_gray : entity is 0;
   attribute SIM_ASSERT_CHK : integer;
@@ -2869,8 +2865,6 @@ entity system_ui_axisbufw_0_0_xpm_cdc_sync_rst is
   attribute INIT of system_ui_axisbufw_0_0_xpm_cdc_sync_rst : entity is "0";
   attribute INIT_SYNC_FF : integer;
   attribute INIT_SYNC_FF of system_ui_axisbufw_0_0_xpm_cdc_sync_rst : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_ui_axisbufw_0_0_xpm_cdc_sync_rst : entity is "xpm_cdc_sync_rst";
   attribute SIM_ASSERT_CHK : integer;
   attribute SIM_ASSERT_CHK of system_ui_axisbufw_0_0_xpm_cdc_sync_rst : entity is 0;
   attribute VERSION : integer;
@@ -3012,8 +3006,6 @@ entity system_ui_axisbufw_0_0_xpm_counter_updn is
     \count_value_i_reg[1]_1\ : in STD_LOGIC;
     rd_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_ui_axisbufw_0_0_xpm_counter_updn : entity is "xpm_counter_updn";
 end system_ui_axisbufw_0_0_xpm_counter_updn;
 
 architecture STRUCTURE of system_ui_axisbufw_0_0_xpm_counter_updn is
@@ -5047,8 +5039,6 @@ entity system_ui_axisbufw_0_0_xpm_fifo_reg_bit is
     \count_value_i_reg[3]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \count_value_i_reg[3]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_ui_axisbufw_0_0_xpm_fifo_reg_bit : entity is "xpm_fifo_reg_bit";
 end system_ui_axisbufw_0_0_xpm_fifo_reg_bit;
 
 architecture STRUCTURE of system_ui_axisbufw_0_0_xpm_fifo_reg_bit is
@@ -5144,8 +5134,6 @@ entity system_ui_axisbufw_0_0_xpm_fifo_reg_vec is
     D : in STD_LOGIC_VECTOR ( 10 downto 0 );
     wr_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_ui_axisbufw_0_0_xpm_fifo_reg_vec : entity is "xpm_fifo_reg_vec";
 end system_ui_axisbufw_0_0_xpm_fifo_reg_vec;
 
 architecture STRUCTURE of system_ui_axisbufw_0_0_xpm_fifo_reg_vec is
@@ -6343,8 +6331,6 @@ entity system_ui_axisbufw_0_0_xpm_memory_base is
   attribute MESSAGE_CONTROL of system_ui_axisbufw_0_0_xpm_memory_base : entity is 0;
   attribute NUM_CHAR_LOC : integer;
   attribute NUM_CHAR_LOC of system_ui_axisbufw_0_0_xpm_memory_base : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_ui_axisbufw_0_0_xpm_memory_base : entity is "xpm_memory_base";
   attribute P_ECC_MODE : string;
   attribute P_ECC_MODE of system_ui_axisbufw_0_0_xpm_memory_base : entity is "no_ecc";
   attribute P_ENABLE_BYTE_WRITE_A : integer;
@@ -7022,8 +7008,6 @@ entity system_ui_axisbufw_0_0_xpm_fifo_rst is
     rd_en : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_ui_axisbufw_0_0_xpm_fifo_rst : entity is "xpm_fifo_rst";
 end system_ui_axisbufw_0_0_xpm_fifo_rst;
 
 architecture STRUCTURE of system_ui_axisbufw_0_0_xpm_fifo_rst is
@@ -7599,8 +7583,6 @@ entity system_ui_axisbufw_0_0_xpm_fifo_base is
   attribute FULL_RESET_VALUE of system_ui_axisbufw_0_0_xpm_fifo_base : entity is 0;
   attribute FULL_RST_VAL : string;
   attribute FULL_RST_VAL of system_ui_axisbufw_0_0_xpm_fifo_base : entity is "1'b0";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_ui_axisbufw_0_0_xpm_fifo_base : entity is "xpm_fifo_base";
   attribute PE_THRESH_ADJ : integer;
   attribute PE_THRESH_ADJ of system_ui_axisbufw_0_0_xpm_fifo_base : entity is 8;
   attribute PE_THRESH_MAX : integer;
@@ -9067,8 +9049,6 @@ entity system_ui_axisbufw_0_0_xpm_fifo_async is
   attribute FIFO_WRITE_DEPTH of system_ui_axisbufw_0_0_xpm_fifo_async : entity is 2048;
   attribute FULL_RESET_VALUE : integer;
   attribute FULL_RESET_VALUE of system_ui_axisbufw_0_0_xpm_fifo_async : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_ui_axisbufw_0_0_xpm_fifo_async : entity is "xpm_fifo_async";
   attribute PROG_EMPTY_THRESH : integer;
   attribute PROG_EMPTY_THRESH of system_ui_axisbufw_0_0_xpm_fifo_async : entity is 10;
   attribute PROG_FULL_THRESH : integer;
@@ -9288,8 +9268,6 @@ entity system_ui_axisbufw_0_0_ui_axisbufw is
   attribute AXI_DATA_WIDTH of system_ui_axisbufw_0_0_ui_axisbufw : entity is 32;
   attribute FDMA_WX_BURST : integer;
   attribute FDMA_WX_BURST of system_ui_axisbufw_0_0_ui_axisbufw : entity is 1024;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_ui_axisbufw_0_0_ui_axisbufw : entity is "ui_axisbufw";
   attribute S_DATA1 : string;
   attribute S_DATA1 of system_ui_axisbufw_0_0_ui_axisbufw : entity is "2'b10";
   attribute S_DATA2 : string;

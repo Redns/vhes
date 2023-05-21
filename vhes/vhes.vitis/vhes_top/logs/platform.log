@@ -8399,3 +8399,1015 @@ TRACE::2023-05-17.10:59:54::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/v
 E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
 
 TRACE::2023-05-17.10:59:54::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:45::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:45::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:45::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:45::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:45::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:45::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:45::SCWPlatform::Do not have an existing db opened. 
+TRACE::2023-05-21.20:09:50::SCWPlatform::Opened new HwDB with name vhes_top
+TRACE::2023-05-21.20:09:50::SCWReader::Active system found as  vhes_top
+TRACE::2023-05-21.20:09:50::SCWReader::Handling sysconfig vhes_top
+TRACE::2023-05-21.20:09:50::SCWDomain::checking for install qemu data   : 
+TRACE::2023-05-21.20:09:50::SCWDomain:: Using the QEMU Data from install at  : D:/Xilinx/Vitis/2021.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/
+TRACE::2023-05-21.20:09:50::SCWDomain:: Using the QEMU args  from install at  : D:/Xilinx/Vitis/2021.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:50::SCWReader::Boot application domain added for zynq_fsbl
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:50::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS::DEBUG:  swdes dump  
+TRACE::2023-05-21.20:09:50::SCWMssOS::No sw design opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS::mss exists loading the mss file  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS::Opened the sw design from mss  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS::Adding the swdes entry E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system
+TRACE::2023-05-21.20:09:50::SCWMssOS::updating the scw layer about changes
+TRACE::2023-05-21.20:09:50::SCWMssOS::Opened the sw design.  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:50::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:09:50::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS:: library already available in sw design:  xilffs:4.6
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:50::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:09:50::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS:: library already available in sw design:  xilrsa:1.6
+TRACE::2023-05-21.20:09:50::SCWMssOS::Saving the mss changes E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2023-05-21.20:09:50::SCWMssOS::Completed writemss as part of save.
+TRACE::2023-05-21.20:09:50::SCWMssOS::Commit changes completed.
+TRACE::2023-05-21.20:09:50::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2023-05-21.20:09:50::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:50::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:09:50::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWReader::No isolation master present  
+TRACE::2023-05-21.20:09:50::SCWDomain::checking for install qemu data   : 
+TRACE::2023-05-21.20:09:50::SCWDomain:: Using the QEMU Data from install at  : D:/Xilinx/Vitis/2021.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/
+TRACE::2023-05-21.20:09:50::SCWDomain:: Using the QEMU args  from install at  : D:/Xilinx/Vitis/2021.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:50::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:50::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:50::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:09:50::SCWMssOS::No sw design opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS::mss exists loading the mss file  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS::Opened the sw design from mss  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:50::SCWMssOS::Adding the swdes entry E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss with des name system_0
+TRACE::2023-05-21.20:09:50::SCWMssOS::updating the scw layer about changes
+TRACE::2023-05-21.20:09:51::SCWMssOS::Opened the sw design.  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:51::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:51::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:51::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:51::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:51::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:51::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:51::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss|system_0||
+E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:09:51::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:51::SCWMssOS:: library already available in sw design:  lwip211:1.6
+TRACE::2023-05-21.20:09:51::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:51::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:51::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:51::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:51::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:51::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:51::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss|system_0||
+E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:09:51::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:51::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:51::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:51::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:51::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:51::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:51::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:51::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss|system_0||
+E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:09:51::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:51::SCWMssOS::Saving the mss changes E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:51::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2023-05-21.20:09:51::SCWMssOS::Completed writemss as part of save.
+TRACE::2023-05-21.20:09:51::SCWMssOS::Commit changes completed.
+TRACE::2023-05-21.20:09:51::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2023-05-21.20:09:51::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2023-05-21.20:09:51::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:09:51::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:09:51::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:09:51::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:09:51::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:09:51::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:09:51::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:51::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss|system_0||
+E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:09:51::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:09:51::SCWReader::No isolation master present  
+TRACE::2023-05-21.20:09:55::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa/vhes_top.xsa
+TRACE::2023-05-21.20:09:55::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa/vhes_top.xsa
+TRACE::2023-05-21.20:09:55::SCWPlatform:: Platform location is E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa
+TRACE::2023-05-21.20:09:55::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa/vhes_top.xsa
+TRACE::2023-05-21.20:09:55::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:10:00::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:10:00::SCWMssOS::Doing hw sync for the mss in domain: zynq_fsbl
+TRACE::2023-05-21.20:10:00::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:10:00::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:10:00::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:10:00::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:10:00::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:10:00::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:10:00::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:10:00::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:10:00::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:10:00::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss|system_0||
+E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:10:00::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:10:00::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:10:00::SCWPlatform::update - Opened existing hwdb vhes_top_0
+TRACE::2023-05-21.20:10:00::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:10:00::SCWMssOS::Doing hw sync for the mss in domain: freertos10_xilinx_domain
+TRACE::2023-05-21.20:10:00::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:10:00::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:10:00::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:10:00::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:10:00::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:10:00::SCWPlatform::Trying to set the existing hwdb with name vhes_top
+TRACE::2023-05-21.20:10:00::SCWPlatform::Opened existing hwdb vhes_top
+TRACE::2023-05-21.20:10:00::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:10:00::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:10:00::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss|system_0||
+E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:10:00::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:10:00::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/tempdsa/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:10:00::SCWPlatform::update - Opened existing hwdb vhes_top_0
+TRACE::2023-05-21.20:10:00::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:10:00::SCWMssOS::Saving the mss changes E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:10:00::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2023-05-21.20:10:00::SCWMssOS::Completed writemss as part of save.
+TRACE::2023-05-21.20:10:00::SCWMssOS::Commit changes completed.
+TRACE::2023-05-21.20:10:00::SCWMssOS::Completed hw sync for the mss in domain: zynq_fsbl
+TRACE::2023-05-21.20:10:00::SCWMssOS::Removing the swdes entry for  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:10:00::SCWMssOS::Saving the mss changes E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:10:00::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2023-05-21.20:10:00::SCWMssOS::Completed writemss as part of save.
+TRACE::2023-05-21.20:10:00::SCWMssOS::Commit changes completed.
+TRACE::2023-05-21.20:10:00::SCWMssOS::Completed hw sync for the mss in domain: freertos10_xilinx_domain
+TRACE::2023-05-21.20:10:00::SCWMssOS::Removing the swdes entry for  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:10:00::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:00::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:10:00::SCWPlatform::Do not have an existing db opened. 
+TRACE::2023-05-21.20:10:05::SCWPlatform::Opened new HwDB with name vhes_top_1
+TRACE::2023-05-21.20:10:05::SCWMssOS::Saving the mss changes E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:10:05::SCWMssOS::Adding the swdes entry, mss present, able to open swdb E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system
+TRACE::2023-05-21.20:10:05::SCWMssOS::Writing the mss file completed E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:10:05::SCWMssOS::Commit changes completed.
+TRACE::2023-05-21.20:10:05::SCWMssOS::Saving the mss changes E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:10:05::SCWMssOS::Adding the swdes entry, mss present, able to open swdb E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss with des name system_0
+TRACE::2023-05-21.20:10:05::SCWMssOS::Writing the mss file completed E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:10:05::SCWMssOS::Commit changes completed.
+TRACE::2023-05-21.20:10:05::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:05::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:05::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:05::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:10:05::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:05::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:10:05::SCWPlatform::Trying to set the existing hwdb with name vhes_top_1
+TRACE::2023-05-21.20:10:05::SCWPlatform::Opened existing hwdb vhes_top_1
+TRACE::2023-05-21.20:10:05::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:10:05::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:10:05::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss|system_0||
+E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:10:05::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:10:05::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:05::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:05::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:05::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:10:05::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:05::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:10:05::SCWPlatform::Trying to set the existing hwdb with name vhes_top_1
+TRACE::2023-05-21.20:10:05::SCWPlatform::Opened existing hwdb vhes_top_1
+TRACE::2023-05-21.20:10:05::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:10:05::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:10:05::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss|system_0||
+E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:10:05::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:10:05::SCWWriter::formatted JSON is {
+	"platformName":	"vhes_top",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"vhes_top",
+	"platHandOff":	"E:/Project/vhes/vhes/vhes_top.xsa",
+	"platIntHandOff":	"<platformDir>/hw/vhes_top.xsa",
+	"deviceType":	"zynq",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"fsblExtraCompilerFlags":	"-MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard ",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"vhes_top",
+	"systems":	[{
+			"systemName":	"vhes_top",
+			"systemDesc":	"vhes_top",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"vhes_top",
+			"sysActiveDom":	"freertos10_xilinx_domain",
+			"sysDefaultDom":	"freertos10_xilinx_domain",
+			"domains":	[{
+					"domainName":	"zynq_fsbl",
+					"domainDispName":	"zynq_fsbl",
+					"domainDesc":	"FSBL Application BSP - Auto Generated.",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.6",
+					"mssFile":	"",
+					"md5Digest":	"f316075a68423d1f574d6ca7950bc15d",
+					"compatibleApp":	"zynq_fsbl",
+					"domType":	"bootDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	["xilffs:4.6", "xilrsa:1.6"],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}, {
+					"domainName":	"freertos10_xilinx_domain",
+					"domainDispName":	"freertos10_xilinx on ps7_cortexa9_0",
+					"domainDesc":	"freertos10_xilinx_domain",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"freertos10_xilinx",
+					"sdxOs":	"freertos10_xilinx",
+					"qemuArgs":	"D:/Xilinx/Vitis/2021.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt",
+					"qemuData":	"D:/Xilinx/Vitis/2021.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"1.10",
+					"mssFile":	"",
+					"md5Digest":	"4140aaaa50fecf711513dfa7c6ca856f",
+					"compatibleApp":	"",
+					"domType":	"mssDomain",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	["lwip211:1.6"],
+					"libOptions":	{
+						"lwip211":	{
+							"api_mode":	"SOCKET_API",
+							"libOptionNames":	["api_mode"]
+						},
+						"libsContainingOptions":	["lwip211"]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+LOG::2023-05-21.20:10:29::SCWPlatform::Started generating the artifacts platform vhes_top
+TRACE::2023-05-21.20:10:29::SCWPlatform::Sanity checking of platform is completed
+LOG::2023-05-21.20:10:29::SCWPlatform::Started generating the artifacts for system configuration vhes_top
+LOG::2023-05-21.20:10:29::SCWSystem::Checking the domain zynq_fsbl
+LOG::2023-05-21.20:10:29::SCWSystem::Doing application build for :  zynq_fsbl
+TRACE::2023-05-21.20:10:29::SCWBDomain::Not a forced makefile updation, No changes are present. 
+TRACE::2023-05-21.20:10:29::SCWDomain::Skipping the build for domain :  zynq_fsbl
+LOG::2023-05-21.20:10:29::SCWSystem::Checking the domain freertos10_xilinx_domain
+LOG::2023-05-21.20:10:29::SCWSystem::Not a boot domain 
+LOG::2023-05-21.20:10:29::SCWSystem::Started Processing the domain freertos10_xilinx_domain
+TRACE::2023-05-21.20:10:29::SCWDomain::Generating domain artifcats
+TRACE::2023-05-21.20:10:29::SCWMssOS::Generating standalone artifcats
+TRACE::2023-05-21.20:10:29::SCWMssOS::Copying the qemu file from  D:/Xilinx/Vitis/2021.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt To E:/Project/vhes/vhes/vhes.vitis/vhes_top/export/vhes_top/sw/vhes_top/qemu/
+TRACE::2023-05-21.20:10:29::SCWMssOS::Copying the qemu file from  D:/Xilinx/Vitis/2021.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt To E:/Project/vhes/vhes/vhes.vitis/vhes_top/export/vhes_top/sw/vhes_top/freertos10_xilinx_domain/qemu/
+TRACE::2023-05-21.20:10:29::SCWMssOS:: Copying the user libraries. 
+TRACE::2023-05-21.20:10:29::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:29::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:29::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:29::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:10:29::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:10:29::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:10:29::SCWPlatform::Trying to set the existing hwdb with name vhes_top_1
+TRACE::2023-05-21.20:10:29::SCWPlatform::Opened existing hwdb vhes_top_1
+TRACE::2023-05-21.20:10:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:10:29::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:10:29::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss|system_0||
+E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:10:29::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:10:29::SCWMssOS::Completed writing the mss file at E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp
+TRACE::2023-05-21.20:10:29::SCWMssOS::Mss edits present, copying mssfile into export location E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:10:30::SCWMssOS::bsp generated is stale removing and regenerating. 
+TRACE::2023-05-21.20:10:35::SCWMssOS::doing bsp build ... 
+TRACE::2023-05-21.20:10:35::SCWMssOS::System Command Ran  E: & cd  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp & make 
+TRACE::2023-05-21.20:10:35::SCWMssOS::make --no-print-directory seq_libs
+
+TRACE::2023-05-21.20:10:35::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/axidma_v9_13/src"
+
+TRACE::2023-05-21.20:10:35::SCWMssOS::make -C ps7_cortexa9_0/libsrc/axidma_v9_13/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2023-05-21.20:10:35::SCWMssOS::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2023-05-21.20:10:35::SCWMssOS::tartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:36::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src"
+
+TRACE::2023-05-21.20:10:36::SCWMssOS::make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none
+TRACE::2023-05-21.20:10:36::SCWMssOS::-eabi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=h
+TRACE::2023-05-21.20:10:36::SCWMssOS::ard -nostartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:36::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_11/src"
+
+TRACE::2023-05-21.20:10:36::SCWMssOS::make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_11/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-e
+TRACE::2023-05-21.20:10:36::SCWMssOS::abi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=har
+TRACE::2023-05-21.20:10:36::SCWMssOS::d -nostartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:36::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_2/src"
+
+TRACE::2023-05-21.20:10:36::SCWMssOS::make -C ps7_cortexa9_0/libsrc/ddrps_v1_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2023-05-21.20:10:36::SCWMssOS::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2023-05-21.20:10:36::SCWMssOS::rtfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:36::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_7/src"
+
+TRACE::2023-05-21.20:10:36::SCWMssOS::make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:10:36::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:10:36::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:37::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_8/src"
+
+TRACE::2023-05-21.20:10:37::SCWMssOS::make -C ps7_cortexa9_0/libsrc/dmaps_v2_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2023-05-21.20:10:37::SCWMssOS::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2023-05-21.20:10:37::SCWMssOS::rtfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:37::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_15/src"
+
+TRACE::2023-05-21.20:10:37::SCWMssOS::make -C ps7_cortexa9_0/libsrc/emacps_v3_15/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2023-05-21.20:10:37::SCWMssOS::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2023-05-21.20:10:37::SCWMssOS::tartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:37::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_10/src"
+
+TRACE::2023-05-21.20:10:37::SCWMssOS::make -C ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-n
+TRACE::2023-05-21.20:10:37::SCWMssOS::one-eabi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-ab
+TRACE::2023-05-21.20:10:37::SCWMssOS::i=hard -nostartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:39::SCWMssOS::"includes"
+
+TRACE::2023-05-21.20:10:42::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_9/src"
+
+TRACE::2023-05-21.20:10:42::SCWMssOS::make -C ps7_cortexa9_0/libsrc/gpiops_v3_9/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:10:42::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:10:42::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:42::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_8/src"
+
+TRACE::2023-05-21.20:10:42::SCWMssOS::make -C ps7_cortexa9_0/libsrc/gpio_v4_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+TRACE::2023-05-21.20:10:42::SCWMssOS::ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+TRACE::2023-05-21.20:10:42::SCWMssOS::tfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:42::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/iicps_v3_14/src"
+
+TRACE::2023-05-21.20:10:42::SCWMssOS::make -C ps7_cortexa9_0/libsrc/iicps_v3_14/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:10:42::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:10:42::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:42::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/lwip211_v1_6/src"
+
+TRACE::2023-05-21.20:10:42::SCWMssOS::make -C ps7_cortexa9_0/libsrc/lwip211_v1_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2023-05-21.20:10:42::SCWMssOS::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2023-05-21.20:10:42::SCWMssOS::tartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:45::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_9/src"
+
+TRACE::2023-05-21.20:10:45::SCWMssOS::make -C ps7_cortexa9_0/libsrc/qspips_v3_9/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:10:45::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:10:45::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:45::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_6/src"
+
+TRACE::2023-05-21.20:10:45::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scugic_v4_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:10:45::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:10:45::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:45::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_3/src"
+
+TRACE::2023-05-21.20:10:45::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-a
+TRACE::2023-05-21.20:10:45::SCWMssOS::s" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -no
+TRACE::2023-05-21.20:10:45::SCWMssOS::startfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:46::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_4/src"
+
+TRACE::2023-05-21.20:10:46::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scuwdt_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:10:46::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:10:46::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:46::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_13/src"
+
+TRACE::2023-05-21.20:10:46::SCWMssOS::make -C ps7_cortexa9_0/libsrc/sdps_v3_13/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2023-05-21.20:10:46::SCWMssOS::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2023-05-21.20:10:46::SCWMssOS::rtfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:46::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_11/src"
+
+TRACE::2023-05-21.20:10:46::SCWMssOS::make -C ps7_cortexa9_0/libsrc/uartps_v3_11/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2023-05-21.20:10:46::SCWMssOS::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2023-05-21.20:10:46::SCWMssOS::tartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:46::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_6/src"
+
+TRACE::2023-05-21.20:10:46::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xadcps_v2_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:10:46::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:10:46::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:47::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/lwip211_v1_6/src"
+
+TRACE::2023-05-21.20:10:47::SCWMssOS::make -C ps7_cortexa9_0/libsrc/lwip211_v1_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+TRACE::2023-05-21.20:10:47::SCWMssOS::ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+TRACE::2023-05-21.20:10:47::SCWMssOS::tfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:10:47::SCWMssOS::"Compiling lwip src and adapter files"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::'Finished building libraries sequentially.'
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::make -j 6 --no-print-directory par_libs
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/axidma_v9_13/src"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::make -C ps7_cortexa9_0/libsrc/axidma_v9_13/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2023-05-21.20:11:14::SCWMssOS::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2023-05-21.20:11:14::SCWMssOS::tartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none
+TRACE::2023-05-21.20:11:14::SCWMssOS::-eabi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=h
+TRACE::2023-05-21.20:11:14::SCWMssOS::ard -nostartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_11/src"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_11/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-e
+TRACE::2023-05-21.20:11:14::SCWMssOS::abi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=har
+TRACE::2023-05-21.20:11:14::SCWMssOS::d -nostartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_2/src"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::make -C ps7_cortexa9_0/libsrc/ddrps_v1_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2023-05-21.20:11:14::SCWMssOS::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2023-05-21.20:11:14::SCWMssOS::rtfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_7/src"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:11:14::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:11:14::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_8/src"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::make -C ps7_cortexa9_0/libsrc/dmaps_v2_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2023-05-21.20:11:14::SCWMssOS::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2023-05-21.20:11:14::SCWMssOS::rtfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_15/src"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::make -C ps7_cortexa9_0/libsrc/emacps_v3_15/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2023-05-21.20:11:14::SCWMssOS::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2023-05-21.20:11:14::SCWMssOS::tartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_10/src"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::make -C ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-n
+TRACE::2023-05-21.20:11:14::SCWMssOS::one-eabi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-ab
+TRACE::2023-05-21.20:11:14::SCWMssOS::i=hard -nostartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_9/src"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::make -C ps7_cortexa9_0/libsrc/gpiops_v3_9/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:11:14::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:11:14::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_8/src"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::make -C ps7_cortexa9_0/libsrc/gpio_v4_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+TRACE::2023-05-21.20:11:14::SCWMssOS::ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+TRACE::2023-05-21.20:11:14::SCWMssOS::tfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/iicps_v3_14/src"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"includes"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::make -C ps7_cortexa9_0/libsrc/iicps_v3_14/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:11:14::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:11:14::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:14::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/lwip211_v1_6/src"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::make -C ps7_cortexa9_0/libsrc/lwip211_v1_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2023-05-21.20:11:15::SCWMssOS::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2023-05-21.20:11:15::SCWMssOS::tartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_9/src"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::make -C ps7_cortexa9_0/libsrc/qspips_v3_9/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:11:15::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:11:15::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_6/src"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scugic_v4_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:11:15::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:11:15::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_3/src"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-a
+TRACE::2023-05-21.20:11:15::SCWMssOS::s" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -no
+TRACE::2023-05-21.20:11:15::SCWMssOS::startfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_4/src"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_13/src"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scuwdt_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:11:15::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:11:15::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::make -C ps7_cortexa9_0/libsrc/sdps_v3_13/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2023-05-21.20:11:15::SCWMssOS::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2023-05-21.20:11:15::SCWMssOS::rtfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_11/src"
+
+TRACE::2023-05-21.20:11:15::SCWMssOS::make -C ps7_cortexa9_0/libsrc/uartps_v3_11/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2023-05-21.20:11:15::SCWMssOS::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2023-05-21.20:11:15::SCWMssOS::tartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:16::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_6/src"
+
+TRACE::2023-05-21.20:11:16::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xadcps_v2_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2023-05-21.20:11:16::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2023-05-21.20:11:16::SCWMssOS::artfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:16::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/axidma_v9_13/src"
+
+TRACE::2023-05-21.20:11:16::SCWMssOS::make -C ps7_cortexa9_0/libsrc/axidma_v9_13/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+TRACE::2023-05-21.20:11:16::SCWMssOS::ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+TRACE::2023-05-21.20:11:16::SCWMssOS::tfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:16::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src"
+
+TRACE::2023-05-21.20:11:16::SCWMssOS::make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-ea
+TRACE::2023-05-21.20:11:16::SCWMssOS::bi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard
+TRACE::2023-05-21.20:11:16::SCWMssOS:: -nostartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:16::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_11/src"
+
+TRACE::2023-05-21.20:11:16::SCWMssOS::make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_11/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi
+TRACE::2023-05-21.20:11:16::SCWMssOS::-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -
+TRACE::2023-05-21.20:11:16::SCWMssOS::nostartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:16::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_2/src"
+
+TRACE::2023-05-21.20:11:16::SCWMssOS::make -C ps7_cortexa9_0/libsrc/ddrps_v1_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "AR
+TRACE::2023-05-21.20:11:17::SCWMssOS::CHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartf
+TRACE::2023-05-21.20:11:17::SCWMssOS::iles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:17::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_7/src"
+
+TRACE::2023-05-21.20:11:17::SCWMssOS::make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2023-05-21.20:11:17::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2023-05-21.20:11:17::SCWMssOS::files -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:17::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_8/src"
+
+TRACE::2023-05-21.20:11:17::SCWMssOS::make -C ps7_cortexa9_0/libsrc/dmaps_v2_8/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "AR
+TRACE::2023-05-21.20:11:17::SCWMssOS::CHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartf
+TRACE::2023-05-21.20:11:17::SCWMssOS::iles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:18::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_15/src"
+
+TRACE::2023-05-21.20:11:18::SCWMssOS::make -C ps7_cortexa9_0/libsrc/emacps_v3_15/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+TRACE::2023-05-21.20:11:18::SCWMssOS::ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+TRACE::2023-05-21.20:11:18::SCWMssOS::tfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:18::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_10/src"
+
+TRACE::2023-05-21.20:11:18::SCWMssOS::make -C ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_10/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none
+TRACE::2023-05-21.20:11:18::SCWMssOS::-eabi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=h
+TRACE::2023-05-21.20:11:18::SCWMssOS::ard -nostartfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:19::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_9/src"
+
+TRACE::2023-05-21.20:11:19::SCWMssOS::make -C ps7_cortexa9_0/libsrc/gpiops_v3_9/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2023-05-21.20:11:19::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2023-05-21.20:11:19::SCWMssOS::files -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:19::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/gpio_v4_8/src"
+
+TRACE::2023-05-21.20:11:19::SCWMssOS::make -C ps7_cortexa9_0/libsrc/gpio_v4_8/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "ARC
+TRACE::2023-05-21.20:11:19::SCWMssOS::HIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfi
+TRACE::2023-05-21.20:11:19::SCWMssOS::les -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:20::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/iicps_v3_14/src"
+
+TRACE::2023-05-21.20:11:20::SCWMssOS::make -C ps7_cortexa9_0/libsrc/iicps_v3_14/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2023-05-21.20:11:20::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2023-05-21.20:11:20::SCWMssOS::files -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:22::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_9/src"
+
+TRACE::2023-05-21.20:11:22::SCWMssOS::make -C ps7_cortexa9_0/libsrc/qspips_v3_9/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2023-05-21.20:11:22::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2023-05-21.20:11:22::SCWMssOS::files -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:23::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v4_6/src"
+
+TRACE::2023-05-21.20:11:23::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scugic_v4_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2023-05-21.20:11:23::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2023-05-21.20:11:23::SCWMssOS::files -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:24::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_3/src"
+
+TRACE::2023-05-21.20:11:24::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2023-05-21.20:11:24::SCWMssOS::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2023-05-21.20:11:24::SCWMssOS::rtfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:25::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_4/src"
+
+TRACE::2023-05-21.20:11:25::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scuwdt_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2023-05-21.20:11:25::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2023-05-21.20:11:25::SCWMssOS::files -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:26::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_13/src"
+
+TRACE::2023-05-21.20:11:26::SCWMssOS::make -C ps7_cortexa9_0/libsrc/sdps_v3_13/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "AR
+TRACE::2023-05-21.20:11:26::SCWMssOS::CHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartf
+TRACE::2023-05-21.20:11:26::SCWMssOS::iles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:27::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_11/src"
+
+TRACE::2023-05-21.20:11:27::SCWMssOS::make -C ps7_cortexa9_0/libsrc/uartps_v3_11/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+TRACE::2023-05-21.20:11:27::SCWMssOS::ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+TRACE::2023-05-21.20:11:27::SCWMssOS::tfiles -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:27::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_6/src"
+
+TRACE::2023-05-21.20:11:28::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xadcps_v2_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2023-05-21.20:11:28::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2023-05-21.20:11:28::SCWMssOS::files -g -Wall -Wextra -fno-tree-loop-distribute-patterns"
+
+TRACE::2023-05-21.20:11:33::SCWMssOS::'Finished building libraries parallelly.'
+
+TRACE::2023-05-21.20:11:33::SCWMssOS::make --no-print-directory archive
+
+TRACE::2023-05-21.20:11:34::SCWMssOS::arm-none-eabi-ar -r  ps7_cortexa9_0/lib/libxil.a ps7_cortexa9_0/lib/xadcps_selftest.o ps7_cortexa9_0/lib/xplatform_info.o ps7_c
+TRACE::2023-05-21.20:11:34::SCWMssOS::ortexa9_0/lib/xil_mem.o ps7_cortexa9_0/lib/_exit.o ps7_cortexa9_0/lib/xiicps_xfer.o ps7_cortexa9_0/lib/xdevcfg_hw.o ps7_cortexa
+TRACE::2023-05-21.20:11:34::SCWMssOS::9_0/lib/xil_sleeptimer.o ps7_cortexa9_0/lib/xqspips_options.o ps7_cortexa9_0/lib/xdmaps_g.o ps7_cortexa9_0/lib/xscutimer_g.o ps
+TRACE::2023-05-21.20:11:34::SCWMssOS::7_cortexa9_0/lib/xsdps_options.o ps7_cortexa9_0/lib/xil_misc_psreset_api.o ps7_cortexa9_0/lib/xdmaps_sinit.o ps7_cortexa9_0/lib
+TRACE::2023-05-21.20:11:34::SCWMssOS::/xscutimer_sinit.o ps7_cortexa9_0/lib/xemacps_hw.o ps7_cortexa9_0/lib/inbyte.o ps7_cortexa9_0/lib/xscutimer_selftest.o ps7_cort
+TRACE::2023-05-21.20:11:34::SCWMssOS::exa9_0/lib/putnum.o ps7_cortexa9_0/lib/xqspips_hw.o ps7_cortexa9_0/lib/xgpiops_g.o ps7_cortexa9_0/lib/xsdps.o ps7_cortexa9_0/li
+TRACE::2023-05-21.20:11:34::SCWMssOS::b/close.o ps7_cortexa9_0/lib/xemacps_g.o ps7_cortexa9_0/lib/xscugic_intr.o ps7_cortexa9_0/lib/xgpiops_sinit.o ps7_cortexa9_0/li
+TRACE::2023-05-21.20:11:34::SCWMssOS::b/xgpiops_selftest.o ps7_cortexa9_0/lib/xgpio_g.o ps7_cortexa9_0/lib/xscuwdt.o ps7_cortexa9_0/lib/xil_clocking.o ps7_cortexa9_0
+TRACE::2023-05-21.20:11:34::SCWMssOS::/lib/xgpio_sinit.o ps7_cortexa9_0/lib/xiicps_intr.o ps7_cortexa9_0/lib/xuartps_sinit.o ps7_cortexa9_0/lib/time.o ps7_cortexa9_0
+TRACE::2023-05-21.20:11:34::SCWMssOS::/lib/xiicps_slave.o ps7_cortexa9_0/lib/xil_printf.o ps7_cortexa9_0/lib/kill.o ps7_cortexa9_0/lib/xiicps_g.o ps7_cortexa9_0/lib/
+TRACE::2023-05-21.20:11:34::SCWMssOS::xadcps.o ps7_cortexa9_0/lib/xiicps_options.o ps7_cortexa9_0/lib/xuartps_selftest.o ps7_cortexa9_0/lib/xuartps_g.o ps7_cortexa9_
+TRACE::2023-05-21.20:11:34::SCWMssOS::0/lib/outbyte.o ps7_cortexa9_0/lib/lseek.o ps7_cortexa9_0/lib/xil_testmem.o ps7_cortexa9_0/lib/xgpiops.o ps7_cortexa9_0/lib/xl2
+TRACE::2023-05-21.20:11:34::SCWMssOS::cc_counter.o ps7_cortexa9_0/lib/xiicps_hw.o ps7_cortexa9_0/lib/abort.o ps7_cortexa9_0/lib/xdevcfg_g.o ps7_cortexa9_0/lib/getpid
+TRACE::2023-05-21.20:11:34::SCWMssOS::.o ps7_cortexa9_0/lib/xiicps_selftest.o ps7_cortexa9_0/lib/xil_testcache.o ps7_cortexa9_0/lib/xdevcfg_sinit.o ps7_cortexa9_0/li
+TRACE::2023-05-21.20:11:34::SCWMssOS::b/xdmaps.o ps7_cortexa9_0/lib/xscutimer.o ps7_cortexa9_0/lib/xdevcfg_selftest.o ps7_cortexa9_0/lib/xpm_counter.o ps7_cortexa9_0
+TRACE::2023-05-21.20:11:34::SCWMssOS::/lib/xiicps.o ps7_cortexa9_0/lib/_sbrk.o ps7_cortexa9_0/lib/xemacps_sinit.o ps7_cortexa9_0/lib/xiicps_master.o ps7_cortexa9_0/l
+TRACE::2023-05-21.20:11:34::SCWMssOS::ib/xqspips_g.o ps7_cortexa9_0/lib/xdmaps_selftest.o ps7_cortexa9_0/lib/xqspips_sinit.o ps7_cortexa9_0/lib/xqspips_selftest.o ps
+TRACE::2023-05-21.20:11:34::SCWMssOS::7_cortexa9_0/lib/xil_exception.o ps7_cortexa9_0/lib/sbrk.o ps7_cortexa9_0/lib/xemacps_control.o ps7_cortexa9_0/lib/xdevcfg.o ps
+TRACE::2023-05-21.20:11:34::SCWMssOS::7_cortexa9_0/lib/open.o ps7_cortexa9_0/lib/xil_assert.o ps7_cortexa9_0/lib/xsdps_host.o ps7_cortexa9_0/lib/xcoresightpsdcc.o ps
+TRACE::2023-05-21.20:11:34::SCWMssOS::7_cortexa9_0/lib/xscugic_hw.o ps7_cortexa9_0/lib/sleep.o ps7_cortexa9_0/lib/cpputest_time.o ps7_cortexa9_0/lib/fcntl.o ps7_cort
+TRACE::2023-05-21.20:11:34::SCWMssOS::exa9_0/lib/read.o ps7_cortexa9_0/lib/xadcps_intr.o ps7_cortexa9_0/lib/xqspips.o ps7_cortexa9_0/lib/xemacps.o ps7_cortexa9_0/lib
+TRACE::2023-05-21.20:11:34::SCWMssOS::/xil_cache.o ps7_cortexa9_0/lib/xil_testio.o ps7_cortexa9_0/lib/print.o ps7_cortexa9_0/lib/unlink.o ps7_cortexa9_0/lib/xaxidma_
+TRACE::2023-05-21.20:11:34::SCWMssOS::g.o ps7_cortexa9_0/lib/xaxidma_sinit.o ps7_cortexa9_0/lib/xil_spinlock.o ps7_cortexa9_0/lib/translation_table.o ps7_cortexa9_0/
+TRACE::2023-05-21.20:11:34::SCWMssOS::lib/xaxidma_selftest.o ps7_cortexa9_0/lib/_open.o ps7_cortexa9_0/lib/write.o ps7_cortexa9_0/lib/xil_mmu.o ps7_cortexa9_0/lib/bo
+TRACE::2023-05-21.20:11:34::SCWMssOS::ot.o ps7_cortexa9_0/lib/cpu_init.o ps7_cortexa9_0/lib/xaxidma_bd.o ps7_cortexa9_0/lib/usleep.o ps7_cortexa9_0/lib/xil_sleepcomm
+TRACE::2023-05-21.20:11:34::SCWMssOS::on.o ps7_cortexa9_0/lib/xgpiops_intr.o ps7_cortexa9_0/lib/xscugic_sinit.o ps7_cortexa9_0/lib/xuartps_hw.o ps7_cortexa9_0/lib/xg
+TRACE::2023-05-21.20:11:34::SCWMssOS::pio_intr.o ps7_cortexa9_0/lib/xemacps_bdring.o ps7_cortexa9_0/lib/xtime_l.o ps7_cortexa9_0/lib/xscugic_selftest.o ps7_cortexa9_
+TRACE::2023-05-21.20:11:34::SCWMssOS::0/lib/xil_util.o ps7_cortexa9_0/lib/xuartps_intr.o ps7_cortexa9_0/lib/xuartps.o ps7_cortexa9_0/lib/xsdps_card.o ps7_cortexa9_0/
+TRACE::2023-05-21.20:11:34::SCWMssOS::lib/xdmaps_hw.o ps7_cortexa9_0/lib/xsdps_sinit.o ps7_cortexa9_0/lib/xgpiops_hw.o ps7_cortexa9_0/lib/xsdps_g.o ps7_cortexa9_0/li
+TRACE::2023-05-21.20:11:34::SCWMssOS::b/fstat.o ps7_cortexa9_0/lib/xaxidma.o ps7_cortexa9_0/lib/errno.o ps7_cortexa9_0/lib/xgpio.o ps7_cortexa9_0/lib/xdevcfg_intr.o 
+TRACE::2023-05-21.20:11:34::SCWMssOS::ps7_cortexa9_0/lib/xuartps_options.o ps7_cortexa9_0/lib/vectors.o ps7_cortexa9_0/lib/xscuwdt_g.o ps7_cortexa9_0/lib/xscuwdt_sin
+TRACE::2023-05-21.20:11:34::SCWMssOS::it.o ps7_cortexa9_0/lib/xemacps_intr.o ps7_cortexa9_0/lib/xscuwdt_selftest.o ps7_cortexa9_0/lib/xgpio_extra.o ps7_cortexa9_0/li
+TRACE::2023-05-21.20:11:34::SCWMssOS::b/xscugic_g.o ps7_cortexa9_0/lib/isatty.o ps7_cortexa9_0/lib/xil-crt0.o ps7_cortexa9_0/lib/xscugic.o ps7_cortexa9_0/lib/xiicps_
+TRACE::2023-05-21.20:11:34::SCWMssOS::sinit.o ps7_cortexa9_0/lib/xadcps_g.o ps7_cortexa9_0/lib/xaxidma_bdring.o ps7_cortexa9_0/lib/xadcps_sinit.o ps7_cortexa9_0/lib/
+TRACE::2023-05-21.20:11:34::SCWMssOS::xgpio_selftest.o
+
+TRACE::2023-05-21.20:11:34::SCWMssOS::'Finished building libraries'
+
+TRACE::2023-05-21.20:11:35::SCWMssOS:: Checking if to create the Supporting Applications
+TRACE::2023-05-21.20:11:35::SCWMssOS:: No Linux domain exists, trying to generate FSBL 
+LOG::2023-05-21.20:11:35::SCWSystem::Completed Processing the domain freertos10_xilinx_domain
+LOG::2023-05-21.20:11:35::SCWSystem::Completed Processing the sysconfig vhes_top
+LOG::2023-05-21.20:11:35::SCWPlatform::Completed generating the artifacts for system configuration vhes_top
+TRACE::2023-05-21.20:11:35::SCWPlatform::Started preparing the platform 
+TRACE::2023-05-21.20:11:35::SCWSystem::Writing the bif file for system config vhes_top
+TRACE::2023-05-21.20:11:35::SCWSystem::dir created 
+TRACE::2023-05-21.20:11:35::SCWSystem::Writing the bif 
+TRACE::2023-05-21.20:11:35::SCWPlatform::Started writing the spfm file 
+TRACE::2023-05-21.20:11:35::SCWPlatform::Started writing the xpfm file 
+TRACE::2023-05-21.20:11:35::SCWPlatform::Completed generating the platform
+TRACE::2023-05-21.20:11:35::SCWMssOS::Saving the mss changes E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:11:35::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2023-05-21.20:11:35::SCWMssOS::Completed writemss as part of save.
+TRACE::2023-05-21.20:11:35::SCWMssOS::Commit changes completed.
+TRACE::2023-05-21.20:11:35::SCWMssOS::Saving the mss changes E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:11:35::SCWMssOS::Adding the swdes entry, mss present, able to open swdb E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss with des name system_0
+TRACE::2023-05-21.20:11:35::SCWMssOS::Writing the mss file completed E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:11:35::SCWMssOS::Commit changes completed.
+TRACE::2023-05-21.20:11:35::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:11:35::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:11:35::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:11:35::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:11:35::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:11:35::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:11:35::SCWPlatform::Trying to set the existing hwdb with name vhes_top_1
+TRACE::2023-05-21.20:11:35::SCWPlatform::Opened existing hwdb vhes_top_1
+TRACE::2023-05-21.20:11:35::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:11:35::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:11:35::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss|system_0||
+E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:11:35::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2023-05-21.20:11:35::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:11:35::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:11:35::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:11:35::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:11:35::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:11:35::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:11:35::SCWPlatform::Trying to set the existing hwdb with name vhes_top_1
+TRACE::2023-05-21.20:11:35::SCWPlatform::Opened existing hwdb vhes_top_1
+TRACE::2023-05-21.20:11:35::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:11:35::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:11:35::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss|system_0||
+E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:11:35::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:11:35::SCWWriter::formatted JSON is {
+	"platformName":	"vhes_top",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"vhes_top",
+	"platHandOff":	"E:/Project/vhes/vhes/vhes_top.xsa",
+	"platIntHandOff":	"<platformDir>/hw/vhes_top.xsa",
+	"deviceType":	"zynq",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"fsblExtraCompilerFlags":	"-MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard ",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"vhes_top",
+	"systems":	[{
+			"systemName":	"vhes_top",
+			"systemDesc":	"vhes_top",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"vhes_top",
+			"sysActiveDom":	"freertos10_xilinx_domain",
+			"sysDefaultDom":	"freertos10_xilinx_domain",
+			"domains":	[{
+					"domainName":	"zynq_fsbl",
+					"domainDispName":	"zynq_fsbl",
+					"domainDesc":	"FSBL Application BSP - Auto Generated.",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.6",
+					"mssFile":	"",
+					"md5Digest":	"f316075a68423d1f574d6ca7950bc15d",
+					"compatibleApp":	"zynq_fsbl",
+					"domType":	"bootDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	["xilffs:4.6", "xilrsa:1.6"],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}, {
+					"domainName":	"freertos10_xilinx_domain",
+					"domainDispName":	"freertos10_xilinx on ps7_cortexa9_0",
+					"domainDesc":	"freertos10_xilinx_domain",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"freertos10_xilinx",
+					"sdxOs":	"freertos10_xilinx",
+					"qemuArgs":	"D:/Xilinx/Vitis/2021.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt",
+					"qemuData":	"D:/Xilinx/Vitis/2021.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"1.10",
+					"mssFile":	"",
+					"md5Digest":	"9a37208e9c8a3db1cdb0a54fec799bec",
+					"compatibleApp":	"",
+					"domType":	"mssDomain",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	["lwip211:1.6"],
+					"libOptions":	{
+						"lwip211":	{
+							"api_mode":	"SOCKET_API",
+							"libOptionNames":	["api_mode"]
+						},
+						"libsContainingOptions":	["lwip211"]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+KEYINFO::2023-05-21.20:11:35::SCWPlatform::updated the xpfm file.
+TRACE::2023-05-21.20:11:35::SCWPlatform::Trying to open the hw design at E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:11:35::SCWPlatform::DSA given E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:11:35::SCWPlatform::DSA absoulate path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:11:35::SCWPlatform::DSA directory E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw
+TRACE::2023-05-21.20:11:35::SCWPlatform:: Platform Path E:/Project/vhes/vhes/vhes.vitis/vhes_top/hw/vhes_top.xsa
+TRACE::2023-05-21.20:11:35::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2023-05-21.20:11:35::SCWPlatform::Trying to set the existing hwdb with name vhes_top_1
+TRACE::2023-05-21.20:11:35::SCWPlatform::Opened existing hwdb vhes_top_1
+TRACE::2023-05-21.20:11:35::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2023-05-21.20:11:35::SCWMssOS::Checking the sw design at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss
+TRACE::2023-05-21.20:11:35::SCWMssOS::DEBUG:  swdes dump  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss|system_0||
+E:/Project/vhes/vhes/vhes.vitis/vhes_top/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2023-05-21.20:11:35::SCWMssOS::Sw design exists and opened at  E:/Project/vhes/vhes/vhes.vitis/vhes_top/ps7_cortexa9_0/freertos10_xilinx_domain/bsp/system.mss

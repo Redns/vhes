@@ -12,39 +12,36 @@ namespace Xpeng.ViewModel
     public class MainViewModel
     {
         public MainModel MainModel { get; set; }
+        public System.Timers.Timer AverageBitRateCountTimer { get; set; } = new System.Timers.Timer();
 
         public MainViewModel()
         {
+            // 初始化 MainModel
             MainModel = new MainModel() 
             {
                 ServerLaunched = false,
                 LaunchServerCommand = new CommandBase()
                 {
                     DoCanExecute = new Func<object, bool>((o) => true),
-                    DoExecute = LaunchServer
+                    DoExecute = (o) =>
+                    {
+                        if (MainModel.ServerLaunched)
+                        {
+                            // 关闭服务器
+                            MainModel.ServerSocket.Close();
+                            MainModel.ServerLaunched = false;
+                        }
+                        else
+                        {
+                            // 启动服务器
+                            MainModel.ServerSocket = InitServer(MainModel.AppSetting);
+                            MainModel.ServerLaunched = (MainModel.ServerSocket != null);
+                        }
+                    }
                 }
             };
-        }
-
-
-        /// <summary>
-        /// 启动服务器
-        /// </summary>
-        /// <param name="o"></param>
-        private void LaunchServer(object o)
-        {
-            if (MainModel.ServerLaunched)
-            {
-                // 关闭服务器
-                MainModel.ServerSocket.Close();
-                MainModel.ServerLaunched = false;
-            }
-            else
-            {
-                // 启动服务器
-                MainModel.ServerSocket = InitServer(MainModel.AppSetting);
-                MainModel.ServerLaunched = (MainModel.ServerSocket != null);
-            }
+            // 初始化平均码率统计计数器
+            
         }
 
 
@@ -55,6 +52,8 @@ namespace Xpeng.ViewModel
         /// <returns></returns>
         private Socket InitServer(AppSetting setting)
         {
+            // 初始化平均码率统计定时器
+            InitAverageBitRateCountTimer(100);
             // 初始化服务器套接字
             var serverSocket = InitServerSocket(setting.Connection);
             // 开启服务器连接线程
@@ -124,6 +123,23 @@ namespace Xpeng.ViewModel
 
 
         /// <summary>
+        /// 初始化平均码率统计定时器
+        /// </summary>
+        /// <param name="interval"></param>
+        private void InitAverageBitRateCountTimer(double interval)
+        {
+            AverageBitRateCountTimer.Interval = interval;
+            AverageBitRateCountTimer.Elapsed += (serder, args) =>
+            {
+                MainModel.AverageBitRate = MainModel.HevcBsReceiveByteInc / interval * 10;
+                MainModel.HevcBsReceiveByteCntCache = MainModel.HevcBsReceiveByteCnt;
+            };
+            AverageBitRateCountTimer.AutoReset = true;
+            AverageBitRateCountTimer.Enabled = true;
+        }
+
+
+        /// <summary>
         /// 客户端通信
         /// </summary>
         /// <param name="client">客户端套接字</param>
@@ -142,7 +158,7 @@ namespace Xpeng.ViewModel
             }
             // 循环接收码流
             var recvBytes = 0;
-            var recvBuffer = new byte[4096];
+            var recvBuffer = new byte[4 * 1024];
             while((recvBytes = client.Receive(recvBuffer)) > 0)
             {
                 MainModel.HevcBsReceiveByteCnt += recvBytes;

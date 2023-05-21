@@ -15,7 +15,7 @@ module hevc_encode_system_ctrl#
     output reg pixel_type_o,
     output reg pixel_buffer_rd_en_o,
     input pixel_buffer_full_i,
-    input [13:0] pixel_buffer_rd_cnt_i,
+    input [10:0] pixel_buffer_rd_cnt_i,
     /* extif 相关信号 */
     output reg extif_wr_en_o,
     output reg extif_rd_en_o,

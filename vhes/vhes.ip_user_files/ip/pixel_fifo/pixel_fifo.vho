@@ -63,7 +63,7 @@ COMPONENT pixel_fifo
     dout : OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
     full : OUT STD_LOGIC;
     empty : OUT STD_LOGIC;
-    rd_data_count : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
+    rd_data_count : OUT STD_LOGIC_VECTOR(10 DOWNTO 0);
     prog_full : OUT STD_LOGIC;
     wr_rst_busy : OUT STD_LOGIC;
     rd_rst_busy : OUT STD_LOGIC

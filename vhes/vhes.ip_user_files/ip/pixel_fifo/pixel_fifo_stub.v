@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Thu May 18 00:54:03 2023
+// Date        : Sun May 21 21:26:34 2023
 // Host        : JingDevice running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub -rename_top pixel_fifo -prefix
-//               pixel_fifo_ pixel_fifo_stub.v
+// Command     : write_verilog -force -mode synth_stub
+//               e:/Project/vhes/vhes/vhes.gen/sources_1/ip/pixel_fifo/pixel_fifo_stub.v
 // Design      : pixel_fifo
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z100ffg900-2
@@ -16,7 +16,7 @@
 (* x_core_info = "fifo_generator_v13_2_6,Vivado 2021.2" *)
 module pixel_fifo(rst, wr_clk, rd_clk, din, wr_en, rd_en, dout, full, 
   empty, rd_data_count, prog_full, wr_rst_busy, rd_rst_busy)
-/* synthesis syn_black_box black_box_pad_pin="rst,wr_clk,rd_clk,din[127:0],wr_en,rd_en,dout[127:0],full,empty,rd_data_count[13:0],prog_full,wr_rst_busy,rd_rst_busy" */;
+/* synthesis syn_black_box black_box_pad_pin="rst,wr_clk,rd_clk,din[127:0],wr_en,rd_en,dout[127:0],full,empty,rd_data_count[10:0],prog_full,wr_rst_busy,rd_rst_busy" */;
   input rst;
   input wr_clk;
   input rd_clk;
@@ -26,7 +26,7 @@ module pixel_fifo(rst, wr_clk, rd_clk, din, wr_en, rd_en, dout, full,
   output [127:0]dout;
   output full;
   output empty;
-  output [13:0]rd_data_count;
+  output [10:0]rd_data_count;
   output prog_full;
   output wr_rst_busy;
   output rd_rst_busy;

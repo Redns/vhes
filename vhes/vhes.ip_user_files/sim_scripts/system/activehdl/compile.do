@@ -19,14 +19,14 @@ vlib activehdl/generic_baseblocks_v2_1_0
 vlib activehdl/axi_register_slice_v2_1_25
 vlib activehdl/axi_data_fifo_v2_1_24
 vlib activehdl/axi_crossbar_v2_1_26
-vlib activehdl/axi_protocol_converter_v2_1_25
 vlib activehdl/proc_sys_reset_v5_0_13
-vlib activehdl/axi_clock_converter_v2_1_24
-vlib activehdl/blk_mem_gen_v8_4_5
-vlib activehdl/axi_dwidth_converter_v2_1_25
 vlib activehdl/axi_lite_ipif_v3_0_4
 vlib activehdl/interrupt_control_v3_1_4
 vlib activehdl/axi_gpio_v2_0_27
+vlib activehdl/axi_protocol_converter_v2_1_25
+vlib activehdl/axi_clock_converter_v2_1_24
+vlib activehdl/blk_mem_gen_v8_4_5
+vlib activehdl/axi_dwidth_converter_v2_1_25
 
 vmap xilinx_vip activehdl/xilinx_vip
 vmap xpm activehdl/xpm
@@ -46,14 +46,14 @@ vmap generic_baseblocks_v2_1_0 activehdl/generic_baseblocks_v2_1_0
 vmap axi_register_slice_v2_1_25 activehdl/axi_register_slice_v2_1_25
 vmap axi_data_fifo_v2_1_24 activehdl/axi_data_fifo_v2_1_24
 vmap axi_crossbar_v2_1_26 activehdl/axi_crossbar_v2_1_26
-vmap axi_protocol_converter_v2_1_25 activehdl/axi_protocol_converter_v2_1_25
 vmap proc_sys_reset_v5_0_13 activehdl/proc_sys_reset_v5_0_13
-vmap axi_clock_converter_v2_1_24 activehdl/axi_clock_converter_v2_1_24
-vmap blk_mem_gen_v8_4_5 activehdl/blk_mem_gen_v8_4_5
-vmap axi_dwidth_converter_v2_1_25 activehdl/axi_dwidth_converter_v2_1_25
 vmap axi_lite_ipif_v3_0_4 activehdl/axi_lite_ipif_v3_0_4
 vmap interrupt_control_v3_1_4 activehdl/interrupt_control_v3_1_4
 vmap axi_gpio_v2_0_27 activehdl/axi_gpio_v2_0_27
+vmap axi_protocol_converter_v2_1_25 activehdl/axi_protocol_converter_v2_1_25
+vmap axi_clock_converter_v2_1_24 activehdl/axi_clock_converter_v2_1_24
+vmap blk_mem_gen_v8_4_5 activehdl/blk_mem_gen_v8_4_5
+vmap axi_dwidth_converter_v2_1_25 activehdl/axi_dwidth_converter_v2_1_25
 
 vlog -work xilinx_vip  -sv2k12 "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
 "D:/Xilinx/Vivado/2021.2/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
@@ -139,32 +139,11 @@ vlog -work axi_crossbar_v2_1_26  -v2k5 "+incdir+../../../../vhes.gen/sources_1/b
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
 "../../../bd/system/ip/system_xbar_0/sim/system_xbar_0.v" \
 
-vlog -work axi_protocol_converter_v2_1_25  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
-"../../../../vhes.gen/sources_1/bd/system/ipshared/8fe4/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
-
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
-"../../../bd/system/ip/system_auto_pc_0/sim/system_auto_pc_0.v" \
-
 vcom -work proc_sys_reset_v5_0_13 -93 \
 "../../../../vhes.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
 
 vcom -work xil_defaultlib -93 \
 "../../../bd/system/ip/system_rst_ps7_0_100M_0/sim/system_rst_ps7_0_100M_0.vhd" \
-
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
-"../../../bd/system/ip/system_auto_pc_1/sim/system_auto_pc_1.v" \
-
-vlog -work axi_clock_converter_v2_1_24  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
-"../../../../vhes.gen/sources_1/bd/system/ipshared/23c0/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
-
-vlog -work blk_mem_gen_v8_4_5  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
-"../../../../vhes.gen/sources_1/bd/system/ipshared/25a8/simulation/blk_mem_gen_v8_4.v" \
-
-vlog -work axi_dwidth_converter_v2_1_25  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
-"../../../../vhes.gen/sources_1/bd/system/ipshared/38b4/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
-
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
-"../../../bd/system/ip/system_auto_us_0/sim/system_auto_us_0.v" \
 
 vcom -work axi_lite_ipif_v3_0_4 -93 \
 "../../../../vhes.gen/sources_1/bd/system/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd" \
@@ -183,6 +162,25 @@ vcom -work xil_defaultlib -93 \
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
 "../../../bd/system/sim/system.v" \
+
+vlog -work axi_protocol_converter_v2_1_25  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../vhes.gen/sources_1/bd/system/ipshared/8fe4/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../bd/system/ip/system_auto_pc_0/sim/system_auto_pc_0.v" \
+"../../../bd/system/ip/system_auto_pc_1/sim/system_auto_pc_1.v" \
+
+vlog -work axi_clock_converter_v2_1_24  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../vhes.gen/sources_1/bd/system/ipshared/23c0/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
+
+vlog -work blk_mem_gen_v8_4_5  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../vhes.gen/sources_1/bd/system/ipshared/25a8/simulation/blk_mem_gen_v8_4.v" \
+
+vlog -work axi_dwidth_converter_v2_1_25  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../vhes.gen/sources_1/bd/system/ipshared/38b4/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../vhes.gen/sources_1/bd/system/ipshared/3007/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../bd/system/ip/system_auto_us_0/sim/system_auto_us_0.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

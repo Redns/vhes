@@ -64,7 +64,7 @@ pixel_fifo your_instance_name (
   .dout(dout),                    // output wire [127 : 0] dout
   .full(full),                    // output wire full
   .empty(empty),                  // output wire empty
-  .rd_data_count(rd_data_count),  // output wire [13 : 0] rd_data_count
+  .rd_data_count(rd_data_count),  // output wire [10 : 0] rd_data_count
   .prog_full(prog_full),          // output wire prog_full
   .wr_rst_busy(wr_rst_busy),      // output wire wr_rst_busy
   .rd_rst_busy(rd_rst_busy)      // output wire rd_rst_busy

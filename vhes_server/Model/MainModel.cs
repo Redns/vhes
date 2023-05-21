@@ -60,6 +60,73 @@ namespace Vhes.Model
         public Socket ServerSocket { get; set; } = null;
 
         /// <summary>
+        /// 帧率（fps）
+        /// </summary>
+        private double _fps = 0;
+        public double Fps
+        {
+            get { return _fps; }
+            set
+            {
+                _fps = value;
+                FpsFormatted = $"{_fps:F2} fps";
+            }
+        }
+
+        /// <summary>
+        /// 平均码率（byte/s）
+        /// </summary>
+        private double _averageBitRate = 0;
+        public double AverageBitRate
+        {
+            get { return _averageBitRate; }
+            set
+            {
+                _averageBitRate = value;
+                if(_averageBitRate < FILE_SIZE_KB)
+                {
+                    AverageBitRateFormatted = $"{_averageBitRate} B/s";
+                }
+                else if(_averageBitRate < FILE_SIZE_MB)
+                {
+                    AverageBitRateFormatted = $"{(_averageBitRate / FILE_SIZE_KB):F2} KB/s";
+                }
+                else if (_averageBitRate < FILE_SIZE_GB)
+                {
+                    AverageBitRateFormatted = $"{(_averageBitRate / FILE_SIZE_MB):F2} MB/s";
+                }
+                else
+                {
+                    AverageBitRateFormatted = $"{(_averageBitRate / FILE_SIZE_MB):F2} GB/s";
+                }
+            }
+        }
+
+        /// <summary>
+        /// PSNR（dB）
+        /// </summary>
+        private double _psnr = 0;
+        public double PSnr
+        {
+            get { return _psnr; }
+            set
+            {
+                _psnr = value;
+                _psnrFormatted = $"{_psnr:F2} dB";
+            }
+        }
+
+        /// <summary>
+        /// HEVC 已接收码流字节数缓存（用于计算平均码率）
+        /// </summary>
+        public long HevcBsReceiveByteCntCache { get; set; } = 0L;
+
+        /// <summary>
+        /// HEVC 码流增长数（字节）
+        /// </summary>
+        public long HevcBsReceiveByteInc => HevcBsReceiveByteCnt - HevcBsReceiveByteCntCache;
+
+        /// <summary>
         /// HEVC 码流接收长度
         /// </summary>
         private long _hevcBsReceiveByteCnt = 0L;
@@ -71,19 +138,19 @@ namespace Vhes.Model
                 _hevcBsReceiveByteCnt = value;
                 if(_hevcBsReceiveByteCnt < FILE_SIZE_KB)
                 {
-                    ReceivedBsLength = $"{_hevcBsReceiveByteCnt} Byte";
+                    HevcBsReceivedByteCntFormatted = $"{_hevcBsReceiveByteCnt} Byte";
                 }
                 else if(_hevcBsReceiveByteCnt < FILE_SIZE_MB)
                 {
-                    ReceivedBsLength = $"{(_hevcBsReceiveByteCnt / FILE_SIZE_KB):.2f} KB";
+                    HevcBsReceivedByteCntFormatted = $"{(_hevcBsReceiveByteCnt / FILE_SIZE_KB):F2} KB";
                 }
                 else if(_hevcBsReceiveByteCnt < FILE_SIZE_GB)
                 {
-                    ReceivedBsLength = $"{(_hevcBsReceiveByteCnt / FILE_SIZE_MB):.2f} MB";
+                    HevcBsReceivedByteCntFormatted = $"{(_hevcBsReceiveByteCnt / FILE_SIZE_MB):F2} MB";
                 }
                 else
                 {
-                    ReceivedBsLength = $"{(_hevcBsReceiveByteCnt / FILE_SIZE_GB):.2f} GB";
+                    HevcBsReceivedByteCntFormatted = $"{(_hevcBsReceiveByteCnt / FILE_SIZE_GB):F2} GB";
                 }
             }
         }
@@ -98,13 +165,13 @@ namespace Vhes.Model
         /// <summary>
         /// 帧率（frame/s）
         /// </summary>
-        private string _fps = string.Empty;
-        public string Fps
+        private string _fpsFormatted = string.Empty;
+        public string FpsFormatted
         {
-            get { return _fps; }
+            get { return _fpsFormatted; }
             set
             {
-                _fps = value;
+                _fpsFormatted = value;
                 DoNotify();
             }
         }
@@ -112,13 +179,13 @@ namespace Vhes.Model
         /// <summary>
         /// 平均码率
         /// </summary>
-        private string _averageBitRate = string.Empty;
-        public string AverageBitRate
+        private string _averageBitRateFormatted = string.Empty;
+        public string AverageBitRateFormatted
         {
-            get { return _averageBitRate; }
+            get { return _averageBitRateFormatted; }
             set
             {
-                _averageBitRate = value;
+                _averageBitRateFormatted = value;
                 DoNotify();
             }
         }
@@ -126,13 +193,13 @@ namespace Vhes.Model
         /// <summary>
         /// PSNR（单位：dB）
         /// </summary>
-        private string _psnr = string.Empty;
-        public string Psnr
+        private string _psnrFormatted = string.Empty;
+        public string PsnrFormatted
         {
-            get { return _psnr; }
+            get { return _psnrFormatted; }
             set
             {
-                _psnr = value;
+                _psnrFormatted = value;
                 DoNotify();
             }
         }
@@ -140,13 +207,13 @@ namespace Vhes.Model
         /// <summary>
         /// 已接受码流大小
         /// </summary>
-        private string _receivedBsLength = string.Empty;
-        public string ReceivedBsLength
+        private string _hevcBsReceivedByteCntFormatted = string.Empty;
+        public string HevcBsReceivedByteCntFormatted
         {
-            get { return _receivedBsLength; }
+            get { return _hevcBsReceivedByteCntFormatted; }
             set
             {
-                _receivedBsLength = value;
+                _hevcBsReceivedByteCntFormatted = value;
                 DoNotify();
             }
         }

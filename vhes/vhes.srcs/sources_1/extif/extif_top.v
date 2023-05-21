@@ -14,7 +14,7 @@ module extif_top(
     input pixel_type_i,                         // 读取像素类型输入（0：Y；1：UV）
     input pixel_rd_en_i,                        // 缓冲区像素读取标志输入（高电平有效）
     output pixel_buffer_full_o,                 // 像素缓冲区满标志位（高电平有效）
-    output [13:0] pixel_fifo_rd_cnt_o,
+    output [10:0] pixel_fifo_rd_cnt_o,
     /* extif 相关信号 */
     input extif_wr_en_i,
     input extif_rd_en_i,

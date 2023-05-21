@@ -30,7 +30,7 @@
 #define IIC_SII9011                 XPAR_XIICPS_0_DEVICE_ID                 // SiI9011 IIC 配置引脚
 #define GPIO_SII_RST_N              XPAR_GPIO_SII_RST_N_DEVICE_ID           // SiI9011 复位引脚
 #define GPIO_VHES_CORE_RST_N        XPAR_GPIO_PL_RST_N_DEVICE_ID            // Vhes_Core 复位引脚
-#define GPIO_VHES_CORE_RST_DONE     XPAR_GPIO_PL_RST_N_DEVICE_ID            // Vhes_Core 复位完成引脚
+#define GPIO_VHES_CORE_RST_DONE     XPAR_GPIO_VHES_CORE_RST_DONE_DEVICE_ID  // Vhes_Core 复位完成引脚
 #define GPIO_AXIS_TRANSMIT_START    XPAR_GPIO_AXIS_TRANSMIT_START_DEVICE_ID // AXIS 数据抓换开始引脚
 
 /* 数据缓冲区 */
@@ -143,9 +143,9 @@ void vhes_core_rst_n()
 	usleep(50);
 	XGpio_DiscreteWrite(&gpio_vhes_core_rst_n, 1, 0x1);
     // 检测复位是否完成
-    while(XGpio_DiscreteRead(&gpio_vhes_core_rst_n, 1) != 1)
+    while(XGpio_DiscreteRead(&gpio_vhes_core_rst_done, 1) != 1)
     {
-
+        int pl_rst_done = XGpio_DiscreteRead(&gpio_vhes_core_rst_done, 1);
     }
     xil_printf("[SUCCESS] Vhes core reset done\n");
 }

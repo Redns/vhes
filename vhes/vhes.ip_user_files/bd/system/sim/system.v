@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Wed May 17 23:33:45 2023
+//Date        : Sun May 21 21:37:37 2023
 //Host        : JingDevice running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
@@ -1605,28 +1605,6 @@ module system
         .s_axi_wready(ps7_0_axi_periph_M03_AXI_WREADY),
         .s_axi_wstrb(ps7_0_axi_periph_M03_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M03_AXI_WVALID));
-  system_axi_gpio_1_0 gpio_pl_rst_n
-       (.gpio_io_i(1'b0),
-        .gpio_io_o(axi_gpio_1_gpio_io_o),
-        .s_axi_aclk(processing_system7_0_FCLK_CLK1),
-        .s_axi_araddr(ps7_0_axi_periph_M02_AXI_ARADDR[8:0]),
-        .s_axi_aresetn(rst_ps7_0_100M_peripheral_aresetn1),
-        .s_axi_arready(ps7_0_axi_periph_M02_AXI_ARREADY),
-        .s_axi_arvalid(ps7_0_axi_periph_M02_AXI_ARVALID),
-        .s_axi_awaddr(ps7_0_axi_periph_M02_AXI_AWADDR[8:0]),
-        .s_axi_awready(ps7_0_axi_periph_M02_AXI_AWREADY),
-        .s_axi_awvalid(ps7_0_axi_periph_M02_AXI_AWVALID),
-        .s_axi_bready(ps7_0_axi_periph_M02_AXI_BREADY),
-        .s_axi_bresp(ps7_0_axi_periph_M02_AXI_BRESP),
-        .s_axi_bvalid(ps7_0_axi_periph_M02_AXI_BVALID),
-        .s_axi_rdata(ps7_0_axi_periph_M02_AXI_RDATA),
-        .s_axi_rready(ps7_0_axi_periph_M02_AXI_RREADY),
-        .s_axi_rresp(ps7_0_axi_periph_M02_AXI_RRESP),
-        .s_axi_rvalid(ps7_0_axi_periph_M02_AXI_RVALID),
-        .s_axi_wdata(ps7_0_axi_periph_M02_AXI_WDATA),
-        .s_axi_wready(ps7_0_axi_periph_M02_AXI_WREADY),
-        .s_axi_wstrb(ps7_0_axi_periph_M02_AXI_WSTRB),
-        .s_axi_wvalid(ps7_0_axi_periph_M02_AXI_WVALID));
   system_axi_gpio_0_0 gpio_sii_rst_n
        (.gpio_io_i(1'b0),
         .gpio_io_o(axi_gpio_0_gpio_io_o),
@@ -1670,6 +1648,28 @@ module system
         .s_axi_wready(ps7_0_axi_periph_M04_AXI_WREADY),
         .s_axi_wstrb(ps7_0_axi_periph_M04_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M04_AXI_WVALID));
+  system_axi_gpio_1_0 gpio_vhes_core_rst_n
+       (.gpio_io_i(1'b0),
+        .gpio_io_o(axi_gpio_1_gpio_io_o),
+        .s_axi_aclk(processing_system7_0_FCLK_CLK1),
+        .s_axi_araddr(ps7_0_axi_periph_M02_AXI_ARADDR[8:0]),
+        .s_axi_aresetn(rst_ps7_0_100M_peripheral_aresetn1),
+        .s_axi_arready(ps7_0_axi_periph_M02_AXI_ARREADY),
+        .s_axi_arvalid(ps7_0_axi_periph_M02_AXI_ARVALID),
+        .s_axi_awaddr(ps7_0_axi_periph_M02_AXI_AWADDR[8:0]),
+        .s_axi_awready(ps7_0_axi_periph_M02_AXI_AWREADY),
+        .s_axi_awvalid(ps7_0_axi_periph_M02_AXI_AWVALID),
+        .s_axi_bready(ps7_0_axi_periph_M02_AXI_BREADY),
+        .s_axi_bresp(ps7_0_axi_periph_M02_AXI_BRESP),
+        .s_axi_bvalid(ps7_0_axi_periph_M02_AXI_BVALID),
+        .s_axi_rdata(ps7_0_axi_periph_M02_AXI_RDATA),
+        .s_axi_rready(ps7_0_axi_periph_M02_AXI_RREADY),
+        .s_axi_rresp(ps7_0_axi_periph_M02_AXI_RRESP),
+        .s_axi_rvalid(ps7_0_axi_periph_M02_AXI_RVALID),
+        .s_axi_wdata(ps7_0_axi_periph_M02_AXI_WDATA),
+        .s_axi_wready(ps7_0_axi_periph_M02_AXI_WREADY),
+        .s_axi_wstrb(ps7_0_axi_periph_M02_AXI_WSTRB),
+        .s_axi_wvalid(ps7_0_axi_periph_M02_AXI_WVALID));
   system_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_PS_addr[14:0]),
         .DDR_BankAddr(DDR_PS_ba[2:0]),

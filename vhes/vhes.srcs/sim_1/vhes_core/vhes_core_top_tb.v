@@ -12,13 +12,13 @@ module vhes_core_top_tb;
     `define HALF_BS_RD_CLK      5
     `define FULL_BS_RD_CLK      (`HALF_BS_RD_CLK * 2)
 
-    `define CHECK_BS
+    // `define CHECK_BS
     `define STORE_BS
     `define STORE_PERF
 
-    `define FRAME_WIDTH         192
-    `define FRAME_HEIGHT        128
-    `define FRAME_NUMS          20
+    `define FRAME_WIDTH         1920
+    `define FRAME_HEIGHT        1080
+    `define FRAME_NUMS          5
 
     `define INITIAL_QP          20
     `define GOP_LENGTH          1
@@ -27,7 +27,16 @@ module vhes_core_top_tb;
     `define ENABLE_SAO          0
     `define POSI4x4BIT          4      
 
-    `define FILE_VIDEO_ORIGIN   "E:/Project/vhes/vhes_software_encoder/blue_sky.yuv"   
+    // 输入视频源类型
+    `define FILE_TYPE_RGB
+    // `define FILE_TYPE_YUV
+
+    `ifdef FILE_TYPE_RGB
+        `define FILE_VIDEO_ORIGIN   "E:/Project/vhes/vhes_software_encoder/blue_sky.rgb"   
+    `else FILE_TYPE_YUV
+        `define FILE_VIDEO_ORIGIN   "E:/Project/vhes/vhes_software_encoder/blue_sky.yuv"   
+    `endif
+
     `define FILE_BS             "E:/Project/vhes/vhes_software_encoder/blue_sky.hevc"
     `define FILE_PERFORMANCE    "E:/Project/vhes/vhes_software_encoder/blue_sky_perf.dat"
     `define FILE_CHECK_BS       "E:/Project/vhes/vhes_software_encoder/s_bit_stream.dat"
@@ -42,7 +51,7 @@ module vhes_core_top_tb;
     reg pclk;
     reg hsync;
     reg vsync;
-    reg [23:0] yuv;
+    reg [23:0] pixel;
     reg de;
     /* HEVC 码流输出 */ 
     reg clk_bs_rd;
@@ -87,55 +96,108 @@ module vhes_core_top_tb;
     integer frame_average_bitrate;
     integer frame_psnr;
 
-    reg [7:0] video_read_buffer;
-    reg [7:0] video_stream_y[`FRAME_NUMS - 1:0][`FRAME_HEIGHT - 1:0][`FRAME_WIDTH - 1:0];
-    reg [7:0] video_stream_u[`FRAME_NUMS - 1:0][`FRAME_HEIGHT - 1:0][`FRAME_WIDTH - 1:0];
-    reg [7:0] video_stream_v[`FRAME_NUMS - 1:0][`FRAME_HEIGHT - 1:0][`FRAME_WIDTH - 1:0]; 
+    `ifdef FILE_TYPE_RGB
+        reg [23:0] video_read_buffer;
+        reg [7:0] video_stream_r[`FRAME_NUMS - 1:0][`FRAME_HEIGHT - 1:0][`FRAME_WIDTH - 1:0];
+        reg [7:0] video_stream_g[`FRAME_NUMS - 1:0][`FRAME_HEIGHT - 1:0][`FRAME_WIDTH - 1:0];
+        reg [7:0] video_stream_b[`FRAME_NUMS - 1:0][`FRAME_HEIGHT - 1:0][`FRAME_WIDTH - 1:0]; 
+    `else
+        reg [7:0] video_read_buffer;
+        reg [7:0] video_stream_y[`FRAME_NUMS - 1:0][`FRAME_HEIGHT - 1:0][`FRAME_WIDTH - 1:0];
+        reg [7:0] video_stream_u[`FRAME_NUMS - 1:0][`FRAME_HEIGHT - 1:0][`FRAME_WIDTH - 1:0];
+        reg [7:0] video_stream_v[`FRAME_NUMS - 1:0][`FRAME_HEIGHT - 1:0][`FRAME_WIDTH - 1:0]; 
+    `endif
 
 /*************************** 例化顶层模块 ************************/
-    vhes_core_top_sim_only#
-    (
-        .FRAME_WIDTH(`FRAME_WIDTH),
-        .FRAME_HEIGHT(`FRAME_HEIGHT),
-        .INITIAL_QP(`INITIAL_QP),
-        .GOP_LENGTH(`GOP_LENGTH),
-        .ENABLE_IINP(`ENABLE_IINP),
-        .ENABLE_DB(`ENABLE_DB),
-        .ENABLE_SAO(`ENABLE_SAO),
-        .POSI4x4BIT(`POSI4x4BIT)
-    ) vhes_core_top_sim_only
-    (
-        .rst_n_i(rst_n),
-        .clk_200M_p_i(clk_200M_p),
-        .clk_200M_n_i(clk_200M_n),
-        .rst_done_o(rst_done),
-        .bs_overflow_o(bs_overflow),
-        .skip_frame_flag_o(skip_frame_flag),
-        .pclk_i(pclk),
-        .hsync_i(hsync),
-        .vsync_i(vsync),
-        .rgb_i(yuv),
-        .de_i(de),
-        .clk_bs_rd_i(clk_bs_rd),
-        .bs_rd_en_i(bs_rd_en),
-        .bs_valid_o(bs_valid),
-        .bs_data_o(bs_data),
-        .DDR_PL_addr(DDR_PL_addr),
-        .DDR_PL_ba(DDR_PL_ba),
-        .DDR_PL_cas_n(DDR_PL_cas_n),
-        .DDR_PL_ck_n(DDR_PL_ck_n),
-        .DDR_PL_ck_p(DDR_PL_ck_p),
-        .DDR_PL_cke(DDR_PL_cke),
-        .DDR_PL_cs_n(DDR_PL_cs_n),
-        .DDR_PL_dm(DDR_PL_dm),
-        .DDR_PL_dq(DDR_PL_dq),
-        .DDR_PL_dqs_n(DDR_PL_dqs_n),
-        .DDR_PL_dqs_p(DDR_PL_dqs_p),
-        .DDR_PL_odt(DDR_PL_odt),
-        .DDR_PL_ras_n(DDR_PL_ras_n),
-        .DDR_PL_reset_n(DDR_PL_reset_n),
-        .DDR_PL_we_n(DDR_PL_we_n)
-    );
+    `ifdef FILE_TYPE_RGB
+        vhes_core_top#
+        (
+            .FRAME_WIDTH(`FRAME_WIDTH),
+            .FRAME_HEIGHT(`FRAME_HEIGHT),
+            .INITIAL_QP(`INITIAL_QP),
+            .GOP_LENGTH(`GOP_LENGTH),
+            .ENABLE_IINP(`ENABLE_IINP),
+            .ENABLE_DB(`ENABLE_DB),
+            .ENABLE_SAO(`ENABLE_SAO),
+            .POSI4x4BIT(`POSI4x4BIT)
+        ) vhes_core_top
+        (
+            .rst_n_i(rst_n),
+            .clk_200M_p_i(clk_200M_p),
+            .clk_200M_n_i(clk_200M_n),
+            .rst_done_o(rst_done),
+            .bs_overflow_o(bs_overflow),
+            .skip_frame_flag_o(skip_frame_flag),
+            .pclk_i(pclk),
+            .hsync_i(hsync),
+            .vsync_i(vsync),
+            .rgb_i(pixel),
+            .de_i(de),
+            .clk_bs_rd_i(clk_bs_rd),
+            .bs_rd_en_i(bs_rd_en),
+            .bs_valid_o(bs_valid),
+            .bs_data_o(bs_data),
+            .DDR_PL_addr(DDR_PL_addr),
+            .DDR_PL_ba(DDR_PL_ba),
+            .DDR_PL_cas_n(DDR_PL_cas_n),
+            .DDR_PL_ck_n(DDR_PL_ck_n),
+            .DDR_PL_ck_p(DDR_PL_ck_p),
+            .DDR_PL_cke(DDR_PL_cke),
+            .DDR_PL_cs_n(DDR_PL_cs_n),
+            .DDR_PL_dm(DDR_PL_dm),
+            .DDR_PL_dq(DDR_PL_dq),
+            .DDR_PL_dqs_n(DDR_PL_dqs_n),
+            .DDR_PL_dqs_p(DDR_PL_dqs_p),
+            .DDR_PL_odt(DDR_PL_odt),
+            .DDR_PL_ras_n(DDR_PL_ras_n),
+            .DDR_PL_reset_n(DDR_PL_reset_n),
+            .DDR_PL_we_n(DDR_PL_we_n)
+        );
+    `else 
+        vhes_core_top_sim_only#
+        (
+            .FRAME_WIDTH(`FRAME_WIDTH),
+            .FRAME_HEIGHT(`FRAME_HEIGHT),
+            .INITIAL_QP(`INITIAL_QP),
+            .GOP_LENGTH(`GOP_LENGTH),
+            .ENABLE_IINP(`ENABLE_IINP),
+            .ENABLE_DB(`ENABLE_DB),
+            .ENABLE_SAO(`ENABLE_SAO),
+            .POSI4x4BIT(`POSI4x4BIT)
+        ) vhes_core_top
+        (
+            .rst_n_i(rst_n),
+            .clk_200M_p_i(clk_200M_p),
+            .clk_200M_n_i(clk_200M_n),
+            .rst_done_o(rst_done),
+            .bs_overflow_o(bs_overflow),
+            .skip_frame_flag_o(skip_frame_flag),
+            .pclk_i(pclk),
+            .hsync_i(hsync),
+            .vsync_i(vsync),
+            .rgb_i(pixel),
+            .de_i(de),
+            .clk_bs_rd_i(clk_bs_rd),
+            .bs_rd_en_i(bs_rd_en),
+            .bs_valid_o(bs_valid),
+            .bs_data_o(bs_data),
+            .DDR_PL_addr(DDR_PL_addr),
+            .DDR_PL_ba(DDR_PL_ba),
+            .DDR_PL_cas_n(DDR_PL_cas_n),
+            .DDR_PL_ck_n(DDR_PL_ck_n),
+            .DDR_PL_ck_p(DDR_PL_ck_p),
+            .DDR_PL_cke(DDR_PL_cke),
+            .DDR_PL_cs_n(DDR_PL_cs_n),
+            .DDR_PL_dm(DDR_PL_dm),
+            .DDR_PL_dq(DDR_PL_dq),
+            .DDR_PL_dqs_n(DDR_PL_dqs_n),
+            .DDR_PL_dqs_p(DDR_PL_dqs_p),
+            .DDR_PL_odt(DDR_PL_odt),
+            .DDR_PL_ras_n(DDR_PL_ras_n),
+            .DDR_PL_reset_n(DDR_PL_reset_n),
+            .DDR_PL_we_n(DDR_PL_we_n)
+        );
+    `endif
 
     ddr3_model u_ddr3_part1(
         .rst_n(DDR_PL_reset_n),
@@ -199,43 +261,54 @@ module vhes_core_top_tb;
             rst_n = 1'b0;
             hsync = 1'b0;
             vsync = 1'b0;
-            yuv = 24'b0;
+            pixel = 24'b0;
             de = 1'b0;
             bs_rd_en = 1'b0;
 
-        /**************** 加载 RGB 文件 ****************/
+        /**************** 加载像素文件 ****************/
             fp_video_origin = $fopen(`FILE_VIDEO_ORIGIN, "rb");
             fp_video_bitstream = $fopen(`FILE_BS, "wb");
             fp_performance = $fopen(`FILE_PERFORMANCE, "wb");
             fp_video_check_bitstream = $fopen(`FILE_CHECK_BS, "rb");
             for(frame_serial_number = 0; frame_serial_number < `FRAME_NUMS; frame_serial_number = frame_serial_number + 1) begin
-                // 读取 Y 分量
-                for(frame_row = 0; frame_row < `FRAME_HEIGHT; frame_row = frame_row + 1) begin
-                    for(frame_col = 0; frame_col < `FRAME_WIDTH; frame_col = frame_col + 1) begin
-                        $fread(video_read_buffer, fp_video_origin);
-                        video_stream_y[frame_serial_number][frame_row][frame_col] = video_read_buffer;
+                `ifdef FILE_TYPE_RGB
+                    for(frame_row = 0; frame_row < `FRAME_HEIGHT; frame_row = frame_row + 1) begin
+                        for(frame_col = 0; frame_col < `FRAME_WIDTH; frame_col = frame_col + 1) begin
+                            $fread(video_read_buffer, fp_video_origin);
+                            video_stream_r[frame_serial_number][frame_row][frame_col] = video_read_buffer[23:16];
+                            video_stream_g[frame_serial_number][frame_row][frame_col] = video_read_buffer[15:8];
+                            video_stream_b[frame_serial_number][frame_row][frame_col] = video_read_buffer[7:0];
+                        end
                     end
-                end
-                // 读取 U 分量
-                for(frame_row = 0; frame_row < `FRAME_HEIGHT; frame_row = frame_row + 2) begin
-                    for(frame_col = 0; frame_col < `FRAME_WIDTH; frame_col = frame_col + 2) begin
-                        $fread(video_read_buffer, fp_video_origin);
-                        video_stream_u[frame_serial_number][frame_row][frame_col] = video_read_buffer;
-                        video_stream_u[frame_serial_number][frame_row][frame_col + 1] = video_read_buffer;
-                        video_stream_u[frame_serial_number][frame_row + 1][frame_col] = video_read_buffer;
-                        video_stream_u[frame_serial_number][frame_row + 1][frame_col + 1] = video_read_buffer;
+                `else
+                    // 读取 Y 分量
+                    for(frame_row = 0; frame_row < `FRAME_HEIGHT; frame_row = frame_row + 1) begin
+                        for(frame_col = 0; frame_col < `FRAME_WIDTH; frame_col = frame_col + 1) begin
+                            $fread(video_read_buffer, fp_video_origin);
+                            video_stream_y[frame_serial_number][frame_row][frame_col] = video_read_buffer;
+                        end
                     end
-                end
-                // 读取 V 分量
-                for(frame_row = 0; frame_row < `FRAME_HEIGHT; frame_row = frame_row + 2) begin
-                    for(frame_col = 0; frame_col < `FRAME_WIDTH; frame_col = frame_col + 2) begin
-                        $fread(video_read_buffer, fp_video_origin);
-                        video_stream_v[frame_serial_number][frame_row][frame_col] = video_read_buffer;
-                        video_stream_v[frame_serial_number][frame_row][frame_col + 1] = video_read_buffer;
-                        video_stream_v[frame_serial_number][frame_row + 1][frame_col] = video_read_buffer;
-                        video_stream_v[frame_serial_number][frame_row + 1][frame_col + 1] = video_read_buffer;
+                    // 读取 U 分量
+                    for(frame_row = 0; frame_row < `FRAME_HEIGHT; frame_row = frame_row + 2) begin
+                        for(frame_col = 0; frame_col < `FRAME_WIDTH; frame_col = frame_col + 2) begin
+                            $fread(video_read_buffer, fp_video_origin);
+                            video_stream_u[frame_serial_number][frame_row][frame_col] = video_read_buffer;
+                            video_stream_u[frame_serial_number][frame_row][frame_col + 1] = video_read_buffer;
+                            video_stream_u[frame_serial_number][frame_row + 1][frame_col] = video_read_buffer;
+                            video_stream_u[frame_serial_number][frame_row + 1][frame_col + 1] = video_read_buffer;
+                        end
                     end
-                end
+                    // 读取 V 分量
+                    for(frame_row = 0; frame_row < `FRAME_HEIGHT; frame_row = frame_row + 2) begin
+                        for(frame_col = 0; frame_col < `FRAME_WIDTH; frame_col = frame_col + 2) begin
+                            $fread(video_read_buffer, fp_video_origin);
+                            video_stream_v[frame_serial_number][frame_row][frame_col] = video_read_buffer;
+                            video_stream_v[frame_serial_number][frame_row][frame_col + 1] = video_read_buffer;
+                            video_stream_v[frame_serial_number][frame_row + 1][frame_col] = video_read_buffer;
+                            video_stream_v[frame_serial_number][frame_row + 1][frame_col + 1] = video_read_buffer;
+                        end
+                    end
+                `endif
             end
             $fclose(fp_video_origin);
         
@@ -255,11 +328,19 @@ module vhes_core_top_tb;
                     for(frame_col = 0; frame_col < `FRAME_WIDTH; frame_col = frame_col + 1) begin
                         @(posedge pclk) begin
                             de = 1'b1;
-                            yuv = { 
+                            `ifdef FILE_TYPE_RGB
+                                pixel = { 
+                                    video_stream_r[frame_serial_number][frame_row][frame_col],
+                                    video_stream_g[frame_serial_number][frame_row][frame_col],
+                                    video_stream_b[frame_serial_number][frame_row][frame_col] 
+                                  };
+                            `else
+                                pixel = { 
                                     video_stream_y[frame_serial_number][frame_row][frame_col],
                                     video_stream_u[frame_serial_number][frame_row][frame_col],
                                     video_stream_v[frame_serial_number][frame_row][frame_col] 
                                   };
+                            `endif 
                         end
                     end
                     @(negedge pclk) de = 1'b0;
@@ -272,10 +353,10 @@ module vhes_core_top_tb;
 
 /***************************** 码流检查 **************************/
     `ifdef CHECK_BS 
-        always@(posedge vhes_core_top_sim_only.vsp_top.clk_i) begin
-            if(vhes_core_top_sim_only.vsp_top.bs_valid_i) begin
+        always@(posedge vhes_core_top.vsp_top.clk_i) begin
+            if(vhes_core_top.vsp_top.bs_valid_i) begin
                 $fscanf(fp_video_check_bitstream, "%h", check_bs);
-                if (check_bs != vhes_core_top_sim_only.vsp_top.bs_data_i) begin
+                if (check_bs != vhes_core_top.vsp_top.bs_data_i) begin
                     $display("ERROR at BS at bs_byte_cnt = %5d, f265 is %h, h265 is %h", bs_check_byte_cnt, check_bs, bs_data);
                     $finish;
                 end
@@ -288,26 +369,29 @@ module vhes_core_top_tb;
     `ifdef STORE_BS
         always@(posedge clk_bs_rd) begin
             if(bs_valid) begin
-                $fwrite(fp_video_bitstream, "%x", bs_data);
+                $fwrite(fp_video_bitstream, "%c", bs_data[31:24]);
+                $fwrite(fp_video_bitstream, "%c", bs_data[23:16]);
+                $fwrite(fp_video_bitstream, "%c", bs_data[15:8]);
+                $fwrite(fp_video_bitstream, "%c", bs_data[7:0]);
             end
         end
 
-        always@(posedge vhes_core_top_sim_only.vsp_top.hevc_encode_done_i) begin
+        always@(posedge vhes_core_top.vsp_top.hevc_encode_done_i) begin
             $fflush(fp_video_bitstream);
         end
     `endif
 
     `ifdef STORE_PERF
-        always@(posedge vhes_core_top_sim_only.enc_core_top.sys_start_i or posedge vhes_core_top_sim_only.enc_core_top.sys_done_o) begin
-            if(vhes_core_top_sim_only.enc_core_top.sys_start_i) begin
+        always@(posedge vhes_core_top.enc_core_top.sys_start_i or posedge vhes_core_top.enc_core_top.sys_done_o) begin
+            if(vhes_core_top.enc_core_top.sys_start_i) begin
                 frame_encode_time = $time;
             end
-            else if(vhes_core_top_sim_only.enc_core_top.sys_done_o) begin
+            else if(vhes_core_top.enc_core_top.sys_done_o) begin
                 $fwrite(fp_performance, "%d fps\n", 1000_000_000 / ($time - frame_encode_time));
             end
         end
 
-        always@(posedge vhes_core_top_sim_only.vsp_top.hevc_encode_done_i) begin
+        always@(posedge vhes_core_top.vsp_top.hevc_encode_done_i) begin
             $fflush(fp_performance);
         end
     `endif 

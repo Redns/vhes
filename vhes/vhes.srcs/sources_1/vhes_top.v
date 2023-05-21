@@ -65,12 +65,6 @@ module vhes_top(
     wire hevc_bs_valid;
     wire [31:0] hevc_bs_data;
 
-    wire bs_overflow;
-    wire skip_frame_flag;
-
-    assign bs_overflow_n_o = ~bs_overflow;
-    assign skip_frame_flag_n_o = ~skip_frame_flag;
-
     vhes_core_top#
     (
         .FRAME_WIDTH(1920),
@@ -87,8 +81,8 @@ module vhes_top(
         .clk_200M_p_i(clk_200M_p_i),
         .clk_200M_n_i(clk_200M_n_i),
         .rst_done_o(sys_init_done_o),
-        .bs_overflow_o(bs_overflow),
-        .skip_frame_flag_o(skip_frame_flag),
+        .bs_overflow_o(bs_overflow_o),
+        .skip_frame_flag_o(skip_frame_flag_o),
         .pclk_i(pclk_i),
         .hsync_i(hsync_i),
         .vsync_i(vsync_i),

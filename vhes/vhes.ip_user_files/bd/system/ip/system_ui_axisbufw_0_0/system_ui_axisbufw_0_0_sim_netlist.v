@@ -3,14 +3,81 @@
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
 // Date        : Wed May 10 23:50:27 2023
 // Host        : JingDevice running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/Project/vhes/vhes/vhes.gen/sources_1/bd/system/ip/system_ui_axisbufw_0_0/system_ui_axisbufw_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_ui_axisbufw_0_0 -prefix
+//               system_ui_axisbufw_0_0_ system_ui_axisbufw_0_0_sim_netlist.v
 // Design      : system_ui_axisbufw_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z100ffg900-2
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
+
+(* VIDEO_ENABLE = "0" *) 
+module system_ui_axisbufw_0_0_fs_cap
+   (clk_i,
+    rstn_i,
+    vs_i,
+    fs_cap_o);
+  input clk_i;
+  input rstn_i;
+  input vs_i;
+  output fs_cap_o;
+
+  wire clk_i;
+  wire fs_cap_o;
+  wire fs_cap_o_i_1_n_0;
+  wire rstn_i;
+  wire vs_i;
+  (* async_reg = "true" *) wire vs_i_r1;
+  (* async_reg = "true" *) wire vs_i_r2;
+  (* async_reg = "true" *) wire vs_i_r3;
+  (* async_reg = "true" *) wire vs_i_r4;
+
+  LUT2 #(
+    .INIT(4'h8)) 
+    fs_cap_o_i_1
+       (.I0(rstn_i),
+        .I1(vs_i_r4),
+        .O(fs_cap_o_i_1_n_0));
+  FDRE fs_cap_o_reg
+       (.C(clk_i),
+        .CE(1'b1),
+        .D(fs_cap_o_i_1_n_0),
+        .Q(fs_cap_o),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE vs_i_r1_reg
+       (.C(clk_i),
+        .CE(1'b1),
+        .D(vs_i),
+        .Q(vs_i_r1),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE vs_i_r2_reg
+       (.C(clk_i),
+        .CE(1'b1),
+        .D(vs_i_r1),
+        .Q(vs_i_r2),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE vs_i_r3_reg
+       (.C(clk_i),
+        .CE(1'b1),
+        .D(vs_i_r2),
+        .Q(vs_i_r3),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE vs_i_r4_reg
+       (.C(clk_i),
+        .CE(1'b1),
+        .D(vs_i_r3),
+        .Q(vs_i_r4),
+        .R(1'b0));
+endmodule
 
 (* CHECK_LICENSE_TYPE = "system_ui_axisbufw_0_0,ui_axisbufw,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
 (* X_CORE_INFO = "ui_axisbufw,Vivado 2021.2" *) 
@@ -87,79 +154,11 @@ module system_ui_axisbufw_0_0
         .ui_rstn(ui_rstn));
 endmodule
 
-(* ORIG_REF_NAME = "fs_cap" *) (* VIDEO_ENABLE = "0" *) 
-module system_ui_axisbufw_0_0_fs_cap
-   (clk_i,
-    rstn_i,
-    vs_i,
-    fs_cap_o);
-  input clk_i;
-  input rstn_i;
-  input vs_i;
-  output fs_cap_o;
-
-  wire clk_i;
-  wire fs_cap_o;
-  wire fs_cap_o_i_1_n_0;
-  wire rstn_i;
-  wire vs_i;
-  (* async_reg = "true" *) wire vs_i_r1;
-  (* async_reg = "true" *) wire vs_i_r2;
-  (* async_reg = "true" *) wire vs_i_r3;
-  (* async_reg = "true" *) wire vs_i_r4;
-
-  LUT2 #(
-    .INIT(4'h8)) 
-    fs_cap_o_i_1
-       (.I0(rstn_i),
-        .I1(vs_i_r4),
-        .O(fs_cap_o_i_1_n_0));
-  FDRE fs_cap_o_reg
-       (.C(clk_i),
-        .CE(1'b1),
-        .D(fs_cap_o_i_1_n_0),
-        .Q(fs_cap_o),
-        .R(1'b0));
-  (* ASYNC_REG *) 
-  (* KEEP = "yes" *) 
-  FDRE vs_i_r1_reg
-       (.C(clk_i),
-        .CE(1'b1),
-        .D(vs_i),
-        .Q(vs_i_r1),
-        .R(1'b0));
-  (* ASYNC_REG *) 
-  (* KEEP = "yes" *) 
-  FDRE vs_i_r2_reg
-       (.C(clk_i),
-        .CE(1'b1),
-        .D(vs_i_r1),
-        .Q(vs_i_r2),
-        .R(1'b0));
-  (* ASYNC_REG *) 
-  (* KEEP = "yes" *) 
-  FDRE vs_i_r3_reg
-       (.C(clk_i),
-        .CE(1'b1),
-        .D(vs_i_r2),
-        .Q(vs_i_r3),
-        .R(1'b0));
-  (* ASYNC_REG *) 
-  (* KEEP = "yes" *) 
-  FDRE vs_i_r4_reg
-       (.C(clk_i),
-        .CE(1'b1),
-        .D(vs_i_r3),
-        .Q(vs_i_r4),
-        .R(1'b0));
-endmodule
-
-(* AXI_DATA_WIDTH = "32" *) (* FDMA_WX_BURST = "1024" *) (* ORIG_REF_NAME = "ui_axisbufw" *) 
-(* S_DATA1 = "2'b10" *) (* S_DATA2 = "2'b11" *) (* S_IDLE = "2'b00" *) 
-(* S_RST = "2'b01" *) (* VIDEO_ENABLE = "0" *) (* WFIFO_DEPTH = "2048" *) 
-(* W_BUFDEPTH = "2048" *) (* W_DATAWIDTH = "32" *) (* W_RD_DATA_COUNT_WIDTH = "12" *) 
-(* W_WR_DATA_COUNT_WIDTH = "12" *) (* W_XSIZE = "1024" *) (* W_YSIZE = "1024" *) 
-(* keep_hierarchy = "soft" *) 
+(* AXI_DATA_WIDTH = "32" *) (* FDMA_WX_BURST = "1024" *) (* S_DATA1 = "2'b10" *) 
+(* S_DATA2 = "2'b11" *) (* S_IDLE = "2'b00" *) (* S_RST = "2'b01" *) 
+(* VIDEO_ENABLE = "0" *) (* WFIFO_DEPTH = "2048" *) (* W_BUFDEPTH = "2048" *) 
+(* W_DATAWIDTH = "32" *) (* W_RD_DATA_COUNT_WIDTH = "12" *) (* W_WR_DATA_COUNT_WIDTH = "12" *) 
+(* W_XSIZE = "1024" *) (* W_YSIZE = "1024" *) (* keep_hierarchy = "soft" *) 
 module system_ui_axisbufw_0_0_ui_axisbufw
    (ui_rstn,
     W_wclk_i,
@@ -1171,10 +1170,10 @@ module system_ui_axisbufw_0_0_ui_axisbufw
         .O(xpm_fifo_W_inst_i_1_n_0));
 endmodule
 
-(* DEST_SYNC_FF = "2" *) (* INIT_SYNC_FF = "1" *) (* ORIG_REF_NAME = "xpm_cdc_gray" *) 
-(* REG_OUTPUT = "0" *) (* SIM_ASSERT_CHK = "0" *) (* SIM_LOSSLESS_GRAY_CHK = "0" *) 
-(* VERSION = "0" *) (* WIDTH = "11" *) (* XPM_MODULE = "TRUE" *) 
-(* keep_hierarchy = "true" *) (* xpm_cdc = "GRAY" *) 
+(* DEST_SYNC_FF = "2" *) (* INIT_SYNC_FF = "1" *) (* REG_OUTPUT = "0" *) 
+(* SIM_ASSERT_CHK = "0" *) (* SIM_LOSSLESS_GRAY_CHK = "0" *) (* VERSION = "0" *) 
+(* WIDTH = "11" *) (* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "true" *) 
+(* xpm_cdc = "GRAY" *) 
 module system_ui_axisbufw_0_0_xpm_cdc_gray
    (src_clk,
     src_in_bin,
@@ -3226,9 +3225,8 @@ module system_ui_axisbufw_0_0_xpm_cdc_gray__parameterized1
 endmodule
 
 (* DEF_VAL = "1'b0" *) (* DEST_SYNC_FF = "2" *) (* INIT = "0" *) 
-(* INIT_SYNC_FF = "1" *) (* ORIG_REF_NAME = "xpm_cdc_sync_rst" *) (* SIM_ASSERT_CHK = "0" *) 
-(* VERSION = "0" *) (* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "true" *) 
-(* xpm_cdc = "SYNC_RST" *) 
+(* INIT_SYNC_FF = "1" *) (* SIM_ASSERT_CHK = "0" *) (* VERSION = "0" *) 
+(* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "true" *) (* xpm_cdc = "SYNC_RST" *) 
 module system_ui_axisbufw_0_0_xpm_cdc_sync_rst
    (src_rst,
     dest_clk,
@@ -3307,7 +3305,6 @@ module system_ui_axisbufw_0_0_xpm_cdc_sync_rst__2
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "xpm_counter_updn" *) 
 module system_ui_axisbufw_0_0_xpm_counter_updn
    (S,
     DI,
@@ -4797,13 +4794,12 @@ endmodule
 (* CASCADE_HEIGHT = "0" *) (* CDC_SYNC_STAGES = "2" *) (* DOUT_RESET_VALUE = "0" *) 
 (* ECC_MODE = "no_ecc" *) (* EN_ADV_FEATURE_ASYNC = "16'b0000011100000111" *) (* FIFO_MEMORY_TYPE = "auto" *) 
 (* FIFO_READ_LATENCY = "0" *) (* FIFO_WRITE_DEPTH = "2048" *) (* FULL_RESET_VALUE = "0" *) 
-(* ORIG_REF_NAME = "xpm_fifo_async" *) (* PROG_EMPTY_THRESH = "10" *) (* PROG_FULL_THRESH = "20" *) 
-(* P_COMMON_CLOCK = "0" *) (* P_ECC_MODE = "0" *) (* P_FIFO_MEMORY_TYPE = "0" *) 
-(* P_READ_MODE = "1" *) (* P_WAKEUP_TIME = "2" *) (* RD_DATA_COUNT_WIDTH = "12" *) 
-(* READ_DATA_WIDTH = "32" *) (* READ_MODE = "fwft" *) (* RELATED_CLOCKS = "0" *) 
-(* SIM_ASSERT_CHK = "0" *) (* USE_ADV_FEATURES = "0707" *) (* WAKEUP_TIME = "0" *) 
-(* WRITE_DATA_WIDTH = "32" *) (* WR_DATA_COUNT_WIDTH = "12" *) (* XPM_MODULE = "TRUE" *) 
-(* dont_touch = "true" *) 
+(* PROG_EMPTY_THRESH = "10" *) (* PROG_FULL_THRESH = "20" *) (* P_COMMON_CLOCK = "0" *) 
+(* P_ECC_MODE = "0" *) (* P_FIFO_MEMORY_TYPE = "0" *) (* P_READ_MODE = "1" *) 
+(* P_WAKEUP_TIME = "2" *) (* RD_DATA_COUNT_WIDTH = "12" *) (* READ_DATA_WIDTH = "32" *) 
+(* READ_MODE = "fwft" *) (* RELATED_CLOCKS = "0" *) (* SIM_ASSERT_CHK = "0" *) 
+(* USE_ADV_FEATURES = "0707" *) (* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH = "32" *) 
+(* WR_DATA_COUNT_WIDTH = "12" *) (* XPM_MODULE = "TRUE" *) (* dont_touch = "true" *) 
 module system_ui_axisbufw_0_0_xpm_fifo_async
    (sleep,
     rst,
@@ -4993,19 +4989,19 @@ endmodule
 (* EN_WACK = "1'b0" *) (* EN_WDC = "1'b1" *) (* FG_EQ_ASYM_DOUT = "1'b0" *) 
 (* FIFO_MEMORY_TYPE = "0" *) (* FIFO_MEM_TYPE = "0" *) (* FIFO_READ_DEPTH = "2048" *) 
 (* FIFO_READ_LATENCY = "0" *) (* FIFO_SIZE = "65536" *) (* FIFO_WRITE_DEPTH = "2048" *) 
-(* FULL_RESET_VALUE = "0" *) (* FULL_RST_VAL = "1'b0" *) (* ORIG_REF_NAME = "xpm_fifo_base" *) 
-(* PE_THRESH_ADJ = "8" *) (* PE_THRESH_MAX = "2043" *) (* PE_THRESH_MIN = "5" *) 
-(* PF_THRESH_ADJ = "18" *) (* PF_THRESH_MAX = "2043" *) (* PF_THRESH_MIN = "7" *) 
-(* PROG_EMPTY_THRESH = "10" *) (* PROG_FULL_THRESH = "20" *) (* RD_DATA_COUNT_WIDTH = "12" *) 
-(* RD_DC_WIDTH_EXT = "12" *) (* RD_LATENCY = "2" *) (* RD_MODE = "1" *) 
-(* RD_PNTR_WIDTH = "11" *) (* READ_DATA_WIDTH = "32" *) (* READ_MODE = "1" *) 
-(* READ_MODE_LL = "1" *) (* RELATED_CLOCKS = "0" *) (* REMOVE_WR_RD_PROT_LOGIC = "0" *) 
-(* SIM_ASSERT_CHK = "0" *) (* USE_ADV_FEATURES = "0707" *) (* VERSION = "0" *) 
-(* WAKEUP_TIME = "0" *) (* WIDTH_RATIO = "1" *) (* WRITE_DATA_WIDTH = "32" *) 
-(* WR_DATA_COUNT_WIDTH = "12" *) (* WR_DC_WIDTH_EXT = "12" *) (* WR_DEPTH_LOG = "11" *) 
-(* WR_PNTR_WIDTH = "11" *) (* WR_RD_RATIO = "0" *) (* WR_WIDTH_LOG = "5" *) 
-(* XPM_MODULE = "TRUE" *) (* both_stages_valid = "3" *) (* invalid = "0" *) 
-(* keep_hierarchy = "soft" *) (* stage1_valid = "2" *) (* stage2_valid = "1" *) 
+(* FULL_RESET_VALUE = "0" *) (* FULL_RST_VAL = "1'b0" *) (* PE_THRESH_ADJ = "8" *) 
+(* PE_THRESH_MAX = "2043" *) (* PE_THRESH_MIN = "5" *) (* PF_THRESH_ADJ = "18" *) 
+(* PF_THRESH_MAX = "2043" *) (* PF_THRESH_MIN = "7" *) (* PROG_EMPTY_THRESH = "10" *) 
+(* PROG_FULL_THRESH = "20" *) (* RD_DATA_COUNT_WIDTH = "12" *) (* RD_DC_WIDTH_EXT = "12" *) 
+(* RD_LATENCY = "2" *) (* RD_MODE = "1" *) (* RD_PNTR_WIDTH = "11" *) 
+(* READ_DATA_WIDTH = "32" *) (* READ_MODE = "1" *) (* READ_MODE_LL = "1" *) 
+(* RELATED_CLOCKS = "0" *) (* REMOVE_WR_RD_PROT_LOGIC = "0" *) (* SIM_ASSERT_CHK = "0" *) 
+(* USE_ADV_FEATURES = "0707" *) (* VERSION = "0" *) (* WAKEUP_TIME = "0" *) 
+(* WIDTH_RATIO = "1" *) (* WRITE_DATA_WIDTH = "32" *) (* WR_DATA_COUNT_WIDTH = "12" *) 
+(* WR_DC_WIDTH_EXT = "12" *) (* WR_DEPTH_LOG = "11" *) (* WR_PNTR_WIDTH = "11" *) 
+(* WR_RD_RATIO = "0" *) (* WR_WIDTH_LOG = "5" *) (* XPM_MODULE = "TRUE" *) 
+(* both_stages_valid = "3" *) (* invalid = "0" *) (* keep_hierarchy = "soft" *) 
+(* stage1_valid = "2" *) (* stage2_valid = "1" *) 
 module system_ui_axisbufw_0_0_xpm_fifo_base
    (sleep,
     rst,
@@ -5996,7 +5992,6 @@ module system_ui_axisbufw_0_0_xpm_fifo_base
         .wrst_busy(wrst_busy));
 endmodule
 
-(* ORIG_REF_NAME = "xpm_fifo_reg_bit" *) 
 module system_ui_axisbufw_0_0_xpm_fifo_reg_bit
    (rst_d1,
     \gen_pf_ic_rc.ngen_full_rst_val.ram_full_i_reg ,
@@ -6103,7 +6098,6 @@ module system_ui_axisbufw_0_0_xpm_fifo_reg_bit
         .O(overflow_i0));
 endmodule
 
-(* ORIG_REF_NAME = "xpm_fifo_reg_vec" *) 
 module system_ui_axisbufw_0_0_xpm_fifo_reg_vec
    (Q,
     ram_full_i0,
@@ -6995,7 +6989,6 @@ module system_ui_axisbufw_0_0_xpm_fifo_reg_vec__parameterized0_1
         .R(\reg_out_i_reg[11]_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "xpm_fifo_rst" *) 
 module system_ui_axisbufw_0_0_xpm_fifo_rst
    (\gen_rst_ic.fifo_rd_rst_ic_reg_0 ,
     wrst_busy,
@@ -7405,24 +7398,24 @@ endmodule
 (* MAX_NUM_CHAR = "0" *) (* MEMORY_INIT_FILE = "none" *) (* MEMORY_INIT_PARAM = "" *) 
 (* MEMORY_OPTIMIZATION = "true" *) (* MEMORY_PRIMITIVE = "0" *) (* MEMORY_SIZE = "65536" *) 
 (* MEMORY_TYPE = "1" *) (* MESSAGE_CONTROL = "0" *) (* NUM_CHAR_LOC = "0" *) 
-(* ORIG_REF_NAME = "xpm_memory_base" *) (* P_ECC_MODE = "no_ecc" *) (* P_ENABLE_BYTE_WRITE_A = "0" *) 
-(* P_ENABLE_BYTE_WRITE_B = "0" *) (* P_MAX_DEPTH_DATA = "2048" *) (* P_MEMORY_OPT = "yes" *) 
-(* P_MEMORY_PRIMITIVE = "auto" *) (* P_MIN_WIDTH_DATA = "32" *) (* P_MIN_WIDTH_DATA_A = "32" *) 
-(* P_MIN_WIDTH_DATA_B = "32" *) (* P_MIN_WIDTH_DATA_ECC = "32" *) (* P_MIN_WIDTH_DATA_LDW = "4" *) 
-(* P_MIN_WIDTH_DATA_SHFT = "32" *) (* P_NUM_COLS_WRITE_A = "1" *) (* P_NUM_COLS_WRITE_B = "1" *) 
-(* P_NUM_ROWS_READ_A = "1" *) (* P_NUM_ROWS_READ_B = "1" *) (* P_NUM_ROWS_WRITE_A = "1" *) 
-(* P_NUM_ROWS_WRITE_B = "1" *) (* P_SDP_WRITE_MODE = "yes" *) (* P_WIDTH_ADDR_LSB_READ_A = "0" *) 
-(* P_WIDTH_ADDR_LSB_READ_B = "0" *) (* P_WIDTH_ADDR_LSB_WRITE_A = "0" *) (* P_WIDTH_ADDR_LSB_WRITE_B = "0" *) 
-(* P_WIDTH_ADDR_READ_A = "11" *) (* P_WIDTH_ADDR_READ_B = "11" *) (* P_WIDTH_ADDR_WRITE_A = "11" *) 
-(* P_WIDTH_ADDR_WRITE_B = "11" *) (* P_WIDTH_COL_WRITE_A = "32" *) (* P_WIDTH_COL_WRITE_B = "32" *) 
-(* READ_DATA_WIDTH_A = "32" *) (* READ_DATA_WIDTH_B = "32" *) (* READ_LATENCY_A = "2" *) 
-(* READ_LATENCY_B = "2" *) (* READ_RESET_VALUE_A = "0" *) (* READ_RESET_VALUE_B = "0" *) 
-(* RST_MODE_A = "SYNC" *) (* RST_MODE_B = "SYNC" *) (* SIM_ASSERT_CHK = "0" *) 
-(* USE_EMBEDDED_CONSTRAINT = "0" *) (* USE_MEM_INIT = "0" *) (* USE_MEM_INIT_MMI = "0" *) 
-(* VERSION = "0" *) (* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH_A = "32" *) 
-(* WRITE_DATA_WIDTH_B = "32" *) (* WRITE_MODE_A = "2" *) (* WRITE_MODE_B = "2" *) 
-(* WRITE_PROTECT = "1" *) (* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "soft" *) 
-(* rsta_loop_iter = "32" *) (* rstb_loop_iter = "32" *) 
+(* P_ECC_MODE = "no_ecc" *) (* P_ENABLE_BYTE_WRITE_A = "0" *) (* P_ENABLE_BYTE_WRITE_B = "0" *) 
+(* P_MAX_DEPTH_DATA = "2048" *) (* P_MEMORY_OPT = "yes" *) (* P_MEMORY_PRIMITIVE = "auto" *) 
+(* P_MIN_WIDTH_DATA = "32" *) (* P_MIN_WIDTH_DATA_A = "32" *) (* P_MIN_WIDTH_DATA_B = "32" *) 
+(* P_MIN_WIDTH_DATA_ECC = "32" *) (* P_MIN_WIDTH_DATA_LDW = "4" *) (* P_MIN_WIDTH_DATA_SHFT = "32" *) 
+(* P_NUM_COLS_WRITE_A = "1" *) (* P_NUM_COLS_WRITE_B = "1" *) (* P_NUM_ROWS_READ_A = "1" *) 
+(* P_NUM_ROWS_READ_B = "1" *) (* P_NUM_ROWS_WRITE_A = "1" *) (* P_NUM_ROWS_WRITE_B = "1" *) 
+(* P_SDP_WRITE_MODE = "yes" *) (* P_WIDTH_ADDR_LSB_READ_A = "0" *) (* P_WIDTH_ADDR_LSB_READ_B = "0" *) 
+(* P_WIDTH_ADDR_LSB_WRITE_A = "0" *) (* P_WIDTH_ADDR_LSB_WRITE_B = "0" *) (* P_WIDTH_ADDR_READ_A = "11" *) 
+(* P_WIDTH_ADDR_READ_B = "11" *) (* P_WIDTH_ADDR_WRITE_A = "11" *) (* P_WIDTH_ADDR_WRITE_B = "11" *) 
+(* P_WIDTH_COL_WRITE_A = "32" *) (* P_WIDTH_COL_WRITE_B = "32" *) (* READ_DATA_WIDTH_A = "32" *) 
+(* READ_DATA_WIDTH_B = "32" *) (* READ_LATENCY_A = "2" *) (* READ_LATENCY_B = "2" *) 
+(* READ_RESET_VALUE_A = "0" *) (* READ_RESET_VALUE_B = "0" *) (* RST_MODE_A = "SYNC" *) 
+(* RST_MODE_B = "SYNC" *) (* SIM_ASSERT_CHK = "0" *) (* USE_EMBEDDED_CONSTRAINT = "0" *) 
+(* USE_MEM_INIT = "0" *) (* USE_MEM_INIT_MMI = "0" *) (* VERSION = "0" *) 
+(* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH_A = "32" *) (* WRITE_DATA_WIDTH_B = "32" *) 
+(* WRITE_MODE_A = "2" *) (* WRITE_MODE_B = "2" *) (* WRITE_PROTECT = "1" *) 
+(* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "soft" *) (* rsta_loop_iter = "32" *) 
+(* rstb_loop_iter = "32" *) 
 module system_ui_axisbufw_0_0_xpm_memory_base
    (sleep,
     clka,
