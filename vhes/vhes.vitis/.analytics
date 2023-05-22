@@ -185,3 +185,7 @@ timestamp=[2023-05-21 20:39:31], mode=BUILD, duration=0:00:02.117, duration_ms=2
 timestamp=[2023-05-21 20:54:00], mode=BUILD, duration=0:00:01.158, duration_ms=1158, data={name=vhes, configuration=Debug, clean_build=false}
 timestamp=[2023-05-21 20:55:36], mode=BUILD, duration=0:00:00.977, duration_ms=977, data={name=vhes, configuration=Debug, clean_build=false}
 timestamp=[2023-05-21 20:59:57], mode=BUILD, duration=0:00:00.338, duration_ms=338, data={name=vhes, configuration=Debug, clean_build=false}
+timestamp=[2023-05-22 16:58:20], mode=WORKBENCH_START, duration=0:00:13.602, duration_ms=13602, data={}
+timestamp=[2023-05-22 16:58:23], mode=WORKBENCH_UI_INIT, duration=0:00:03.625, duration_ms=3625, data={editors_count=4, platform_editors_count=2, projects_count=6, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,lwip_tcp_client,lwip_tcp_client_system,vhes,vhes_system,vhes_top}
+timestamp=[2023-05-22 16:58:27], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.266, duration_ms=266, data={}
+timestamp=[2023-05-22 16:58:57], mode=BUILD, duration=0:00:03.039, duration_ms=3039, data={name=vhes, configuration=Debug, clean_build=false}

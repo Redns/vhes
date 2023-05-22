@@ -82,7 +82,8 @@ module vsp_top(
         .wr_en(hevc_bs_valid),             
         .rd_en(hevc_bs_rd_en_i),              
         .dout(hevc_bs_data_o),               
-        .full(bs_fifo_full),                     
+        .full(bs_fifo_full),       
+        .empty(),              
         .valid(hevc_bs_valid_o),              
         .wr_rst_busy(bs_fifo_wr_rst_busy),  
         .rd_rst_busy(bs_fifo_rd_rst_busy)  

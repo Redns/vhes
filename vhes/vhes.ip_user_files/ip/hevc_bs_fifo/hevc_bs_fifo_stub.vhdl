@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sun May 21 21:17:48 2023
+-- Date        : Mon May 22 21:46:29 2023
 -- Host        : JingDevice running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               e:/Project/vhes/vhes/vhes.gen/sources_1/ip/hevc_bs_fifo/hevc_bs_fifo_stub.vhdl

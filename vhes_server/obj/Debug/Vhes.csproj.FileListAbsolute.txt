@@ -50,3 +50,7 @@ E:\Project\vhes\vhes_server\bin\Debug\System.Numerics.Vectors.xml
 E:\Project\vhes\vhes_server\bin\Debug\System.Text.Encodings.Web.xml
 E:\Project\vhes\vhes_server\bin\Debug\System.Text.Json.xml
 E:\Project\vhes\vhes_server\bin\Debug\System.ValueTuple.xml
+E:\Project\vhes\vhes_server\bin\Debug\ScottPlot.dll
+E:\Project\vhes\vhes_server\bin\Debug\ScottPlot.WPF.dll
+E:\Project\vhes\vhes_server\bin\Debug\System.Drawing.Common.dll
+E:\Project\vhes\vhes_server\bin\Debug\ScottPlot.xml

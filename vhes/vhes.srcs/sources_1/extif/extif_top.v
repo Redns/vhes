@@ -15,6 +15,8 @@ module extif_top(
     input pixel_rd_en_i,                        // 缓冲区像素读取标志输入（高电平有效）
     output pixel_buffer_full_o,                 // 像素缓冲区满标志位（高电平有效）
     output [10:0] pixel_fifo_rd_cnt_o,
+    // TODO 移除该信号
+    output ddr_init_done_o,
     /* extif 相关信号 */
     input extif_wr_en_i,
     input extif_rd_en_i,
@@ -54,7 +56,6 @@ module extif_top(
     
     // 该模块复位顺序为：FDMA_MIG_DDR >> VIDEO_BUFFER >> TIME_SHIFT 
     // 整个系统除 hdmi2rgb 模块外均工作在 ui_clk_200M 时钟下，若先复位 Video Buffer 则由于没有 ui_clk 直接系统锁死
-    wire fdma_mig_ddr_rst_done;
     wire video_buffer_rst_done;
 
     // 系统复位完成标志
@@ -62,7 +63,7 @@ module extif_top(
 
     // 各模块复位信号
     assign fdma_mig_ddr_rst_n = rst_n_i;
-    assign video_buffer_rst_n = fdma_mig_ddr_rst_done;
+    assign video_buffer_rst_n = ddr_init_done_o;
     assign time_shift_rst_n = video_buffer_rst_done;
 
     // Video Buffer 读使能
@@ -114,7 +115,7 @@ module extif_top(
         .rst_n_i(fdma_mig_ddr_rst_n),
         .clk_200M_i_clk_n(clk_200M_n_i),
         .clk_200M_i_clk_p(clk_200M_p_i),
-        .rst_done_o(fdma_mig_ddr_rst_done),
+        .rst_done_o(ddr_init_done_o),
         .clk_ui_200M_o(clk_ui_200M_o),
         .DDR_PL_addr(DDR_PL_addr),
         .DDR_PL_ba(DDR_PL_ba),

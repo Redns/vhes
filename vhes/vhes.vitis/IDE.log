@@ -5607,3 +5607,59 @@ con
 ----------------End of Script----------------
 
 21:03:35 INFO  : Launch script is exported to file 'E:\Project\vhes\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+23:29:27 INFO  : Disconnected from the channel tcfchan#12.
+16:58:14 INFO  : Launching XSCT server: xsct.bat -n  -interactive E:\Project\vhes\vhes\vhes.vitis\temp_xsdb_launch_script.tcl
+16:58:21 INFO  : XSCT server has started successfully.
+16:58:21 INFO  : plnx-install-location is set to ''
+16:58:21 INFO  : Successfully done setting XSCT server connection channel  
+16:58:21 INFO  : Successfully done setting workspace for the tool. 
+16:58:26 INFO  : Registering command handlers for Vitis TCF services
+16:58:27 INFO  : Platform repository initialization has completed.
+16:58:32 INFO  : Successfully done query RDI_DATADIR 
+16:58:51 INFO  : Checking for BSP changes to sync application flags for project 'vhes'...
+16:59:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:59:04 INFO  : Jtag cable 'Digilent JTAG-HS1 210249857743' is selected.
+16:59:04 INFO  : 'jtag frequency' command is executed.
+16:59:04 INFO  : Context for 'APU' is selected.
+16:59:04 INFO  : System reset is completed.
+16:59:07 INFO  : 'after 3000' command is executed.
+16:59:08 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}' command is executed.
+16:59:22 INFO  : Device configured successfully with "E:/Project/vhes/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_top.bit"
+16:59:22 INFO  : Context for 'APU' is selected.
+16:59:22 INFO  : Hardware design and registers information is loaded from 'E:/Project/vhes/vhes/vhes.vitis/vhes_top/export/vhes_top/hw/vhes_top.xsa'.
+16:59:22 INFO  : 'configparams force-mem-access 1' command is executed.
+16:59:22 INFO  : Context for 'APU' is selected.
+16:59:22 INFO  : Sourcing of 'E:/Project/vhes/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl' is done.
+16:59:23 INFO  : 'ps7_init' command is executed.
+16:59:23 INFO  : 'ps7_post_config' command is executed.
+16:59:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:59:24 INFO  : The application 'E:/Project/vhes/vhes/vhes.vitis/vhes/Debug/vhes.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:59:24 INFO  : 'configparams force-mem-access 0' command is executed.
+16:59:24 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210249857743" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210249857743-03736093-0"}
+fpga -file E:/Project/vhes/vhes/vhes.vitis/vhes/_ide/bitstream/vhes_top.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw E:/Project/vhes/vhes/vhes.vitis/vhes_top/export/vhes_top/hw/vhes_top.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source E:/Project/vhes/vhes/vhes.vitis/vhes/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow E:/Project/vhes/vhes/vhes.vitis/vhes/Debug/vhes.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:59:24 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:59:24 INFO  : 'con' command is executed.
+16:59:24 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+16:59:24 INFO  : Launch script is exported to file 'E:\Project\vhes\vhes\vhes.vitis\vhes_system\_ide\scripts\vhes.tcl'
+18:29:32 INFO  : Disconnected from the channel tcfchan#1.

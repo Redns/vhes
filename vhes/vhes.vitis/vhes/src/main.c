@@ -18,6 +18,12 @@
 #define HEVC_BS_CACHE_SIZE          5 * 1024 * 1024     // 码流缓冲区大小（单位：字节）
 #define HEVC_BS_CACHE_NUMS          30                  // 码流缓冲区数量
 #define TCP_TRANS_CHCHE_SIZE        4096                // TCP 传输缓冲区大小（单位：字节）
+#define TCP_TRANS_CODE_SIZE         4
+
+/* TCP 包类型 */
+#define TCP_TRANS_CODE_FPS          0
+#define TCP_TRANS_CODE_PSNR         1
+#define TCP_TRANS_CODE_BS           2
 
 /* IP 相关设置 */
 #define DEFAULT_IP_ADDRESS	        "192.168.1.10"      // 本机 IP
@@ -37,6 +43,9 @@
 u32 HevcBsCachePtrReceiveIndex;                     // 接收缓存索引（正在接收中）
 u32 HevcBsCachePtrTransmitIndex;                    // 发送缓存索引（等待发送中）
 u32 HevcBsCachePtr[HEVC_BS_CACHE_NUMS];             // HEVC 码流缓冲区
+
+/* TCP 传输缓冲区 */
+u8 TcpTransCache[TCP_TRANS_CODE_SIZE + TCP_TRANS_CHCHE_SIZE];
 
 u8  apiflags = 0;
 u32 singleTransmitSize = 0;
@@ -277,9 +286,15 @@ void network_transmit_thread(void* p)
             singleTransmitSize = 0;
             totalTransmitSize = 0;
             while(totalTransmitSize < HEVC_BS_CACHE_SIZE)
+            
             {
+                // 计算当前单次能够传输的字节数
                 singleTransmitSize = (HEVC_BS_CACHE_SIZE - totalTransmitSize) > TCP_TRANS_CHCHE_SIZE ? TCP_TRANS_CHCHE_SIZE : (HEVC_BS_CACHE_SIZE - totalTransmitSize);
-                if(lwip_send(socket, (u32*)(HevcBsCachePtr[HevcBsCachePtrTransmitIndex % HEVC_BS_CACHE_NUMS] + totalTransmitSize), singleTransmitSize, apiflags) < singleTransmitSize)
+                // 拷贝待传输数据至缓冲区
+                TcpTransCache[0] = TCP_TRANS_CODE_BS;
+                memcpy((u8*)TcpTransCache[1], (u32*)(HevcBsCachePtr[HevcBsCachePtrTransmitIndex % HEVC_BS_CACHE_NUMS] + totalTransmitSize), singleTransmitSize);
+                // 发送数据
+                if(lwip_send(socket, (u8*)TcpTransCache, singleTransmitSize, apiflags) < singleTransmitSize)
                 {
                     xil_printf("[ERROE] Socket transmit failed\r\n"); break;
                 }

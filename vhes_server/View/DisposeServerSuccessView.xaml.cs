@@ -23,7 +23,7 @@ namespace Xpeng.View
         public DisposeServerSuccessView()
         {
             InitializeComponent();
-            Owner = GlobalValues.mainView;
+            Owner = GlobalValues.MainView;
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

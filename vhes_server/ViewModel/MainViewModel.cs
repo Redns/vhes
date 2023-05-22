@@ -4,15 +4,18 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Windows.Threading;
 using Vhes.Common;
 using Vhes.Model;
+using Xpeng.Common;
 
 namespace Xpeng.ViewModel
 {
     public class MainViewModel
     {
         public MainModel MainModel { get; set; }
-        public System.Timers.Timer AverageBitRateCountTimer { get; set; } = new System.Timers.Timer();
+        public Timer AverageBitrateCountTimer { get; set; } = null;
+        public DispatcherTimer PlotRefreshTimer { get; set; } = null;
 
         public MainViewModel()
         {
@@ -38,10 +41,12 @@ namespace Xpeng.ViewModel
                             MainModel.ServerLaunched = (MainModel.ServerSocket != null);
                         }
                     }
-                }
+                },
+                Fps = 0,
+                Psnr = 0,
+                AverageBitrate = 0,
+                HevcBsReceiveBitCnt = 0
             };
-            // 初始化平均码率统计计数器
-            
         }
 
 
@@ -53,7 +58,7 @@ namespace Xpeng.ViewModel
         private Socket InitServer(AppSetting setting)
         {
             // 初始化平均码率统计定时器
-            InitAverageBitRateCountTimer(100);
+            InitAverageBitRateTimer(100, 100);
             // 初始化服务器套接字
             var serverSocket = InitServerSocket(setting.Connection);
             // 开启服务器连接线程
@@ -125,17 +130,32 @@ namespace Xpeng.ViewModel
         /// <summary>
         /// 初始化平均码率统计定时器
         /// </summary>
-        /// <param name="interval"></param>
-        private void InitAverageBitRateCountTimer(double interval)
+        /// <param name="countInterval"></param>
+        private void InitAverageBitRateTimer(int countInterval = 10, int plotRefreshInterval = 50)
         {
-            AverageBitRateCountTimer.Interval = interval;
-            AverageBitRateCountTimer.Elapsed += (serder, args) =>
+            // 平均码率计算定时器
+            AverageBitrateCountTimer = new Timer(_ =>
             {
-                MainModel.AverageBitRate = MainModel.HevcBsReceiveByteInc / interval * 10;
-                MainModel.HevcBsReceiveByteCntCache = MainModel.HevcBsReceiveByteCnt;
+                // 计算平均码率
+                MainModel.AverageBitrate = MainModel.HevcBsReceiveBitInc * 1000 / countInterval;
+                MainModel.HevcBsReceiveBitCntCache = MainModel.HevcBsReceiveBitCnt;
+                // 更新平均码率数据
+                Array.Copy(MainModel.AverageBitrateArray, 1, MainModel.AverageBitrateArray, 0, MainModel.AverageBitrateArray.Length - 1);
+                MainModel.AverageBitrateArray[MainModel.AverageBitrateArray.Length - 1] = MainModel.AverageBitrate / (1024.0 * 1024.0);
+            }, null, 0, countInterval);
+
+            // UI 更新定时器
+            PlotRefreshTimer = new DispatcherTimer()
+            {
+                Interval = TimeSpan.FromMilliseconds(plotRefreshInterval)
             };
-            AverageBitRateCountTimer.AutoReset = true;
-            AverageBitRateCountTimer.Enabled = true;
+            PlotRefreshTimer.Tick += (serder, args) =>
+            {
+                MainModel.FpsPlot.Refresh();
+                MainModel.AverageBitratePlot.Refresh();
+                MainModel.PsnrBitratePlot.Refresh();
+            };
+            PlotRefreshTimer.Start();
         }
 
 
@@ -156,14 +176,43 @@ namespace Xpeng.ViewModel
                 }
                 MainModel.HevcStream = new FileStream(setting.Location, FileMode.Create, FileAccess.Write);
             }
-            // 循环接收码流
+            // 循环接收下位机数据
             var recvBytes = 0;
             var recvBuffer = new byte[4 * 1024];
-            while((recvBytes = client.Receive(recvBuffer)) > 0)
+            while((recvBytes = client.Receive(recvBuffer)) > 1)
             {
-                MainModel.HevcBsReceiveByteCnt += recvBytes;
-                MainModel.HevcStream.Write(recvBuffer, 0, recvBytes);
+                if (recvBuffer[0] is (byte)PackageCode.Fps)
+                {
+                    Array.Copy(MainModel.FpsArray, 1, MainModel.FpsArray, 0, MainModel.FpsArray.Length - 1);
+                    MainModel.FpsArray[MainModel.FpsArray.Length - 1] = recvBuffer[1];
+                }
+                else if (recvBuffer[0] is (byte)PackageCode.Psnr)
+                {
+                    Array.Copy(MainModel.PsnrArray, 1, MainModel.PsnrArray, 0, MainModel.PsnrArray.Length - 1);
+                    MainModel.PsnrArray[MainModel.PsnrArray.Length - 1] = recvBuffer[1];
+                }
+                else if (recvBuffer[0] is (byte)PackageCode.Bs)
+                {
+                    // 统计接收码流长度
+                    MainModel.HevcBsReceiveBitCnt += (recvBytes - 1) * 8;
+                    // 将码流写入文件
+                    MainModel.HevcStream.Write(recvBuffer, 1, recvBytes - 1);
+                    // 更新 UI 界面截取码流
+                    var hevcPartialBytes = (recvBytes - 1 > MainModel.HEVC_PARTIAL_STRING_LENGTH) ? MainModel.HEVC_PARTIAL_STRING_LENGTH : (recvBytes - 1);
+                    MainModel.HevcBsPartialString = BitConverter.ToString(recvBuffer, 1, hevcPartialBytes).Replace("-", "  ");
+                }
             }
         }
+    }
+
+
+    /// <summary>
+    /// 包数据类型
+    /// </summary>
+    public enum PackageCode
+    {
+        Fps = 0,
+        Psnr,
+        Bs
     }
 }

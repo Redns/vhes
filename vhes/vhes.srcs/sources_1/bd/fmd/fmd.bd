@@ -6,7 +6,7 @@
       "gen_directory": "../../../../vhes.gen/sources_1/bd/fmd",
       "name": "fmd",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
-      "synth_flow_mode": "Hierarchical",
+      "synth_flow_mode": "None",
       "tool_version": "2021.2",
       "validated": "true"
     },
@@ -152,11 +152,14 @@
           "BOARD_MIG_PARAM": {
             "value": "Custom"
           },
+          "MIG_DONT_TOUCH_PARAM": {
+            "value": "Custom"
+          },
           "RESET_BOARD_INTERFACE": {
             "value": "Custom"
           },
           "XML_INPUT_FILE": {
-            "value": "mig_a.prj"
+            "value": "mig_b.prj"
           }
         }
       },

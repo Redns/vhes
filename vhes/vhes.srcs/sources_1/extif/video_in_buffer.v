@@ -11,7 +11,7 @@ module video_in_buffer(
     input pixel_type_i,                     // 读取像素类型输入（0：Y；1：UV）
     input pixel_rd_en_i,                    // 缓冲区像素读取标志输入
     output pixel_buffer_full_o,             // 像素缓冲区满标志位
-    output [13:0] pixel_buffer_rd_cnt_o,    // 待读像素块数目
+    output [10:0] pixel_buffer_rd_cnt_o,    // 待读像素块数目
     output [127:0] pixel_o                  // 像素数据输出
 );
 
@@ -49,7 +49,9 @@ module video_in_buffer(
         .wr_en(y_de_i),              
         .rd_en(y_fifo_rd_en),            
         .rd_data_count(pixel_buffer_rd_cnt_o),
-        .dout(y_fifo_data_out),                                      
+        .dout(y_fifo_data_out),               
+        .full(),
+        .empty(),                       
         .prog_full(pixel_buffer_full_o),      
         .wr_rst_busy(y_fifo_wr_rst_busy),  
         .rd_rst_busy(y_fifo_rd_rst_busy)  
@@ -63,7 +65,11 @@ module video_in_buffer(
         .din(uv_i),                 
         .wr_en(uv_de_i),              
         .rd_en(uv_fifo_rd_en),           
-        .dout(uv_fifo_data_out),                                 
+        .dout(uv_fifo_data_out),    
+        .full(),
+        .empty(),                       
+        .prog_full(),          
+        .rd_data_count(),                   
         .wr_rst_busy(uv_fifo_wr_rst_busy),  
         .rd_rst_busy(uv_fifo_rd_rst_busy)  
     );

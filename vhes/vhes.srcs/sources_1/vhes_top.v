@@ -6,6 +6,8 @@ module vhes_top(
     output sys_init_done_o,
     output bs_overflow_n_o,
     output skip_frame_flag_n_o,
+    // TODO delete this
+    output ddr_init_done_o,
     /* HDMI 信号 */ 
     input pclk_i,                                   // 像素时钟（1080P@60fps：148.5MHz）
     input hsync_i,                                  // 行同步信号
@@ -83,6 +85,7 @@ module vhes_top(
         .rst_done_o(sys_init_done_o),
         .bs_overflow_o(bs_overflow_o),
         .skip_frame_flag_o(skip_frame_flag_o),
+        .ddr_init_done_o(ddr_init_done_o),
         .pclk_i(pclk_i),
         .hsync_i(hsync_i),
         .vsync_i(vsync_i),

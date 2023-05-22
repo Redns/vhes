@@ -37,6 +37,9 @@ set_property PACKAGE_PIN AE16 [get_ports skip_frame_flag_n_o]
 set_property PULLUP true [get_ports sii_sda]
 set_property PULLUP true [get_ports sii_scl]
 
+# DDR DCI
+set_property DCI_CASCADE {33} [get_iobanks 34]
+
 set_property IOSTANDARD LVCMOS33 [get_ports pclk_i]
 set_property IOSTANDARD LVCMOS33 [get_ports de_i]
 set_property IOSTANDARD LVCMOS33 [get_ports hsync_i]

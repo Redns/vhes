@@ -18,6 +18,8 @@
 //------------------------------------------------------------------- 
 `include "enc_defines.v"
 
+// TODO 使用 BRAM 代替此处的 RAM
+
 module ram_1p (
 		        clk    ,
 		        cen_i  ,

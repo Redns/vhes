@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using ScottPlot.Plottable;
+using System.IO;
 using System.Net.Sockets;
 using Vhes.Common;
 
@@ -6,9 +7,24 @@ namespace Vhes.Model
 {
     public class MainModel : NotifyBase
     {
-        private readonly double FILE_SIZE_KB = 1024;
-        private readonly double FILE_SIZE_MB = 1024 * 1024;
-        private readonly double FILE_SIZE_GB = 1024 * 1024 * 1024;
+        #region 相关常数
+        /// <summary>
+        /// 文件大小
+        /// </summary>
+        public const double FILE_SIZE_Kb = 1024;
+        public const double FILE_SIZE_Mb = 1024 * 1024;
+        public const double FILE_SIZE_Gb = 1024 * 1024 * 1024;
+
+        /// <summary>
+        /// ScottPlot 绘图区域缓冲区长度
+        /// </summary>
+        public const int PLOT_DATA_BUFFER_SIZE = 128;
+
+        /// <summary>
+        /// HEVC 截取码流长度（单位：字节）
+        /// </summary>
+        public const int HEVC_PARTIAL_STRING_LENGTH = 110;
+        #endregion
 
         #region 局域变量
         /// <summary>
@@ -74,30 +90,30 @@ namespace Vhes.Model
         }
 
         /// <summary>
-        /// 平均码率（byte/s）
+        /// 平均码率（bit/s）
         /// </summary>
-        private double _averageBitRate = 0;
-        public double AverageBitRate
+        private double _averageBitrate = 0;
+        public double AverageBitrate
         {
-            get { return _averageBitRate; }
+            get { return _averageBitrate; }
             set
             {
-                _averageBitRate = value;
-                if(_averageBitRate < FILE_SIZE_KB)
+                _averageBitrate = value;
+                if(_averageBitrate < FILE_SIZE_Kb)
                 {
-                    AverageBitRateFormatted = $"{_averageBitRate} B/s";
+                    AverageBitrateFormatted = $"{_averageBitrate} b/s";
                 }
-                else if(_averageBitRate < FILE_SIZE_MB)
+                else if(_averageBitrate < FILE_SIZE_Mb)
                 {
-                    AverageBitRateFormatted = $"{(_averageBitRate / FILE_SIZE_KB):F2} KB/s";
+                    AverageBitrateFormatted = $"{(_averageBitrate / FILE_SIZE_Kb):F2} kb/s";
                 }
-                else if (_averageBitRate < FILE_SIZE_GB)
+                else if (_averageBitrate < FILE_SIZE_Gb)
                 {
-                    AverageBitRateFormatted = $"{(_averageBitRate / FILE_SIZE_MB):F2} MB/s";
+                    AverageBitrateFormatted = $"{(_averageBitrate / FILE_SIZE_Mb):F2} Mb/s";
                 }
                 else
                 {
-                    AverageBitRateFormatted = $"{(_averageBitRate / FILE_SIZE_MB):F2} GB/s";
+                    AverageBitrateFormatted = $"{(_averageBitrate / FILE_SIZE_Mb):F2} Gb/s";
                 }
             }
         }
@@ -106,7 +122,7 @@ namespace Vhes.Model
         /// PSNR（dB）
         /// </summary>
         private double _psnr = 0;
-        public double PSnr
+        public double Psnr
         {
             get { return _psnr; }
             set
@@ -119,38 +135,38 @@ namespace Vhes.Model
         /// <summary>
         /// HEVC 已接收码流字节数缓存（用于计算平均码率）
         /// </summary>
-        public long HevcBsReceiveByteCntCache { get; set; } = 0L;
+        public long HevcBsReceiveBitCntCache { get; set; } = 0L;
 
         /// <summary>
         /// HEVC 码流增长数（字节）
         /// </summary>
-        public long HevcBsReceiveByteInc => HevcBsReceiveByteCnt - HevcBsReceiveByteCntCache;
+        public long HevcBsReceiveBitInc => HevcBsReceiveBitCnt - HevcBsReceiveBitCntCache;
 
         /// <summary>
         /// HEVC 码流接收长度
         /// </summary>
-        private long _hevcBsReceiveByteCnt = 0L;
-        public long HevcBsReceiveByteCnt
+        private long _hevcBsReceiveBitCnt = 0L;
+        public long HevcBsReceiveBitCnt
         {
-            get { return _hevcBsReceiveByteCnt; }
+            get { return _hevcBsReceiveBitCnt; }
             set
             {
-                _hevcBsReceiveByteCnt = value;
-                if(_hevcBsReceiveByteCnt < FILE_SIZE_KB)
+                _hevcBsReceiveBitCnt = value;
+                if(_hevcBsReceiveBitCnt < FILE_SIZE_Kb)
                 {
-                    HevcBsReceivedByteCntFormatted = $"{_hevcBsReceiveByteCnt} Byte";
+                    HevcBsReceivedBitCntFormatted = $"{_hevcBsReceiveBitCnt} bit";
                 }
-                else if(_hevcBsReceiveByteCnt < FILE_SIZE_MB)
+                else if(_hevcBsReceiveBitCnt < FILE_SIZE_Mb)
                 {
-                    HevcBsReceivedByteCntFormatted = $"{(_hevcBsReceiveByteCnt / FILE_SIZE_KB):F2} KB";
+                    HevcBsReceivedBitCntFormatted = $"{(_hevcBsReceiveBitCnt / FILE_SIZE_Kb):F2} kb";
                 }
-                else if(_hevcBsReceiveByteCnt < FILE_SIZE_GB)
+                else if(_hevcBsReceiveBitCnt < FILE_SIZE_Gb)
                 {
-                    HevcBsReceivedByteCntFormatted = $"{(_hevcBsReceiveByteCnt / FILE_SIZE_MB):F2} MB";
+                    HevcBsReceivedBitCntFormatted = $"{(_hevcBsReceiveBitCnt / FILE_SIZE_Mb):F2}  Mb";
                 }
                 else
                 {
-                    HevcBsReceivedByteCntFormatted = $"{(_hevcBsReceiveByteCnt / FILE_SIZE_GB):F2} GB";
+                    HevcBsReceivedBitCntFormatted = $"{(_hevcBsReceiveBitCnt / FILE_SIZE_Gb):F2} Gb";
                 }
             }
         }
@@ -179,13 +195,13 @@ namespace Vhes.Model
         /// <summary>
         /// 平均码率
         /// </summary>
-        private string _averageBitRateFormatted = string.Empty;
-        public string AverageBitRateFormatted
+        private string _averageBitrateFormatted = string.Empty;
+        public string AverageBitrateFormatted
         {
-            get { return _averageBitRateFormatted; }
+            get { return _averageBitrateFormatted; }
             set
             {
-                _averageBitRateFormatted = value;
+                _averageBitrateFormatted = value;
                 DoNotify();
             }
         }
@@ -207,13 +223,13 @@ namespace Vhes.Model
         /// <summary>
         /// 已接受码流大小
         /// </summary>
-        private string _hevcBsReceivedByteCntFormatted = string.Empty;
-        public string HevcBsReceivedByteCntFormatted
+        private string _hevcBsReceivedBitCntFormatted = string.Empty;
+        public string HevcBsReceivedBitCntFormatted
         {
-            get { return _hevcBsReceivedByteCntFormatted; }
+            get { return _hevcBsReceivedBitCntFormatted; }
             set
             {
-                _hevcBsReceivedByteCntFormatted = value;
+                _hevcBsReceivedBitCntFormatted = value;
                 DoNotify();
             }
         }
@@ -245,10 +261,58 @@ namespace Vhes.Model
                 DoNotify();
             }
         }
+
+        /// <summary>
+        /// HEVC 接收码流截取部分（前 128 字节）
+        /// </summary>
+        private string _hevcBsPartialString = string.Empty;
+        public string HevcBsPartialString
+        {
+            get { return _hevcBsPartialString; }
+            set
+            {
+                _hevcBsPartialString = value;
+                DoNotify();
+            }
+        }
         #endregion
 
         #region 绑定命令
         public CommandBase LaunchServerCommand { get; set; }
+        #endregion
+
+        #region ScottPlot 绘图控件句柄
+        /// <summary>
+        /// 帧率绘图控件
+        /// </summary>
+        public ScottPlot.WpfPlot FpsPlot { get; set; } = null;
+
+        /// <summary>
+        /// 平均码率绘图控件
+        /// </summary>
+        public ScottPlot.WpfPlot AverageBitratePlot { get; set; } = null;
+
+        /// <summary>
+        /// PSNR 绘图控件
+        /// </summary>
+        public ScottPlot.WpfPlot PsnrBitratePlot { get; set; } = null;
+        #endregion
+
+        #region ScottPlot 数据源
+        /// <summary>
+        /// 帧率（fps）
+        /// </summary>
+        public double[] FpsArray { get; set; } = new double[PLOT_DATA_BUFFER_SIZE];
+
+        /// <summary>
+        /// 平均码率（Byte/s）
+        /// </summary>
+        public double[] AverageBitrateArray { get; set; } = new double[PLOT_DATA_BUFFER_SIZE];
+
+        /// <summary>
+        /// PSNR（dB）
+        /// </summary>
+        public double[] PsnrArray { get; set; } = new double[PLOT_DATA_BUFFER_SIZE];
         #endregion
 
         public MainModel()

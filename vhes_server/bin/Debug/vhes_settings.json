@@ -6,6 +6,6 @@
     "Port": 1896,
     "Address": "192.168.1.100",
     "MaxAllowConnections": 5,
-    "HandshakeSignal": "VHES"
+    "HandshakeSignal": "vhes"
   }
 }

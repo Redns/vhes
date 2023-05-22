@@ -22,7 +22,7 @@ module vsps(
               
 
     // 序列长度（以字节为单位）
-    always@(*) begin
+    always@(type_i) begin
         case(type_i)
             VSPS_TYPE_START_CODE:   data_size_o = 8'd4;
             VSPS_TYPE_VPS_CODE:     data_size_o = 8'd24;
@@ -34,7 +34,7 @@ module vsps(
     end
 
     // 序列数据
-    always@(*) begin
+    always@(index_i or type_i or trail_sn_init_i or frame_sn_i) begin
         case(type_i)
             VSPS_TYPE_START_CODE:
                 case(index_i)

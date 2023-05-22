@@ -82,11 +82,32 @@
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/system/ip/system_xbar_0/sim/system_xbar_0.v" \
 -endlib
+-makelib xcelium_lib/axi_protocol_converter_v2_1_25 \
+  "../../../../vhes.gen/sources_1/bd/system/ipshared/8fe4/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/system/ip/system_auto_pc_0/sim/system_auto_pc_0.v" \
+-endlib
 -makelib xcelium_lib/proc_sys_reset_v5_0_13 \
   "../../../../vhes.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/system/ip/system_rst_ps7_0_100M_0/sim/system_rst_ps7_0_100M_0.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/system/ip/system_auto_pc_1/sim/system_auto_pc_1.v" \
+-endlib
+-makelib xcelium_lib/axi_clock_converter_v2_1_24 \
+  "../../../../vhes.gen/sources_1/bd/system/ipshared/23c0/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/blk_mem_gen_v8_4_5 \
+  "../../../../vhes.gen/sources_1/bd/system/ipshared/25a8/simulation/blk_mem_gen_v8_4.v" \
+-endlib
+-makelib xcelium_lib/axi_dwidth_converter_v2_1_25 \
+  "../../../../vhes.gen/sources_1/bd/system/ipshared/38b4/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/system/ip/system_auto_us_0/sim/system_auto_us_0.v" \
 -endlib
 -makelib xcelium_lib/axi_lite_ipif_v3_0_4 \
   "../../../../vhes.gen/sources_1/bd/system/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd" \
@@ -105,25 +126,6 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/system/sim/system.v" \
--endlib
--makelib xcelium_lib/axi_protocol_converter_v2_1_25 \
-  "../../../../vhes.gen/sources_1/bd/system/ipshared/8fe4/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/system/ip/system_auto_pc_0/sim/system_auto_pc_0.v" \
-  "../../../bd/system/ip/system_auto_pc_1/sim/system_auto_pc_1.v" \
--endlib
--makelib xcelium_lib/axi_clock_converter_v2_1_24 \
-  "../../../../vhes.gen/sources_1/bd/system/ipshared/23c0/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/blk_mem_gen_v8_4_5 \
-  "../../../../vhes.gen/sources_1/bd/system/ipshared/25a8/simulation/blk_mem_gen_v8_4.v" \
--endlib
--makelib xcelium_lib/axi_dwidth_converter_v2_1_25 \
-  "../../../../vhes.gen/sources_1/bd/system/ipshared/38b4/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/system/ip/system_auto_us_0/sim/system_auto_us_0.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

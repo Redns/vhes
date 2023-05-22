@@ -23,8 +23,8 @@ namespace Xpeng
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            GlobalValues.mainView = new MainView();
-            GlobalValues.mainView.Show();
+            GlobalValues.MainView = new MainView();
+            GlobalValues.MainView.Show();
         }
     }
 }
