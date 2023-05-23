@@ -9,7 +9,6 @@ namespace Vhes.Common
 {
     public class CommandBase : ICommand
     {
-        // 事件
         public event EventHandler CanExecuteChanged;
 
         // 判断是否可执行

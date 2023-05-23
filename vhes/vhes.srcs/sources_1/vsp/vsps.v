@@ -30,6 +30,7 @@ module vsps(
             VSPS_TYPE_PPS_CODE:     data_size_o = 8'd8;
             VSPS_TYPE_IDR_CODE:     data_size_o = 8'd4;
             VSPS_TYPE_TRAIL_CODE:   data_size_o = 8'd5;
+            default:                data_size_o = 8'd0;
         endcase
     end
 

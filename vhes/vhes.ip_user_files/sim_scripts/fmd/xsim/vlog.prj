@@ -102,9 +102,9 @@ verilog xil_defaultlib --include "D:/Xilinx/Vivado/2021.2/data/xilinx_vip/includ
 "../../../bd/fmd/ip/fmd_mig_7series_0_0/fmd_mig_7series_0_0/user_design/rtl/fmd_mig_7series_0_0.v" \
 "../../../bd/fmd/ipshared/4624/uiFDMA.v" \
 "../../../bd/fmd/ip/fmd_uiFDMA_0_0/sim/fmd_uiFDMA_0_0.v" \
+"../../../bd/fmd/sim/fmd.v" \
 "../../../bd/fmd/ip/fmd_s00_regslice_0/sim/fmd_s00_regslice_0.v" \
 "../../../bd/fmd/ip/fmd_auto_us_df_0/sim/fmd_auto_us_df_0.v" \
-"../../../bd/fmd/sim/fmd.v" \
 
 verilog xil_defaultlib "glbl.v"
 

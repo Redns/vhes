@@ -124,14 +124,11 @@ namespace Xpeng.View
         private void WindowClose(object sender, RoutedEventArgs e)
         {
             // 释放码流文件句柄
-            GlobalValues.MainViewModel.MainModel.HevcStream.Flush();
-            GlobalValues.MainViewModel.MainModel.HevcStream.Close();
+            GlobalValues.MainViewModel.MainModel.HevcStream?.Flush();
+            GlobalValues.MainViewModel.MainModel.HevcStream?.Close();
 
             // 关闭 TCP 服务器
-            if (GlobalValues.MainViewModel.MainModel.ServerSocket.IsBound)
-            {
-                GlobalValues.MainViewModel.MainModel.ServerSocket.Close();
-            }
+            GlobalValues.MainViewModel.MainModel.ServerSocket?.Close();
 
             // 释放定时器资源
             GlobalValues.MainViewModel.AverageBitrateCountTimer?.Dispose();

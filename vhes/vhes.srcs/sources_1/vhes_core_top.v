@@ -29,7 +29,7 @@ module vhes_core_top#
     output bs_valid_o,                              // 码流数据有效标志（高电平有效）
     output [31:0] bs_data_o,                        // 码流数据（封装好 NALU 头部）
     /* 标志位 */
-    output ddr_init_done_o,
+    output mig_init_complete_o,
     output bs_overflow_o,                           // 码流溢出标志（缓冲区 FIFO 已满且仍有数据输入，无数据读出，部分码流丢失）
     output skip_frame_flag_o,                       // 帧跳过标志（缓冲区写入速率大于编码速率，部分帧未来得及编码）
     /* DDR 相关信号 */ 
@@ -123,11 +123,11 @@ module vhes_core_top#
 /**************************** 缓存模块 *****************************/
     extif_top extif_top(
         .rst_n_i(extif_top_rst_n),
-        .rst_done_o(extif_top_rst_done),
-        .ddr_init_done_o(ddr_init_done),
         .clk_200M_p_i(clk_200M_p_i),
         .clk_200M_n_i(clk_200M_n_i),
         .clk_ui_200M_o(clk_ui_200M),
+        .rst_done_o(extif_top_rst_done),
+        .mig_init_complete_o(mig_init_complete_o),
         .pclk_i(pclk_i),
         .y_de_i(pixel_y_de),
         .uv_de_i(pixel_uv_de),

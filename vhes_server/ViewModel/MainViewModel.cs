@@ -7,7 +7,6 @@ using System.Threading;
 using System.Windows.Threading;
 using Vhes.Common;
 using Vhes.Model;
-using Xpeng.Common;
 
 namespace Xpeng.ViewModel
 {
@@ -45,7 +44,8 @@ namespace Xpeng.ViewModel
                 Fps = 0,
                 Psnr = 0,
                 AverageBitrate = 0,
-                HevcBsReceiveBitCnt = 0
+                HevcBsReceiveBitCnt = 0,
+                HevcBsPartialString = "暂无码流数据"
             };
         }
 

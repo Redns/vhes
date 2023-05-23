@@ -1,10 +1,11 @@
 module extif_top(
     /* 系统信号 */
     input rst_n_i,                              // 复位信号输入（低电平有效）
-    output rst_done_o,                          // 复位完成输出（高电平有效）
     input clk_200M_p_i,                         // 200MHz 差分时钟 P 端信号输入
     input clk_200M_n_i,                         // 200MHz 差分时钟 N 端信号输入
     output clk_ui_200M_o,                       // 200MHz 用户操作时钟输出（与 DDR 交互必须使用此时钟）
+    output rst_done_o,                          // 复位完成输出（高电平有效）
+    output mig_init_complete_o,                     // DDR 初始化完成信号（高电平有效）
     /* YUV FIFO 相关信号 */ 
     input pclk_i,                               // 像素时钟输入（1080P@60fps：148.5MHz）
     input y_de_i,                               // Y 分量像素有效标志输入（高电平有效）
@@ -15,8 +16,6 @@ module extif_top(
     input pixel_rd_en_i,                        // 缓冲区像素读取标志输入（高电平有效）
     output pixel_buffer_full_o,                 // 像素缓冲区满标志位（高电平有效）
     output [10:0] pixel_fifo_rd_cnt_o,
-    // TODO 移除该信号
-    output ddr_init_done_o,
     /* extif 相关信号 */
     input extif_wr_en_i,
     input extif_rd_en_i,
@@ -56,14 +55,15 @@ module extif_top(
     
     // 该模块复位顺序为：FDMA_MIG_DDR >> VIDEO_BUFFER >> TIME_SHIFT 
     // 整个系统除 hdmi2rgb 模块外均工作在 ui_clk_200M 时钟下，若先复位 Video Buffer 则由于没有 ui_clk 直接系统锁死
+    wire fmd_rst_done;
     wire video_buffer_rst_done;
-
-    // 系统复位完成标志
     assign rst_done_o = video_buffer_rst_done;
 
     // 各模块复位信号
-    assign fdma_mig_ddr_rst_n = rst_n_i;
-    assign video_buffer_rst_n = ddr_init_done_o;
+    // FMD 复位信号应该由 Processor System Reset 外设复位引脚引出，不应使用 mig_init_done
+    // 因为数据下游模块同步复位需要时钟信号，mig_init_done 拉高时 ddr 用户时钟状态未知
+    assign fmd_rst_n = rst_n_i;
+    assign video_buffer_rst_n = fmd_rst_done;
     assign time_shift_rst_n = video_buffer_rst_done;
 
     // Video Buffer 读使能
@@ -82,15 +82,20 @@ module extif_top(
     // FDMA 读写繁忙标志
     assign FDMA_S_i_fdma_busy = FDMA_S_i_fdma_wbusy || FDMA_S_i_fdma_rbusy;
 
+    // 此处使用 video_buffer_rst_n 复位是为了确保 ddr 用户时钟有效
     always@(posedge clk_ui_200M_o) begin
-        if(!rst_n_i) 
+        if(!video_buffer_rst_n) begin
             is_fifo_write <= 1'b1;
-        else if(pixel_rd_en_i)
+        end
+        else if(pixel_rd_en_i) begin
             is_fifo_write <= 1'b1;
-        else if(extif_wr_en_i)
+        end
+        else if(extif_wr_en_i) begin
             is_fifo_write <= 1'b0;
-        else 
+        end
+        else begin 
             is_fifo_write <= is_fifo_write;
+        end
     end
 
 /*********************** YUV FIFO 视频缓冲区 ************************/
@@ -112,11 +117,12 @@ module extif_top(
 
 /************************** FDMA MIG DDR **************************/
     fmd_wrapper fmd_wrapper(
-        .rst_n_i(fdma_mig_ddr_rst_n),
+        .rst_n_i(fmd_rst_n),
         .clk_200M_i_clk_n(clk_200M_n_i),
         .clk_200M_i_clk_p(clk_200M_p_i),
-        .rst_done_o(ddr_init_done_o),
         .clk_ui_200M_o(clk_ui_200M_o),
+        .rst_done_o(fmd_rst_done),
+        .mig_init_complete_o(mig_init_complete_o),
         .DDR_PL_addr(DDR_PL_addr),
         .DDR_PL_ba(DDR_PL_ba),
         .DDR_PL_cas_n(DDR_PL_cas_n),

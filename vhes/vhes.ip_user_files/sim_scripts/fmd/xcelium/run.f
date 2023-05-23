@@ -131,6 +131,9 @@
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/fmd/ip/fmd_proc_sys_reset_0_0/sim/fmd_proc_sys_reset_0_0.vhd" \
 -endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/fmd/sim/fmd.v" \
+-endlib
 -makelib xcelium_lib/axi_infrastructure_v1_1_0 \
   "../../../../vhes.gen/sources_1/bd/fmd/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
 -endlib
@@ -169,7 +172,6 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/fmd/ip/fmd_auto_us_df_0/sim/fmd_auto_us_df_0.v" \
-  "../../../bd/fmd/sim/fmd.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

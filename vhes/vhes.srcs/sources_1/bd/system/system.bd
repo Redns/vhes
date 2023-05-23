@@ -6,7 +6,7 @@
       "gen_directory": "../../../../vhes.gen/sources_1/bd/system",
       "name": "system",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
-      "synth_flow_mode": "None",
+      "synth_flow_mode": "Hierarchical",
       "tool_version": "2021.2",
       "validated": "true"
     },

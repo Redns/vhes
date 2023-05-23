@@ -114,9 +114,9 @@ vcom -work xil_defaultlib  -93 \
 "../../../bd/fmd/ip/fmd_proc_sys_reset_0_0/sim/fmd_proc_sys_reset_0_0.vhd" \
 
 vlog -work xil_defaultlib  -incr -mfcu "+incdir+../../../../vhes.gen/sources_1/bd/fmd/ipshared/ec67/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../bd/fmd/sim/fmd.v" \
 "../../../bd/fmd/ip/fmd_s00_regslice_0/sim/fmd_s00_regslice_0.v" \
 "../../../bd/fmd/ip/fmd_auto_us_df_0/sim/fmd_auto_us_df_0.v" \
-"../../../bd/fmd/sim/fmd.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

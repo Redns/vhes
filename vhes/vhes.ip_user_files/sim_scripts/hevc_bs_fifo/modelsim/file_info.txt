@@ -1,2 +1,0 @@
-hevc_bs_fifo.v,verilog,xil_defaultlib,../../../../vhes.gen/sources_1/ip/hevc_bs_fifo/sim/hevc_bs_fifo.v,
-glbl.v,Verilog,xil_defaultlib,glbl.v

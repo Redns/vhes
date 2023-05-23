@@ -164,6 +164,9 @@ vcom -work proc_sys_reset_v5_0_13  -93 \
 vcom -work xil_defaultlib  -93 \
 "../../../bd/fmd/ip/fmd_proc_sys_reset_0_0/sim/fmd_proc_sys_reset_0_0.vhd" \
 
+vlog -work xil_defaultlib  -incr -mfcu "+incdir+../../../../vhes.gen/sources_1/bd/fmd/ipshared/ec67/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../bd/fmd/sim/fmd.v" \
+
 vlog -work axi_infrastructure_v1_1_0  -incr -mfcu "+incdir+../../../../vhes.gen/sources_1/bd/fmd/ipshared/ec67/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
 "../../../../vhes.gen/sources_1/bd/fmd/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
 
@@ -202,7 +205,6 @@ vlog -work axi_dwidth_converter_v2_1_25  -incr -mfcu "+incdir+../../../../vhes.g
 
 vlog -work xil_defaultlib  -incr -mfcu "+incdir+../../../../vhes.gen/sources_1/bd/fmd/ipshared/ec67/hdl" "+incdir+D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
 "../../../bd/fmd/ip/fmd_auto_us_df_0/sim/fmd_auto_us_df_0.v" \
-"../../../bd/fmd/sim/fmd.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"
