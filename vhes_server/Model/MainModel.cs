@@ -1,4 +1,4 @@
-﻿using ScottPlot.Plottable;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Net.Sockets;
 using Vhes.Common;
@@ -24,9 +24,30 @@ namespace Vhes.Model
         /// HEVC 截取码流长度（单位：字节）
         /// </summary>
         public const int HEVC_PARTIAL_STRING_LENGTH = 110;
+
+        /// <summary>
+        /// HEVC 播放阈值
+        /// </summary>
+        public const double HEVC_PLAY_BITS_THRESHOLD = 1 * FILE_SIZE_Mb;
         #endregion
 
         #region 局域变量
+        /// <summary>
+        /// 视频播放器开启标志
+        /// </summary>
+        public bool VideoPlayerStarted
+        {
+            get
+            {
+                return VideoPlayerProcess != null;
+            }
+        }
+
+        /// <summary>
+        /// 视频播放器进程句柄
+        /// </summary>
+        public Process VideoPlayerProcess { get; set; } = null;
+
         /// <summary>
         /// 应用设置
         /// </summary>

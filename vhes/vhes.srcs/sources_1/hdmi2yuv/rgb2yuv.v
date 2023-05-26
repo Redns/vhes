@@ -11,69 +11,145 @@ module rgb2yuv(
     output de_o                 // 像素有效信号输出
 );
 
-    reg [1:0] hsync;
-    reg [1:0] vsync;
-    reg [1:0] de;
+    // 行场同步/使能信号缓存
+    reg [10:0] de;
+    reg [10:0] hsync;
+    reg [10:0] vsync;
 
-    reg [15:0] y, y_temp1, y_temp2, y_temp3;
-    reg [15:0] u, u_temp1, u_temp2, u_temp3;
-    reg [15:0] v, v_temp1, v_temp2, v_temp3;
+    // 像素空间转换计算缓存区域
+    reg [15:0] y_temp[10:0];
+    reg [15:0] u_temp[10:0];
+    reg [15:0] v_temp[10:0];
 
-    assign yuv_o = { y[15:8], u[15:8], v[15:8] };
+    // RGB 输入
+    reg [23:0] rgb[10:0];
 
-    assign hsync_o = hsync[1];
-    assign vsync_o = vsync[1];
-    assign de_o = de[1];
+    // YUV 像素输出
+    assign de_o = de[10];
+    assign hsync_o = hsync[10];
+    assign vsync_o = vsync[10];
+    assign yuv_o = { y_temp[10][15:8], u_temp[10][15:8], v_temp[10][15:8] };
 
-    // 先进行乘法计算
+    // 对输入 RGB 数据进行打拍
     always@(posedge clk_i or negedge rst_n_i) begin
         if(!rst_n_i) begin
-            y_temp1 <= 16'b0;
-            y_temp2 <= 16'b0;
-            y_temp3 <= 16'b0;
-
-            u_temp1 <= 16'b0;
-            u_temp2 <= 16'b0;
-            u_temp3 <= 16'b0;
-
-            v_temp1 <= 16'b0;
-            v_temp2 <= 16'b0;
-            v_temp3 <= 16'b0;
+            rgb[0] <= 24'b0;
+            rgb[1] <= 24'b0;
+            rgb[2] <= 24'b0;
+            rgb[3] <= 24'b0;
+            rgb[4] <= 24'b0;
+            rgb[5] <= 24'b0;
+            rgb[6] <= 24'b0;
+            rgb[7] <= 24'b0;
+            rgb[8] <= 24'b0;
+            rgb[9] <= 24'b0;
+            rgb[10] <= 24'b0;
         end
         else begin
-            y_temp1 <= 66  * rgb_i[23:16];
-            y_temp2 <= 129 * rgb_i[15:8];
-            y_temp3 <= 25  * rgb_i[7:0];
- 
-            u_temp1 <= 38  * rgb_i[23:16];
-            u_temp2 <= 75  * rgb_i[15:8];
-            u_temp3 <= 112 * rgb_i[7:0];
-
-            v_temp1 <= 112 * rgb_i[23:16];
-            v_temp2 <= 94  * rgb_i[15:8];
-            v_temp3 <= 18  * rgb_i[7:0];
+            rgb[0] <= rgb_i;
+            rgb[1] <= rgb[0];
+            rgb[2] <= rgb[1];
+            rgb[3] <= rgb[2];
+            rgb[4] <= rgb[3];
+            rgb[5] <= rgb[4];
+            rgb[6] <= rgb[5];
+            rgb[7] <= rgb[6];
+            rgb[8] <= rgb[7];
+            rgb[9] <= rgb[8];
+            rgb[10] <= rgb[9];
         end
     end
 
-    // 然后进行加法计算
+    // 对移位运算进行打拍
     always@(posedge clk_i or negedge rst_n_i) begin
         if(!rst_n_i) begin
-            y <= 16'b0;
-            u <= 16'b0;
-            v <= 16'b0;
+            y_temp[0]  <= 16'b0;
+            y_temp[1]  <= 16'b0;
+            y_temp[2]  <= 16'b0;
+            y_temp[3]  <= 16'b0;
+            y_temp[4]  <= 16'b0;
+            y_temp[5]  <= 16'b0;
+            y_temp[6]  <= 16'b0;
+            y_temp[7]  <= 16'b0;
+            y_temp[8]  <= 16'b0;
+            y_temp[9]  <= 16'b0;
+            y_temp[10] <= 16'b0;
+
+            u_temp[0]  <= 16'b0;
+            u_temp[1]  <= 16'b0;
+            u_temp[2]  <= 16'b0;
+            u_temp[3]  <= 16'b0;
+            u_temp[4]  <= 16'b0;
+            u_temp[5]  <= 16'b0;
+            u_temp[6]  <= 16'b0;
+            u_temp[7]  <= 16'b0;
+            u_temp[8]  <= 16'b0;
+            u_temp[9]  <= 16'b0;
+            u_temp[10] <= 16'b0;
+
+            v_temp[0]  <= 16'b0;
+            v_temp[1]  <= 16'b0;
+            v_temp[2]  <= 16'b0;
+            v_temp[3]  <= 16'b0;
+            v_temp[4]  <= 16'b0;
+            v_temp[5]  <= 16'b0;
+            v_temp[6]  <= 16'b0;
+            v_temp[7]  <= 16'b0;
+            v_temp[8]  <= 16'b0;
+            v_temp[9]  <= 16'b0;
+            v_temp[10] <= 16'b0;
         end
         else begin
-            y <= 16'h1000 + y_temp1 + y_temp2 + y_temp3;
-            u <= 16'h8000 - u_temp1 - u_temp2 + u_temp3;
-            v <= 16'h8000 + v_temp1 - v_temp2 - v_temp3;
+            y_temp[0]  <= 16'h1000;
+            y_temp[1]  <= y_temp[0] + (rgb[0][23:16] << 6);
+            y_temp[2]  <= y_temp[1] + (rgb[1][23:16] << 1);
+            y_temp[3]  <= y_temp[2] + (rgb[2][15:8] << 7);
+            y_temp[4]  <= y_temp[3] + (rgb[3][15:8]);
+            y_temp[5]  <= y_temp[4] + (rgb[4][7:0] << 4);
+            y_temp[6]  <= y_temp[5] + (rgb[5][7:0] << 3);
+            y_temp[7]  <= y_temp[6] + (rgb[6][7:0]);
+            y_temp[8]  <= y_temp[7];
+            y_temp[9]  <= y_temp[8];
+            y_temp[10] <= y_temp[9];
+
+            u_temp[0]  <= 16'h8000;
+            u_temp[1]  <= u_temp[0] - (rgb[0][23:16] << 5);
+            u_temp[2]  <= u_temp[1] - (rgb[1][23:16] << 2);
+            u_temp[3]  <= u_temp[2] - (rgb[2][23:16] << 1);
+            u_temp[4]  <= u_temp[3] - (rgb[3][15:8] << 6);
+            u_temp[5]  <= u_temp[4] - (rgb[4][15:8] << 3);
+            u_temp[6]  <= u_temp[5] - (rgb[5][15:8] << 1);
+            u_temp[7]  <= u_temp[6] - (rgb[6][15:8]);
+            u_temp[8]  <= u_temp[7] + (rgb[7][7:0] << 6);
+            u_temp[9]  <= u_temp[8] + (rgb[8][7:0] << 5);
+            u_temp[10] <= u_temp[9] + (rgb[9][7:0] << 4);
+
+            v_temp[0]  <= 16'h8000;
+            v_temp[1]  <= v_temp[0] + (rgb[0][23:16] << 6);
+            v_temp[2]  <= v_temp[1] + (rgb[1][23:16] << 5);
+            v_temp[3]  <= v_temp[2] + (rgb[2][23:16] << 4);
+            v_temp[4]  <= v_temp[3] - (rgb[3][15:8] << 6);
+            v_temp[5]  <= v_temp[4] - (rgb[4][15:8] << 4);
+            v_temp[6]  <= v_temp[5] - (rgb[5][15:8] << 3);
+            v_temp[7]  <= v_temp[6] - (rgb[6][15:8] << 2);
+            v_temp[8]  <= v_temp[7] - (rgb[7][15:8] << 1);
+            v_temp[9]  <= v_temp[8] - (rgb[8][7:0] << 4);
+            v_temp[10] <= v_temp[9] - (rgb[9][7:0] << 1);
         end
     end
 
     // 最后同步行场信号
-    always @(posedge clk_i) begin
-        hsync <= { hsync[0], hsync_i };
-        vsync <= { vsync[0], vsync_i };
-        de <= { de[0], de_i };
+    always @(posedge clk_i or negedge rst_n_i) begin
+        if(!rst_n_i) begin
+            hsync <= 11'b0;
+            vsync <= 11'b0;
+            de <= 11'b0;
+        end
+        else begin
+            de <= { de[9:0], de_i };
+            hsync <= { hsync[9:0], hsync_i };
+            vsync <= { vsync[9:0], vsync_i };
+        end
     end
 
 endmodule

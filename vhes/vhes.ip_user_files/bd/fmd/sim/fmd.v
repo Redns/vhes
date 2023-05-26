@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Tue May 23 13:16:32 2023
+//Date        : Wed May 24 23:45:02 2023
 //Host        : JingDevice running 64-bit major release  (build 9200)
 //Command     : generate_target fmd.bd
 //Design      : fmd
@@ -150,6 +150,7 @@ module fmd
   wire mig_7series_0_mmcm_locked;
   wire mig_7series_0_ui_clk1;
   wire mig_7series_0_ui_clk_sync_rst;
+  wire [0:0]proc_sys_reset_0_interconnect_aresetn;
   wire [0:0]proc_sys_reset_0_peripheral_aresetn1;
   wire sys_rst_0_1;
   wire [31:0]uiFDMA_0_M_AXI_ARADDR;
@@ -224,9 +225,9 @@ module fmd
   assign sys_rst_0_1 = rst_n_i;
   fmd_axi_interconnect_0_0 axi_interconnect_0
        (.ACLK(mig_7series_0_ui_clk1),
-        .ARESETN(proc_sys_reset_0_peripheral_aresetn1),
+        .ARESETN(proc_sys_reset_0_interconnect_aresetn),
         .M00_ACLK(mig_7series_0_ui_clk1),
-        .M00_ARESETN(proc_sys_reset_0_peripheral_aresetn1),
+        .M00_ARESETN(proc_sys_reset_0_interconnect_aresetn),
         .M00_AXI_araddr(axi_interconnect_0_M00_AXI_ARADDR),
         .M00_AXI_arburst(axi_interconnect_0_M00_AXI_ARBURST),
         .M00_AXI_arcache(axi_interconnect_0_M00_AXI_ARCACHE),
@@ -261,7 +262,7 @@ module fmd
         .M00_AXI_wstrb(axi_interconnect_0_M00_AXI_WSTRB),
         .M00_AXI_wvalid(axi_interconnect_0_M00_AXI_WVALID),
         .S00_ACLK(mig_7series_0_ui_clk1),
-        .S00_ARESETN(proc_sys_reset_0_peripheral_aresetn1),
+        .S00_ARESETN(proc_sys_reset_0_interconnect_aresetn),
         .S00_AXI_araddr(uiFDMA_0_M_AXI_ARADDR),
         .S00_AXI_arburst(uiFDMA_0_M_AXI_ARBURST),
         .S00_AXI_arcache(uiFDMA_0_M_AXI_ARCACHE),
@@ -362,6 +363,7 @@ module fmd
        (.aux_reset_in(1'b1),
         .dcm_locked(mig_7series_0_mmcm_locked),
         .ext_reset_in(mig_7series_0_ui_clk_sync_rst),
+        .interconnect_aresetn(proc_sys_reset_0_interconnect_aresetn),
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(proc_sys_reset_0_peripheral_aresetn1),
         .slowest_sync_clk(mig_7series_0_ui_clk1));
@@ -542,7 +544,7 @@ module fmd_axi_interconnect_0_0
   input [3:0]S00_AXI_arcache;
   input [0:0]S00_AXI_arid;
   input [7:0]S00_AXI_arlen;
-  input [0:0]S00_AXI_arlock;
+  input S00_AXI_arlock;
   input [2:0]S00_AXI_arprot;
   input [3:0]S00_AXI_arqos;
   output S00_AXI_arready;
@@ -553,7 +555,7 @@ module fmd_axi_interconnect_0_0
   input [3:0]S00_AXI_awcache;
   input [0:0]S00_AXI_awid;
   input [7:0]S00_AXI_awlen;
-  input [0:0]S00_AXI_awlock;
+  input S00_AXI_awlock;
   input [2:0]S00_AXI_awprot;
   input [3:0]S00_AXI_awqos;
   output S00_AXI_awready;
@@ -584,7 +586,7 @@ module fmd_axi_interconnect_0_0
   wire [3:0]axi_interconnect_0_to_s00_couplers_ARCACHE;
   wire [0:0]axi_interconnect_0_to_s00_couplers_ARID;
   wire [7:0]axi_interconnect_0_to_s00_couplers_ARLEN;
-  wire [0:0]axi_interconnect_0_to_s00_couplers_ARLOCK;
+  wire axi_interconnect_0_to_s00_couplers_ARLOCK;
   wire [2:0]axi_interconnect_0_to_s00_couplers_ARPROT;
   wire [3:0]axi_interconnect_0_to_s00_couplers_ARQOS;
   wire axi_interconnect_0_to_s00_couplers_ARREADY;
@@ -595,7 +597,7 @@ module fmd_axi_interconnect_0_0
   wire [3:0]axi_interconnect_0_to_s00_couplers_AWCACHE;
   wire [0:0]axi_interconnect_0_to_s00_couplers_AWID;
   wire [7:0]axi_interconnect_0_to_s00_couplers_AWLEN;
-  wire [0:0]axi_interconnect_0_to_s00_couplers_AWLOCK;
+  wire axi_interconnect_0_to_s00_couplers_AWLOCK;
   wire [2:0]axi_interconnect_0_to_s00_couplers_AWPROT;
   wire [3:0]axi_interconnect_0_to_s00_couplers_AWQOS;
   wire axi_interconnect_0_to_s00_couplers_AWREADY;
@@ -694,7 +696,7 @@ module fmd_axi_interconnect_0_0
   assign axi_interconnect_0_to_s00_couplers_ARCACHE = S00_AXI_arcache[3:0];
   assign axi_interconnect_0_to_s00_couplers_ARID = S00_AXI_arid[0];
   assign axi_interconnect_0_to_s00_couplers_ARLEN = S00_AXI_arlen[7:0];
-  assign axi_interconnect_0_to_s00_couplers_ARLOCK = S00_AXI_arlock[0];
+  assign axi_interconnect_0_to_s00_couplers_ARLOCK = S00_AXI_arlock;
   assign axi_interconnect_0_to_s00_couplers_ARPROT = S00_AXI_arprot[2:0];
   assign axi_interconnect_0_to_s00_couplers_ARQOS = S00_AXI_arqos[3:0];
   assign axi_interconnect_0_to_s00_couplers_ARSIZE = S00_AXI_arsize[2:0];
@@ -704,7 +706,7 @@ module fmd_axi_interconnect_0_0
   assign axi_interconnect_0_to_s00_couplers_AWCACHE = S00_AXI_awcache[3:0];
   assign axi_interconnect_0_to_s00_couplers_AWID = S00_AXI_awid[0];
   assign axi_interconnect_0_to_s00_couplers_AWLEN = S00_AXI_awlen[7:0];
-  assign axi_interconnect_0_to_s00_couplers_AWLOCK = S00_AXI_awlock[0];
+  assign axi_interconnect_0_to_s00_couplers_AWLOCK = S00_AXI_awlock;
   assign axi_interconnect_0_to_s00_couplers_AWPROT = S00_AXI_awprot[2:0];
   assign axi_interconnect_0_to_s00_couplers_AWQOS = S00_AXI_awqos[3:0];
   assign axi_interconnect_0_to_s00_couplers_AWSIZE = S00_AXI_awsize[2:0];
@@ -918,7 +920,7 @@ module s00_couplers_imp_1QP86JP
   input [3:0]S_AXI_arcache;
   input [0:0]S_AXI_arid;
   input [7:0]S_AXI_arlen;
-  input [0:0]S_AXI_arlock;
+  input S_AXI_arlock;
   input [2:0]S_AXI_arprot;
   input [3:0]S_AXI_arqos;
   output S_AXI_arready;
@@ -929,7 +931,7 @@ module s00_couplers_imp_1QP86JP
   input [3:0]S_AXI_awcache;
   input [0:0]S_AXI_awid;
   input [7:0]S_AXI_awlen;
-  input [0:0]S_AXI_awlock;
+  input S_AXI_awlock;
   input [2:0]S_AXI_awprot;
   input [3:0]S_AXI_awqos;
   output S_AXI_awready;
@@ -993,7 +995,7 @@ module s00_couplers_imp_1QP86JP
   wire [3:0]s00_couplers_to_s00_regslice_ARCACHE;
   wire [0:0]s00_couplers_to_s00_regslice_ARID;
   wire [7:0]s00_couplers_to_s00_regslice_ARLEN;
-  wire [0:0]s00_couplers_to_s00_regslice_ARLOCK;
+  wire s00_couplers_to_s00_regslice_ARLOCK;
   wire [2:0]s00_couplers_to_s00_regslice_ARPROT;
   wire [3:0]s00_couplers_to_s00_regslice_ARQOS;
   wire s00_couplers_to_s00_regslice_ARREADY;
@@ -1004,7 +1006,7 @@ module s00_couplers_imp_1QP86JP
   wire [3:0]s00_couplers_to_s00_regslice_AWCACHE;
   wire [0:0]s00_couplers_to_s00_regslice_AWID;
   wire [7:0]s00_couplers_to_s00_regslice_AWLEN;
-  wire [0:0]s00_couplers_to_s00_regslice_AWLOCK;
+  wire s00_couplers_to_s00_regslice_AWLOCK;
   wire [2:0]s00_couplers_to_s00_regslice_AWPROT;
   wire [3:0]s00_couplers_to_s00_regslice_AWQOS;
   wire s00_couplers_to_s00_regslice_AWREADY;
@@ -1118,7 +1120,7 @@ module s00_couplers_imp_1QP86JP
   assign s00_couplers_to_s00_regslice_ARCACHE = S_AXI_arcache[3:0];
   assign s00_couplers_to_s00_regslice_ARID = S_AXI_arid[0];
   assign s00_couplers_to_s00_regslice_ARLEN = S_AXI_arlen[7:0];
-  assign s00_couplers_to_s00_regslice_ARLOCK = S_AXI_arlock[0];
+  assign s00_couplers_to_s00_regslice_ARLOCK = S_AXI_arlock;
   assign s00_couplers_to_s00_regslice_ARPROT = S_AXI_arprot[2:0];
   assign s00_couplers_to_s00_regslice_ARQOS = S_AXI_arqos[3:0];
   assign s00_couplers_to_s00_regslice_ARSIZE = S_AXI_arsize[2:0];
@@ -1128,7 +1130,7 @@ module s00_couplers_imp_1QP86JP
   assign s00_couplers_to_s00_regslice_AWCACHE = S_AXI_awcache[3:0];
   assign s00_couplers_to_s00_regslice_AWID = S_AXI_awid[0];
   assign s00_couplers_to_s00_regslice_AWLEN = S_AXI_awlen[7:0];
-  assign s00_couplers_to_s00_regslice_AWLOCK = S_AXI_awlock[0];
+  assign s00_couplers_to_s00_regslice_AWLOCK = S_AXI_awlock;
   assign s00_couplers_to_s00_regslice_AWPROT = S_AXI_awprot[2:0];
   assign s00_couplers_to_s00_regslice_AWQOS = S_AXI_awqos[3:0];
   assign s00_couplers_to_s00_regslice_AWSIZE = S_AXI_awsize[2:0];

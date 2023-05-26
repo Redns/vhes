@@ -12,14 +12,14 @@
     },
     "design_tree": {
       "mig_7series_0": "",
-      "uiFDMA_0": "",
       "proc_sys_reset_0": "",
       "axi_interconnect_0": {
         "s00_couplers": {
           "s00_regslice": "",
           "auto_us_df": ""
         }
-      }
+      },
+      "uiFDMA_0": ""
     },
     "interface_ports": {
       "DDR_PL": {
@@ -176,32 +176,6 @@
           },
           "XML_INPUT_FILE": {
             "value": "mig_b.prj"
-          }
-        }
-      },
-      "uiFDMA_0": {
-        "vlnv": "xilinx.com:user:uiFDMA:3.0",
-        "xci_name": "fmd_uiFDMA_0_0",
-        "xci_path": "ip\\fmd_uiFDMA_0_0\\fmd_uiFDMA_0_0.xci",
-        "inst_hier_path": "uiFDMA_0",
-        "interface_ports": {
-          "M_AXI": {
-            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-            "mode": "Master",
-            "address_space_ref": "M_AXI",
-            "base_address": {
-              "minimum": "0x00000000",
-              "maximum": "0xFFFFFFFF",
-              "width": "32"
-            }
-          }
-        },
-        "addressing": {
-          "address_spaces": {
-            "M_AXI": {
-              "range": "4G",
-              "width": "32"
-            }
           }
         }
       },
@@ -465,6 +439,32 @@
             ]
           }
         }
+      },
+      "uiFDMA_0": {
+        "vlnv": "xilinx.com:user:uiFDMA:3.0",
+        "xci_name": "fmd_uiFDMA_0_0",
+        "xci_path": "ip\\fmd_uiFDMA_0_0\\fmd_uiFDMA_0_0.xci",
+        "inst_hier_path": "uiFDMA_0",
+        "interface_ports": {
+          "M_AXI": {
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "mode": "Master",
+            "address_space_ref": "M_AXI",
+            "base_address": {
+              "minimum": "0x00000000",
+              "maximum": "0xFFFFFFFF",
+              "width": "32"
+            }
+          }
+        },
+        "addressing": {
+          "address_spaces": {
+            "M_AXI": {
+              "range": "4G",
+              "width": "32"
+            }
+          }
+        }
       }
     },
     "interface_nets": {
@@ -517,10 +517,10 @@
           "mig_7series_0/ui_clk",
           "clk_ui_200M_o",
           "proc_sys_reset_0/slowest_sync_clk",
-          "uiFDMA_0/M_AXI_ACLK",
           "axi_interconnect_0/ACLK",
           "axi_interconnect_0/S00_ACLK",
-          "axi_interconnect_0/M00_ACLK"
+          "axi_interconnect_0/M00_ACLK",
+          "uiFDMA_0/M_AXI_ACLK"
         ]
       },
       "mig_7series_0_ui_clk_sync_rst": {
@@ -529,15 +529,20 @@
           "proc_sys_reset_0/ext_reset_in"
         ]
       },
+      "proc_sys_reset_0_interconnect_aresetn": {
+        "ports": [
+          "proc_sys_reset_0/interconnect_aresetn",
+          "axi_interconnect_0/ARESETN",
+          "axi_interconnect_0/S00_ARESETN",
+          "axi_interconnect_0/M00_ARESETN"
+        ]
+      },
       "proc_sys_reset_0_peripheral_aresetn1": {
         "ports": [
           "proc_sys_reset_0/peripheral_aresetn",
           "rst_done_o",
           "mig_7series_0/aresetn",
-          "uiFDMA_0/M_AXI_ARESETN",
-          "axi_interconnect_0/ARESETN",
-          "axi_interconnect_0/S00_ARESETN",
-          "axi_interconnect_0/M00_ARESETN"
+          "uiFDMA_0/M_AXI_ARESETN"
         ]
       },
       "sys_rst_0_1": {

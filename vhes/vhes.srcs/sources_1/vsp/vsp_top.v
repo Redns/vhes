@@ -3,7 +3,6 @@ module vsp_top(
     input clk_bs_rd_i,
     input rst_n_i,
     output reg rst_done_o,
-    input hevc_encode_start_i,
     input hevc_encode_done_i,
     input [7:0] bs_data_i,
     input bs_valid_i,
@@ -42,8 +41,9 @@ module vsp_top(
     wire hevc_bs_valid;
     wire [31:0] hevc_bs_data;
 
+    wire state_rst_n;
     assign hevc_bs_overflow_o = bs_fifo_full && hevc_bs_valid && !hevc_bs_rd_en_i;
-    assign state_rst_n = !bs_fifo_wr_rst_busy && !bs_fifo_rd_rst_busy;
+    assign hevc_bs_fifo_rst_done = !bs_fifo_wr_rst_busy && !bs_fifo_rd_rst_busy;
 
     wire [7:0] hevc_bare_bs_data = vsps_data_valid ? vsps_data : bs_data_i;
     wire hevc_bare_bs_data_valid = vsps_data_valid ? vsps_data_valid : bs_valid_i;
@@ -89,8 +89,21 @@ module vsp_top(
         .rd_rst_busy(bs_fifo_rd_rst_busy)  
     );
 
+    software_control_reset#
+    (
+        .EXT_RESETN_VALID_WIDTH(4),
+        .PERIPHERAL_RESETN_WIDTH(1),
+        .PERIPHERAL_RESETN_VALID_WIDTH(60)
+    ) software_control_reset
+    (
+        .clk_i(clk_bs_rd_i),
+        .ext_rst_n_i(hevc_bs_fifo_rst_done),
+        .peripheral_rst_o(),
+        .peripheral_rst_n_o(state_rst_n)
+    );
+
     // 帧序号进程
-    always@(posedge clk_i) begin
+    always@(posedge clk_i or negedge state_rst_n) begin
         if(!state_rst_n)
             frame_sn_i <= 8'b0;
         else if(hevc_encode_done_i)
@@ -100,7 +113,7 @@ module vsp_top(
     end
 
     // 状态机进程
-    always@(posedge clk_i) begin
+    always@(posedge clk_i or negedge state_rst_n) begin
         if(!state_rst_n) begin
             // 初始化状态
             state <= S0_INIT;

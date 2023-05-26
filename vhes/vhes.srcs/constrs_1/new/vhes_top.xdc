@@ -70,3 +70,7 @@ set_input_delay -clock [get_clocks pclk_i] -min -add_delay 1.010 [get_ports hsyn
 set_input_delay -clock [get_clocks pclk_i] -max -add_delay 2.500 [get_ports hsync_i]
 set_input_delay -clock [get_clocks pclk_i] -min -add_delay 1.010 [get_ports vsync_i]
 set_input_delay -clock [get_clocks pclk_i] -max -add_delay 2.500 [get_ports vsync_i]
+
+# 设置异步时钟
+set_clock_groups -group [get_clocks pclk_i] -group [get_clocks clk_200M_p_i] -asynchronous 
+# set_clock_groups -group [get_clocks pclk_i] -group [get_clocks clk_fpga_0] -asynchronous 

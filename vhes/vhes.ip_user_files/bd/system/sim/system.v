@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Tue May 23 13:19:24 2023
+//Date        : Wed May 24 23:44:20 2023
 //Host        : JingDevice running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
@@ -1308,8 +1308,6 @@ module system
   wire axi_dma_0_M_AXI_S2MM_WVALID;
   wire axi_dma_0_s2mm_introut;
   wire [0:0]axi_gpio_0_gpio_io_o;
-  wire [0:0]axi_gpio_1_gpio_io_o;
-  wire [0:0]axi_gpio_2_gpio_io_o1;
   wire [31:0]axi_mem_intercon_M00_AXI_AWADDR;
   wire [1:0]axi_mem_intercon_M00_AXI_AWBURST;
   wire [3:0]axi_mem_intercon_M00_AXI_AWCACHE;
@@ -1328,7 +1326,9 @@ module system
   wire axi_mem_intercon_M00_AXI_WREADY;
   wire [7:0]axi_mem_intercon_M00_AXI_WSTRB;
   wire axi_mem_intercon_M00_AXI_WVALID;
+  wire [0:0]gpio_axis_transmit_start_gpio_io_o;
   wire [0:0]gpio_io_i_0_1;
+  wire [0:0]gpio_vhes_core_rst_n_gpio_io_o;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -1344,7 +1344,7 @@ module system
   wire processing_system7_0_DDR_RAS_N;
   wire processing_system7_0_DDR_RESET_N;
   wire processing_system7_0_DDR_WE_N;
-  wire processing_system7_0_FCLK_CLK1;
+  wire processing_system7_0_FCLK_CLK0;
   wire processing_system7_0_FCLK_RESET0_N;
   wire processing_system7_0_FIXED_IO_DDR_VRN;
   wire processing_system7_0_FIXED_IO_DDR_VRP;
@@ -1480,6 +1480,7 @@ module system
   wire ps7_0_axi_periph_M04_AXI_WREADY;
   wire [3:0]ps7_0_axi_periph_M04_AXI_WSTRB;
   wire ps7_0_axi_periph_M04_AXI_WVALID;
+  wire [0:0]rst_ps7_0_100M_interconnect_aresetn;
   wire [0:0]rst_ps7_0_100M_peripheral_aresetn1;
   wire [31:0]ui_axisbufw_0_axis_m_TDATA;
   wire [3:0]ui_axisbufw_0_axis_m_TKEEP;
@@ -1489,8 +1490,8 @@ module system
 
   assign W_data_i_0_1 = bs_data_i[31:0];
   assign W_wren_i_0_1 = bs_valid_i;
-  assign axis_transform_start_o[0] = axi_gpio_2_gpio_io_o1;
-  assign clk_100M_o = processing_system7_0_FCLK_CLK1;
+  assign axis_transform_start_o[0] = gpio_axis_transmit_start_gpio_io_o;
+  assign clk_100M_o = processing_system7_0_FCLK_CLK0;
   assign gpio_io_i_0_1 = vhes_core_rst_done_i[0];
   assign processing_system7_0_IIC_0_SCL_I = sii_scl_i;
   assign processing_system7_0_IIC_0_SDA_I = sii_sda_i;
@@ -1499,10 +1500,10 @@ module system
   assign sii_scl_t = processing_system7_0_IIC_0_SCL_T;
   assign sii_sda_o = processing_system7_0_IIC_0_SDA_O;
   assign sii_sda_t = processing_system7_0_IIC_0_SDA_T;
-  assign vhes_core_rst_n_o[0] = axi_gpio_1_gpio_io_o;
+  assign vhes_core_rst_n_o[0] = gpio_vhes_core_rst_n_gpio_io_o;
   system_axi_dma_0_0 axi_dma_0
        (.axi_resetn(rst_ps7_0_100M_peripheral_aresetn1),
-        .m_axi_s2mm_aclk(processing_system7_0_FCLK_CLK1),
+        .m_axi_s2mm_aclk(processing_system7_0_FCLK_CLK0),
         .m_axi_s2mm_awaddr(axi_dma_0_M_AXI_S2MM_AWADDR),
         .m_axi_s2mm_awburst(axi_dma_0_M_AXI_S2MM_AWBURST),
         .m_axi_s2mm_awcache(axi_dma_0_M_AXI_S2MM_AWCACHE),
@@ -1520,7 +1521,7 @@ module system
         .m_axi_s2mm_wstrb(axi_dma_0_M_AXI_S2MM_WSTRB),
         .m_axi_s2mm_wvalid(axi_dma_0_M_AXI_S2MM_WVALID),
         .s2mm_introut(axi_dma_0_s2mm_introut),
-        .s_axi_lite_aclk(processing_system7_0_FCLK_CLK1),
+        .s_axi_lite_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_lite_araddr(ps7_0_axi_periph_M00_AXI_ARADDR[9:0]),
         .s_axi_lite_arready(ps7_0_axi_periph_M00_AXI_ARREADY),
         .s_axi_lite_arvalid(ps7_0_axi_periph_M00_AXI_ARVALID),
@@ -1543,10 +1544,10 @@ module system
         .s_axis_s2mm_tready(ui_axisbufw_0_axis_m_TREADY),
         .s_axis_s2mm_tvalid(ui_axisbufw_0_axis_m_TVALID));
   system_axi_mem_intercon_0 axi_mem_intercon
-       (.ACLK(processing_system7_0_FCLK_CLK1),
-        .ARESETN(rst_ps7_0_100M_peripheral_aresetn1),
-        .M00_ACLK(processing_system7_0_FCLK_CLK1),
-        .M00_ARESETN(rst_ps7_0_100M_peripheral_aresetn1),
+       (.ACLK(processing_system7_0_FCLK_CLK0),
+        .ARESETN(rst_ps7_0_100M_interconnect_aresetn),
+        .M00_ACLK(processing_system7_0_FCLK_CLK0),
+        .M00_ARESETN(rst_ps7_0_100M_interconnect_aresetn),
         .M00_AXI_awaddr(axi_mem_intercon_M00_AXI_AWADDR),
         .M00_AXI_awburst(axi_mem_intercon_M00_AXI_AWBURST),
         .M00_AXI_awcache(axi_mem_intercon_M00_AXI_AWCACHE),
@@ -1565,8 +1566,8 @@ module system
         .M00_AXI_wready(axi_mem_intercon_M00_AXI_WREADY),
         .M00_AXI_wstrb(axi_mem_intercon_M00_AXI_WSTRB),
         .M00_AXI_wvalid(axi_mem_intercon_M00_AXI_WVALID),
-        .S00_ACLK(processing_system7_0_FCLK_CLK1),
-        .S00_ARESETN(rst_ps7_0_100M_peripheral_aresetn1),
+        .S00_ACLK(processing_system7_0_FCLK_CLK0),
+        .S00_ARESETN(rst_ps7_0_100M_interconnect_aresetn),
         .S00_AXI_awaddr(axi_dma_0_M_AXI_S2MM_AWADDR),
         .S00_AXI_awburst(axi_dma_0_M_AXI_S2MM_AWBURST),
         .S00_AXI_awcache(axi_dma_0_M_AXI_S2MM_AWCACHE),
@@ -1585,8 +1586,8 @@ module system
         .S00_AXI_wvalid(axi_dma_0_M_AXI_S2MM_WVALID));
   system_axi_gpio_2_0 gpio_axis_transmit_start
        (.gpio_io_i(1'b0),
-        .gpio_io_o(axi_gpio_2_gpio_io_o1),
-        .s_axi_aclk(processing_system7_0_FCLK_CLK1),
+        .gpio_io_o(gpio_axis_transmit_start_gpio_io_o),
+        .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M03_AXI_ARADDR[8:0]),
         .s_axi_aresetn(rst_ps7_0_100M_peripheral_aresetn1),
         .s_axi_arready(ps7_0_axi_periph_M03_AXI_ARREADY),
@@ -1608,7 +1609,7 @@ module system
   system_axi_gpio_0_0 gpio_sii_rst_n
        (.gpio_io_i(1'b0),
         .gpio_io_o(axi_gpio_0_gpio_io_o),
-        .s_axi_aclk(processing_system7_0_FCLK_CLK1),
+        .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M01_AXI_ARADDR[8:0]),
         .s_axi_aresetn(rst_ps7_0_100M_peripheral_aresetn1),
         .s_axi_arready(ps7_0_axi_periph_M01_AXI_ARREADY),
@@ -1629,7 +1630,7 @@ module system
         .s_axi_wvalid(ps7_0_axi_periph_M01_AXI_WVALID));
   system_axi_gpio_0_1 gpio_vhes_core_rst_done
        (.gpio_io_i(gpio_io_i_0_1),
-        .s_axi_aclk(processing_system7_0_FCLK_CLK1),
+        .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M04_AXI_ARADDR[8:0]),
         .s_axi_aresetn(rst_ps7_0_100M_peripheral_aresetn1),
         .s_axi_arready(ps7_0_axi_periph_M04_AXI_ARREADY),
@@ -1650,8 +1651,8 @@ module system
         .s_axi_wvalid(ps7_0_axi_periph_M04_AXI_WVALID));
   system_axi_gpio_1_0 gpio_vhes_core_rst_n
        (.gpio_io_i(1'b0),
-        .gpio_io_o(axi_gpio_1_gpio_io_o),
-        .s_axi_aclk(processing_system7_0_FCLK_CLK1),
+        .gpio_io_o(gpio_vhes_core_rst_n_gpio_io_o),
+        .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M02_AXI_ARADDR[8:0]),
         .s_axi_aresetn(rst_ps7_0_100M_peripheral_aresetn1),
         .s_axi_arready(ps7_0_axi_periph_M02_AXI_ARREADY),
@@ -1688,7 +1689,7 @@ module system
         .DDR_VRN(FIXED_IO_ddr_vrn),
         .DDR_VRP(FIXED_IO_ddr_vrp),
         .DDR_WEB(DDR_PS_we_n),
-        .FCLK_CLK0(processing_system7_0_FCLK_CLK1),
+        .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
         .I2C0_SCL_I(processing_system7_0_IIC_0_SCL_I),
         .I2C0_SCL_O(processing_system7_0_IIC_0_SCL_O),
@@ -1698,7 +1699,7 @@ module system
         .I2C0_SDA_T(processing_system7_0_IIC_0_SDA_T),
         .IRQ_F2P(axi_dma_0_s2mm_introut),
         .MIO(FIXED_IO_mio[53:0]),
-        .M_AXI_GP0_ACLK(processing_system7_0_FCLK_CLK1),
+        .M_AXI_GP0_ACLK(processing_system7_0_FCLK_CLK0),
         .M_AXI_GP0_ARADDR(processing_system7_0_M_AXI_GP0_ARADDR),
         .M_AXI_GP0_ARBURST(processing_system7_0_M_AXI_GP0_ARBURST),
         .M_AXI_GP0_ARCACHE(processing_system7_0_M_AXI_GP0_ARCACHE),
@@ -1740,7 +1741,7 @@ module system
         .PS_CLK(FIXED_IO_ps_clk),
         .PS_PORB(FIXED_IO_ps_porb),
         .PS_SRSTB(FIXED_IO_ps_srstb),
-        .S_AXI_HP0_ACLK(processing_system7_0_FCLK_CLK1),
+        .S_AXI_HP0_ACLK(processing_system7_0_FCLK_CLK0),
         .S_AXI_HP0_ARADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .S_AXI_HP0_ARBURST({1'b0,1'b1}),
         .S_AXI_HP0_ARCACHE({1'b0,1'b0,1'b1,1'b1}),
@@ -1775,10 +1776,10 @@ module system
         .S_AXI_HP0_WSTRB(axi_mem_intercon_M00_AXI_WSTRB),
         .S_AXI_HP0_WVALID(axi_mem_intercon_M00_AXI_WVALID));
   system_ps7_0_axi_periph_0 ps7_0_axi_periph
-       (.ACLK(processing_system7_0_FCLK_CLK1),
-        .ARESETN(rst_ps7_0_100M_peripheral_aresetn1),
-        .M00_ACLK(processing_system7_0_FCLK_CLK1),
-        .M00_ARESETN(rst_ps7_0_100M_peripheral_aresetn1),
+       (.ACLK(processing_system7_0_FCLK_CLK0),
+        .ARESETN(rst_ps7_0_100M_interconnect_aresetn),
+        .M00_ACLK(processing_system7_0_FCLK_CLK0),
+        .M00_ARESETN(rst_ps7_0_100M_interconnect_aresetn),
         .M00_AXI_araddr(ps7_0_axi_periph_M00_AXI_ARADDR),
         .M00_AXI_arready(ps7_0_axi_periph_M00_AXI_ARREADY),
         .M00_AXI_arvalid(ps7_0_axi_periph_M00_AXI_ARVALID),
@@ -1795,8 +1796,8 @@ module system
         .M00_AXI_wdata(ps7_0_axi_periph_M00_AXI_WDATA),
         .M00_AXI_wready(ps7_0_axi_periph_M00_AXI_WREADY),
         .M00_AXI_wvalid(ps7_0_axi_periph_M00_AXI_WVALID),
-        .M01_ACLK(processing_system7_0_FCLK_CLK1),
-        .M01_ARESETN(rst_ps7_0_100M_peripheral_aresetn1),
+        .M01_ACLK(processing_system7_0_FCLK_CLK0),
+        .M01_ARESETN(rst_ps7_0_100M_interconnect_aresetn),
         .M01_AXI_araddr(ps7_0_axi_periph_M01_AXI_ARADDR),
         .M01_AXI_arready(ps7_0_axi_periph_M01_AXI_ARREADY),
         .M01_AXI_arvalid(ps7_0_axi_periph_M01_AXI_ARVALID),
@@ -1814,8 +1815,8 @@ module system
         .M01_AXI_wready(ps7_0_axi_periph_M01_AXI_WREADY),
         .M01_AXI_wstrb(ps7_0_axi_periph_M01_AXI_WSTRB),
         .M01_AXI_wvalid(ps7_0_axi_periph_M01_AXI_WVALID),
-        .M02_ACLK(processing_system7_0_FCLK_CLK1),
-        .M02_ARESETN(rst_ps7_0_100M_peripheral_aresetn1),
+        .M02_ACLK(processing_system7_0_FCLK_CLK0),
+        .M02_ARESETN(rst_ps7_0_100M_interconnect_aresetn),
         .M02_AXI_araddr(ps7_0_axi_periph_M02_AXI_ARADDR),
         .M02_AXI_arready(ps7_0_axi_periph_M02_AXI_ARREADY),
         .M02_AXI_arvalid(ps7_0_axi_periph_M02_AXI_ARVALID),
@@ -1833,8 +1834,8 @@ module system
         .M02_AXI_wready(ps7_0_axi_periph_M02_AXI_WREADY),
         .M02_AXI_wstrb(ps7_0_axi_periph_M02_AXI_WSTRB),
         .M02_AXI_wvalid(ps7_0_axi_periph_M02_AXI_WVALID),
-        .M03_ACLK(processing_system7_0_FCLK_CLK1),
-        .M03_ARESETN(rst_ps7_0_100M_peripheral_aresetn1),
+        .M03_ACLK(processing_system7_0_FCLK_CLK0),
+        .M03_ARESETN(rst_ps7_0_100M_interconnect_aresetn),
         .M03_AXI_araddr(ps7_0_axi_periph_M03_AXI_ARADDR),
         .M03_AXI_arready(ps7_0_axi_periph_M03_AXI_ARREADY),
         .M03_AXI_arvalid(ps7_0_axi_periph_M03_AXI_ARVALID),
@@ -1852,8 +1853,8 @@ module system
         .M03_AXI_wready(ps7_0_axi_periph_M03_AXI_WREADY),
         .M03_AXI_wstrb(ps7_0_axi_periph_M03_AXI_WSTRB),
         .M03_AXI_wvalid(ps7_0_axi_periph_M03_AXI_WVALID),
-        .M04_ACLK(processing_system7_0_FCLK_CLK1),
-        .M04_ARESETN(rst_ps7_0_100M_peripheral_aresetn1),
+        .M04_ACLK(processing_system7_0_FCLK_CLK0),
+        .M04_ARESETN(rst_ps7_0_100M_interconnect_aresetn),
         .M04_AXI_araddr(ps7_0_axi_periph_M04_AXI_ARADDR),
         .M04_AXI_arready(ps7_0_axi_periph_M04_AXI_ARREADY),
         .M04_AXI_arvalid(ps7_0_axi_periph_M04_AXI_ARVALID),
@@ -1871,8 +1872,8 @@ module system
         .M04_AXI_wready(ps7_0_axi_periph_M04_AXI_WREADY),
         .M04_AXI_wstrb(ps7_0_axi_periph_M04_AXI_WSTRB),
         .M04_AXI_wvalid(ps7_0_axi_periph_M04_AXI_WVALID),
-        .S00_ACLK(processing_system7_0_FCLK_CLK1),
-        .S00_ARESETN(rst_ps7_0_100M_peripheral_aresetn1),
+        .S00_ACLK(processing_system7_0_FCLK_CLK0),
+        .S00_ARESETN(rst_ps7_0_100M_interconnect_aresetn),
         .S00_AXI_araddr(processing_system7_0_M_AXI_GP0_ARADDR),
         .S00_AXI_arburst(processing_system7_0_M_AXI_GP0_ARBURST),
         .S00_AXI_arcache(processing_system7_0_M_AXI_GP0_ARCACHE),
@@ -1915,15 +1916,16 @@ module system
        (.aux_reset_in(1'b1),
         .dcm_locked(1'b1),
         .ext_reset_in(processing_system7_0_FCLK_RESET0_N),
+        .interconnect_aresetn(rst_ps7_0_100M_interconnect_aresetn),
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_ps7_0_100M_peripheral_aresetn1),
-        .slowest_sync_clk(processing_system7_0_FCLK_CLK1));
+        .slowest_sync_clk(processing_system7_0_FCLK_CLK0));
   system_ui_axisbufw_0_0 ui_axisbufw_0
-       (.W_FS_i(axi_gpio_2_gpio_io_o1),
+       (.W_FS_i(gpio_axis_transmit_start_gpio_io_o),
         .W_data_i(W_data_i_0_1),
-        .W_wclk_i(processing_system7_0_FCLK_CLK1),
+        .W_wclk_i(processing_system7_0_FCLK_CLK0),
         .W_wren_i(W_wren_i_0_1),
-        .axis_clk(processing_system7_0_FCLK_CLK1),
+        .axis_clk(processing_system7_0_FCLK_CLK0),
         .axis_keep(ui_axisbufw_0_axis_m_TKEEP),
         .axis_last(ui_axisbufw_0_axis_m_TLAST),
         .axis_wdata(ui_axisbufw_0_axis_m_TDATA),

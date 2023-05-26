@@ -27,16 +27,16 @@ module gxgy(
 	reg				[10:0]			gx;
 	reg				[10:0]			gy;
 	
-	always@(posedge clk or negedge rstn)
-		if(!rstn)
-			begin
-				gx<='d0;
-				gy<='d0;
-			end
-		else if(gxgyrun)
-			begin
-				gy<=x1[7:0]+x1[15:8]*2+x1[23:16]-x3[7:0]-x3[15:8]*2-x3[23:16];
-				gx<=x1[7:0]+x2[7:0]*2+x3[7:0]-x3[23:16]-x2[23:16]*2-x1[23:16];
-			end
-		
+	always@(posedge clk or negedge rstn) begin
+		if(!rstn) begin
+            gx <='d0;
+            gy <='d0;
+        end
+		else if(gxgyrun) begin
+            // TODO 此处移位运算可能溢出
+            gx <= x1[7:0] + (x2[7:0] << 1) + x3[7:0] - x3[23:16] - (x2[23:16] << 1) - x1[23:16];
+            gy <= x1[7:0] + (x1[15:8] << 1) + x1[23:16] - x3[7:0] - (x3[15:8] << 1) - x3[23:16];
+        end
+    end
+
 endmodule

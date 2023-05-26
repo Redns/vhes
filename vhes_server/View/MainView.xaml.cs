@@ -1,8 +1,10 @@
 ﻿using ScottPlot;
 using ScottPlot.Plottable;
 using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
+using Vhes.Model;
 using Xpeng.Common;
 using Xpeng.ViewModel;
 
@@ -133,6 +135,9 @@ namespace Xpeng.View
             // 释放定时器资源
             GlobalValues.MainViewModel.AverageBitrateCountTimer?.Dispose();
             GlobalValues.MainViewModel.PlotRefreshTimer?.Stop();
+
+            // 关闭视频播放器
+            GlobalValues.MainViewModel.MainModel.VideoPlayerProcess?.Dispose();
 
             // 关闭窗口
             Close();

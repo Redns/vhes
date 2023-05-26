@@ -29,6 +29,11 @@ namespace Vhes.Common
     public class VideoStreamSetting
     {
         /// <summary>
+        /// 视频播放器路径
+        /// </summary>
+        public string Player { get; set; }
+
+        /// <summary>
         /// 数据流路径
         /// </summary>
         public string Location { get; set; }

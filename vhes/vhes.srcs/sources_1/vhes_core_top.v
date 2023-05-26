@@ -60,11 +60,11 @@ module vhes_core_top#
     wire extif_top_rst_done;
     wire vsp_top_rst_done;
 
-    assign hdmi2rgb_top_rst_n  = rst_n_i;
-    assign extif_top_rst_n = hdmi2rgb_top_rst_done;
-    assign hevc_encode_system_ctrl_rst_n = extif_top_rst_done;
-    assign hevc_core_rst_n = extif_top_rst_done;
-    assign vsp_top_rst_n   = extif_top_rst_done;
+    wire hdmi2rgb_top_rst_n  = rst_n_i;
+    wire extif_top_rst_n = hdmi2rgb_top_rst_done;
+    wire hevc_encode_system_ctrl_rst_n;
+    wire hevc_core_rst_n;
+    wire vsp_top_rst_n;
 
     assign rst_done_o = vsp_top_rst_done;
 
@@ -102,6 +102,20 @@ module vhes_core_top#
     // HEVC 码流数据
     wire bs_valid;
     wire [7:0] bs_data;
+
+/************************ 同步复位模块 *************************/
+    software_control_reset#
+    (
+        .EXT_RESETN_VALID_WIDTH(4),
+        .PERIPHERAL_RESETN_WIDTH(3),
+        .PERIPHERAL_RESETN_VALID_WIDTH(16)
+    ) software_control_reset
+    (
+        .clk_i(pclk_i),
+        .ext_rst_n_i(extif_top_rst_done),
+        .peripheral_rst_o(),
+        .peripheral_rst_n_o({ hevc_encode_system_ctrl_rst_n, hevc_core_rst_n, vsp_top_rst_n })
+    );
 
 /************************ HDMI 转 RGB 模块 *************************/
     hdmi2yuv_top hdmi2yuv_top(
@@ -174,7 +188,7 @@ module vhes_core_top#
         .sys_all_y_i(FRAME_HEIGHT),
         .sys_init_qp_i(INITIAL_QP),
         .sys_done_o(hevc_sys_done),
-        .sys_IinP_ena_i(ENABLE_IinP),
+        .sys_IinP_ena_i(ENABLE_IINP),
         .sys_db_ena_i(ENABLE_DB),
         .sys_sao_ena_i(ENABLE_SAO),
         .sys_posi4x4bit_i(POSI4x4BIT),
@@ -257,7 +271,6 @@ module vhes_core_top#
         .clk_bs_rd_i(clk_bs_rd_i),
         .rst_n_i(vsp_top_rst_n),
         .rst_done_o(vsp_top_rst_done),
-        .hevc_encode_start_i(hevc_sys_start),
         .hevc_encode_done_i(hevc_sys_done),
         .bs_data_i(bs_data),
         .bs_valid_i(bs_valid),

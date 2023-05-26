@@ -153,41 +153,73 @@ always@(posedge clk or negedge rstn)
 				mode32_tmp<= 'd0;
 				mode33_tmp<= 'd0;
 		end
-	else if(counterrun1)
-		begin
-				mode2_tmp<=90*gx+90*gy;
-				mode3_tmp<=99*gx+81*gy;
-				mode4_tmp<=107*gx+70*gy;
-				mode5_tmp<=113*gx+60*gy;
-				mode6_tmp<=118*gx+48*gy;
-				mode7_tmp<=123*gx+35*gy;
-				mode8_tmp<=126*gx+20*gy;
-				mode9_tmp<=127*gx+8*gy;
-				mode10_tmp<=128*gx;
-				mode11_tmp<=127*gx-8*gy;
-				mode12_tmp<=126*gx-20*gy;
-				mode13_tmp<=123*gx-35*gy;
-				mode14_tmp<=118*gx-48*gy;
-				mode15_tmp<=113*gx-60*gy;
-				mode16_tmp<=107*gx-70*gy;
-				mode17_tmp<=99*gx-81*gy;
-				mode18_tmp<=90*gx-90*gy;
-				mode19_tmp<=81*gx-99*gy;
-				mode20_tmp<=70*gx-107*gy;
-				mode21_tmp<=60*gx-113*gy;
-				mode22_tmp<=48*gx-118*gy;
-				mode23_tmp<=35*gx-123*gy;
-				mode24_tmp<=20*gx-126*gy;
-				mode25_tmp<=8*gx-127*gy;
-				mode26_tmp<=128*gy;
-				mode27_tmp<=8*gx+127*gy;
-				mode28_tmp<=20*gx+126*gy;
-				mode29_tmp<=35*gx+123*gy;
-				mode30_tmp<=48*gx+118*gy;
-				mode31_tmp<=60*gx+113*gy;
-				mode32_tmp<=70*gx+107*gy;
-				mode33_tmp<=81*gx+99*gy;
-		end
+	else if(counterrun1) begin
+        // TODO 此处可能数据溢出
+        // mode2_tmp<=90*gx+90*gy;
+        // mode3_tmp<=99*gx+81*gy;
+        // mode4_tmp<=107*gx+70*gy;
+        // mode5_tmp<=113*gx+60*gy;
+        // mode6_tmp<=118*gx+48*gy;
+        // mode7_tmp<=123*gx+35*gy;
+        // mode8_tmp<=126*gx+20*gy;
+        // mode9_tmp<=127*gx+8*gy;
+        // mode10_tmp<=128*gx;
+        // mode11_tmp<=127*gx-8*gy;
+        // mode12_tmp<=126*gx-20*gy;
+        // mode13_tmp<=123*gx-35*gy;
+        // mode14_tmp<=118*gx-48*gy;
+        // mode15_tmp<=113*gx-60*gy;
+        // mode16_tmp<=107*gx-70*gy;
+        // mode17_tmp<=99*gx-81*gy;
+        // mode18_tmp<=90*gx-90*gy;
+        // mode19_tmp<=81*gx-99*gy;
+        // mode20_tmp<=70*gx-107*gy;
+        // mode21_tmp<=60*gx-113*gy;
+        // mode22_tmp<=48*gx-118*gy;
+        // mode23_tmp<=35*gx-123*gy;
+        // mode24_tmp<=20*gx-126*gy;
+        // mode25_tmp<=8*gx-127*gy;
+        // mode26_tmp<=128*gy;
+        // mode27_tmp<=8*gx+127*gy;
+        // mode28_tmp<=20*gx+126*gy;
+        // mode29_tmp<=35*gx+123*gy;
+        // mode30_tmp<=48*gx+118*gy;
+        // mode31_tmp<=60*gx+113*gy;
+        // mode32_tmp<=70*gx+107*gy;
+        // mode33_tmp<=81*gx+99*gy;
+        mode2_tmp  <= ((gx << 6) + (gx << 4) + (gx << 3) + (gx << 1)) + ((gy << 6) + (gy << 4) + (gy << 3) + (gy << 1));
+        mode3_tmp  <= ((gx << 6) + (gx << 5) + (gx << 1) + gx) + ((gy << 6) + (gy << 4) + gy);
+        mode4_tmp  <= ((gx << 6) + (gx << 5) + (gx << 3) + (gx << 1) + gx) + ((gy << 6) + (gy << 2) + (gy << 1));
+        mode5_tmp  <= ((gx << 6) + (gx << 5) + (gx << 4) + gx) + ((gy << 5) + (gy << 4) + (gy << 3) + (gy << 2));
+        mode6_tmp  <= ((gx << 6) + (gx << 5) + (gx << 4) + (gx << 2) + (gx << 1)) + ((gy << 5) + (gy << 4));
+        mode7_tmp  <= ((gx << 6) + (gx << 5) + (gx << 4) + (gx << 3) + (gx << 1) + gx) + ((gy << 5) + (gy << 1) + gy);
+        mode8_tmp  <= ((gx << 6) + (gx << 5) + (gx << 4) + (gx << 3) + (gx << 2) + (gx << 1)) + ((gy << 4) + (gy << 2));
+        mode9_tmp  <= ((gx << 6) + (gx << 5) + (gx << 4) + (gx << 3) + (gx << 2) + (gx << 1) + gx) + (gy << 3);
+        mode10_tmp <= (gx << 7);
+        mode11_tmp <= ((gx << 6) + (gx << 5) + (gx << 4) + (gx << 3) + (gx << 2) + (gx << 1) + gx) - (gy << 3);
+        mode12_tmp <= ((gx << 6) + (gx << 5) + (gx << 4) + (gx << 3) + (gx << 2) + (gx << 1)) - ((gy << 4) + (gy << 2));
+        mode13_tmp <= ((gx << 6) + (gx << 5) + (gx << 4) + (gx << 3) + (gx << 1) + gx) - ((gy << 5) + (gy << 1) + gy);
+        mode14_tmp <= ((gx << 6) + (gx << 5) + (gx << 4) + (gx << 2) + (gx << 1)) - ((gy << 5) + (gy << 4));
+        mode15_tmp <= ((gx << 6) + (gx << 5) + (gx << 4) + gx) - ((gy << 5) + (gy << 4) + (gy << 3) + (gy << 2));
+        mode16_tmp <= ((gx << 6) + (gx << 5) + (gx << 3) + (gx << 1) + gx) - ((gy << 6) + (gy << 2) + (gy << 1));
+        mode17_tmp <= ((gx << 6) + (gx << 5) + (gx << 1) + gx) - ((gy << 6) + (gy << 4) + gy);
+        mode18_tmp <= ((gx << 6) + (gx << 4) + (gx << 3) + (gx << 1)) - ((gy << 6) + (gy << 4) + (gy << 3) + (gy << 1));
+        mode19_tmp <= ((gx << 6) + (gx << 4) + gx) - ((gy << 6) + (gy << 5) + (gy << 1) + gy);
+        mode20_tmp <= ((gx << 6) + (gx << 2) + (gx << 1)) - ((gy << 6) + (gy << 5) + (gy << 3) + (gy << 1) + gy);
+        mode21_tmp <= ((gx << 5) + (gx << 4) + (gx << 3) + (gx << 2)) - ((gy << 6) + (gy << 5) + (gy << 4) + gy);
+        mode22_tmp <= ((gx << 5) + (gx << 4)) - ((gy << 6) + (gy << 5) + (gy << 4) + (gy << 2) + (gy << 1));
+        mode23_tmp <= ((gx << 5) + (gx << 1) + gx) - ((gy << 6) + (gy << 5) + (gy << 4) + (gy << 3) + (gy << 1) + gx);
+        mode24_tmp <= ((gx << 4) + (gx << 2)) - ((gy << 6) + (gy << 5) + (gy << 4) + (gy << 3) + (gy << 2) + (gy << 1));
+        mode25_tmp <= (gx << 3) - ((gy << 6) + (gy << 5) + (gy << 4) + (gy << 3) + (gy << 2) + (gy << 1) + gy);
+        mode26_tmp <= (gy << 7);
+        mode27_tmp <= (gx << 3) + ((gy << 6) + (gy << 5) + (gy << 4) + (gy << 3) + (gy << 2) + (gy << 1) + gy);
+        mode28_tmp <= ((gx << 4) + (gx << 2)) + ((gy << 6) + (gy << 5) + (gy << 4) + (gy << 3) + (gy << 2) + (gy << 1));
+        mode29_tmp <= ((gx << 5) + (gx << 1) + gx) + ((gy << 6) + (gy << 5) + (gy << 4) + (gy << 3) + (gy << 1) + gx);
+        mode30_tmp <= ((gx << 5) + (gx << 4)) + ((gy << 6) + (gy << 5) + (gy << 4) + (gy << 2) + (gy << 1));
+        mode31_tmp <= ((gx << 5) + (gx << 4) + (gx << 3) + (gx << 2)) + ((gy << 6) + (gy << 5) + (gy << 4) + gy);
+        mode32_tmp <= ((gx << 6) + (gx << 2) + (gx << 1)) + ((gy << 6) + (gy << 5) + (gy << 3) + (gy << 1) + gy);
+        mode33_tmp <= ((gx << 6) + (gx << 4) + gx) + ((gy << 6) + (gy << 5) + (gy << 1) + gy);
+    end
 	
 	
 	reg				[MODE:0]	mode2;

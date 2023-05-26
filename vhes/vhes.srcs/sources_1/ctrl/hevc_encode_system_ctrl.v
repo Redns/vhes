@@ -94,7 +94,7 @@ module hevc_encode_system_ctrl#
     // extif 数据交互开始标志
     // hevc_extif_start_i 置位表明 HEVC 编码核要求缓冲交互数据
     // hevc_extif_done 清零表明 HEVC 编码核与缓存的数据交互结束
-    always@(posedge clk_i) begin
+    always@(posedge clk_i or negedge rst_n_i) begin
         if(!rst_n_i) begin
             extif_busy <= 1'b0;
             extif_mode_cache <= 5'b0;
@@ -119,7 +119,7 @@ module hevc_encode_system_ctrl#
     // HEVC 编码开始标志
     // hevc_sys_start_o 置位表明要求 HEVC 开始编码
     // hevc_sys_done_i 置位表明 HEVC 该帧编码结束
-    always@(posedge clk_i) begin
+    always@(posedge clk_i or negedge rst_n_i) begin
         if(!rst_n_i) begin
             hevc_enc_busy <= 1'b0;
         end
@@ -133,7 +133,7 @@ module hevc_encode_system_ctrl#
 
     // STATE2_FRDW 相关逻辑
     // frdw_busy 表示该状态正忙，不允许切换至其他状态，其他状态空闲时应立即切换至该状态
-    always@(posedge clk_i) begin
+    always@(posedge clk_i or negedge rst_n_i) begin
         if(!rst_n_i) begin
             frdw_busy <= 1'b0;
             fdma_busy_cache <= 2'b0;
@@ -151,7 +151,7 @@ module hevc_encode_system_ctrl#
     
     // HEVC 编码模式设置（帧内/帧间）
     // GOP 首帧采用帧内编码，其余采用帧间编码
-    always@(posedge clk_i) begin
+    always@(posedge clk_i or negedge rst_n_i) begin
         if(!rst_n_i) begin
             hevc_sys_type_o <= `INTRA;
             hevc_enc_frame_nums <= 16'b0;
@@ -167,7 +167,7 @@ module hevc_encode_system_ctrl#
     end
 
 /*************************** 状态转换 ****************************/
-    always@(posedge clk_i) begin
+    always@(posedge clk_i or negedge rst_n_i) begin
         if(!rst_n_i) begin
             // 初始化状态
             state <= S0_INIT;

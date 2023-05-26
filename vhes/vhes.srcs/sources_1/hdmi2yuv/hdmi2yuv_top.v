@@ -80,7 +80,7 @@ module hdmi2yuv_top(
 /************************* YUV 像素数据拼接 *************************/
     // 场同步信号 vsync 有效时代表新的一帧开始
     // 实际上 SII9011 输出的场同步信号 vsync 和像素有效标志 de_i 不可能同时有效，此处是为了兼容其他解码芯片
-    always@(posedge pclk_i) begin
+    always@(posedge pclk_i or negedge rst_n_i) begin
         if(!rst_n_i) begin
             frame_start_flag <= 1'b0;
         end
@@ -93,7 +93,7 @@ module hdmi2yuv_top(
     end
     
     // UV 分量列存储标志
-    always@(posedge pclk_i) begin
+    always@(posedge pclk_i or negedge rst_n_i) begin
         if(!rst_n_i) begin
             uv_col_recorded <= 1'b0;
         end
@@ -103,7 +103,7 @@ module hdmi2yuv_top(
     end
 
     // UV 分量行存储标志
-    always@(posedge pclk_i) begin
+    always@(posedge pclk_i or negedge rst_n_i) begin
         if(!rst_n_i) begin
             hsync_state <= 2'b0;
             uv_row_recorded <= 1'b0;

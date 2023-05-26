@@ -83,7 +83,7 @@ module extif_top(
     assign FDMA_S_i_fdma_busy = FDMA_S_i_fdma_wbusy || FDMA_S_i_fdma_rbusy;
 
     // 此处使用 video_buffer_rst_n 复位是为了确保 ddr 用户时钟有效
-    always@(posedge clk_ui_200M_o) begin
+    always@(posedge clk_ui_200M_o or negedge video_buffer_rst_n) begin
         if(!video_buffer_rst_n) begin
             is_fifo_write <= 1'b1;
         end

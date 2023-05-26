@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -200,6 +201,11 @@ namespace Xpeng.ViewModel
                     // 更新 UI 界面截取码流
                     var hevcPartialBytes = (recvBytes - 1 > MainModel.HEVC_PARTIAL_STRING_LENGTH) ? MainModel.HEVC_PARTIAL_STRING_LENGTH : (recvBytes - 1);
                     MainModel.HevcBsPartialString = BitConverter.ToString(recvBuffer, 1, hevcPartialBytes).Replace("-", "  ");
+                    // 启动 Potplayer 播放器
+                    if((MainModel.HevcBsReceiveBitCnt >= MainModel.HEVC_PLAY_BITS_THRESHOLD) && !MainModel.VideoPlayerStarted)
+                    {
+                        MainModel.VideoPlayerProcess = Process.Start(new ProcessStartInfo(MainModel.AppSetting.VideoStream.Player, MainModel.AppSetting.VideoStream.Location));
+                    }
                 }
             }
         }
