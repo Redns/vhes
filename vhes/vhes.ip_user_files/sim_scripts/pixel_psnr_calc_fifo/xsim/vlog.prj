@@ -1,0 +1,6 @@
+verilog xil_defaultlib --include "D:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../vhes.gen/sources_1/ip/pixel_psnr_calc_fifo/sim/pixel_psnr_calc_fifo.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

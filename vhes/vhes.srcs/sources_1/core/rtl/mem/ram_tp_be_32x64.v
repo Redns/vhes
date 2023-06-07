@@ -51,21 +51,31 @@ module ram_tp_be_32x64 (
   assign  wr_ena_w = ~wr_ena_i    ;
 
 `ifdef RTL_MODEL
-
-  sram_tp_be_behave #(
-    .ADR_WD    ( 5           ),
-    .DAT_WD    ( 64          ),
-    .COL_WD    ( 1           )
-  ) sram_tp_be_behave(
-    .clk       ( clk         ),
-    .wr_ena    ( wr_ena_i    ), // high active
-    .wr_adr    ( wr_adr_i    ),
-    .wr_dat    ( wr_dat_i    ),
-    .rd_ena    ( rd_ena_i    ),
-    .rd_adr    ( rd_adr_i    ),
-    .rd_dat    ( rd_dat_o    )
-    );
-
+    `ifdef USE_BRAM
+        bram_tp_32depth_64width sram_tp_be_behave (
+            .clka(clk),    
+            .wea(wr_ena_i),    
+            .addra(wr_adr_i),  
+            .dina(wr_dat_i),   
+            .clkb(clk),    
+            .addrb(rd_adr_i),  
+            .doutb(rd_dat_o)  
+        );
+    `else
+        sram_tp_be_behave #(
+            .ADR_WD    ( 5           ),
+            .DAT_WD    ( 64          ),
+            .COL_WD    ( 1           )
+        ) sram_tp_be_behave(
+            .clk       ( clk         ),
+            .wr_ena    ( wr_ena_i    ), // high active
+            .wr_adr    ( wr_adr_i    ),
+            .wr_dat    ( wr_dat_i    ),
+            .rd_ena    ( rd_ena_i    ),
+            .rd_adr    ( rd_adr_i    ),
+            .rd_dat    ( rd_dat_o    )
+        );
+    `endif
 `endif
 
 `ifdef XM_MODEL

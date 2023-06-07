@@ -1,41 +1,27 @@
-//========================
-//
-//     luyanheng
-//     2014-03-27
-//
-//========================
 module gxgy(
-	clk,
-	rstn,
-	gxgyrun,
-	x1,
-	x2,
-	x3,
-	gx,
-	gy
+	input clk_i,
+	input rst_n_i,
+	input en_i,
+	input [71:0] pixel_i,
+	output reg signed [10:0] gx_o,
+	output reg signed [10:0] gy_o
 );
 
-	input					clk;
-	input					rstn;
-	input					gxgyrun;
-	input	[23:0]			x1;
-	input	[23:0]			x2;
-	input	[23:0]			x3;
-	output	signed	[10:0]			gx;
-	output	signed	[10:0]			gy;
-	
-	reg				[10:0]			gx;
-	reg				[10:0]			gy;
-	
-	always@(posedge clk or negedge rstn) begin
-		if(!rstn) begin
-            gx <='d0;
-            gy <='d0;
+    wire [23:0] pixel_row1 = pixel_i[71:48];
+    wire [23:0] pixel_row2 = pixel_i[47:24];
+	wire [23:0] pixel_row3 = pixel_i[23:0];
+
+	always@(posedge clk_i or negedge rst_n_i) begin
+		if(!rst_n_i) begin
+            gx_o <= 11'b0;
+            gy_o <= 11'b0;
         end
-		else if(gxgyrun) begin
+		else if(en_i) begin
             // TODO 此处移位运算可能溢出
-            gx <= x1[7:0] + (x2[7:0] << 1) + x3[7:0] - x3[23:16] - (x2[23:16] << 1) - x1[23:16];
-            gy <= x1[7:0] + (x1[15:8] << 1) + x1[23:16] - x3[7:0] - (x3[15:8] << 1) - x3[23:16];
+            // gx <= pixel_row1[7:0] + (pixel_row2[7:0] << 1) + pixel_row3[7:0] - pixel_row3[23:16] - (pixel_row2[23:16] << 1) - pixel_row1[23:16];
+            // gy <= pixel_row1[7:0] + (pixel_row1[15:8] << 1) + pixel_row1[23:16] - pixel_row3[7:0] - (pixel_row3[15:8] << 1) - pixel_row3[23:16];
+            gx_o <= pixel_row1[7:0] + (pixel_row2[7:0] * 2) + pixel_row3[7:0] - pixel_row3[23:16] - (pixel_row2[23:16] * 2) - pixel_row1[23:16];
+            gy_o <= pixel_row1[7:0] + (pixel_row1[15:8] * 2) + pixel_row1[23:16] - pixel_row3[7:0] - (pixel_row3[15:8] * 2) - pixel_row3[23:16];
         end
     end
 

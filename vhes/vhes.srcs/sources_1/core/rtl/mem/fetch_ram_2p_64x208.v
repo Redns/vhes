@@ -102,15 +102,15 @@ assign cenb_w = a_we == 0 ;
 
 `ifdef FPGA_MODEL 
 
-ram_2p_64x256 u_ram_2p_64x256(
-	.byteena_a	( ~a_wen	),
-	.clock		( clk		),
-	.data		( a_data_i	),
-	.rdaddress	( b_addr	),
-	.wraddress	( a_addr	),
-	.wren		( |a_we		),
-	.q			( b_data_o	)
-);
+    ram_2p_64x256 u_ram_2p_64x256(
+        .byteena_a	( ~a_wen	),
+        .clock		( clk		),
+        .data		( a_data_i	),
+        .rdaddress	( b_addr	),
+        .wraddress	( a_addr	),
+        .wren		( |a_we		),
+        .q			( b_data_o	)
+    );
 
 `endif 
 

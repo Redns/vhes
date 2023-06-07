@@ -532,9 +532,7 @@
       "proc_sys_reset_0_interconnect_aresetn": {
         "ports": [
           "proc_sys_reset_0/interconnect_aresetn",
-          "axi_interconnect_0/ARESETN",
-          "axi_interconnect_0/S00_ARESETN",
-          "axi_interconnect_0/M00_ARESETN"
+          "axi_interconnect_0/ARESETN"
         ]
       },
       "proc_sys_reset_0_peripheral_aresetn1": {
@@ -542,7 +540,9 @@
           "proc_sys_reset_0/peripheral_aresetn",
           "rst_done_o",
           "mig_7series_0/aresetn",
-          "uiFDMA_0/M_AXI_ARESETN"
+          "uiFDMA_0/M_AXI_ARESETN",
+          "axi_interconnect_0/S00_ARESETN",
+          "axi_interconnect_0/M00_ARESETN"
         ]
       },
       "sys_rst_0_1": {

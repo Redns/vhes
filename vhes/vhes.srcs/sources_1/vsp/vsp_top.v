@@ -1,3 +1,4 @@
+// TODO 1080P@60fps 下 vsps 信息可能不同
 module vsp_top(
     input clk_i,
     input clk_bs_rd_i,

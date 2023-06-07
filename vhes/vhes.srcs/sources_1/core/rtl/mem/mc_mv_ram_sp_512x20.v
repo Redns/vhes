@@ -30,19 +30,29 @@ module mc_mv_ram_sp_512x20(
 
 
 `ifdef RTL_MODEL
-  ram_1p #(
-      .Word_Width(  20   ) ,
-      .Addr_Width(  6+3  )
-      ) u_ram_1p(
-        .clk    ( clk       ),
-        .cen_i  ( cen_i     ),
-        .oen_i  ( 1'b0      ),
-        .wen_i  ( wen_i     ),
-        .addr_i ( addr_i    ),
-        .data_i ( data_i    ),      
-        .data_o ( data_o    )           
-  );
-
+    `ifdef USE_BRAM
+        bram_512depth_20width u_ram_1p (
+            .clka(clk),  
+            .ena(~cen_i),      
+            .wea(~wen_i),      
+            .addra(addr_i), 
+            .dina(data_i),    
+            .douta(data_o)  
+        );
+    `else
+        ram_1p #(
+            .Word_Width(  20   ) ,
+            .Addr_Width(  6+3  )
+            ) u_ram_1p(
+                .clk    ( clk       ),
+                .cen_i  ( cen_i     ),
+                .oen_i  ( 1'b0      ),
+                .wen_i  ( wen_i     ),
+                .addr_i ( addr_i    ),
+                .data_i ( data_i    ),      
+                .data_o ( data_o    )           
+        );
+    `endif
 `endif
 
 `ifdef XM_MODEL 

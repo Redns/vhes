@@ -237,7 +237,6 @@ module hevc_encode_system_ctrl#
                                 video_buffer_uv_write_in_cnt <= (video_buffer_y_write_in_cnt >> 1);
                                 fdma_size_o <= (fdma_size_o >> 1);
                                 fdma_addr_o <= video_frame_baseaddr[current_write_frame_serial_number] + FRAME_SIZE + video_buffer_uv_write_in_cnt;
-                                // TODO 移动至 STATE2_FRDW always 块
                                 // 根据 YUV 像素计数器判断是否需要更改写指针（current & previous）
                                 if(video_buffer_y_write_in_cnt == FRAME_SIZE) begin
                                     // 清空 YUV 计数器
@@ -299,8 +298,11 @@ module hevc_encode_system_ctrl#
                                     end
                                 end
                                 else begin 
-                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
+                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i) && (!hevc_extif_done)) begin
                                         hevc_extif_done <= 1'b1;
+                                    end
+                                    else begin
+                                        hevc_extif_done <= 1'b0;
                                     end
                                     if(extif_rd_en_o) begin
                                         extif_rd_en_o <= 1'b0;
@@ -324,8 +326,11 @@ module hevc_encode_system_ctrl#
                                     end
                                 end
                                 else begin 
-                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
+                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i) && (!hevc_extif_done)) begin
                                         hevc_extif_done <= 1'b1;
+                                    end
+                                    else begin
+                                        hevc_extif_done <= 1'b0;
                                     end
                                     if(extif_rd_en_o) begin
                                         extif_rd_en_o <= 1'b0;
@@ -349,8 +354,11 @@ module hevc_encode_system_ctrl#
                                     end
                                 end
                                 else begin 
-                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
+                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i) && (!hevc_extif_done)) begin
                                         hevc_extif_done <= 1'b1;
+                                    end
+                                    else begin
+                                        hevc_extif_done <= 1'b0;
                                     end
                                     if(extif_rd_en_o) begin
                                         extif_rd_en_o <= 1'b0;
@@ -374,8 +382,11 @@ module hevc_encode_system_ctrl#
                                     end
                                 end
                                 else begin 
-                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
+                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i) && (!hevc_extif_done)) begin
                                         hevc_extif_done <= 1'b1;
+                                    end
+                                    else begin
+                                        hevc_extif_done <= 1'b0;
                                     end
                                     if(extif_rd_en_o) begin
                                         extif_rd_en_o <= 1'b0;
@@ -399,8 +410,11 @@ module hevc_encode_system_ctrl#
                                     end
                                 end
                                 else begin 
-                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
+                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i) && (!hevc_extif_done)) begin
                                         hevc_extif_done <= 1'b1;
+                                    end
+                                    else begin
+                                        hevc_extif_done <= 1'b0;
                                     end
                                     if(extif_wr_en_o) begin
                                         extif_wr_en_o <= 1'b0;
@@ -424,8 +438,11 @@ module hevc_encode_system_ctrl#
                                     end
                                 end
                                 else begin 
-                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
+                                    if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i) && (!hevc_extif_done)) begin
                                         hevc_extif_done <= 1'b1;
+                                    end
+                                    else begin
+                                        hevc_extif_done <= 1'b0;
                                     end
                                     if(extif_wr_en_o) begin
                                         extif_wr_en_o <= 1'b0;
@@ -433,18 +450,16 @@ module hevc_encode_system_ctrl#
                                 end
                             end
                             default begin
-                                if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i)) begin
-                                    hevc_extif_done <= 1'b1;
+                                if((!hevc_extif_done) && fdma_busy_cache[0] && (!fdma_busy_i) && (!hevc_extif_done)) begin
+                                        hevc_extif_done <= 1'b1;
+                                end
+                                else begin
+                                    hevc_extif_done <= 1'b0;
                                 end
                             end 
                         endcase
                     end
                     else begin
-                        if(hevc_extif_done) begin
-                            // 由于 extif_busy 信号绑定 hevc_extif_done 上升沿，则 hevc_extif_done 置位后
-                            // 不会再进入上述语句，故 hevc_extif_done 需要放在此处清除
-                            hevc_extif_done <= 1'b0;
-                        end
                         state <= frdw_busy ? S1_FIFO_READ : S3_HEVC_ENC;
                     end
                 end

@@ -63,7 +63,7 @@ module extif_top(
     // FMD 复位信号应该由 Processor System Reset 外设复位引脚引出，不应使用 mig_init_done
     // 因为数据下游模块同步复位需要时钟信号，mig_init_done 拉高时 ddr 用户时钟状态未知
     assign fmd_rst_n = rst_n_i;
-    assign video_buffer_rst_n = fmd_rst_done;
+    assign video_buffer_rst_n = fmd_rst_done && mig_init_complete_o;
     assign time_shift_rst_n = video_buffer_rst_done;
 
     // Video Buffer 读使能

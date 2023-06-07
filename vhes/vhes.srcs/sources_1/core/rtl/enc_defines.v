@@ -20,10 +20,37 @@
 `timescale 1ns/100ps
 //synopsys translate_on
 
+// TODO 取消仿真模式
+`define SIM
 `define RC_OPEN 
+
+`define FILE_TYPE_YUV
 
 `define INTRA               1'd0
 `define INTER               1'd1
+
+`ifdef SIM
+    `define FRAME_NUMS          2
+    `define FRAME_WIDTH         192
+    `define FRAME_HEIGHT        128
+
+    `define INITIAL_QP          20
+    `define GOP_LENGTH          1
+    `define ENABLE_IINP         0
+    `define ENABLE_DB           0
+    `define ENABLE_SAO          0
+    `define POSI4x4BIT          4 
+`else
+    `define FRAME_WIDTH         1920
+    `define FRAME_HEIGHT        1080
+
+    `define INITIAL_QP          20
+    `define GOP_LENGTH          1
+    `define ENABLE_IINP         0
+    `define ENABLE_DB           0
+    `define ENABLE_SAO          0
+    `define POSI4x4BIT          4 
+`endif
 
 `define SKIP_COST_THRESH_8  0
 `define SKIP_COST_THRESH_16 (`SKIP_COST_THRESH_8 * 7) / 2
@@ -40,7 +67,7 @@
 `define TYPE_V             2'd3
 
 `define POSI_COST_WIDTH    20
-`define FME_COST_WIDTH    20
+`define FME_COST_WIDTH     20
 
 `define POSI_PART_2NX2N    1'd0
 `define POSI_PART_1NX1N    1'd1
@@ -69,32 +96,31 @@
 `define SW_Y_WIDTH         (64+(1<<`IME_MV_WIDTH_Y))
 
 
-
-
-
-
-
-// Simulation Model
+// TODO 启用 BRAM
+//`define USE_BRAM
 `define RTL_MODEL
 
 `ifndef RTL_MODEL
-	`define XM_MODEL
-	`define ARM_UD_MODEL
+    `define XM_MODEL
+    `define ARM_UD_MODEL
 `endif
 
 // LCU Size
 `define LCU_SIZE 64
 
-// CU DEPTH. 0: LCU, 1:LCU/2, 2:LCU/4, 3:LCU/8
+// CU DEPTH
+// 0: LCU
+// 1:LCU/2
+// 2:LCU/4
+// 3:LCU/8
 `define CU_DEPTH 3
+
 //---------------------------------------
 //       Data Width Definition
 //---------------------------------------
 // PIC SIZE Width
 `define PIC_X_WIDTH 6
 `define PIC_Y_WIDTH 6
-// 图像�?大宽度为 2^PIC_WIDTH = 8192
-// 图像�?大高度为 2^PIC_HEIGHT = 4096
 `define PIC_WIDTH   6+6+1
 `define PIC_HEIGHT  6+6
 

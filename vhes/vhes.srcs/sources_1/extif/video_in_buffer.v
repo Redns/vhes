@@ -1,3 +1,5 @@
+`include "enc_defines.v"
+
 module video_in_buffer(
     input rst_n_i,                          // 复位信号输入，低电平有效
     output rst_done_o,
@@ -40,38 +42,76 @@ module video_in_buffer(
     assign pixel_o = !pixel_type_i ? y_fifo_data_out : uv_fifo_data_out;
 
 /* FIFO */
-    // Y 分量 FIFO
-    pixel_fifo pixel_y_fifo(
-        .rst(~rst_n_i),                  
-        .wr_clk(wr_clk_i),           
-        .rd_clk(rd_clk_i),           
-        .din(y_i),                 
-        .wr_en(y_de_i),              
-        .rd_en(y_fifo_rd_en),            
-        .rd_data_count(pixel_buffer_rd_cnt_o),
-        .dout(y_fifo_data_out),               
-        .full(),
-        .empty(),                       
-        .prog_full(pixel_buffer_full_o),      
-        .wr_rst_busy(y_fifo_wr_rst_busy),  
-        .rd_rst_busy(y_fifo_rd_rst_busy)  
-    );
+    `ifdef SIM
+        wire [6:0] pixel_buffer_cnt;
+        assign pixel_buffer_rd_cnt_o = { 4'b0, pixel_buffer_cnt };
 
-    // UV 分量 FIFO
-    pixel_fifo pixel_uv_fifo(
-        .rst(~rst_n_i),                  
-        .wr_clk(wr_clk_i),           
-        .rd_clk(rd_clk_i),           
-        .din(uv_i),                 
-        .wr_en(uv_de_i),              
-        .rd_en(uv_fifo_rd_en),           
-        .dout(uv_fifo_data_out),    
-        .full(),
-        .empty(),                       
-        .prog_full(),          
-        .rd_data_count(),                   
-        .wr_rst_busy(uv_fifo_wr_rst_busy),  
-        .rd_rst_busy(uv_fifo_rd_rst_busy)  
-    );
+        // Y 分量 FIFO
+        pixel_fifo_sim pixel_y_fifo(
+            .rst(~rst_n_i),                  
+            .wr_clk(wr_clk_i),           
+            .rd_clk(rd_clk_i),           
+            .din(y_i),                 
+            .wr_en(y_de_i),              
+            .rd_en(y_fifo_rd_en),            
+            .rd_data_count(pixel_buffer_cnt),
+            .dout(y_fifo_data_out),               
+            .full(),
+            .empty(),                       
+            .prog_full(pixel_buffer_full_o),      
+            .wr_rst_busy(y_fifo_wr_rst_busy),  
+            .rd_rst_busy(y_fifo_rd_rst_busy)  
+        );
 
+        // UV 分量 FIFO
+        pixel_fifo_sim pixel_uv_fifo(
+            .rst(~rst_n_i),                  
+            .wr_clk(wr_clk_i),           
+            .rd_clk(rd_clk_i),           
+            .din(uv_i),                 
+            .wr_en(uv_de_i),              
+            .rd_en(uv_fifo_rd_en),           
+            .dout(uv_fifo_data_out),    
+            .full(),
+            .empty(),                       
+            .prog_full(),          
+            .rd_data_count(),                   
+            .wr_rst_busy(uv_fifo_wr_rst_busy),  
+            .rd_rst_busy(uv_fifo_rd_rst_busy)  
+        );
+    `else
+        // Y 分量 FIFO
+        pixel_fifo pixel_y_fifo(
+            .rst(~rst_n_i),                  
+            .wr_clk(wr_clk_i),           
+            .rd_clk(rd_clk_i),           
+            .din(y_i),                 
+            .wr_en(y_de_i),              
+            .rd_en(y_fifo_rd_en),            
+            .rd_data_count(pixel_buffer_rd_cnt_o),
+            .dout(y_fifo_data_out),               
+            .full(),
+            .empty(),                       
+            .prog_full(pixel_buffer_full_o),      
+            .wr_rst_busy(y_fifo_wr_rst_busy),  
+            .rd_rst_busy(y_fifo_rd_rst_busy)  
+        );
+
+        // UV 分量 FIFO
+        pixel_fifo pixel_uv_fifo(
+            .rst(~rst_n_i),                  
+            .wr_clk(wr_clk_i),           
+            .rd_clk(rd_clk_i),           
+            .din(uv_i),                 
+            .wr_en(uv_de_i),              
+            .rd_en(uv_fifo_rd_en),           
+            .dout(uv_fifo_data_out),    
+            .full(),
+            .empty(),                       
+            .prog_full(),          
+            .rd_data_count(),                   
+            .wr_rst_busy(uv_fifo_wr_rst_busy),  
+            .rd_rst_busy(uv_fifo_rd_rst_busy)  
+        );
+    `endif
 endmodule

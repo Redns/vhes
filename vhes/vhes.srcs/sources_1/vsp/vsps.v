@@ -1,3 +1,5 @@
+// TODO 根据 GOP 和 frame_sn 输出头部信息，支持 B/P 帧
+// TODO 自适应图像大小/帧率
 module vsps(
     input [2:0] type_i,
     input [7:0] index_i,

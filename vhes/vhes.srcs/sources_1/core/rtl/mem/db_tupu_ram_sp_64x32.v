@@ -28,19 +28,29 @@ module db_tupu_ram_sp_64x32 (
 
 
 `ifdef RTL_MODEL
-  ram_1p #(
-      .Word_Width(  32   ),
-      .Addr_Width(  6    )
-      ) u_ram_1p(
-                  .clk    ( clk               ),
-                  .cen_i  ( cen_i             ),
-                  .oen_i  ( 1'b0              ),
-                  .wen_i  ( wen_i             ),
-                  .addr_i ( adr_i             ),
-                  .data_i ( wr_dat_i          ),      
-                  .data_o ( rd_dat_o          )           
-  );
-
+    `ifdef USE_BRAM
+        bram_64depth_32width u_ram_1p (
+            .clka(clk),  
+            .ena(~cen_i),      
+            .wea(~wen_i),      
+            .addra(adr_i), 
+            .dina(wr_dat_i),    
+            .douta(rd_dat_o)  
+        );
+    `else
+        ram_1p #(
+            .Word_Width(  32   ),
+            .Addr_Width(  6    )
+            ) u_ram_1p(
+                        .clk    ( clk               ),
+                        .cen_i  ( cen_i             ),
+                        .oen_i  ( 1'b0              ),
+                        .wen_i  ( wen_i             ),
+                        .addr_i ( adr_i             ),
+                        .data_i ( wr_dat_i          ),      
+                        .data_o ( rd_dat_o          )           
+        );
+    `endif
 `endif
 
 `ifdef XM_MODEL 

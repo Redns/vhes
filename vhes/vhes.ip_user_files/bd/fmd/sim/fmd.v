@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Wed May 24 23:45:02 2023
+//Date        : Wed Jun  7 18:56:38 2023
 //Host        : JingDevice running 64-bit major release  (build 9200)
 //Command     : generate_target fmd.bd
 //Design      : fmd
@@ -227,7 +227,7 @@ module fmd
        (.ACLK(mig_7series_0_ui_clk1),
         .ARESETN(proc_sys_reset_0_interconnect_aresetn),
         .M00_ACLK(mig_7series_0_ui_clk1),
-        .M00_ARESETN(proc_sys_reset_0_interconnect_aresetn),
+        .M00_ARESETN(proc_sys_reset_0_peripheral_aresetn1),
         .M00_AXI_araddr(axi_interconnect_0_M00_AXI_ARADDR),
         .M00_AXI_arburst(axi_interconnect_0_M00_AXI_ARBURST),
         .M00_AXI_arcache(axi_interconnect_0_M00_AXI_ARCACHE),
@@ -262,7 +262,7 @@ module fmd
         .M00_AXI_wstrb(axi_interconnect_0_M00_AXI_WSTRB),
         .M00_AXI_wvalid(axi_interconnect_0_M00_AXI_WVALID),
         .S00_ACLK(mig_7series_0_ui_clk1),
-        .S00_ARESETN(proc_sys_reset_0_interconnect_aresetn),
+        .S00_ARESETN(proc_sys_reset_0_peripheral_aresetn1),
         .S00_AXI_araddr(uiFDMA_0_M_AXI_ARADDR),
         .S00_AXI_arburst(uiFDMA_0_M_AXI_ARBURST),
         .S00_AXI_arcache(uiFDMA_0_M_AXI_ARCACHE),

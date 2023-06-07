@@ -125,15 +125,13 @@ module md_top(
 );// module controller
 
 	gxgy gxgy1(
-		.clk			( clk			),
-		.rstn			( rstn			),
+		.clk_i			( clk			),
+		.rst_n_i		( rstn			),
 		
-		.gxgyrun		( gxgyrun		),
-		.x1				( x1			),
-		.x2				( x2			),
-		.x3				( x3			),
-		.gx				( gx			),
-		.gy				( gy			)
+		.en_i	     	( gxgyrun		),
+		.pixel_i		( { x1, x2, x3 }),
+		.gx_o			( gx			),
+		.gy_o			( gy			)
 );// gxgy calculation
 	
 	counter counter1(

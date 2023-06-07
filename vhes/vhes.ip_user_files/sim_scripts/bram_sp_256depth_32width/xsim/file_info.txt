@@ -1,0 +1,2 @@
+bram_sp_256depth_32width.v,verilog,xil_defaultlib,../../../../vhes.gen/sources_1/ip/bram_sp_256depth_32width/sim/bram_sp_256depth_32width.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

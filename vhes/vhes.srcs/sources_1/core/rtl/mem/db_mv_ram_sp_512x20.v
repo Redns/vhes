@@ -36,20 +36,30 @@ module db_mv_ram_sp_512x20 (
 
 
 `ifdef RTL_MODEL
-  ram_1p #(
-      .Word_Width(  20                ),
-      .Addr_Width(  `PIC_X_WIDTH+3    )
-      ) u_ram_1p(
-        .clk    ( clk       ),
-        .cen_i  ( wr_ena_i && rd_ena_i  ),
-        .oen_i  ( 1'b0      ),
-        .wen_i  ( wr_ena_i     ),
-        .addr_i ( adr_i     ),
-        .data_i ( wr_dat_i  ),      
-        .data_o ( rd_dat_o  )           
-  );
-
-`endif
+    `ifdef USE_BRAM
+        bram_512depth_20width u_ram_1p (
+            .clka(clk),  
+            .ena(~(wr_ena_i && rd_ena_i)),      
+            .wea(~wr_ena_i),      
+            .addra(adr_i), 
+            .dina(wr_dat_i),    
+            .douta(rd_dat_o)  
+        );
+    `else
+        ram_1p #(
+            .Word_Width(  20                ),
+            .Addr_Width(  `PIC_X_WIDTH+3    )
+            ) u_ram_1p(
+                .clk    ( clk       ),
+                .cen_i  ( wr_ena_i && rd_ena_i  ),
+                .oen_i  ( 1'b0      ),
+                .wen_i  ( wr_ena_i     ),
+                .addr_i ( adr_i     ),
+                .data_i ( wr_dat_i  ),      
+                .data_o ( rd_dat_o  )           
+        );
+    `endif
+`endif 
 
 `ifdef XM_MODEL 
     rfsphd_512x20 u_rfsphd_512x20(

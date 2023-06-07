@@ -67,16 +67,27 @@ assign ref_addr = (wrif_en_i) ? wrif_addr_i : rdif_addr_i;
 //
 // ********************************************
 `ifdef RTL_MODEL
-    rf_1p #(.Addr_Width(7),.Word_Width(`PIXEL_WIDTH*64))
-    	wrap (
-    	.clk (clk),
-    	.cen_i(1'b0),
-    	.wen_i(~wrif_en_i),
-    	.addr_i(ref_addr),
-    	.data_i(wrif_data_i),
-    	.data_o(rdif_pdata_o)
-    );
-`endif 
+    `ifdef USE_BRAM
+        bram_128depth_512width wrap (
+            .clka(clk),  
+            .ena(1'b1),      
+            .wea(wrif_en_i),      
+            .addra(ref_addr), 
+            .dina(wrif_data_i),    
+            .douta(rdif_pdata_o)  
+        );
+    `else
+        rf_1p #(.Addr_Width(7),.Word_Width(`PIXEL_WIDTH*64))
+            wrap (
+            .clk (clk),
+            .cen_i(1'b0),
+            .wen_i(~wrif_en_i),
+            .addr_i(ref_addr),
+            .data_i(wrif_data_i),
+            .data_o(rdif_pdata_o)
+        );
+    `endif
+`endif
 
 `ifdef XM_MODEL
 wire	[127:0]	wrif_data_i1	= wrif_data_i[127:0];
