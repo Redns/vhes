@@ -1,9 +1,9 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.777418",
-   "Default View_TopLeft":"-180,184",
+   "Default View_ScaleFactor":"1.26292",
+   "Default View_TopLeft":"22,11",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
 preplace port DDR_PL -pg 1 -lvl 4 -x 1000 -y 430 -defaultsOSRD
 preplace port FDMA_S_i -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD

@@ -39,8 +39,12 @@ module sram_tp_be_behave (
 
 
 //*** WIRE & REG DECLARATION ***************************************************
-
-  reg        [DAT_WD       -1 :0]    mem_array[ADR-1 :0] ;
+`ifdef USE_BRAM_SDP
+    (*ram_style="block"*)reg [DAT_WD - 1:0] mem_array[ADR - 1:0];
+`else
+    reg [DAT_WD - 1:0] mem_array[ADR - 1:0];
+`endif
+  
 
 
 //*** MAIN BODY ****************************************************************

@@ -84,20 +84,19 @@ assign cena_w = ~b_re ;
 assign cenb_w = a_we == 0 ;
 
 `ifdef RTL_MODEL
-  sram_tp_be_behave #(
-    .ADR_WD    ( 8           ),
-    .DAT_WD    ( 64          ),
-    .COL_WD    ( 1           )
-  ) sram_tp_be_behave(
-    .clk       ( clk         ),
-    .wr_ena    ( ~a_wen      ), // high active
-    .wr_adr    ( a_addr      ),
-    .wr_dat    ( a_data_i    ),
-    .rd_ena    ( b_re        ),
-    .rd_adr    ( b_addr      ),
-    .rd_dat    ( b_data_o    )
+    sram_tp_be_behave #(
+        .ADR_WD    ( 8           ),
+        .DAT_WD    ( 64          ),
+        .COL_WD    ( 1           )
+    ) sram_tp_be_behave(
+        .clk       ( clk         ),
+        .wr_ena    ( ~a_wen      ), // high active
+        .wr_adr    ( a_addr      ),
+        .wr_dat    ( a_data_i    ),
+        .rd_ena    ( b_re        ),
+        .rd_adr    ( b_addr      ),
+        .rd_dat    ( b_data_o    )
     );
-
 `endif
 
 `ifdef FPGA_MODEL 

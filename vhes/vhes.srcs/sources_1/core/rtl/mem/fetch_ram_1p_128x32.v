@@ -49,29 +49,18 @@ module fetch_ram_1p_128x32 (
 //*** MAIN BODY ****************************************************************
 
 `ifdef RTL_MODEL
-    `ifdef USE_BRAM
-        bram_32depth_128width bram (
-            .clka(clk),    
-            .ena(~cen_i),      
-            .wea(~wen_i),      
-            .addra(addr_i),  
-            .dina(data_i),   
-            .douta(data_o)  
-        );
-    `else
-        ram_1p #(
-            .Addr_Width(   Addr_Width     ) , 
-            .Word_Width(   Word_Width     )
-        ) ram (                          
-            .clk           ( clk           ),
-            .cen_i         ( cen_i         ),
-            .oen_i         ( oen_i         ),
-            .wen_i         ( wen_i         ),
-            .addr_i        ( addr_i        ),
-            .data_i        ( data_i        ),
-            .data_o        ( data_o        )
-        );
-    `endif
+    ram_1p #(
+        .Addr_Width(   Addr_Width     ) , 
+        .Word_Width(   Word_Width     )
+    ) ram (                          
+        .clk           ( clk           ),
+        .cen_i         ( cen_i         ),
+        .oen_i         ( oen_i         ),
+        .wen_i         ( wen_i         ),
+        .addr_i        ( addr_i        ),
+        .data_i        ( data_i        ),
+        .data_o        ( data_o        )
+    );
 `endif 
 
 `ifdef XM_MODEL 

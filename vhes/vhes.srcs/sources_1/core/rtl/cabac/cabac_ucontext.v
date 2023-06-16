@@ -264,7 +264,7 @@ ex:
   updated context_table = update 1 time of idx_0 which is t_0;
 ******************************************************/
 integer i;
-reg    [7:0]     proc_cnt;
+(* max_fanout = "3" *) reg    [7:0]     proc_cnt;
 reg              init_done_flag_, init_done_flag;
 wire             init_done;
 assign           init_done = init_done_flag_;

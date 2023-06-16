@@ -47,23 +47,22 @@ module fme_mv_ram_dp_64x20 (
     ram_dp #(
         .Word_Width (   2*`FMV_WIDTH    ),
         .Addr_Width (       6           )
-        ) u_ram_dp(
-            .clka       ( clka      ),  
-            .cena_i     ( cena_i    ),
-            .oena_i     ( 1'b0      ),
-            .wena_i     ( 1'b1      ),
-            .addra_i    ( addra_i   ),
-            .dataa_o    ( dataa_o   ),
-            .dataa_i    (           ),
-            .clkb       ( clkb      ),     
-            .cenb_i     ( cenb_i    ),   
-            .oenb_i     ( 1'b0      ),   
-            .wenb_i     ( wenb_i    ),   
-            .addrb_i    ( addrb_i   ),
-            .datab_o    (           ),   
-            .datab_i    ( datab_i   )
-        );
-
+    ) u_ram_dp(
+        .clka       ( clka      ),  
+        .cena_i     ( cena_i    ),
+        .oena_i     ( 1'b0      ),
+        .wena_i     ( 1'b1      ),
+        .addra_i    ( addra_i   ),
+        .dataa_o    ( dataa_o   ),
+        .dataa_i    (           ),
+        .clkb       ( clkb      ),     
+        .cenb_i     ( cenb_i    ),   
+        .oenb_i     ( 1'b0      ),   
+        .wenb_i     ( wenb_i    ),   
+        .addrb_i    ( addrb_i   ),
+        .datab_o    (           ),   
+        .datab_i    ( datab_i   )
+    );
 `endif 
 
 `ifdef XM_MODEL

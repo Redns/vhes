@@ -208,59 +208,62 @@ module hevc_encode_system_ctrl#
                     state <= frdw_busy ? S1_FIFO_READ : S0_INIT;
                 end
                 S1_FIFO_READ: begin
+                    // 将 YUV 缓冲区 FIFO 数据写入 DDR
                     if(frdw_busy) begin
-                        // 将 YUV 缓冲区 FIFO 数据写入 DDR
+                        // FDMA 处于空闲状态且未启动一次新的缓存
+                        // 首先判断缓冲区指针是否需要移动，之后启动传输
                         if((!fdma_busy_i) && (!fdma_busy_cache[1]) && (!pixel_buffer_rd_en_o)) begin
-                            // FDMA 处于空闲状态且未启动一次新的缓存
-                            if(video_buffer_y_write_in_cnt == (video_buffer_uv_write_in_cnt << 1)) begin
-                                // 启动一次新的 Y 分量缓存
-                                pixel_type_o <= 1'b0;
-                                pixel_buffer_rd_en_o <= 1'b1;
-                                fdma_addr_o <= video_frame_baseaddr[current_write_frame_serial_number] + video_buffer_y_write_in_cnt;
-                                if(pixel_buffer_rd_cnt_i >= ((FRAME_SIZE - video_buffer_y_write_in_cnt) >> 4)) begin 
-                                    // 缓冲区可读取数量大于该帧尾部大小
-                                    video_buffer_y_write_in_cnt <= FRAME_SIZE;
-                                    fdma_size_o <= ((FRAME_SIZE - video_buffer_y_write_in_cnt) >> 4);
-                                end
-                                else begin
-                                    // 此处读取的 Y 块数目必须为 2 的倍数
-                                    // 否则 UV 块读取的数目无法匹配 Y 块读取的数目
-                                    video_buffer_y_write_in_cnt <= video_buffer_y_write_in_cnt + ((pixel_buffer_rd_cnt_i >> 1) << 5);
-                                    fdma_size_o <= ((pixel_buffer_rd_cnt_i >> 1) << 1);
-                                end
+                            // 根据 YUV 像素计数器判断是否需要更改写指针（current & previous）
+                            if(video_buffer_uv_write_in_cnt == (FRAME_SIZE >> 1)) begin
+                                // 清空 YUV 计数器
+                                video_buffer_y_write_in_cnt <= 32'b0;
+                                video_buffer_uv_write_in_cnt <= 32'b0;
+                                // 切换写指针
+                                case({ current_write_frame_serial_number, current_read_frame_serial_number})
+                                    { 2'd1, 2'd0 }: current_write_frame_serial_number <= 2'd2;
+                                    { 2'd1, 2'd2 }: current_write_frame_serial_number <= 2'd3;
+                                    { 2'd1, 2'd3 }: current_write_frame_serial_number <= 2'd2;
+                                    { 2'd2, 2'd1 }: current_write_frame_serial_number <= 2'd3;
+                                    { 2'd2, 2'd3 }: current_write_frame_serial_number <= 2'd1;
+                                    { 2'd3, 2'd1 }: current_write_frame_serial_number <= 2'd2;
+                                    { 2'd3, 2'd2 }: current_write_frame_serial_number <= 2'd1;
+                                    default: current_write_frame_serial_number <= current_write_frame_serial_number;
+                                endcase 
+                                previous_write_frame_serial_number <= current_write_frame_serial_number;
+                                // 控制帧跳过标志位
+                                case({ current_write_frame_serial_number, current_read_frame_serial_number})
+                                    { 2'd1, 2'd2 }: skip_frame_flag_o <= 1'b1;
+                                    { 2'd2, 2'd3 }: skip_frame_flag_o <= 1'b1;
+                                    { 2'd3, 2'd1 }: skip_frame_flag_o <= 1'b1;
+                                    default: skip_frame_flag_o <= skip_frame_flag_o;
+                                endcase 
                             end
                             else begin
-                                // 启动一次新的 UV 分量缓存
-                                // UV 缓存首地址为帧缓存首地址 + FRAME_SIZE
-                                pixel_type_o <= 1'b1;
-                                pixel_buffer_rd_en_o <= 1'b1;
-                                video_buffer_uv_write_in_cnt <= (video_buffer_y_write_in_cnt >> 1);
-                                fdma_size_o <= (fdma_size_o >> 1);
-                                fdma_addr_o <= video_frame_baseaddr[current_write_frame_serial_number] + FRAME_SIZE + video_buffer_uv_write_in_cnt;
-                                // 根据 YUV 像素计数器判断是否需要更改写指针（current & previous）
-                                if(video_buffer_y_write_in_cnt == FRAME_SIZE) begin
-                                    // 清空 YUV 计数器
-                                    video_buffer_y_write_in_cnt <= 32'b0;
-                                    video_buffer_uv_write_in_cnt <= 32'b0;
-                                    // 切换写指针
-                                    case({ current_write_frame_serial_number, current_read_frame_serial_number})
-                                        { 2'd1, 2'd0 }: current_write_frame_serial_number <= 2'd2;
-                                        { 2'd1, 2'd2 }: current_write_frame_serial_number <= 2'd3;
-                                        { 2'd1, 2'd3 }: current_write_frame_serial_number <= 2'd2;
-                                        { 2'd2, 2'd1 }: current_write_frame_serial_number <= 2'd3;
-                                        { 2'd2, 2'd3 }: current_write_frame_serial_number <= 2'd1;
-                                        { 2'd3, 2'd1 }: current_write_frame_serial_number <= 2'd2;
-                                        { 2'd3, 2'd2 }: current_write_frame_serial_number <= 2'd1;
-                                        default: current_write_frame_serial_number <= current_write_frame_serial_number;
-                                    endcase 
-                                    previous_write_frame_serial_number <= current_write_frame_serial_number;
-                                    // 控制帧跳过标志位
-                                    case({ current_write_frame_serial_number, current_read_frame_serial_number})
-                                        { 2'd1, 2'd2 }: skip_frame_flag_o <= 1'b1;
-                                        { 2'd2, 2'd3 }: skip_frame_flag_o <= 1'b1;
-                                        { 2'd3, 2'd1 }: skip_frame_flag_o <= 1'b1;
-                                        default: skip_frame_flag_o <= skip_frame_flag_o;
-                                    endcase 
+                                // 启动一次新的 Y 分量缓存
+                                if(video_buffer_y_write_in_cnt == (video_buffer_uv_write_in_cnt << 1)) begin
+                                    pixel_type_o <= 1'b0;
+                                    pixel_buffer_rd_en_o <= 1'b1;
+                                    fdma_addr_o <= video_frame_baseaddr[current_write_frame_serial_number] + video_buffer_y_write_in_cnt;
+                                    if(pixel_buffer_rd_cnt_i >= ((FRAME_SIZE - video_buffer_y_write_in_cnt) >> 4)) begin 
+                                        // 缓冲区可读取数量大于该帧尾部大小
+                                        video_buffer_y_write_in_cnt <= FRAME_SIZE;
+                                        fdma_size_o <= ((FRAME_SIZE - video_buffer_y_write_in_cnt) >> 4);
+                                    end
+                                    else begin
+                                        // 此处读取的 Y 块数目必须为 2 的倍数
+                                        // 否则 UV 块读取的数目无法匹配 Y 块读取的数目
+                                        video_buffer_y_write_in_cnt <= video_buffer_y_write_in_cnt + ((pixel_buffer_rd_cnt_i >> 1) << 5);
+                                        fdma_size_o <= ((pixel_buffer_rd_cnt_i >> 1) << 1);
+                                    end
+                                end
+                                else begin
+                                    // 启动一次新的 UV 分量缓存
+                                    // UV 缓存首地址为帧缓存首地址 + FRAME_SIZE
+                                    pixel_type_o <= 1'b1;
+                                    pixel_buffer_rd_en_o <= 1'b1;
+                                    video_buffer_uv_write_in_cnt <= (video_buffer_y_write_in_cnt >> 1);
+                                    fdma_size_o <= (fdma_size_o >> 1);
+                                    fdma_addr_o <= video_frame_baseaddr[current_write_frame_serial_number] + FRAME_SIZE + video_buffer_uv_write_in_cnt;
                                 end
                             end
                         end

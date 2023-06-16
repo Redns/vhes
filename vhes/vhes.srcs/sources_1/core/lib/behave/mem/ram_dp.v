@@ -71,7 +71,11 @@ output	[Word_Width-1:0]  datab_o;   // data output
 //    Register DECLARATION                 
 //                                             
 // ********************************************
-reg    [Word_Width-1:0]   mem_array[(1<<Addr_Width)-1:0];
+`ifdef USE_BRAM_TDP
+    (*ram_style="block"*)reg    [Word_Width-1:0]   mem_array[(1<<Addr_Width)-1:0];
+`else
+    reg    [Word_Width-1:0]   mem_array[(1<<Addr_Width)-1:0];
+`endif
 
 // ********************************************
 //                                             

@@ -27,7 +27,7 @@ set_property PACKAGE_PIN AH21 [get_ports {rgb_i[20]}]
 set_property PACKAGE_PIN AG21 [get_ports {rgb_i[21]}]
 set_property PACKAGE_PIN AG20 [get_ports {rgb_i[22]}]
 set_property PACKAGE_PIN AF20 [get_ports {rgb_i[23]}]
-set_property PACKAGE_PIN AB21 [get_ports {sii_rst_n_o[0]}]
+set_property PACKAGE_PIN AB21 [get_ports sii_rst_n_o]
 set_property PACKAGE_PIN AC23 [get_ports sii_scl_io]
 set_property PACKAGE_PIN AC22 [get_ports sii_sda_io]
 
@@ -37,7 +37,7 @@ set_property PULLUP true [get_ports sii_scl_io]
 
 # 输出标志位
 set_property PACKAGE_PIN AJ16 [get_ports mig_init_complete_o]
-set_property PACKAGE_PIN AK16 [get_ports sys_init_done_o]
+set_property PACKAGE_PIN AK16 [get_ports vhes_core_rst_done_o]
 set_property PACKAGE_PIN AE16 [get_ports bs_overflow_o]
 set_property PACKAGE_PIN AE15 [get_ports skip_frame_flag_o]
 
@@ -51,12 +51,12 @@ set_property IOSTANDARD LVCMOS33 [get_ports hsync_i]
 set_property IOSTANDARD LVCMOS33 [get_ports vsync_i]
 set_property IOSTANDARD LVCMOS33 [get_ports {rgb_i[*]}]
 set_property IOSTANDARD LVCMOS33 [get_ports sii_scl_io]
-set_property IOSTANDARD LVCMOS33 [get_ports {sii_rst_n_o[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports sii_rst_n_o]
 set_property IOSTANDARD LVCMOS33 [get_ports sii_sda_io]
 
 # 输出标志位引脚电平约束
 set_property IOSTANDARD LVCMOS33 [get_ports mig_init_complete_o]
-set_property IOSTANDARD LVCMOS33 [get_ports sys_init_done_o]
+set_property IOSTANDARD LVCMOS33 [get_ports vhes_core_rst_done_o]
 set_property IOSTANDARD LVCMOS33 [get_ports bs_overflow_o]
 set_property IOSTANDARD LVCMOS33 [get_ports skip_frame_flag_o]
 
@@ -73,7 +73,5 @@ set_input_delay -clock [get_clocks pclk_i] -max -add_delay 2.500 [get_ports vsyn
 
 # 设置异步时钟
 # set_clock_groups -asynchronous -group [get_clocks pclk_i] -group [get_clocks clk_200M_p_i]
-# set_clock_groups -asynchronous -group [get_clocks pclk_i] -group [get_clocks clk_fpga_0]
-# set_clock_groups -asynchronous -group [get_clocks clk_fpga_0] -group [get_clocks clk_pll_i]
-
-set_false_path -from [get_pins {vhes_core_top/software_control_reset/peripheral_rst_n_o_reg[1]/C}] -to [get_pins {vhes_core_top/enc_core_top/u_enc_core/u_prei_top_buf/u_prei_top/hevc_md_top1/md_top1/compare1/mode6_reg64_reg[0]/CLR}]
+# set_clock_groups -asynchronous -group [get_clocks pclk_i] -group [get_clocks clk_fpga_0] 
+# set_clock_groups -asynchronous -group [get_clocks clk_fpga_0] -group [get_clocks clk_pll_i] 

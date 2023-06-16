@@ -28,29 +28,18 @@ module cabac_ram_sp_64x16 (
 
 
 `ifdef RTL_MODEL
-    `ifdef USE_BRAM
-        bram_64depth_16width u_ram_1p (
-            .clka(clk),  
-            .ena(~cen_i),      
-            .wea(~wen_i),      
-            .addra(addr_i), 
-            .dina(data_i),    
-            .douta(data_o)  
-        );
-    `else
-        ram_1p #(
-            .Word_Width(  16   ),
-            .Addr_Width(  6    )
-            ) u_ram_1p(
-                .clk    ( clk        ),
-                .cen_i  ( cen_i      ),
-                .oen_i  ( 1'b0       ),
-                .wen_i  ( wen_i      ),
-                .addr_i ( addr_i     ),
-                .data_i ( data_i     ),      
-                .data_o ( data_o     )           
-        );
-    `endif
+    ram_1p #(
+        .Word_Width(  16   ),
+        .Addr_Width(  6    )
+    ) u_ram_1p(
+        .clk    ( clk        ),
+        .cen_i  ( cen_i      ),
+        .oen_i  ( 1'b0       ),
+        .wen_i  ( wen_i      ),
+        .addr_i ( addr_i     ),
+        .data_i ( data_i     ),      
+        .data_o ( data_o     )           
+    );
 `endif
 
 `ifdef XM_MODEL 

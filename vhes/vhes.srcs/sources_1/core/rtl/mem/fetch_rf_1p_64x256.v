@@ -68,26 +68,17 @@ assign ref_addr = (wrif_en_i) ? wrif_addr_i : rdif_addr_i;
 // ********************************************
 
 `ifdef RTL_MODEL
-    `ifdef USE_BRAM
-        bram_64depth_256width wrap (
-            .clka(clk),  
-            .ena(1'b1),      
-            .wea(wrif_en_i),      
-            .addra(ref_addr), 
-            .dina(wrif_data_i),    
-            .douta(rdif_pdata_o)  
-        );
-    `else
-        rf_1p #(.Addr_Width(6),.Word_Width(`PIXEL_WIDTH*32))
-            wrap (
-            .clk (clk),
-            .cen_i(1'b0),
-            .wen_i(~wrif_en_i),
-            .addr_i(ref_addr),
-            .data_i(wrif_data_i),
-            .data_o(rdif_pdata_o)
-        );
-    `endif
+    rf_1p #(
+        .Addr_Width(6),
+        .Word_Width(`PIXEL_WIDTH*32)
+    ) wrap (
+        .clk (clk),
+        .cen_i(1'b0),
+        .wen_i(~wrif_en_i),
+        .addr_i(ref_addr),
+        .data_i(wrif_data_i),
+        .data_o(rdif_pdata_o)
+    );
 `endif
 
 `ifdef XM_MODEL

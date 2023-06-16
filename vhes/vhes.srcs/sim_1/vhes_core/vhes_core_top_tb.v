@@ -16,6 +16,7 @@ module vhes_core_top_tb;
     // `define STORE_BS
     `define STORE_PERF     
 
+    `define FILE_TYPE_YUV
     `ifdef FILE_TYPE_RGB
         `define FILE_VIDEO_ORIGIN   "E:/Project/vhes/vhes_software_encoder/blue_sky.rgb"   
     `else

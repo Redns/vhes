@@ -45,18 +45,7 @@ module ram_sp_be_192x512 (
 //*** MAIN BODY ****************************************************************
 
 `ifdef RTL_MODEL
-    `ifdef USE_BRAM
-        bram_sp_256depth_512width sram_sp_be_behave (
-            .clka(clk),    
-            .wea(wr_ena_i),    
-            .addra(adr_i),  
-            .dina(wr_dat_i),   
-            .clkb(clk),    
-            .addrb(adr_i),  
-            .doutb(rd_dat_o)  
-        );
-    `else
-        sram_sp_be_behave #(
+    sram_sp_be_behave #(
             .ADR_WD    ( 8                    ),
             .DAT_WD    ( 4*128                ),
             .COL_WD    ( 1                    )
@@ -68,7 +57,6 @@ module ram_sp_be_192x512 (
             .rd_ena    ( rd_ena_i    ),
             .rd_dat    ( rd_dat_o    )
         );
-    `endif
 `endif
 
 endmodule

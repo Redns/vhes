@@ -45,29 +45,18 @@ module posi_md_ram_sp_64x6 (
   assign cen_w    = wr_ena_i && rd_ena_i ;
 
 `ifdef RTL_MODEL
-    `ifdef USE_BRAM
-        bram_64depth_8width u_ram_1p (
-            .clka(clk),    
-            .ena(~cen_w),    
-            .wea(~wr_ena_i),     
-            .addra(adr_i), 
-            .dina(wr_dat_w),    
-            .douta(rd_dat_w)  
-        );
-    `else
-        ram_1p #(
-            .Word_Width(  8   ),
-            .Addr_Width(  6   )
-        ) u_ram_1p (
-            .clk    ( clk               ),
-            .cen_i  ( cen_w             ),
-            .oen_i  ( 1'b0              ),
-            .wen_i  ( wr_ena_i          ),
-            .addr_i ( adr_i             ),
-            .data_i ( wr_dat_w          ),      
-            .data_o ( rd_dat_w          )           
-        );
-    `endif
+    ram_1p #(
+        .Word_Width(  8   ),
+        .Addr_Width(  6   )
+    ) u_ram_1p (
+        .clk    ( clk               ),
+        .cen_i  ( cen_w             ),
+        .oen_i  ( 1'b0              ),
+        .wen_i  ( wr_ena_i          ),
+        .addr_i ( adr_i             ),
+        .data_i ( wr_dat_w          ),      
+        .data_o ( rd_dat_w          )           
+    );
 `endif
 
 `ifdef XM_MODEL 

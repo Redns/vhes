@@ -51,18 +51,7 @@ module ram_tp_be_32x64 (
   assign  wr_ena_w = ~wr_ena_i    ;
 
 `ifdef RTL_MODEL
-    `ifdef USE_BRAM
-        bram_tp_32depth_64width sram_tp_be_behave (
-            .clka(clk),    
-            .wea(wr_ena_i),    
-            .addra(wr_adr_i),  
-            .dina(wr_dat_i),   
-            .clkb(clk),    
-            .addrb(rd_adr_i),  
-            .doutb(rd_dat_o)  
-        );
-    `else
-        sram_tp_be_behave #(
+    sram_tp_be_behave #(
             .ADR_WD    ( 5           ),
             .DAT_WD    ( 64          ),
             .COL_WD    ( 1           )
@@ -75,7 +64,6 @@ module ram_tp_be_32x64 (
             .rd_adr    ( rd_adr_i    ),
             .rd_dat    ( rd_dat_o    )
         );
-    `endif
 `endif
 
 `ifdef XM_MODEL

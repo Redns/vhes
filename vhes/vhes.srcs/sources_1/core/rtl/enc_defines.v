@@ -20,36 +20,40 @@
 `timescale 1ns/100ps
 //synopsys translate_on
 
-// TODO 取消仿真模式
-`define SIM
 `define RC_OPEN 
-
-`define FILE_TYPE_YUV
 
 `define INTRA               1'd0
 `define INTER               1'd1
 
+// 跨时钟域处理
+`define ENABLE_XPM_CDC 
+
+// BRAM 相关设置
+// 此处启用 BRAM 仿真时第一帧数据正确而第二帧数据出错，具体待排查
+`define USE_BRAM
+`define USE_BRAM_SDP
+`define USE_BRAM_TDP 
+
+// RTL 编码核设置
+`define INITIAL_QP          20
+`define GOP_LENGTH          1
+`define ENABLE_IINP         0
+`define ENABLE_DB           0
+`define ENABLE_SAO          0
+`define POSI4x4BIT          4
+
+// TODO 取消仿真模式
+// `define SIM
 `ifdef SIM
+    // 帧设置
     `define FRAME_NUMS          2
     `define FRAME_WIDTH         192
     `define FRAME_HEIGHT        128
-
-    `define INITIAL_QP          20
-    `define GOP_LENGTH          1
-    `define ENABLE_IINP         0
-    `define ENABLE_DB           0
-    `define ENABLE_SAO          0
-    `define POSI4x4BIT          4 
+    // 输入 YUV 视频测试源
+    `define FILE_TYPE_YUV
 `else
     `define FRAME_WIDTH         1920
     `define FRAME_HEIGHT        1080
-
-    `define INITIAL_QP          20
-    `define GOP_LENGTH          1
-    `define ENABLE_IINP         0
-    `define ENABLE_DB           0
-    `define ENABLE_SAO          0
-    `define POSI4x4BIT          4 
 `endif
 
 `define SKIP_COST_THRESH_8  0
@@ -95,11 +99,7 @@
 `define SW_X_WIDTH         (64+(1<<`IME_MV_WIDTH_X))
 `define SW_Y_WIDTH         (64+(1<<`IME_MV_WIDTH_Y))
 
-
-// TODO 启用 BRAM
-//`define USE_BRAM
 `define RTL_MODEL
-
 `ifndef RTL_MODEL
     `define XM_MODEL
     `define ARM_UD_MODEL
@@ -176,5 +176,3 @@
 `define SCAN_VER		2
 
 `define SAO_OPEN                0
-
-

@@ -29,29 +29,18 @@ module db_cbf_ram_sp_64x16 (
 
 
 `ifdef RTL_MODEL
-    `ifdef USE_BRAM
-        bram_64depth_16width u_ram_1p (
-            .clka(clk),  
-            .ena(~cen_i),      
-            .wea(~wen_i),      
-            .addra(adr_i), 
-            .dina(wr_dat_i),    
-            .douta(rd_dat_o)  
-        );
-    `else
-        ram_1p #(
-            .Word_Width(  16   ),
-            .Addr_Width(  6    )
-            ) u_ram_1p(
-                        .clk    ( clk               ),
-                        .cen_i  ( cen_i             ),
-                        .oen_i  ( 1'b0              ),
-                        .wen_i  ( wen_i             ),
-                        .addr_i ( adr_i             ),
-                        .data_i ( wr_dat_i          ),      
-                        .data_o ( rd_dat_o          )           
-        );
-    `endif
+    ram_1p #(
+        .Word_Width(  16   ),
+        .Addr_Width(  6    )
+    ) u_ram_1p(
+        .clk    ( clk               ),
+        .cen_i  ( cen_i             ),
+        .oen_i  ( 1'b0              ),
+        .wen_i  ( wen_i             ),
+        .addr_i ( adr_i             ),
+        .data_i ( wr_dat_i          ),      
+        .data_o ( rd_dat_o          )           
+    );
 `endif
 
 `ifdef XM_MODEL 

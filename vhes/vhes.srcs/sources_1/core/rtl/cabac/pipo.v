@@ -43,8 +43,9 @@ output data_valid_o;
 wire [75:0] data_o;
 wire rd_r;
 reg full_r,empty_r;
-reg [75:0] mem [7:0];
-reg [2:0] rdpoint_r,wrpoint_r;
+(* max_fanout = "3" *)reg [75:0] mem [7:0];
+// (* max_fanout = "3" *)reg [2:0] rdpoint_r,wrpoint_r;
+    reg [2:0] rdpoint_r,wrpoint_r;
 
 //--------------------------logic-------------------------//
 //write in

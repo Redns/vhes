@@ -17,6 +17,7 @@ module vhes_core_top#
     input clk_200M_p_i,                             // 200MHz 差分时钟 P 端信号输入
     input clk_200M_n_i,                             // 200MHz 差分时钟 N 端信号输入
     output rst_done_o,                              // 复位完成标志
+    output clk_ui_200M_o,
     /* HDMI 信号 */ 
     input pclk_i,                                   // 像素时钟（1080P@60fps：148.5MHz）
     input hsync_i,                                  // 行同步信号
@@ -51,14 +52,11 @@ module vhes_core_top#
 );
 
 /*************************** 信号线定义 ****************************/
-    // DDR 用户时钟
-    wire clk_ui_200M;
-
     // 复位完成信号
     // 复位顺序：hdmi2rgb >> extif >> ctrl & hevc_core & vsp 
     wire hdmi2rgb_top_rst_done;
     wire extif_top_rst_done;
-    wire vsp_top_rst_done;
+    wire vsp_top_rst_done, vsp_top_rst_done_xpm_cdc_single;
 
     wire hdmi2rgb_top_rst_n  = rst_n_i;
     wire extif_top_rst_n = hdmi2rgb_top_rst_done;
@@ -122,7 +120,7 @@ module vhes_core_top#
     hdmi2yuv_top hdmi2yuv_top(
         .rst_n_i(hdmi2rgb_top_rst_n),
         .rst_done_o(hdmi2rgb_top_rst_done),
-        .convert_en_i(vsp_top_rst_done),
+        .convert_en_i(vsp_top_rst_done_xpm_cdc_single),
         .pclk_i(pclk_i),
         .hsync_i(hsync_i),
         .vsync_i(vsync_i),
@@ -140,7 +138,7 @@ module vhes_core_top#
         .rst_n_i(extif_top_rst_n),
         .clk_200M_p_i(clk_200M_p_i),
         .clk_200M_n_i(clk_200M_n_i),
-        .clk_ui_200M_o(clk_ui_200M),
+        .clk_ui_200M_o(clk_ui_200M_o),
         .rst_done_o(extif_top_rst_done),
         .mig_init_complete_o(mig_init_complete_o),
         .pclk_i(pclk_i),
@@ -180,7 +178,7 @@ module vhes_core_top#
 
 /************************** HEVC 核心编码模块 ***************************/
     enc_core_top enc_core_top(
-        .clk(clk_ui_200M),
+        .clk(clk_ui_200M_o),
         .rstn(hevc_core_rst_n),
         /* 系统信号 */
         .sys_start_i(hevc_sys_start),
@@ -242,7 +240,7 @@ module vhes_core_top#
         .FRAME_SIZE(FRAME_WIDTH * FRAME_HEIGHT)
     ) hevc_encode_system_ctrl
     (
-        .clk_i(clk_ui_200M),
+        .clk_i(clk_ui_200M_o),
         .rst_n_i(hevc_encode_system_ctrl_rst_n),
         .skip_frame_flag_o(skip_frame_flag_o),
         .pixel_type_o(pixel_type),
@@ -268,7 +266,7 @@ module vhes_core_top#
 
 /************************** 裸流封装模块 ***************************/
     vsp_top vsp_top(
-        .clk_i(clk_ui_200M),
+        .clk_i(clk_ui_200M_o),
         .clk_bs_rd_i(clk_bs_rd_i),
         .rst_n_i(vsp_top_rst_n),
         .rst_done_o(vsp_top_rst_done),
@@ -280,5 +278,47 @@ module vhes_core_top#
         .hevc_bs_data_o(bs_data_o),
         .hevc_bs_overflow_o(bs_overflow_o)
     );
+
+    `ifdef ENABLE_XPM_CDC
+        xpm_cdc_single #(
+            .DEST_SYNC_FF(4),   
+            .INIT_SYNC_FF(0),  
+            .SIM_ASSERT_CHK(0), 
+            .SRC_INPUT_REG(1)   
+        )
+        xpm_cdc_single_inst (
+            .dest_out(vsp_top_rst_done_xpm_cdc_single), 
+            .dest_clk(pclk_i), 
+            .src_clk(clk_ui_200M_o),  
+            .src_in(vsp_top_rst_done)     
+        );
+    `else
+        assign vsp_top_rst_done_xpm_cdc_single = vsp_top_rst_done;
+    `endif
+
+/************************* 性能测试模块 *************************/
+    // perf_encode_time perf_encode_time(
+    //     .clk_i(),
+    //     .rst_n_i(),
+    //     .encode_start_i(),
+    //     .encode_time_valid_o(),
+    //     .encode_time_o()
+    // );
+
+    // perf_encode_mse perf_encode_time#
+    // (
+    //     .FRAME_WIDTH(`FRAME_WIDTH),
+    //     .FRAME_HEIGHT(`FRAME_HEIGHT)
+    // )
+    // (
+    //     .clk_i(),
+    //     .rst_n_i(),
+    //     .pixel_src_en(),
+    //     .pixel_rec_en(),
+    //     .pixel_src_i(),
+    //     .pixel_rec_i(),
+    //     .mse_valid_o(),
+    //     .mse_o()
+    // );
 
 endmodule

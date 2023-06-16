@@ -45,30 +45,18 @@ module ram_sp_1024x32 (
 //*** MAIN BODY ****************************************************************
 
 `ifdef RTL_MODEL
-    `ifdef USE_BRAM
-        bram_sp_1024depth_32width sram_sp_be_behave (
-            .clka(clk),    
-            .wea(wr_ena_i),    
-            .addra(adr_i),  
-            .dina(wr_dat_i),   
-            .clkb(clk),    
-            .addrb(adr_i),  
-            .doutb(rd_dat_o)  
-        );
-    `else
-        sram_sp_be_behave #(
-            .ADR_WD    ( 10          ),
-            .DAT_WD    ( 32          ),
-            .COL_WD    ( 32          )
-        ) sram_sp_be_behave(
-            .clk       ( clk         ),
-            .adr       ( adr_i       ),
-            .wr_ena    ( wr_ena_i    ), // high active
-            .wr_dat    ( wr_dat_i    ),
-            .rd_ena    ( rd_ena_i    ),
-            .rd_dat    ( rd_dat_o    )
-        );
-    `endif
+    sram_sp_be_behave #(
+        .ADR_WD    ( 10          ),
+        .DAT_WD    ( 32          ),
+        .COL_WD    ( 32          )
+    ) sram_sp_be_behave(
+        .clk       ( clk         ),
+        .adr       ( adr_i       ),
+        .wr_ena    ( wr_ena_i    ), // high active
+        .wr_dat    ( wr_dat_i    ),
+        .rd_ena    ( rd_ena_i    ),
+        .rd_dat    ( rd_dat_o    )
+    );
 `endif
 
 `ifdef XM_MODEL 

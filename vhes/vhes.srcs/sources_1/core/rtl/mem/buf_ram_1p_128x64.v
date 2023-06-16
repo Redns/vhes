@@ -39,29 +39,18 @@ assign ce_w = !ce ;
 assign we_w = !we ;
 
 `ifdef RTL_MODEL 
-    `ifdef USE_BRAM
-        bram_128depth_64width bram_1p_128x64 (
-            .clka(clk),    
-            .ena(ce),     
-            .wea(we),    
-            .addra(addr),  
-            .dina(data_i),    
-            .douta(data_o)  
-        );
-    `else
-        ram_1p #(
-                .Addr_Width(        7       ) , 
-                .Word_Width(`PIXEL_WIDTH*8  )
-                ) u_ram_1p_128x64 (
-                            .clk        ( clk       ), 
-                            .cen_i      ( ce_w      ),
-                            .oen_i      ( 1'b0      ),
-                            .wen_i      ( we_w      ),
-                            .addr_i     ( addr      ),
-                            .data_i     ( data_i    ),
-                            .data_o     ( data_o    )
-            );
-    `endif
+    ram_1p #(
+        .Addr_Width(        7       ) , 
+        .Word_Width(`PIXEL_WIDTH*8  )
+    ) u_ram_1p_128x64 (
+        .clk        ( clk       ), 
+        .cen_i      ( ce_w      ),
+        .oen_i      ( 1'b0      ),
+        .wen_i      ( we_w      ),
+        .addr_i     ( addr      ),
+        .data_i     ( data_i    ),
+        .data_o     ( data_o    )
+    );
 `endif 
 
 `ifdef XM_MODEL 
